@@ -3,14 +3,6 @@
 	import Navbar from '$lib/components/UI/Navbar.svelte';
 </script>
 
-<svelte:head>
-	<script
-		async
-		src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8080398088944990"
-		crossorigin="anonymous"
-	></script>
-</svelte:head>
-
 <div class="container">
 	<Navbar />
 
@@ -29,7 +21,6 @@
 		grid-template-areas:
 			'nav'
 			'main';
-		background-color: blue;
 
 		@include sm {
 			padding: 0 2rem;
