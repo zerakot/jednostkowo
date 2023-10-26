@@ -1,6 +1,6 @@
 <script>
 	import { page } from '$app/stores';
-	import Logo from '$lib/images/logo.png';
+	import Logo from '$lib/images/Logo.png';
 
 	let params;
 	let pathname;
