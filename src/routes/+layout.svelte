@@ -29,6 +29,7 @@
 		grid-template-areas:
 			'nav'
 			'main';
+		background-color: blue;
 
 		@include sm {
 			padding: 0 2rem;
