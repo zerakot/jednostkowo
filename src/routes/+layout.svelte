@@ -1,12 +1,13 @@
 <script>
 	import '$lib/scss/global.scss';
 	import Navbar from '$lib/components/UI/Navbar.svelte';
+	import Footer from '../lib/components/UI/Footer.svelte';
 </script>
 
 <div class="container">
 	<Navbar />
-
 	<slot />
+	<Footer />
 </div>
 
 <style lang="scss">

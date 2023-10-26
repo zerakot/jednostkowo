@@ -40,12 +40,13 @@
 
 		& main {
 			width: 100%;
+			gap: 2rem 0;
 			display: grid;
 			grid-template-columns: 1fr;
 			grid-template-rows: 200px auto;
 
 			& .content {
-				gap: 2rem;
+				gap: 1.5rem;
 				width: 100%;
 				display: flex;
 				flex-direction: column;
