@@ -1,0 +1,127 @@
+$text: #160d08;
+$text-light: #636363;
+$background: #ffffff;
+$primary: #03ad00;
+$secondary: #f1f1f1;
+$accent: #a5a5a5;
+
+/* $text: #160d08;
+$background: #fbf6f2;
+$primary: #52311e;
+$secondary: #efddd2;
+$accent: #b46b41; */
+
+@mixin customScrollbar {
+	&::-webkit-scrollbar {
+		width: 4px;
+	}
+
+	/* Track */
+	&::-webkit-scrollbar-track {
+		box-shadow: inset 0 0 5px $secondary;
+		border-radius: 10px;
+	}
+
+	/* Handle */
+	&::-webkit-scrollbar-thumb {
+		background: $accent;
+		border-radius: 10px;
+	}
+}
+
+@mixin sm {
+	@media (min-width: 630px) {
+		@content;
+	}
+}
+@mixin md {
+	@media (min-width: 768px) {
+		@content;
+	}
+}
+@mixin lg {
+	@media (min-width: 992px) {
+		@content;
+	}
+}
+@mixin xl {
+	@media (min-width: 1200px) {
+		@content;
+	}
+}
+
+@mixin table {
+	width: 100%;
+	font-size: 0.8rem;
+	border-collapse: collapse;
+
+	& thead {
+		line-height: 2.3rem;
+		background-color: $secondary;
+		border-bottom: 1px solid $accent;
+
+		& tr th.fitwidth {
+			padding-right: 1rem;
+		}
+	}
+
+	& tbody {
+		overflow: hidden;
+
+		& tr {
+			border-radius: 10px;
+			border-bottom: 2px solid $secondary;
+
+			&:hover {
+				background-color: $secondary;
+			}
+
+			&.active {
+				background-color: transparentize($primary, 0.85);
+
+				&:hover {
+					background-color: transparentize($primary, 0.8);
+				}
+			}
+
+			& td {
+				word-break: break-all;
+				font-size: inherit;
+				padding: 0.5rem 0;
+				text-align: center;
+
+				&.label {
+					word-wrap: break-word;
+				}
+
+				&.fitwidth {
+					padding: 0 1.5rem 0 0;
+					width: 1px;
+					white-space: nowrap;
+				}
+
+				&.alignRight {
+					padding-right: 1rem;
+					text-align: right;
+				}
+
+				&:first-child {
+					border-top-left-radius: 5px;
+				}
+				&:last-child {
+					border-top-right-radius: 5px;
+				}
+				&:first-child {
+					border-bottom-left-radius: 5px;
+				}
+				&:last-child {
+					border-bottom-right-radius: 5px;
+				}
+			}
+		}
+
+		@include sm {
+			font-size: 0.9rem;
+		}
+	}
+}
