@@ -1,6 +1,6 @@
 <script>
 	import { getRandomId } from '$lib/utils';
-	import Input from '$lib/components/UI/Input.svelte';
+	import Input from '$lib/components/Input.svelte';
 
 	export let page;
 

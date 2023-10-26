@@ -1,6 +1,5 @@
 <script>
 	import { getRandomId } from '$lib/utils';
-	export let variant = '';
 	export let label = '';
 	export let value = '';
 
@@ -11,7 +10,7 @@
 	{#if label}
 		<label for={id}>{label}</label>
 	{/if}
-	<input {...$$restProps} bind:value class={variant} {id} on:input />
+	<input {...$$restProps} bind:value {id} on:input />
 </div>
 
 <style lang="scss">

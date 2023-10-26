@@ -12,7 +12,7 @@
 </script>
 
 <nav>
-	<img class="logo" src={Logo} alt="Logo" />
+	<img class="logo" src={Logo} alt="Logo Jednostkowo.pl" />
 	<ul>
 		<li>
 			<a href="/kalkulator-procentow" class:active={params?.type === 'kalkulator'}>Kalkulatory</a>

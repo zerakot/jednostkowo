@@ -1,5 +1,5 @@
 <script>
-	import Input from '../../UI/Input.svelte';
+	import Input from '$lib/components/Input.svelte';
 
 	export let operation;
 

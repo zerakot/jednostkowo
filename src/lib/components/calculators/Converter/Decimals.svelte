@@ -1,5 +1,5 @@
 <script>
-	import Select from '../../UI/Select.svelte';
+	import Select from '$lib/components/Select.svelte';
 
 	export let decimals;
 </script>

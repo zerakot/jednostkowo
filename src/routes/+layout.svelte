@@ -1,7 +1,7 @@
 <script>
 	import '$lib/scss/global.scss';
-	import Navbar from '$lib/components/UI/Navbar.svelte';
-	import Footer from '../lib/components/UI/Footer.svelte';
+	import Navbar from '$lib/components/Navbar.svelte';
+	import Footer from '../lib/components/Footer.svelte';
 </script>
 
 <div class="container">
@@ -23,9 +23,6 @@
 			'nav'
 			'main';
 
-		@include sm {
-			padding: 0 2rem;
-		}
 		@include md {
 			width: 768px;
 		}

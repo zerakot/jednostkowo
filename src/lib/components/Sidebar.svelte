@@ -1,26 +1,29 @@
 <script>
 	import { pages } from '$lib/CMS';
 	import { page } from '$app/stores';
+	import { getRandomId } from '$lib/utils.js';
 
 	let currentPageData;
+	let id = getRandomId();
+	let moreVisible = false;
+
 	$: currentPageData = pages?.find(
 		(item) => item?.id === $page.params?.id && item?.type === $page.params?.type
 	);
-
-	let moreVisible = false;
 </script>
 
 <aside>
 	<div class="trigger">
-		<div class="category">
+		<label for={id}>
 			Kategoria:
-			<div class="label">
+			<div class="wrapper">
 				<span class="material-symbols-rounded">{currentPageData?.icon}</span>
 				{currentPageData?.name}
 			</div>
-		</div>
+		</label>
 
-		<button on:click={() => (moreVisible = !moreVisible)}>Zmień {currentPageData?.type}</button>
+		<button {id} on:click={() => (moreVisible = !moreVisible)}>Zmień {currentPageData?.type}</button
+		>
 	</div>
 
 	<ul class:hidden={!moreVisible}>
@@ -34,7 +37,7 @@
 						{page?.icon}
 					</span>
 
-					{page?.name}
+					{page?.name?.charAt(0).toUpperCase() + page?.name?.slice(1)}
 				</li>
 			</a>
 		{/each}
@@ -53,12 +56,12 @@
 			justify-content: space-between;
 			border: 1px solid $accent;
 
-			& .category {
+			& label {
 				gap: 0.5rem;
 				align-items: center;
 				display: flex;
 
-				& .label {
+				& .wrapper {
 					align-items: center;
 					font-weight: bold;
 					gap: 0.2rem;
@@ -97,7 +100,6 @@
 				padding: 0.4rem 3rem 0.4rem 0.5rem;
 				display: flex;
 				align-items: center;
-				text-transform: capitalize;
 				font-size: 0.9rem;
 				white-space: pre;
 

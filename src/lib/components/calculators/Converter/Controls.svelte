@@ -1,6 +1,6 @@
 <script>
-	import Input from '$lib/components/UI/Input.svelte';
-	import Select from '$lib/components/UI/Select.svelte';
+	import Input from '$lib/components/Input.svelte';
+	import Select from '$lib/components/Select.svelte';
 
 	export let number;
 	export let unitRatio;

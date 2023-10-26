@@ -1,6 +1,6 @@
 <script>
-	import AdsWidget from '$lib/components/UI/AdsWidget.svelte';
-	import Sidebar from '$lib/components/UI/Sidebar.svelte';
+	import Ad from '$lib/components/Ad.svelte';
+	import Sidebar from '$lib/components/Sidebar.svelte';
 
 	export let data;
 </script>
@@ -14,7 +14,7 @@
 	<Sidebar />
 
 	<main>
-		<AdsWidget />
+		<Ad />
 
 		<div class="content">
 			<hgroup>
