@@ -21,6 +21,9 @@
 			<a href="/przelicznik-dlugosci" class:active={params?.type === 'przelicznik'}>Przeliczniki</a>
 		</li>
 		<li>
+			<a href="/blog" class:active={pathname.startsWith('/blog')}>Blog</a>
+		</li>
+		<li>
 			<a href="/kontakt" class:active={pathname.startsWith('/kontakt')}>Kontakt</a>
 		</li>
 	</ul>
@@ -33,7 +36,7 @@
 		display: flex;
 		width: 100%;
 		grid-area: nav;
-		border-bottom: 1px solid $secondary;
+		border-bottom: 1px solid $gray-light;
 
 		& img.logo {
 			height: 50%;

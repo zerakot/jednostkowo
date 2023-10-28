@@ -50,11 +50,11 @@
 			font-size: 0.9rem;
 			border-radius: 5px;
 			padding: 0.5rem 1rem;
-			background-color: $secondary;
+			background-color: $gray-light;
 			display: flex;
 			width: 100%;
 			justify-content: space-between;
-			border: 1px solid $accent;
+			border: 1px solid $gray-dark;
 
 			& label {
 				gap: 0.5rem;
@@ -88,7 +88,7 @@
 			flex-direction: column;
 			list-style: none;
 			grid-template-columns: 1fr 1fr;
-			border-bottom: 2px solid $secondary;
+			border-bottom: 2px solid $gray-light;
 
 			&.hidden {
 				display: none;
@@ -105,7 +105,7 @@
 
 				&:hover,
 				&.active {
-					background-color: $secondary;
+					background-color: $gray-light;
 				}
 
 				& span {

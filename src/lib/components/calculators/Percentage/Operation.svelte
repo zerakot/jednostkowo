@@ -40,11 +40,8 @@
 		width: 100%;
 		gap: 0.5rem;
 		display: flex;
-		padding: 1rem;
-		border-radius: 10px;
-		border: 1px solid $secondary;
-		box-shadow: 4px 4px 12px $secondary;
 		flex-direction: column;
+		@include calculator;
 
 		& .label {
 			font-weight: bold;
@@ -68,7 +65,7 @@
 				padding: 0.5rem 0.8rem;
 				background-color: $background;
 				border-radius: 5px;
-				border: 1px solid $accent;
+				border: 1px solid $gray-dark;
 				color: $primary;
 				font-weight: bold;
 			}

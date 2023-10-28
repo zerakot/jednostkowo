@@ -18,7 +18,7 @@
 		padding: 0.5rem;
 
 		white-space: nowrap;
-		background-color: $accent;
+		background-color: $gray-dark;
 		border: none;
 		cursor: pointer;
 		font-size: 1rem;
@@ -28,7 +28,7 @@
 			background-color: transparent;
 
 			&:hover {
-				background-color: transparentize($accent, 0.85);
+				background-color: transparentize($gray-dark, 0.85);
 			}
 		}
 	}

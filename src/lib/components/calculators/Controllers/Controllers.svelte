@@ -60,10 +60,7 @@
 		width: 100%;
 		display: flex;
 		flex-direction: column;
-		padding: 1rem;
-		border-radius: 10px;
-		border: 1px solid $secondary;
-		box-shadow: 4px 4px 12px $secondary;
+		@include calculator;
 
 		& .result {
 			font-size: 1.1rem;

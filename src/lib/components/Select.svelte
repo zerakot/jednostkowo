@@ -33,7 +33,7 @@
 			font-size: 0.95rem;
 			padding: 0.5rem 0.8rem;
 			border-radius: 5px;
-			border: 1px solid $accent;
+			border: 1px solid $gray-dark;
 		}
 	}
 </style>

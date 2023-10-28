@@ -1,11 +1,17 @@
 <script>
-	import Logo from '$lib/images/Logo.png';
+	import blog from '$lib/blog.json';
 </script>
 
 <footer>
-	<section class="about">
-		<img src={Logo} alt="Logo Jednostkowo.pl" />
-		<p>Jednostkowo.pl - przeliczanie jednostek, obliczanie procentów, wszystko w jednym miejscu.</p>
+	<section>
+		<h4 class="header">Najnowsze artykuły</h4>
+		<ul>
+			{#each blog?.posts?.slice(0, 5) as post}
+				<li>
+					<a href="blog/{post?.slug}">{post?.title}</a>
+				</li>
+			{/each}
+		</ul>
 	</section>
 	<section>
 		<h4 class="header">Mapa strony</h4>
@@ -21,6 +27,7 @@
 			</li>
 		</ul>
 	</section>
+
 	<section>
 		<h4 class="header">Kontakt</h4>
 		<ul>
@@ -37,13 +44,12 @@
 
 <style lang="scss">
 	footer {
-		margin: 4rem 0 0 0;
 		justify-items: center;
 		padding: 2rem 1rem;
 		width: 100%;
 		display: grid;
 		gap: 2rem 0;
-		border-top: 1px solid $secondary;
+		border-top: 1px solid $gray-medium;
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: auto;
 

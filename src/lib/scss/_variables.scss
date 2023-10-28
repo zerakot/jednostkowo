@@ -2,32 +2,16 @@ $text: #160d08;
 $text-light: #636363;
 $background: #ffffff;
 $primary: #03ad00;
-$secondary: #f1f1f1;
-$accent: #a5a5a5;
+
+$gray-light: #f1f1f1;
+$gray-medium: #e6e6e6;
+$gray-dark: #a5a5a5;
 
 /* $text: #160d08;
 $background: #fbf6f2;
 $primary: #52311e;
-$secondary: #efddd2;
-$accent: #b46b41; */
-
-@mixin customScrollbar {
-	&::-webkit-scrollbar {
-		width: 4px;
-	}
-
-	/* Track */
-	&::-webkit-scrollbar-track {
-		box-shadow: inset 0 0 5px $secondary;
-		border-radius: 10px;
-	}
-
-	/* Handle */
-	&::-webkit-scrollbar-thumb {
-		background: $accent;
-		border-radius: 10px;
-	}
-}
+$gray-light: #efddd2;
+$gray-dark: #b46b41; */
 
 @mixin sm {
 	@media (min-width: 630px) {
@@ -57,8 +41,8 @@ $accent: #b46b41; */
 
 	& thead {
 		line-height: 2.3rem;
-		background-color: $secondary;
-		border-bottom: 1px solid $accent;
+		background-color: $gray-light;
+		border-bottom: 1px solid $gray-dark;
 
 		& tr th.fitwidth {
 			padding-right: 1rem;
@@ -70,10 +54,10 @@ $accent: #b46b41; */
 
 		& tr {
 			border-radius: 10px;
-			border-bottom: 2px solid $secondary;
+			border-bottom: 2px solid $gray-light;
 
 			&:hover {
-				background-color: $secondary;
+				background-color: $gray-light;
 			}
 
 			&.active {
@@ -124,4 +108,29 @@ $accent: #b46b41; */
 			font-size: 0.9rem;
 		}
 	}
+}
+
+@mixin customScrollbar {
+	&::-webkit-scrollbar {
+		width: 4px;
+	}
+
+	/* Track */
+	&::-webkit-scrollbar-track {
+		box-shadow: inset 0 0 5px $gray-light;
+		border-radius: 10px;
+	}
+
+	/* Handle */
+	&::-webkit-scrollbar-thumb {
+		background: $gray-dark;
+		border-radius: 10px;
+	}
+}
+
+@mixin calculator {
+	padding: 1rem;
+	border-radius: 10px;
+	border: 1px solid $gray-medium;
+	box-shadow: 4px 4px 20px $gray-light;
 }

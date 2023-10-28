@@ -56,11 +56,8 @@
 		width: 100%;
 		gap: 0.5rem;
 		display: flex;
-		padding: 1rem;
-		border-radius: 10px;
-		border: 1px solid $secondary;
-		box-shadow: 4px 4px 12px $secondary;
 		flex-direction: column;
+		@include calculator;
 
 		& .result {
 			font-size: 1.1rem;
@@ -84,7 +81,7 @@
 					height: 1px;
 					width: 100%;
 					border-radius: 5px;
-					background-color: $accent;
+					background-color: $gray-dark;
 				}
 			}
 
