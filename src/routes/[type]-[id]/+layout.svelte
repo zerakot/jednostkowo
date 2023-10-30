@@ -1,6 +1,7 @@
 <script>
 	import Ad from '$lib/components/Ad.svelte';
 	import Sidebar from '$lib/components/Sidebar.svelte';
+	import BlogWidget from '../../lib/components/BlogWidget.svelte';
 
 	export let data;
 </script>
@@ -11,74 +12,37 @@
 </svelte:head>
 
 <div class="container">
-	<Sidebar />
+	<div class="wrapper">
+		<Sidebar />
 
-	<main>
-		<Ad />
-
-		<div class="content">
-			<hgroup>
-				<h1>
-					<span class="type">{data?.type}</span>
-					<span class="name">{data?.name}</span>
-					<span class="category">{data?.name}</span>
-				</h1>
-				<p>{data?.description}</p>
-			</hgroup>
+		<main>
+			<Ad />
 
 			<slot />
-		</div>
-	</main>
+		</main>
+	</div>
+
+	<BlogWidget />
 </div>
 
 <style lang="scss">
 	.container {
-		gap: 2rem;
 		display: flex;
-		grid-area: main;
 		flex-direction: column;
+		grid-area: main;
 
-		& main {
-			min-height: 100vh;
-			width: 100%;
-			gap: 2rem 0;
-			display: grid;
-			grid-template-columns: 1fr;
-			grid-template-rows: 200px auto;
+		& .wrapper {
+			flex-direction: column;
+			display: flex;
+			gap: 2rem;
 
-			& .content {
-				gap: 1.5rem;
+			& main {
+				min-height: 100vh;
 				width: 100%;
-				display: flex;
-				flex-direction: column;
-
-				& hgroup {
-					& h1 {
-						gap: 0.4rem;
-						font-size: 1.6rem;
-						color: $text;
-						display: flex;
-						align-items: center;
-
-						& span.type {
-							text-transform: capitalize;
-						}
-						& span.category {
-							margin-left: 0.2rem;
-							font-weight: bold;
-							border-radius: 20px;
-							text-transform: uppercase;
-							color: white;
-							background-color: $primary;
-							padding: 0.25rem 0.6rem;
-							font-size: 0.7rem;
-						}
-					}
-
-					& p {
-						color: $text-light;
-					}
-				}
+				gap: 2rem 0;
+				display: grid;
+				grid-template-columns: 1fr;
+				grid-template-rows: 200px auto;
 			}
 		}
 
@@ -94,7 +58,9 @@
 			}
 		}
 		@include lg {
-			flex-direction: row;
+			& .wrapper {
+				flex-direction: row;
+			}
 		}
 	}
 </style>

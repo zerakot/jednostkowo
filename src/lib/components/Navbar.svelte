@@ -1,6 +1,6 @@
 <script>
 	import { page } from '$app/stores';
-	import Logo from '$lib/images/Logo.png';
+	import Logo from '$lib/assets/Logo.png';
 
 	let params;
 	let pathname;
@@ -12,7 +12,7 @@
 </script>
 
 <nav>
-	<img class="logo" src={Logo} alt="Logo Jednostkowo.pl" />
+	<a href="/" class="logo"><img src={Logo} alt="Logo Jednostkowo.pl" /></a>
 	<ul>
 		<li>
 			<a href="/kalkulator-procentow" class:active={params?.type === 'kalkulator'}>Kalkulatory</a>
@@ -38,8 +38,12 @@
 		grid-area: nav;
 		border-bottom: 1px solid $gray-light;
 
-		& img.logo {
+		& a.logo {
 			height: 50%;
+
+			& img {
+				height: 100%;
+			}
 		}
 
 		& ul {

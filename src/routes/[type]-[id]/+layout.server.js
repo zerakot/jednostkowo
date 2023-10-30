@@ -1,13 +1,13 @@
 import { pages } from '$lib/CMS';
+import { error, redirect } from '@sveltejs/kit';
 
 export const load = ({ params }) => {
-	const id = params.id;
-	const page = pages?.find((item) => item.id === id);
+	const id = params?.id;
+	const type = params?.type;
+	const page = pages?.find((item) => item.id === id && item?.type === type);
 
 	if (!page) {
-		throw error(404, {
-			message: 'Not found'
-		});
+		throw error(404, { message: `Nie znaleziono kalkulatora` });
 	}
 
 	return {
