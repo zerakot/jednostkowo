@@ -15,25 +15,25 @@
 	openGraph={{
 		title: `${data?.title} • Przelicznik.pl`,
 		description: `${data?.description} Jednostkowo.pl - Twój pomocnik w pracy z liczbami`,
-		image: '/blog-1.jpg',
+		image: '/logos/800x600.png',
 		url: 'https://jednostkowo.vercel.app',
 		type: 'website',
 		images: [
 			{
-				url: '/blog-1.jpg',
+				url: '/logos/800x600.png',
 				width: 800,
 				height: 600,
-				alt: 'Squatting'
+				alt: 'Logo Jednostkowo.pl'
 			},
 			{
-				url: '/blog-1.jpg',
+				url: '/logos/900x800.png',
 				width: 900,
 				height: 800,
-				alt: 'Crawling'
+				alt: 'Logo Jednostkowo.pl'
 			},
 			{
-				url: '/blog-1.jpg',
-				alt: 'Jumping'
+				image: '/logos/800x600.png',
+				alt: 'Logo Jednostkowo.pl'
 			}
 		]
 	}}

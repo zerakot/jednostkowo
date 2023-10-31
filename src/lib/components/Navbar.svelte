@@ -1,6 +1,5 @@
 <script>
 	import { page } from '$app/stores';
-	import Logo from '$lib/assets/Logo.png';
 
 	let params;
 	let pathname;
@@ -12,7 +11,7 @@
 </script>
 
 <nav>
-	<a href="/" class="logo"><img src={Logo} alt="Logo Jednostkowo.pl" /></a>
+	<a href="/" class="logo"><img src="/logos/Long-text.png" alt="Logo Jednostkowo.pl" /></a>
 	<ul>
 		<li>
 			<a href="/kalkulator-procentow" class:active={params?.type === 'kalkulator'}>Kalkulatory</a>
