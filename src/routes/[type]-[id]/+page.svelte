@@ -1,9 +1,9 @@
 <script>
-	import { pages } from '$lib/CMS';
+	import { calculators } from '$lib/assets/calculators';
 	import { page } from '$app/stores';
 
 	let pageData;
-	$: pageData = pages?.find(
+	$: pageData = calculators?.find(
 		(item) => item.id === $page.params.id && item.type === $page.params.type
 	);
 </script>

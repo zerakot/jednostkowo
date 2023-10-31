@@ -1,7 +1,7 @@
-import { pages } from '$lib/CMS';
+import { calculators } from '$lib/assets/calculators';
 import { redirect } from '@sveltejs/kit';
 
 export const load = () => {
-	const firstConverter = pages?.find((page) => page?.type === 'przelicznik');
+	const firstConverter = calculators?.find((page) => page?.type === 'przelicznik');
 	throw redirect(302, `${firstConverter?.type}-${firstConverter?.id}`);
 };

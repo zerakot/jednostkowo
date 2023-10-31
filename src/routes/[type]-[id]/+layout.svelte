@@ -3,23 +3,24 @@
 	import Sidebar from '$lib/components/Sidebar.svelte';
 	import BlogWidget from '$lib/components/BlogWidget.svelte';
 	import SvelteSeo from 'svelte-seo';
+	import seo from '$lib/assets/seo.json';
 
 	export let data;
 </script>
 
 <SvelteSeo
-	title="{data?.title} • Jednostkowo.pl"
-	description="{data?.description} Jednostkowo.pl - Twój pomocnik w pracy z liczbami."
-	canonical="https://jednostkowo.vercel.app/{data?.type}-{data?.id}"
-	keywords="{data?.type} {data?.name}, obliczanie procentów, kalkulator proporcji, kalkulator, procenty, przeliczanie jednostek, kalkulator jednostek, obliczanie jednostek, kalkulator procentów"
+	title="{data?.title} {seo.suffixes.title}"
+	description="{data?.description} {seo.suffixes.description}"
+	canonical="{seo.url}/{data?.type}-{data?.id}"
+	keywords="{data?.type} {data?.name}, {seo.rootKeywords}"
 	openGraph={{
-		title: `${data?.title} • Jednostkowo.pl`,
-		description: `${data?.description} Jednostkowo.pl - Twój pomocnik w pracy z liczbami`,
-		url: `https://jednostkowo.vercel.app/${data?.type}-${data?.id}`
+		title: `${data?.title} ${seo.suffixes.title}`,
+		description: `${data?.description} ${seo.suffixes.description}`,
+		url: `${seo.url}/${data?.type}-${data?.id}`
 	}}
 	twitter={{
-		title: `${data?.title} • Jednostkowo.pl`,
-		description: `${data?.description} Jednostkowo.pl - Twój pomocnik w pracy z liczbami.`
+		title: `${data?.title} ${seo.suffixes.title}`,
+		description: `${data?.description} ${seo.suffixes.description}`
 	}}
 />
 <!-- facebook={{

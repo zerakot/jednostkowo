@@ -1,10 +1,10 @@
-import { pages } from '$lib/CMS';
-import { error, redirect } from '@sveltejs/kit';
+import { calculators } from '$lib/assets/calculators';
+import { error } from '@sveltejs/kit';
 
 export const load = ({ params }) => {
 	const id = params?.id;
 	const type = params?.type;
-	const page = pages?.find((item) => item.id === id && item?.type === type);
+	const page = calculators?.find((item) => item.id === id && item?.type === type);
 
 	if (!page) {
 		throw error(404, { message: `Nie znaleziono kalkulatora` });

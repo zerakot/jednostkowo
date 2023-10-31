@@ -1,5 +1,5 @@
 <script>
-	import { pages } from '$lib/CMS';
+	import { calculators } from '$lib/assets/calculators';
 	import { page } from '$app/stores';
 	import { getRandomId } from '$lib/utils.js';
 
@@ -7,7 +7,7 @@
 	let id = getRandomId();
 	let moreVisible = false;
 
-	$: currentPageData = pages?.find(
+	$: currentPageData = calculators?.find(
 		(item) => item?.id === $page.params?.id && item?.type === $page.params?.type
 	);
 </script>
@@ -27,7 +27,7 @@
 	</div>
 
 	<ul class:hidden={!moreVisible}>
-		{#each pages.filter((el) => el?.type === currentPageData?.type) as page}
+		{#each calculators.filter((el) => el?.type === currentPageData?.type) as page}
 			<a href={`/${page?.type}-${page?.id}`} on:click={() => (moreVisible = false)}>
 				<li
 					class:active={currentPageData?.id === page?.id && currentPageData?.type === page?.type}

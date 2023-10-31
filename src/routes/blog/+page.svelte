@@ -1,22 +1,23 @@
 <script>
 	import BlogCard from '../../lib/components/BlogCard.svelte';
 	import SvelteSeo from 'svelte-seo';
+	import seo from '$lib/assets/seo.json';
 
 	export let data;
 </script>
 
 <SvelteSeo
-	title="Blog • Jednostkowo.pl"
+	title="Blog {seo.suffixes.title}"
 	description="Blog Jednostkowo.pl - baza wiedzy o przeliczaniu jednostek"
-	canonical="https://jednostkowo.vercel.app/blog"
-	keywords="blog, obliczanie procentów, kalkulator proporcji, kalkulator, procenty, przeliczanie jednostek, kalkulator jednostek, obliczanie jednostek, kalkulator procentów"
+	canonical="{seo.url}/blog"
+	keywords="blog, {seo.rootKeywords}"
 	openGraph={{
-		title: `Blog • Jednostkowo.pl`,
+		title: `Blog ${seo.suffixes.title}`,
 		description: 'Blog Jednostkowo.pl - baza wiedzy o przeliczaniu jednostek',
-		url: 'https://jednostkowo.vercel.app/blog'
+		url: `${seo.url}/blog`
 	}}
 	twitter={{
-		title: 'Blog • Jednostkowo.pl',
+		title: `Blog ${seo.suffixes.title}`,
 		description: 'Blog Jednostkowo.pl - baza wiedzy o przeliczaniu jednostek'
 	}}
 />

@@ -1,5 +1,5 @@
 <script>
-	import blog from '$lib/blog.json';
+	import blog from '$lib/assets/blog.json';
 </script>
 
 <footer>

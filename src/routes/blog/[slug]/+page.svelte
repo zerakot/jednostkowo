@@ -1,25 +1,25 @@
 <script>
 	import SvelteMarkdown from 'svelte-markdown';
 	import SvelteSeo from 'svelte-seo';
+	import seo from '$lib/assets/seo.json';
 
 	export let data;
 </script>
 
 <SvelteSeo
-	title="{data?.post?.title} • Jednostkowo.pl"
+	title="{data?.post?.title} {seo.suffixes.title}"
 	description="Blog Jednostkowo.pl - baza wiedzy o przeliczaniu jednostek"
-	canonical="https://jednostkowo.vercel.app/blog/{data?.post?.slug}"
-	keywords={(data?.post?.keywords?.join(', ') || '') +
-		'obliczanie procentów, kalkulator proporcji, kalkulator, procenty, przeliczanie jednostek, kalkulator jednostek, obliczanie jednostek, kalkulator procentów'}
+	canonical="{seo.url}/blog/{data?.post?.slug}"
+	keywords="{data?.post?.keywords?.join(', ') || ''} + {seo.rootKeywords}"
 	openGraph={{
 		image: data?.post?.image,
-		title: `${data?.post?.title} • Jednostkowo.pl`,
+		title: `${data?.post?.title} ${seo.suffixes.title}`,
 		description: 'Blog Jednostkowo.pl - baza wiedzy o przeliczaniu jednostek',
-		url: 'https://jednostkowo.vercel.app/blog'
+		url: `${seo.url}/blog/${data?.post?.slug}`
 	}}
 	twitter={{
 		image: data?.post?.image,
-		title: `${data?.post?.title} • Jednostkowo.pl`,
+		title: `${data?.post?.title} ${seo.suffixes.title}`,
 		description: 'Blog Jednostkowo.pl - baza wiedzy o przeliczaniu jednostek'
 	}}
 />

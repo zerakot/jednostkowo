@@ -1,4 +1,4 @@
-import blog from '$lib/blog.json';
+import blog from '$lib/assets/blog.json';
 
 export const load = () => {
 	const posts = blog.posts;

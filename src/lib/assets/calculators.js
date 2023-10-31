@@ -3,9 +3,9 @@ import Percentage from '$lib/components/calculators/Percentage/Percentage.svelte
 import Proportions from '$lib/components/calculators/Proportions/Proportions.svelte';
 import Stack from '$lib/components/calculators/Stack/Stack.svelte';
 import Controllers from '$lib/components/calculators/Controllers/Controllers.svelte';
-import { formatGrade, round } from './utils';
+import { formatGrade, round } from '../utils';
 
-export const pages = [
+export const calculators = [
 	{
 		id: 'procentow',
 		type: 'kalkulator',
