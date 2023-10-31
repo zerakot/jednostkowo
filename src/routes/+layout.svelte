@@ -8,14 +8,12 @@
 <SvelteSeo
 	title="Jednostkowo.pl - procenty, jednostki, proporcje"
 	description="Jednostkowo.pl - Twój pomocnik w pracy z liczbami. Obliczanie procentów, przeliczanie jednostek, kalkulator proporcji. Wszystko w jednym miejscu. Sprawdź!"
-	canonical="https://jednostkowo.vercel.app/"
 	keywords="obliczanie procentów, kalkulator proporcji, kalkulator, procenty, przeliczanie jednostek, kalkulator jednostek, obliczanie jednostek, kalkulator procentów"
 	openGraph={{
 		title: `Jednostkowo.pl - procenty, jednostki, proporcje`,
 		description:
 			'Jednostkowo.pl - twój pomocnik w pracy z liczbami. Obliczanie procentów, przeliczanie jednostek, kalkulator proporcji. Wszystko w jednym miejscu. Sprawdź!',
 		image: '/logos/800x600.png',
-		url: 'https://jednostkowo.vercel.app',
 		type: 'website',
 		images: [
 			{
