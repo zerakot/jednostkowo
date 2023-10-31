@@ -31,7 +31,7 @@
 	};
 </script>
 
-<div class="container">
+<section class="container">
 	<div class="result">Wynik: <span>{result}</span></div>
 
 	<div class="operation">
@@ -49,7 +49,7 @@
 			<Input type="number" placeholder="x" bind:value={d} on:input={calculate} />
 		</div>
 	</div>
-</div>
+</section>
 
 <style lang="scss">
 	.container {

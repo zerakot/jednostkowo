@@ -31,7 +31,7 @@
 		<button on:click={addRow}>Dodaj</button>
 	</div>
 
-	<table class="rows">
+	<table>
 		<thead>
 			<tr>
 				{#each page?.fields as field}

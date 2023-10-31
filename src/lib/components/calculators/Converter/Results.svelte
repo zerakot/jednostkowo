@@ -27,41 +27,31 @@
 	$: results = convert(number, unitRatio, parseInt(decimals));
 </script>
 
-<div class="results">
-	<table>
-		<thead>
-			<tr>
-				<th>Nazwa</th>
-				<th>Symbol</th>
-				<th class="fitwidth">Wynik</th>
+<table>
+	<thead>
+		<tr>
+			<th>Nazwa</th>
+			<th>Symbol</th>
+			<th class="fitwidth">Wynik</th>
+		</tr>
+	</thead>
+	<tbody>
+		{#each results as result}
+			<tr class:active={unitRatio === result.ratio}>
+				<td class="label">{result.label}</td>
+				<td>{result.symbol}</td>
+				<td class="alignRight fitwidth">{result.value}</td>
 			</tr>
-		</thead>
-		<tbody>
-			{#each results as result}
-				<tr class:active={unitRatio === result.ratio}>
-					<td class="label">{result.label}</td>
-					<td>{result.symbol}</td>
-					<td class="alignRight fitwidth">{result.value}</td>
-				</tr>
-			{/each}
-		</tbody>
-	</table>
-</div>
+		{/each}
+	</tbody>
+</table>
 
 <style lang="scss">
-	.results {
-		display: flex;
-		gap: 1rem;
-		flex-direction: column;
-
-		& table {
-			@include table;
-		}
+	table {
+		@include table;
 
 		@include sm {
-			& table {
-				font-size: 0.9rem;
-			}
+			font-size: 0.9rem;
 		}
 	}
 </style>

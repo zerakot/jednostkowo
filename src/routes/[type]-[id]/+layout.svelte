@@ -1,15 +1,52 @@
 <script>
 	import Ad from '$lib/components/Ad.svelte';
 	import Sidebar from '$lib/components/Sidebar.svelte';
-	import BlogWidget from '../../lib/components/BlogWidget.svelte';
+	import BlogWidget from '$lib/components/BlogWidget.svelte';
+	import SvelteSeo from 'svelte-seo';
 
 	export let data;
 </script>
 
-<svelte:head>
-	<title>{data?.title} • Przelicznik.pl</title>
-	<meta name="description" content={data?.description} />
-</svelte:head>
+<SvelteSeo
+	title="{data?.title} • Przelicznik.pl"
+	description="{data?.description} Jednostkowo.pl - Twój pomocnik w pracy z liczbami."
+	canonical="https://jednostkowo.vercel.app/{data?.type}-{data?.id}"
+	keywords="{data?.type} {data?.name}, obliczanie procentów, kalkulator proporcji, kalkulator, procenty, przeliczanie jednostek, kalkulator jednostek, obliczanie jednostek, kalkulator procentów"
+	openGraph={{
+		title: `${data?.title} • Przelicznik.pl`,
+		description: `${data?.description} Jednostkowo.pl - Twój pomocnik w pracy z liczbami`,
+		image: '/blog-1.jpg',
+		url: 'https://jednostkowo.vercel.app',
+		type: 'website',
+		images: [
+			{
+				url: '/blog-1.jpg',
+				width: 800,
+				height: 600,
+				alt: 'Squatting'
+			},
+			{
+				url: '/blog-1.jpg',
+				width: 900,
+				height: 800,
+				alt: 'Crawling'
+			},
+			{
+				url: '/blog-1.jpg',
+				alt: 'Jumping'
+			}
+		]
+	}}
+	twitter={{
+		card: 'summary_large_image',
+		title: '{data?.title} • Przelicznik.pl',
+		description: '{data?.description} Jednostkowo.pl - Twój pomocnik w pracy z liczbami.',
+		image: '/blog-1.jpg'
+	}}
+/>
+<!-- facebook={{
+		appId: '1234567890'
+	}} -->
 
 <div class="container">
 	<div class="wrapper">

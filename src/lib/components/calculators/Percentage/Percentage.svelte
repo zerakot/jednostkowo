@@ -4,11 +4,11 @@
 	export let page;
 </script>
 
-<div class="operations">
+<section class="operations">
 	{#each page?.operations as operation}
 		<Operation {operation} />
 	{/each}
-</div>
+</section>
 
 <style>
 	.operations {

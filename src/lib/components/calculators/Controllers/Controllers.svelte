@@ -10,7 +10,7 @@
 	$: result = page?.formula(controlsValues);
 </script>
 
-<div class="container">
+<section class="container">
 	{#each page?.controllers as controller}
 		{#if controller?.element === 'select'}
 			<Select bind:value={controlsValues[controller?.id]} label={controller?.label}>
@@ -52,7 +52,7 @@
 			</table>
 		{/if}
 	</div>
-</div>
+</section>
 
 <style lang="scss">
 	.container {

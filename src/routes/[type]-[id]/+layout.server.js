@@ -14,7 +14,7 @@ export const load = ({ params }) => {
 		type: page?.type,
 		name: page.name,
 		description: page.description,
-		category: page?.id,
+		id: page?.id,
 		title: page?.title
 	};
 };

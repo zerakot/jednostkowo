@@ -2,5 +2,6 @@ import { pages } from '$lib/CMS';
 import { redirect } from '@sveltejs/kit';
 
 export const load = () => {
-	throw redirect(302, `${pages[0]?.type}-${pages[0]?.id}`);
+	const firstConverter = pages?.find((page) => page?.type === 'przelicznik');
+	throw redirect(302, `${firstConverter?.type}-${firstConverter?.id}`);
 };

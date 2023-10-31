@@ -10,11 +10,11 @@
 	let decimals = '2';
 </script>
 
-<div class="converter">
+<section class="converter">
 	<Controls converters={page?.converters} bind:number bind:unitRatio />
 	<Results {number} {unitRatio} {decimals} converters={page?.converters} />
 	<Decimals bind:decimals />
-</div>
+</section>
 
 <style lang="scss">
 	.converter {
