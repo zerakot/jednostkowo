@@ -8,40 +8,18 @@
 </script>
 
 <SvelteSeo
-	title="{data?.title} • Przelicznik.pl"
+	title="{data?.title} • Jednostkowo.pl"
 	description="{data?.description} Jednostkowo.pl - Twój pomocnik w pracy z liczbami."
 	canonical="https://jednostkowo.vercel.app/{data?.type}-{data?.id}"
 	keywords="{data?.type} {data?.name}, obliczanie procentów, kalkulator proporcji, kalkulator, procenty, przeliczanie jednostek, kalkulator jednostek, obliczanie jednostek, kalkulator procentów"
 	openGraph={{
-		title: `${data?.title} • Przelicznik.pl`,
+		title: `${data?.title} • Jednostkowo.pl`,
 		description: `${data?.description} Jednostkowo.pl - Twój pomocnik w pracy z liczbami`,
-		image: '/logos/800x600.png',
-		url: 'https://jednostkowo.vercel.app',
-		type: 'website',
-		images: [
-			{
-				url: '/logos/800x600.png',
-				width: 800,
-				height: 600,
-				alt: 'Logo Jednostkowo.pl'
-			},
-			{
-				url: '/logos/900x800.png',
-				width: 900,
-				height: 800,
-				alt: 'Logo Jednostkowo.pl'
-			},
-			{
-				image: '/logos/800x600.png',
-				alt: 'Logo Jednostkowo.pl'
-			}
-		]
+		url: `https://jednostkowo.vercel.app/${data?.type}-${data?.id}`
 	}}
 	twitter={{
-		card: 'summary_large_image',
-		title: `${data?.title} • Przelicznik.pl`,
-		description: `${data?.description} Jednostkowo.pl - Twój pomocnik w pracy z liczbami.`,
-		image: '/logos/900x800.png'
+		title: `${data?.title} • Jednostkowo.pl`,
+		description: `${data?.description} Jednostkowo.pl - Twój pomocnik w pracy z liczbami.`
 	}}
 />
 <!-- facebook={{
