@@ -41,7 +41,7 @@
 		card: 'summary_large_image',
 		title: `${data?.title} • Przelicznik.pl`,
 		description: `${data?.description} Jednostkowo.pl - Twój pomocnik w pracy z liczbami.`,
-		image: '/blog-1.jpg'
+		image: '/logos/900x800.png'
 	}}
 />
 <!-- facebook={{
