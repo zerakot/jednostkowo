@@ -4,24 +4,28 @@
 	import seo from '$lib/assets/seo.json';
 
 	export let data;
+
+	const seoData = {
+		...seo.default,
+		title: `Blog ${seo.suffixes.title}`,
+		canonical: `${seo.url}/blog`,
+		description: 'Blog Jednostkowo.pl - baza wiedzy o przeliczaniu jednostek',
+		keywords: `blog, ${seo.rootKeywords}`,
+		openGraph: {
+			...seo.default.openGraph,
+			title: `Blog ${seo.suffixes.title}`,
+			description: 'Blog Jednostkowo.pl - baza wiedzy o przeliczaniu jednostek',
+			url: `${seo.url}/blog`
+		},
+		twitter: {
+			...seo.default.twitter,
+			title: `Blog ${seo.suffixes.title}`,
+			description: 'Blog Jednostkowo.pl - baza wiedzy o przeliczaniu jednostek'
+		}
+	};
 </script>
 
-<SvelteSeo
-	title="Blog {seo.suffixes.title}"
-	description="Blog Jednostkowo.pl - baza wiedzy o przeliczaniu jednostek"
-	canonical="{seo.url}/blog"
-	keywords="blog, {seo.rootKeywords}"
-	openGraph={{
-		title: `Blog ${seo.suffixes.title}`,
-		description: 'Blog Jednostkowo.pl - baza wiedzy o przeliczaniu jednostek',
-		url: `${seo.url}/blog`
-	}}
-	twitter={{
-		title: `Blog ${seo.suffixes.title}`,
-		description: 'Blog Jednostkowo.pl - baza wiedzy o przeliczaniu jednostek'
-	}}
-/>
-
+<SvelteSeo {...seoData} />
 <div class="container">
 	<hgroup>
 		<h1>Blog o jednostkach</h1>

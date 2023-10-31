@@ -6,27 +6,28 @@
 	import seo from '$lib/assets/seo.json';
 
 	export let data;
+
+	const seoData = {
+		...seo.default,
+		title: `${data?.title} ${seo.suffixes.title}`,
+		canonical: `${seo.url}/${data?.type}-${data?.id}`,
+		description: `${data?.description} ${seo.suffixes.description}`,
+		keywords: `${data?.type} ${data?.name}, ${seo.default.keywords}`,
+		openGraph: {
+			...seo.default.openGraph,
+			title: `${data?.title} ${seo.suffixes.title}`,
+			description: `${data?.description} ${seo.suffixes.description}`,
+			url: `${seo.url}/${data?.type}-${data?.id}`
+		},
+		twitter: {
+			...seo.default.twitter,
+			title: `${data?.title} ${seo.suffixes.title}`,
+			description: `${data?.description} ${seo.suffixes.description}`
+		}
+	};
 </script>
 
-<SvelteSeo
-	title="{data?.title} {seo.suffixes.title}"
-	description="{data?.description} {seo.suffixes.description}"
-	canonical="{seo.url}/{data?.type}-{data?.id}"
-	keywords="{data?.type} {data?.name}, {seo.rootKeywords}"
-	openGraph={{
-		title: `${data?.title} ${seo.suffixes.title}`,
-		description: `${data?.description} ${seo.suffixes.description}`,
-		url: `${seo.url}/${data?.type}-${data?.id}`
-	}}
-	twitter={{
-		title: `${data?.title} ${seo.suffixes.title}`,
-		description: `${data?.description} ${seo.suffixes.description}`
-	}}
-/>
-<!-- facebook={{
-		appId: '1234567890'
-	}} -->
-
+<SvelteSeo {...seoData} />
 <div class="container">
 	<div class="wrapper">
 		<Sidebar />

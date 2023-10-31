@@ -3,45 +3,10 @@
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Footer from '../lib/components/Footer.svelte';
 	import SvelteSeo from 'svelte-seo';
+	import seo from '$lib/assets/seo.json';
 </script>
 
-<SvelteSeo
-	title="Jednostkowo.pl - procenty, jednostki, proporcje"
-	description="Jednostkowo.pl - Twój pomocnik w pracy z liczbami. Obliczanie procentów, przeliczanie jednostek, kalkulator proporcji. Wszystko w jednym miejscu. Sprawdź!"
-	keywords="obliczanie procentów, kalkulator proporcji, kalkulator, procenty, przeliczanie jednostek, kalkulator jednostek, obliczanie jednostek, kalkulator procentów"
-	openGraph={{
-		title: `Jednostkowo.pl - procenty, jednostki, proporcje`,
-		description:
-			'Jednostkowo.pl - twój pomocnik w pracy z liczbami. Obliczanie procentów, przeliczanie jednostek, kalkulator proporcji. Wszystko w jednym miejscu. Sprawdź!',
-		image: '/logos/800x600.png',
-		type: 'website',
-		images: [
-			{
-				url: '/logos/800x600.png',
-				width: 800,
-				height: 600,
-				alt: 'Logo Jednostkowo.pl'
-			},
-			{
-				url: '/logos/900x800.png',
-				width: 900,
-				height: 800,
-				alt: 'Logo Jednostkowo.pl'
-			},
-			{
-				image: '/logos/800x600.png',
-				alt: 'Logo Jednostkowo.pl'
-			}
-		]
-	}}
-	twitter={{
-		card: 'summary_large_image',
-		title: 'Jednostkowo.pl - procenty, jednostki, proporcje',
-		description:
-			'Jednostkowo.pl - Twój pomocnik w pracy z liczbami. Obliczanie procentów, przeliczanie jednostek, kalkulator proporcji. Wszystko w jednym miejscu. Sprawdź!',
-		image: '/logos/900x800.png'
-	}}
-/>
+<SvelteSeo {...seo.default} />
 
 <div class="container">
 	<Navbar />
