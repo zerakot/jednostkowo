@@ -9,17 +9,17 @@
 	title="{data?.post?.title} • Jednostkowo.pl"
 	description="Blog Jednostkowo.pl - baza wiedzy o przeliczaniu jednostek"
 	canonical="https://jednostkowo.vercel.app/blog/{data?.post?.slug}"
-	keywords={(data?.post?.keywords.join(', ') || '') +
+	keywords={(data?.post?.keywords?.join(', ') || '') +
 		'obliczanie procentów, kalkulator proporcji, kalkulator, procenty, przeliczanie jednostek, kalkulator jednostek, obliczanie jednostek, kalkulator procentów'}
 	openGraph={{
 		image: data?.post?.image,
-		title: `${data?.title} • Jednostkowo.pl`,
+		title: `${data?.post?.title} • Jednostkowo.pl`,
 		description: 'Blog Jednostkowo.pl - baza wiedzy o przeliczaniu jednostek',
 		url: 'https://jednostkowo.vercel.app/blog'
 	}}
 	twitter={{
 		image: data?.post?.image,
-		title: `${data?.title} • Jednostkowo.pl`,
+		title: `${data?.post?.title} • Jednostkowo.pl`,
 		description: 'Blog Jednostkowo.pl - baza wiedzy o przeliczaniu jednostek'
 	}}
 />
