@@ -76,7 +76,7 @@
 				border-radius: 5px;
 				color: white;
 				border: none;
-				background-color: $primary;
+				background-color: $gray-light;
 				padding: 0.2rem 0.5rem;
 			}
 		}

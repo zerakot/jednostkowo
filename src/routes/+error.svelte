@@ -26,7 +26,7 @@
 			& h1 {
 				line-height: 11rem;
 				font-size: 12rem;
-				color: $primary;
+				color: $text;
 			}
 			& p {
 				color: $text-light;
