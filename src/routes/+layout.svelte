@@ -2,13 +2,12 @@
 	import '$lib/scss/global.scss';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Footer from '../lib/components/Footer.svelte';
-
 	import SvelteSeo from 'svelte-seo';
 </script>
 
 <SvelteSeo
 	title="Jednostkowo.pl - procenty, jednostki, proporcje"
-	description="Jednostkowo.pl - twój pomocnik w pracy z liczbami. Obliczanie procentów, przeliczanie jednostek, kalkulator proporcji. Wszystko w jednym miejscu. Sprawdź!"
+	description="Jednostkowo.pl - Twój pomocnik w pracy z liczbami. Obliczanie procentów, przeliczanie jednostek, kalkulator proporcji. Wszystko w jednym miejscu. Sprawdź!"
 	canonical="https://jednostkowo.vercel.app/"
 	keywords="obliczanie procentów, kalkulator proporcji, kalkulator, procenty, przeliczanie jednostek, kalkulator jednostek, obliczanie jednostek, kalkulator procentów"
 	openGraph={{
@@ -41,7 +40,7 @@
 		card: 'summary_large_image',
 		title: 'Jednostkowo.pl - procenty, jednostki, proporcje',
 		description:
-			'Jednostkowo.pl - twój pomocnik w pracy z liczbami. Obliczanie procentów, przeliczanie jednostek, kalkulator proporcji. Wszystko w jednym miejscu. Sprawdź!',
+			'Jednostkowo.pl - Twój pomocnik w pracy z liczbami. Obliczanie procentów, przeliczanie jednostek, kalkulator proporcji. Wszystko w jednym miejscu. Sprawdź!',
 		image: '/logos/900x800.png'
 	}}
 />

@@ -1,8 +1,25 @@
 <script>
 	import BlogCard from '../../lib/components/BlogCard.svelte';
+	import SvelteSeo from 'svelte-seo';
 
 	export let data;
 </script>
+
+<SvelteSeo
+	title="Blog • Jednostkowo.pl"
+	description="Blog Jednostkowo.pl - baza wiedzy o przeliczaniu jednostek"
+	canonical="https://jednostkowo.vercel.app/blog"
+	keywords="blog, obliczanie procentów, kalkulator proporcji, kalkulator, procenty, przeliczanie jednostek, kalkulator jednostek, obliczanie jednostek, kalkulator procentów"
+	openGraph={{
+		title: `Blog • Jednostkowo.pl`,
+		description: 'Blog Jednostkowo.pl - baza wiedzy o przeliczaniu jednostek',
+		url: 'https://jednostkowo.vercel.app/blog'
+	}}
+	twitter={{
+		title: 'Blog • Jednostkowo.pl',
+		description: 'Blog Jednostkowo.pl - baza wiedzy o przeliczaniu jednostek'
+	}}
+/>
 
 <div class="container">
 	<hgroup>
