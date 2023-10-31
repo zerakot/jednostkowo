@@ -1,6 +1,6 @@
 <script>
 	import BlogWidget from '$lib/components/BlogWidget.svelte';
-	import { SvelteSeo } from 'svelte-seo';
+	import SvelteSeo from 'svelte-seo';
 	import seo from '$lib/assets/seo.json';
 </script>
 
