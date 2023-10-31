@@ -40,7 +40,7 @@
 	twitter={{
 		card: 'summary_large_image',
 		title: `${data?.title} • Przelicznik.pl`,
-		description: '{data?.description} Jednostkowo.pl - Twój pomocnik w pracy z liczbami.',
+		description: `${data?.description} Jednostkowo.pl - Twój pomocnik w pracy z liczbami.`,
 		image: '/blog-1.jpg'
 	}}
 />
