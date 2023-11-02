@@ -17,17 +17,17 @@ const defaultSeo = {
 			{
 				width: 900,
 				height: 800,
-				url: '/images/logos/900x800.png',
+				url: `${website.baseUrl}/images/logos/900x800.png`,
 				alt: 'Logo Jednostkowo.pl'
 			},
 			{
 				width: 800,
 				height: 600,
-				url: '/images/logos/800x600.png',
+				url: `${website.baseUrl}/images/logos/800x600.png`,
 				alt: 'Logo Jednostkowo.pl'
 			},
 			{
-				url: '/images/logos/900x800.png',
+				url: `${website.baseUrl}/images/logos/900x800.png`,
 				alt: 'Logo Jednostkowo.pl'
 			}
 		]
@@ -38,7 +38,7 @@ const defaultSeo = {
 		title: 'Procenty, jednostki, proporcje',
 		description:
 			'Jednostkowo.pl - Twój pomocnik w pracy z liczbami. Obliczanie procentów, przeliczanie jednostek, kalkulator proporcji. Wszystko w jednym miejscu. Sprawdź!',
-		image: '/images/logos/900x800.png'
+		image: `${website.baseUrl}/images/logos/900x800.png`
 	}
 };
 
