@@ -42,8 +42,25 @@ const defaultSeo = {
 	}
 };
 
-export const seo = (values, overwrite) => {
-	/* if (overwrite) {
-	} */
-	return mergeDeep(defaultSeo, values);
+export const seo = (values, overwrite = false) => {
+	let newTags = mergeDeep(defaultSeo, values);
+
+	if (overwrite) {
+		const { title, description, canonical } = values;
+
+		if (title) {
+			newTags.openGraph.title = title;
+			newTags.twitter.title = title;
+		}
+		if (description) {
+			newTags.openGraph.description = description;
+			newTags.twitter.description = description;
+		}
+		if (canonical) {
+			newTags.openGraph.url = canonical;
+			newTags.twitter.url = canonical;
+		}
+	}
+
+	return newTags;
 };

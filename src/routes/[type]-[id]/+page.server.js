@@ -11,20 +11,14 @@ export const load = ({ params }) => {
 		throw error(404, { message: `Nie znaleziono kalkulatora` });
 	}
 
-	const metaTags = seo({
-		title: `${page?.title} ${website.titleSuffix}`,
-		canonical: `${website.baseUrl}/${page?.type}-${page?.id}`,
-		description: `${page?.description} Jednostkowo.pl - Twój pomocnik w pracy z liczbami. Obliczanie procentów, przeliczanie jednostek, kalkulator proporcji. Wszystko w jednym miejscu. Sprawdź!`,
-		openGraph: {
+	const metaTags = seo(
+		{
 			title: `${page?.title} ${website.titleSuffix}`,
-			description: `${page?.description} Jednostkowo.pl - Twój pomocnik w pracy z liczbami. Obliczanie procentów, przeliczanie jednostek, kalkulator proporcji. Wszystko w jednym miejscu. Sprawdź!`,
-			url: `${website.baseUrl}/${page?.type}-${page?.id}`
-		},
-		twitter: {
-			title: `${page?.title} ${website.titleSuffix}`,
+			canonical: `${website.baseUrl}/${page?.type}-${page?.id}`,
 			description: `${page?.description} Jednostkowo.pl - Twój pomocnik w pracy z liczbami. Obliczanie procentów, przeliczanie jednostek, kalkulator proporcji. Wszystko w jednym miejscu. Sprawdź!`
-		}
-	});
+		},
+		true
+	);
 
 	return {
 		type: page?.type,

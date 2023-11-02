@@ -14,19 +14,19 @@ export const load = ({ params }) => {
 		});
 	}
 
-	const metaTags = seo({
-		title: `${post?.title} ${website.titleSuffix}`,
-		canonical: `${website.baseUrl}/blog/${post?.slug}`,
-		openGraph: {
-			image: post?.image,
+	const metaTags = seo(
+		{
 			title: `${post?.title} ${website.titleSuffix}`,
-			url: `${website.baseUrl}/blog/${post?.slug}`
+			canonical: `${website.baseUrl}/blog/${post?.slug}`,
+			openGraph: {
+				image: post?.image
+			},
+			twitter: {
+				image: post?.image
+			}
 		},
-		twitter: {
-			image: post?.image,
-			title: `${post?.title} ${website.titleSuffix}`
-		}
-	});
+		true
+	);
 
 	return { post, metaTags };
 };
