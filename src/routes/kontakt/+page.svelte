@@ -1,25 +1,12 @@
 <script>
 	import BlogWidget from '$lib/components/BlogWidget.svelte';
 	import SvelteSeo from 'svelte-seo';
-	import seo from '$lib/assets/seo.json';
 
-	const seoData = {
-		...seo.default,
-		title: `Kontakt ${seo.suffixes.title}`,
-		canonical: `{seo.url}/kontakt`,
-		openGraph: {
-			...seo.default.openGraph,
-			title: `Kontakt ${seo.suffixes.title}`,
-			url: `${seo.url}/kontakt`
-		},
-		twitter: {
-			...seo.default.twitter,
-			title: `Kontakt ${seo.suffixes.title}`
-		}
-	};
+	export let data;
 </script>
 
-<SvelteSeo {...seoData} />
+<SvelteSeo {...data?.metaTags} />
+
 <div class="container">
 	<hgroup>
 		<h2>Kontakt</h2>

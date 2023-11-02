@@ -2,32 +2,8 @@
 	import Ad from '$lib/components/Ad.svelte';
 	import Sidebar from '$lib/components/Sidebar.svelte';
 	import BlogWidget from '$lib/components/BlogWidget.svelte';
-	import SvelteSeo from 'svelte-seo';
-	import seo from '$lib/assets/seo.json';
-
-	export let data;
-
-	const seoData = {
-		...seo.default,
-		title: `${data?.title} ${seo.suffixes.title}`,
-		canonical: `${seo.url}/${data?.type}-${data?.id}`,
-		description: `${data?.description} ${seo.suffixes.description}`,
-		keywords: `${data?.type} ${data?.name}, ${seo.default.keywords}`,
-		openGraph: {
-			...seo.default.openGraph,
-			title: `${data?.title} ${seo.suffixes.title}`,
-			description: `${data?.description} ${seo.suffixes.description}`,
-			url: `${seo.url}/${data?.type}-${data?.id}`
-		},
-		twitter: {
-			...seo.default.twitter,
-			title: `${data?.title} ${seo.suffixes.title}`,
-			description: `${data?.description} ${seo.suffixes.description}`
-		}
-	};
 </script>
 
-<SvelteSeo {...seoData} />
 <div class="container">
 	<div class="wrapper">
 		<Sidebar />

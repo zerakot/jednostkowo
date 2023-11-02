@@ -1,31 +1,12 @@
 <script>
 	import BlogCard from '../../lib/components/BlogCard.svelte';
 	import SvelteSeo from 'svelte-seo';
-	import seo from '$lib/assets/seo.json';
 
 	export let data;
-
-	const seoData = {
-		...seo.default,
-		title: `Blog ${seo.suffixes.title}`,
-		canonical: `${seo.url}/blog`,
-		description: 'Blog Jednostkowo.pl - baza wiedzy o przeliczaniu jednostek',
-		keywords: `blog, ${seo.rootKeywords}`,
-		openGraph: {
-			...seo.default.openGraph,
-			title: `Blog ${seo.suffixes.title}`,
-			description: 'Blog Jednostkowo.pl - baza wiedzy o przeliczaniu jednostek',
-			url: `${seo.url}/blog`
-		},
-		twitter: {
-			...seo.default.twitter,
-			title: `Blog ${seo.suffixes.title}`,
-			description: 'Blog Jednostkowo.pl - baza wiedzy o przeliczaniu jednostek'
-		}
-	};
 </script>
 
-<SvelteSeo {...seoData} />
+<SvelteSeo {...data?.metaTags} />
+
 <div class="container">
 	<hgroup>
 		<h1>Blog o jednostkach</h1>

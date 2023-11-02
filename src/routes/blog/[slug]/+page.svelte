@@ -1,33 +1,11 @@
 <script>
 	import SvelteMarkdown from 'svelte-markdown';
 	import SvelteSeo from 'svelte-seo';
-	import seo from '$lib/assets/seo.json';
-
 	export let data;
-
-	const seoData = {
-		...seo.default,
-		title: `${data?.post?.title} ${seo.suffixes.title}`,
-		canonical: `${seo.url}/blog/${data?.post?.slug}`,
-		description: 'Blog Jednostkowo.pl - baza wiedzy o przeliczaniu jednostek',
-		keywords: `${data?.post?.keywords?.join(', ') || ''} + ${seo.rootKeywords}`,
-		openGraph: {
-			...seo.default.openGraph,
-			image: data?.post?.image,
-			title: `${data?.post?.title} ${seo.suffixes.title}`,
-			description: 'Blog Jednostkowo.pl - baza wiedzy o przeliczaniu jednostek',
-			url: `${seo.url}/blog/${data?.post?.slug}`
-		},
-		twitter: {
-			...seo.default.twitter,
-			image: data?.post?.image,
-			title: `${data?.post?.title} ${seo.suffixes.title}`,
-			description: 'Blog Jednostkowo.pl - baza wiedzy o przeliczaniu jednostek'
-		}
-	};
 </script>
 
-<SvelteSeo {...seoData} />
+<SvelteSeo {...data?.metaTags} />
+
 <div class="container">
 	<img src={data?.post.image} alt="Banner" />
 

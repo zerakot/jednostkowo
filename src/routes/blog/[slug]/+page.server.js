@@ -1,5 +1,6 @@
 import blog from '$lib/assets/blog.json';
 import { error } from '@sveltejs/kit';
+import { seo, website } from '../../../lib/assets/seo';
 
 export const load = ({ params }) => {
 	const slug = params?.slug;
@@ -13,5 +14,19 @@ export const load = ({ params }) => {
 		});
 	}
 
-	return { post };
+	const metaTags = seo({
+		title: `${post?.title} ${website.titleSuffix}`,
+		canonical: `${website.baseUrl}/blog/${post?.slug}`,
+		openGraph: {
+			image: post?.image,
+			title: `${post?.title} ${website.titleSuffix}`,
+			url: `${website.baseUrl}/blog/${post?.slug}`
+		},
+		twitter: {
+			image: post?.image,
+			title: `${post?.title} ${website.titleSuffix}`
+		}
+	});
+
+	return { post, metaTags };
 };

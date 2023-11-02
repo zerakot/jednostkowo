@@ -2,11 +2,7 @@
 	import '$lib/scss/global.scss';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Footer from '../lib/components/Footer.svelte';
-	import SvelteSeo from 'svelte-seo';
-	import seo from '$lib/assets/seo.json';
 </script>
-
-<SvelteSeo {...seo.default} />
 
 <div class="container">
 	<Navbar />

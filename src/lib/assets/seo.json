@@ -1,14 +1,14 @@
 {
 	"default": {
 		"title": "Jednostkowo.pl - procenty, jednostki, proporcje",
-		"description": "Jednostkowo.pl - Twój pomocnik w pracy z liczbami. Obliczanie procentów, przeliczanie jednostek, kalkulator proporcji. Wszystko w jednym miejscu. Sprawdź!",
+		"description": "",
 		"keywords": "miary, przeliczanie jednostek, przelicznik jednostek, obliczanie procentów, procenty, proporcje",
-		"url": "canonical",
 		"openGraph": {
 			"title": "Jednostkowo.pl - procenty, jednostki, proporcje",
 			"description": "Jednostkowo.pl - twój pomocnik w pracy z liczbami. Obliczanie procentów, przeliczanie jednostek, kalkulator proporcji. Wszystko w jednym miejscu. Sprawdź!",
 			"image": "/logos/800x600.png",
-			"type": "website"
+			"type": "website",
+			"url": "https://jednostkowo.vercel.app"
 		},
 		"twitter": {
 			"card": "summary_large_image",

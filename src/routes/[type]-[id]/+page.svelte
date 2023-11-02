@@ -1,12 +1,14 @@
 <script>
 	import { calculators } from '$lib/assets/calculators';
-	import { page } from '$app/stores';
+	import SEO from '$lib/components/SEO/SEO.svelte';
 
-	let pageData;
-	$: pageData = calculators?.find(
-		(item) => item.id === $page.params.id && item.type === $page.params.type
-	);
+	export let data;
+
+	$: metaTags = data?.metaTags;
+	$: pageData = calculators?.find((item) => item.id === data?.id && item.type === data?.type);
 </script>
+
+<SEO {...metaTags} />
 
 <div class="container">
 	<hgroup>
