@@ -31,6 +31,14 @@ const defaultSeo = {
 				alt: 'Logo Jednostkowo.pl'
 			}
 		]
+	},
+	twitter: {
+		card: 'summary_large_image',
+		site: '@primalmovement',
+		title: 'Procenty, jednostki, proporcje',
+		description:
+			'Jednostkowo.pl - Twój pomocnik w pracy z liczbami. Obliczanie procentów, przeliczanie jednostek, kalkulator proporcji. Wszystko w jednym miejscu. Sprawdź!',
+		image: '/images/logos/900x800.png'
 	}
 };
 
