@@ -5,9 +5,10 @@
 
 <div class="container">
 	<h2>Najnowsze wpisy na blogu</h2>
+
 	<div class="posts">
-		{#each blog?.posts?.slice(0, 3) as post}
-			<BlogCard {post} />
+		{#each blog?.posts?.slice(0, 3) as post, i}
+			<BlogCard {post} transition={{ delay: 100 * i + 100 }} />
 		{/each}
 	</div>
 </div>

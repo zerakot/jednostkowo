@@ -1,22 +1,23 @@
 <script>
 	import SvelteMarkdown from 'svelte-markdown';
 	import SvelteSeo from 'svelte-seo';
+	import { fly } from 'svelte/transition';
 	export let data;
 </script>
 
 <SvelteSeo {...data?.metaTags} />
 
 <div class="container">
-	<img src={data?.post.image} alt="Banner" />
+	<img src={data?.post.image} alt="Banner" in:fly={{ x: -150 }} />
 
-	<main>
+	<main in:fly={{ x: -150, delay: 100 }}>
 		<h1>{data?.post.title}</h1>
 		<div class="content">
 			<SvelteMarkdown source={data?.post.content} />
 		</div>
 	</main>
 
-	<div class="ad" />
+	<div class="ad" in:fly={{ x: 150, delay: 200 }} />
 </div>
 
 <style lang="scss">

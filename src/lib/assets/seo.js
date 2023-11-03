@@ -13,6 +13,7 @@ const defaultSeo = {
 		locale: 'pl_PL',
 		type: 'website',
 		title: `Procenty, jednostki, proporcje ${website.titleSuffix}`,
+		image: `${website.baseUrl}/images/logos/900x800.png`,
 		images: [
 			{
 				width: 900,

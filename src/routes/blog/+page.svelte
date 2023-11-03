@@ -1,4 +1,5 @@
 <script>
+	import { fly } from 'svelte/transition';
 	import BlogCard from '../../lib/components/BlogCard.svelte';
 	import SvelteSeo from 'svelte-seo';
 
@@ -16,8 +17,8 @@
 		</p>
 	</hgroup>
 	<div class="posts">
-		{#each data?.posts as post}
-			<BlogCard {post} />
+		{#each data?.posts as post, i}
+			<BlogCard {post} transition={{ delay: i * 100 }} />
 		{/each}
 	</div>
 </div>

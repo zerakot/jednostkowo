@@ -1,11 +1,15 @@
 <script>
+	import { fly } from 'svelte/transition';
+
 	export let post;
+	export let transition = {};
 	export let direction = 'column';
 </script>
 
-<a href="blog/{post?.slug}">
+<a href="blog/{post?.slug}" in:fly|global={{ x: -150, ...transition }}>
 	<article style="--direction: {direction}">
 		<img src={post?.image} alt="Zdjęcie artykułu" />
+
 		<div class="content">
 			<div class="title">{post?.title}</div>
 			<div class="description">{post?.content}</div>

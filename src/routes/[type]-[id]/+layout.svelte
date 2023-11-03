@@ -5,53 +5,34 @@
 </script>
 
 <div class="container">
-	<div class="wrapper">
-		<Sidebar />
+	<Sidebar />
 
-		<main>
-			<Ad />
+	<main>
+		<Ad />
 
-			<slot />
-		</main>
-	</div>
-
-	<BlogWidget />
+		<slot />
+	</main>
 </div>
+<BlogWidget />
 
 <style lang="scss">
 	.container {
+		gap: 2rem;
 		display: flex;
-		flex-direction: column;
 		grid-area: main;
+		flex-direction: column;
 
-		& .wrapper {
-			flex-direction: column;
-			display: flex;
-			gap: 2rem;
-
-			& main {
-				min-height: 100vh;
-				width: 100%;
-				gap: 2rem 0;
-				display: grid;
-				grid-template-columns: 1fr;
-				grid-template-rows: 200px auto;
-			}
+		& main {
+			min-height: 100vh;
+			width: 100%;
+			gap: 2rem 0;
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: 200px auto;
 		}
 
-		@include sm {
-			& main .content hgroup h1 {
-				gap: 0.6rem;
-				font-size: 2rem;
-
-				& span.category {
-					padding: 0.3rem 0.7rem;
-					font-size: 0.75rem;
-				}
-			}
-		}
 		@include lg {
-			& .wrapper {
+			& {
 				flex-direction: row;
 			}
 		}

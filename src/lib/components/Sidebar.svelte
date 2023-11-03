@@ -2,6 +2,7 @@
 	import { calculators } from '$lib/assets/calculators';
 	import { page } from '$app/stores';
 	import { getRandomId } from '$lib/utils.js';
+	import { fly } from 'svelte/transition';
 
 	let currentPageData;
 	let id = getRandomId();
@@ -12,37 +13,40 @@
 	);
 </script>
 
-<aside>
-	<div class="trigger">
-		<label for={id}>
-			Kategoria:
-			<div class="wrapper">
-				<span class="material-symbols-rounded">{currentPageData?.icon}</span>
-				{currentPageData?.name}
-			</div>
-		</label>
+{#key currentPageData?.type}
+	<aside in:fly|global={{ x: -150, intro: true }}>
+		<div class="trigger">
+			<label for={id}>
+				Kategoria:
+				<div class="wrapper">
+					<span class="material-symbols-rounded">{currentPageData?.icon}</span>
+					{currentPageData?.name}
+				</div>
+			</label>
 
-		<button {id} on:click={() => (moreVisible = !moreVisible)}>Zmień {currentPageData?.type}</button
-		>
-	</div>
+			<button {id} on:click={() => (moreVisible = !moreVisible)}
+				>Zmień {currentPageData?.type}</button
+			>
+		</div>
 
-	<ul class:hidden={!moreVisible}>
-		{#each calculators.filter((el) => el?.type === currentPageData?.type) as page}
-			<a href={`/${page?.type}-${page?.id}`} on:click={() => (moreVisible = false)}>
-				<li
-					class:active={currentPageData?.id === page?.id && currentPageData?.type === page?.type}
-					style="--color: {page?.color}"
-				>
-					<span class="material-symbols-rounded">
-						{page?.icon}
-					</span>
+		<ul class:hidden={!moreVisible}>
+			{#each calculators.filter((el) => el?.type === currentPageData?.type) as page}
+				<a href={`/${page?.type}-${page?.id}`} on:click={() => (moreVisible = false)}>
+					<li
+						class:active={currentPageData?.id === page?.id && currentPageData?.type === page?.type}
+						style="--color: {page?.color}"
+					>
+						<span class="material-symbols-rounded">
+							{page?.icon}
+						</span>
 
-					{page?.name?.charAt(0).toUpperCase() + page?.name?.slice(1)}
-				</li>
-			</a>
-		{/each}
-	</ul>
-</aside>
+						{page?.name?.charAt(0).toUpperCase() + page?.name?.slice(1)}
+					</li>
+				</a>
+			{/each}
+		</ul>
+	</aside>
+{/key}
 
 <style lang="scss">
 	aside {
@@ -76,7 +80,7 @@
 				border-radius: 5px;
 				color: white;
 				border: none;
-				background-color: $gray-light;
+				background-color: $primary;
 				padding: 0.2rem 0.5rem;
 			}
 		}

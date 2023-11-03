@@ -1,6 +1,7 @@
 <script>
 	import { calculators } from '$lib/assets/calculators';
 	import SEO from '$lib/components/SEO/SEO.svelte';
+	import { fly } from 'svelte/transition';
 
 	export let data;
 
@@ -10,20 +11,22 @@
 
 <SEO {...metaTags} />
 
-<div class="container">
-	<hgroup>
-		<h1>
-			<span class="type">{pageData?.type}</span>
-			<span class="name">{pageData?.name}</span>
-			<span class="category">{pageData?.name}</span>
-		</h1>
-		<p>{pageData?.description}</p>
-	</hgroup>
+{#key pageData?.name}
+	<div class="container" in:fly|global={{ x: 150, delay: 100 }}>
+		<hgroup>
+			<h1>
+				<span class="type">{pageData?.type}</span>
+				<span class="name">{pageData?.name}</span>
+				<span class="category">{pageData?.name}</span>
+			</h1>
+			<p>{pageData?.description}</p>
+		</hgroup>
 
-	{#key pageData?.id}
-		<svelte:component this={pageData?.component} page={pageData} />
-	{/key}
-</div>
+		{#key pageData?.id}
+			<svelte:component this={pageData?.component} page={pageData} />
+		{/key}
+	</div>
+{/key}
 
 <style lang="scss">
 	.container {
