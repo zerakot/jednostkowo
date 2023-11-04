@@ -38,15 +38,24 @@
 			color: $text;
 			width: 100%;
 
+			& h2 {
+				margin: 0;
+			}
+
 			& p {
+				margin: 0;
 				color: $text-light;
 			}
 		}
 
 		& section {
-			& p a {
-				font-weight: bold;
-				color: $primary;
+			& p {
+				margin: 0;
+
+				& a {
+					font-weight: bold;
+					color: $primary;
+				}
 			}
 		}
 

@@ -44,6 +44,13 @@ $gray-dark: #b46b41; */
 		background-color: $gray-light;
 		border-bottom: 1px solid $gray-dark;
 
+		& tr th:first-child {
+			border-radius: 7px 0 0 0;
+		}
+		& tr th:last-child {
+			border-radius: 0 7px 0 0;
+		}
+
 		& tr th.fitwidth {
 			padding-right: 1rem;
 		}
@@ -71,7 +78,7 @@ $gray-dark: #b46b41; */
 			& td {
 				word-break: break-all;
 				font-size: inherit;
-				padding: 0.5rem 0;
+				padding: 0.6rem 0;
 				text-align: center;
 
 				&.label {

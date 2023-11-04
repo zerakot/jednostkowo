@@ -6,7 +6,7 @@
 	export let direction = 'column';
 </script>
 
-<a href="blog/{post?.slug}" in:fly|global={{ x: -150, ...transition }}>
+<a href="blog/{post?.slug}" in:fly|global={{ x: 150, ...transition }}>
 	<article style="--direction: {direction}">
 		<img src={post?.image} alt="Zdjęcie artykułu" />
 

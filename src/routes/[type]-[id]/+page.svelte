@@ -37,6 +37,7 @@
 
 		& hgroup {
 			& h1 {
+				margin: 0;
 				gap: 0.4rem;
 				font-size: 1.6rem;
 				color: $text;
@@ -59,6 +60,7 @@
 			}
 
 			& p {
+				margin: 0;
 				color: $text-light;
 			}
 		}

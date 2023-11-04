@@ -31,9 +31,11 @@
 
 		& hgroup {
 			& h1 {
+				margin: 0;
 				color: $text;
 			}
 			& p {
+				margin: 0;
 				width: 100%;
 				color: $text-light;
 			}

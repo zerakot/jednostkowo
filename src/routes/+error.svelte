@@ -23,12 +23,15 @@
 		& hgroup {
 			margin-top: 10rem;
 			text-align: center;
+
 			& h1 {
+				margin: 0;
 				line-height: 11rem;
 				font-size: 12rem;
-				color: $text;
+				color: $primary;
 			}
 			& p {
+				margin: 0;
 				color: $text-light;
 				font-size: 2rem;
 			}

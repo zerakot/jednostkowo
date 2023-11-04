@@ -1,21 +1,25 @@
 <script>
+	import Paragraph from '$lib/components/markdown/Paragraph.svelte';
+	import Headings from '$lib/components/markdown/Headings.svelte';
 	import SvelteMarkdown from 'svelte-markdown';
 	import SvelteSeo from 'svelte-seo';
 	import { fly } from 'svelte/transition';
+
 	export let data;
 </script>
 
 <SvelteSeo {...data?.metaTags} />
 
 <div class="container">
-	<img src={data?.post.image} alt="Banner" in:fly={{ x: -150 }} />
+	<img src={data?.post.image} alt="Banner artykułu" in:fly={{ x: -150 }} />
 
-	<main in:fly={{ x: -150, delay: 100 }}>
+	<section class="content" in:fly={{ x: -150, delay: 100 }}>
 		<h1>{data?.post.title}</h1>
-		<div class="content">
-			<SvelteMarkdown source={data?.post.content} />
-		</div>
-	</main>
+		<SvelteMarkdown
+			source={data?.post.content}
+			renderers={{ heading: Headings, paragraph: Paragraph }}
+		/>
+	</section>
 
 	<div class="ad" in:fly={{ x: 150, delay: 200 }} />
 </div>
@@ -42,8 +46,12 @@
 			box-shadow: 0 0 20px $gray-medium;
 		}
 
-		& main {
+		& section.content {
 			grid-area: main;
+
+			& h1 {
+				line-height: 4rem;
+			}
 		}
 
 		& .ad {

@@ -58,6 +58,10 @@
 			flex-direction: column;
 			gap: 0.4rem;
 
+			& h4 {
+				margin: 0;
+			}
+
 			&.about {
 				width: 90%;
 				grid-column: 1/3;

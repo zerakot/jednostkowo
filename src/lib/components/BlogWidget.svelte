@@ -22,6 +22,10 @@
 		flex-direction: column;
 		border-top: 2px solid $gray-medium;
 
+		& h2 {
+			margin: 0;
+		}
+
 		& .posts {
 			gap: 1rem;
 			display: grid;
