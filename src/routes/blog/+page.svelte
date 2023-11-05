@@ -1,12 +1,10 @@
 <script>
 	import { fly } from 'svelte/transition';
 	import BlogCard from '../../lib/components/BlogCard.svelte';
-	import SvelteSeo from 'svelte-seo';
+	import SEO from '$lib/components/SEO/SEO.svelte';
 
 	export let data;
 </script>
-
-<SvelteSeo {...data?.metaTags} />
 
 <div class="container">
 	<hgroup in:fly={{ x: -150 }}>
@@ -22,6 +20,7 @@
 		{/each}
 	</div>
 </div>
+<SEO {...data?.metaTags} />
 
 <style lang="scss">
 	.container {

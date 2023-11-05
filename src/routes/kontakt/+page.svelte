@@ -1,12 +1,10 @@
 <script>
 	import BlogWidget from '$lib/components/BlogWidget.svelte';
-	import SvelteSeo from 'svelte-seo';
+	import SEO from '$lib/components/Seo/SEO.svelte';
 	import { fly } from 'svelte/transition';
 
 	export let data;
 </script>
-
-<SvelteSeo {...data?.metaTags} />
 
 <div class="container" in:fly={{ x: -150 }}>
 	<hgroup>
@@ -27,6 +25,7 @@
 	</section>
 </div>
 <BlogWidget />
+<SEO {...data?.metaTags} />
 
 <style lang="scss">
 	.container {

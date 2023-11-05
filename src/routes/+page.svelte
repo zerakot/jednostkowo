@@ -2,7 +2,10 @@
 	import BannerImage from '$lib/assets/images/banner.png';
 	import SectionConverterImage from '$lib/assets/images/section_converter.png';
 	import SectionCalculatorImage from '$lib/assets/images/section_calculator.png';
+	import SEO from '$lib/components/SEO/SEO.svelte';
 	import { fly } from 'svelte/transition';
+
+	export let data;
 </script>
 
 <div class="container">
@@ -61,6 +64,7 @@
 		<img src={SectionCalculatorImage} alt="Szczęśliwa kobieta" />
 	</section>
 </div>
+<SEO {...data?.metaTags} />
 
 <style lang="scss">
 	.container {

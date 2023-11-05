@@ -5,11 +5,8 @@
 
 	export let data;
 
-	$: metaTags = data?.metaTags;
 	$: pageData = calculators?.find((item) => item.id === data?.id && item.type === data?.type);
 </script>
-
-<SEO {...metaTags} />
 
 {#key pageData?.name}
 	<div class="container" in:fly|global={{ x: 150 }}>
@@ -27,6 +24,7 @@
 		{/key}
 	</div>
 {/key}
+<SEO {...data?.metaTags} />
 
 <style lang="scss">
 	.container {

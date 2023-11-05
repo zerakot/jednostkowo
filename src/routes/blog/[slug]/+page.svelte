@@ -2,13 +2,11 @@
 	import Paragraph from '$lib/components/markdown/Paragraph.svelte';
 	import Headings from '$lib/components/markdown/Headings.svelte';
 	import SvelteMarkdown from 'svelte-markdown';
-	import SvelteSeo from 'svelte-seo';
+	import SEO from '$lib/components/SEO/SEO.svelte';
 	import { fly } from 'svelte/transition';
 
 	export let data;
 </script>
-
-<SvelteSeo {...data?.metaTags} />
 
 <div class="container">
 	<img src={data?.post.image} alt="Banner artykułu" in:fly={{ x: -150 }} />
@@ -23,6 +21,7 @@
 
 	<div class="ad" in:fly={{ x: 150, delay: 200 }} />
 </div>
+<SEO {...data?.metaTags} />
 
 <style lang="scss">
 	.container {
