@@ -4,7 +4,7 @@
 
 <footer>
 	<section>
-		<h4 class="header">Najnowsze artykuły</h4>
+		<h2 class="header">Najnowsze artykuły</h2>
 		<ul>
 			{#each blog?.posts?.slice(0, 5) as post}
 				<li>
@@ -14,7 +14,7 @@
 		</ul>
 	</section>
 	<section>
-		<h4 class="header">Mapa strony</h4>
+		<h2 class="header">Mapa strony</h2>
 		<ul>
 			<li>
 				<a href="/kalkulator-procentow">Kalkulatory</a>
@@ -29,7 +29,7 @@
 	</section>
 
 	<section>
-		<h4 class="header">Kontakt</h4>
+		<h2 class="header">Kontakt</h2>
 		<ul>
 			<li>
 				<b>Adres e-mail:</b> <br /> <a href="mailto:iktorn2006@wp.pl">iktorn2006@wp.pl</a>
@@ -57,10 +57,6 @@
 			display: flex;
 			flex-direction: column;
 			gap: 0.4rem;
-
-			& h4 {
-				margin: 0;
-			}
 
 			&.about {
 				width: 90%;
