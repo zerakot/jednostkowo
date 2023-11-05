@@ -1,6 +1,6 @@
 <script>
 	import { calculators } from '$lib/assets/calculators';
-	import OnMount from '$lib/components/OnMount.svelte';
+
 	import Icon from '$lib/components/Icon.svelte';
 	import { getRandomId } from '$lib/utils.js';
 	import { page } from '$app/stores';
@@ -15,39 +15,37 @@
 	);
 </script>
 
-<OnMount>
-	{#key currentPageData?.type}
-		<aside in:fly|global={{ x: -150, delay: 150 }}>
-			<div class="trigger">
-				<label for={id}>
-					Kategoria:
-					<div class="wrapper">
-						<Icon name={currentPageData?.icon} />
-						{currentPageData?.name}
-					</div>
-				</label>
+{#key currentPageData?.type}
+	<aside in:fly|global={{ x: -150, delay: 150 }}>
+		<div class="trigger">
+			<label for={id}>
+				Kategoria:
+				<div class="wrapper">
+					<Icon name={currentPageData?.icon} />
+					{currentPageData?.name}
+				</div>
+			</label>
 
-				<button {id} on:click={() => (moreVisible = !moreVisible)}>
-					Zmień {currentPageData?.type}
-				</button>
-			</div>
+			<button {id} on:click={() => (moreVisible = !moreVisible)}>
+				Zmień {currentPageData?.type}
+			</button>
+		</div>
 
-			<ul class:hidden={!moreVisible}>
-				{#each calculators.filter((el) => el?.type === currentPageData?.type) as calculator}
-					<a href={`/${calculator?.type}-${calculator?.id}`} on:click={() => (moreVisible = false)}>
-						<li
-							class:active={currentPageData?.id === calculator?.id &&
-								currentPageData?.type === calculator?.type}
-						>
-							<Icon name={calculator?.icon} />
-							{calculator?.name?.charAt(0).toUpperCase() + calculator?.name?.slice(1)}
-						</li>
-					</a>
-				{/each}
-			</ul>
-		</aside>
-	{/key}
-</OnMount>
+		<ul class:hidden={!moreVisible}>
+			{#each calculators.filter((el) => el?.type === currentPageData?.type) as calculator}
+				<a href={`/${calculator?.type}-${calculator?.id}`} on:click={() => (moreVisible = false)}>
+					<li
+						class:active={currentPageData?.id === calculator?.id &&
+							currentPageData?.type === calculator?.type}
+					>
+						<Icon name={calculator?.icon} />
+						{calculator?.name?.charAt(0).toUpperCase() + calculator?.name?.slice(1)}
+					</li>
+				</a>
+			{/each}
+		</ul>
+	</aside>
+{/key}
 
 <style lang="scss">
 	aside {

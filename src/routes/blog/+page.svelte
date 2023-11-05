@@ -1,28 +1,27 @@
 <script>
 	import { fly } from 'svelte/transition';
 	import BlogCard from '../../lib/components/BlogCard.svelte';
-	import OnMount from '$lib/components/OnMount.svelte';
+
 	import SEO from '$lib/components/Seo/Seo.svelte';
 
 	export let data;
 </script>
 
-<OnMount>
-	<div class="container">
-		<hgroup in:fly={{ x: -150 }}>
-			<h1>Blog o jednostkach</h1>
-			<p>
-				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis cupiditate molestias aliquid
-				illo, maxime iusto, nulla dolor excepturi molestiae voluptatem impedit.
-			</p>
-		</hgroup>
-		<div class="posts">
-			{#each data?.posts as post, i}
-				<BlogCard {post} transition={{ x: -150, delay: 150 }} />
-			{/each}
-		</div>
+<div class="container">
+	<hgroup in:fly={{ x: -150, delay: 150 }}>
+		<h1>Blog o jednostkach</h1>
+		<p>
+			Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis cupiditate molestias aliquid
+			illo, maxime iusto, nulla dolor excepturi molestiae voluptatem impedit.
+		</p>
+	</hgroup>
+	<div class="posts">
+		{#each data?.posts as post}
+			<BlogCard {post} transition={{ x: 150 }} />
+		{/each}
 	</div>
-</OnMount>
+</div>
+
 <SEO {...data?.metaTags} />
 
 <style lang="scss">

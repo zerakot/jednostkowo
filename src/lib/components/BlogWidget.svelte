@@ -8,7 +8,7 @@
 
 	<div class="posts">
 		{#each blog?.posts?.slice(0, 3) as post}
-			<BlogCard {post} transition={{ x: -150, delay: 150 }} />
+			<BlogCard {post} transition={{ x: 150 }} />
 		{/each}
 	</div>
 </div>
