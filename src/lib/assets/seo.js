@@ -13,7 +13,7 @@ const defaultSeo = {
 		locale: 'pl_PL',
 		type: 'website',
 		title: `Procenty, jednostki, proporcje ${website.titleSuffix}`,
-		image: `${website.baseUrl}/images/logos/900x800.png`,
+		image: `${website.baseUrl}/images/logos/900x471.png`,
 		images: [
 			{
 				width: 900,
@@ -34,7 +34,7 @@ const defaultSeo = {
 				alt: 'Logo Jednostkowo.pl'
 			},
 			{
-				url: `${website.baseUrl}/images/logos/900x800.png`,
+				url: `${website.baseUrl}/images/logos/900x471.png`,
 				alt: 'Logo Jednostkowo.pl'
 			}
 		]
