@@ -18,7 +18,6 @@
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.10.1",
 		"svelte": "^4.0.5",
-		"svelte-meta-tags": "^3.0.4",
 		"vite": "^4.4.2"
 	},
 	"type": "module",
@@ -26,7 +25,6 @@
 		"@sveltejs/adapter-vercel": "^3.0.3",
 		"big.js": "^6.2.1",
 		"sass": "^1.68.0",
-		"svelte-markdown": "^0.4.0",
-		"svelte-seo": "^1.5.4"
+		"svelte-markdown": "^0.4.0"
 	}
 }

@@ -1,6 +1,7 @@
 <script>
 	import { getRandomId } from '$lib/utils';
 	import Input from '$lib/components/Input.svelte';
+	import Icon from '../../Icon.svelte';
 
 	export let page;
 
@@ -48,9 +49,7 @@
 						<td>{row[field?.name]}</td>
 					{/each}
 					<td class="fitwidth">
-						<button class="delete" on:click={() => deleteRow(row?.id)}
-							><span class="material-symbols-rounded"> delete </span></button
-						>
+						<Icon name="delete" />
 					</td>
 				</tr>
 			{/each}

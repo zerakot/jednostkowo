@@ -1,6 +1,7 @@
 <script>
 	import Input from '$lib/components/Input.svelte';
 	import { round } from '$lib/utils';
+	import Icon from '../../Icon.svelte';
 
 	let a = '',
 		b = '',
@@ -41,7 +42,7 @@
 			<Input type="number" placeholder="x" bind:value={b} on:input={calculate} />
 		</div>
 
-		<span class="material-symbols-rounded"> equal </span>
+		<Icon name="equal" width="40" height="40" />
 
 		<div class="column">
 			<Input type="number" placeholder="x" bind:value={c} on:input={calculate} />
@@ -69,6 +70,7 @@
 
 		& .operation {
 			gap: 1rem;
+			align-items: center;
 			display: flex;
 
 			& .column {
@@ -83,12 +85,6 @@
 					border-radius: 5px;
 					background-color: $gray-dark;
 				}
-			}
-
-			& span {
-				color: $text;
-				align-self: center;
-				font-size: 1rem;
 			}
 		}
 
