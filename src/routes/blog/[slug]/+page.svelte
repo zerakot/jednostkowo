@@ -2,7 +2,7 @@
 	import Paragraph from '$lib/components/markdown/Paragraph.svelte';
 	import Headings from '$lib/components/markdown/Headings.svelte';
 	import SvelteMarkdown from 'svelte-markdown';
-	import SEO from '$lib/components/Seo/SEO.svelte';
+	import SEO from '$lib/components/Seo/Seo.svelte';
 	import { fly } from 'svelte/transition';
 
 	export let data;

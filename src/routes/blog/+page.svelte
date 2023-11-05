@@ -1,7 +1,7 @@
 <script>
 	import { fly } from 'svelte/transition';
 	import BlogCard from '../../lib/components/BlogCard.svelte';
-	import SEO from '$lib/components/Seo/SEO.svelte';
+	import SEO from '$lib/components/Seo/Seo.svelte';
 
 	export let data;
 </script>

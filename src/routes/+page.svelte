@@ -2,7 +2,7 @@
 	import BannerImage from '$lib/assets/images/banner.png';
 	import SectionConverterImage from '$lib/assets/images/section_converter.png';
 	import SectionCalculatorImage from '$lib/assets/images/section_calculator.png';
-	import SEO from '$lib/components/Seo/SEO.svelte';
+	import SEO from '$lib/components/Seo/Seo.svelte';
 	import { fly } from 'svelte/transition';
 
 	export let data;
