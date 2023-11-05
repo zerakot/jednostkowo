@@ -128,6 +128,41 @@ export const calculators = [
 		}
 	},
 	{
+		id: 'bmi',
+		type: 'kalkulator',
+		name: 'BMI',
+		title: 'Kalkulator BMI',
+		description: 'Łatwy w użyciu kalkulator BMI, który ułatwi Ci obliczanie BMI.',
+		icon: 'scale',
+		component: Controllers,
+		controllers: [
+			{
+				id: 'sex',
+				element: 'select',
+				label: 'Jakiej jesteś płci?',
+				options: [
+					{ label: 'Mężczyzna', name: 'male' },
+					{ label: 'Kobieta', name: 'female' }
+				]
+			},
+			{
+				id: 'weight',
+				element: 'input',
+				label: 'Masa ciała',
+				attributes: { type: 'number', placeholder: 'Podaj masę ciała' }
+			},
+			{
+				id: 'height',
+				element: 'input',
+				label: 'Wzrost',
+				attributes: { type: 'number', placeholder: 'Podaj swój wzrost [cm]' }
+			}
+		],
+		formula: (dataset) => {
+			return round(dataset?.weight / Math.pow(dataset?.height / 100, 2), 2);
+		}
+	},
+	{
 		id: 'dlugosci',
 		type: 'przelicznik',
 		name: 'długości',

@@ -1,26 +1,29 @@
 <script>
 	import Paragraph from '$lib/components/markdown/Paragraph.svelte';
 	import Headings from '$lib/components/markdown/Headings.svelte';
-	import SvelteMarkdown from 'svelte-markdown';
+	import OnMount from '$lib/components/OnMount.svelte';
 	import SEO from '$lib/components/Seo/Seo.svelte';
+	import SvelteMarkdown from 'svelte-markdown';
 	import { fly } from 'svelte/transition';
 
 	export let data;
 </script>
 
-<div class="container">
-	<img src={data?.post.image} alt="Banner artykułu" in:fly={{ x: -150 }} />
+<OnMount>
+	<div class="container">
+		<img src={data?.post.image} alt="Banner artykułu" in:fly={{ x: -150 }} />
 
-	<section class="content" in:fly={{ x: -150, delay: 100 }}>
-		<h1>{data?.post.title}</h1>
-		<SvelteMarkdown
-			source={data?.post.content}
-			renderers={{ heading: Headings, paragraph: Paragraph }}
-		/>
-	</section>
+		<section class="content" in:fly={{ x: -150, delay: 100 }}>
+			<h1>{data?.post.title}</h1>
+			<SvelteMarkdown
+				source={data?.post.content}
+				renderers={{ heading: Headings, paragraph: Paragraph }}
+			/>
+		</section>
 
-	<div class="ad" in:fly={{ x: 150, delay: 200 }} />
-</div>
+		<div class="ad" in:fly={{ x: 150, delay: 200 }} />
+	</div>
+</OnMount>
 <SEO {...data?.metaTags} />
 
 <style lang="scss">

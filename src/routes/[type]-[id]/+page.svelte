@@ -1,5 +1,6 @@
 <script>
 	import { calculators } from '$lib/assets/calculators';
+	import OnMount from '$lib/components/OnMount.svelte';
 	import SEO from '$lib/components/Seo/Seo.svelte';
 	import { fly } from 'svelte/transition';
 
@@ -8,22 +9,24 @@
 	$: pageData = calculators?.find((item) => item.id === data?.id && item.type === data?.type);
 </script>
 
-{#key pageData?.name}
-	<div class="container" in:fly|global={{ x: 150 }}>
-		<hgroup>
-			<h1>
-				<span class="type">{pageData?.type}</span>
-				<span class="name">{pageData?.name}</span>
-				<span class="category">{pageData?.name}</span>
-			</h1>
-			<p>{pageData?.description}</p>
-		</hgroup>
+<OnMount>
+	{#key pageData?.name}
+		<div class="container" in:fly|global={{ x: 150 }}>
+			<hgroup>
+				<h1>
+					<span class="type">{pageData?.type}</span>
+					<span class="name">{pageData?.name}</span>
+					<span class="category">{pageData?.name}</span>
+				</h1>
+				<p>{pageData?.description}</p>
+			</hgroup>
 
-		{#key pageData?.id}
-			<svelte:component this={pageData?.component} page={pageData} />
-		{/key}
-	</div>
-{/key}
+			{#key pageData?.id}
+				<svelte:component this={pageData?.component} page={pageData} />
+			{/key}
+		</div>
+	{/key}
+</OnMount>
 <SEO {...data?.metaTags} />
 
 <style lang="scss">

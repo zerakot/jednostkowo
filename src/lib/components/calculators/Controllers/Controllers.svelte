@@ -29,8 +29,8 @@
 	{/each}
 
 	<div class="result">
-		{#if typeof result === 'string'}
-			Wynik: <span>{result}</span>
+		{#if typeof result === 'string' || typeof result === 'number'}
+			Wynik: <span>{isNaN(result) || !isFinite(result) ? '----' : result}</span>
 		{:else if typeof result === 'object'}
 			<table>
 				<thead>
