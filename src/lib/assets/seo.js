@@ -28,7 +28,15 @@ const defaultSeo = {
 				alt: 'Logo Jednostkowo.pl'
 			},
 			{
-				url: `${website.baseUrl}/images/logos/900x800.png`,
+				width: 900,
+				height: 471,
+				url: `${website.baseUrl}/images/logos/900x471.png`,
+				alt: 'Logo Jednostkowo.pl'
+			},
+			{
+				width: 900,
+				height: 471,
+				url: `${website.baseUrl}/images/logos/900x471.png`,
 				alt: 'Logo Jednostkowo.pl'
 			}
 		]
