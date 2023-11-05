@@ -12,7 +12,7 @@
 <SEO {...metaTags} />
 
 {#key pageData?.name}
-	<div class="container" in:fly|global={{ x: 150, delay: 100 }}>
+	<div class="container" in:fly|global={{ x: 150 }}>
 		<hgroup>
 			<h1>
 				<span class="type">{pageData?.type}</span>

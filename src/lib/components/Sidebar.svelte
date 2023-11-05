@@ -14,7 +14,7 @@
 </script>
 
 {#key currentPageData?.type}
-	<aside in:fly|global={{ x: -150, intro: true }}>
+	<aside in:fly|global={{ x: -150, delay: 150 }}>
 		<div class="trigger">
 			<label for={id}>
 				Kategoria:

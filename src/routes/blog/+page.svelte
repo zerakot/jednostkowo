@@ -9,7 +9,7 @@
 <SvelteSeo {...data?.metaTags} />
 
 <div class="container">
-	<hgroup>
+	<hgroup in:fly={{ x: -150 }}>
 		<h1>Blog o jednostkach</h1>
 		<p>
 			Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis cupiditate molestias aliquid
@@ -18,7 +18,7 @@
 	</hgroup>
 	<div class="posts">
 		{#each data?.posts as post, i}
-			<BlogCard {post} transition={{ delay: i * 100 }} />
+			<BlogCard {post} transition={{ x: -150, delay: 150 }} />
 		{/each}
 	</div>
 </div>
