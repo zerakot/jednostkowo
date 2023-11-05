@@ -1,6 +1,6 @@
 <script>
 	import { calculators } from '$lib/assets/calculators';
-	import SEO from '$lib/components/SEO/SEO.svelte';
+	import SEO from '$lib/components/Seo/SEO.svelte';
 	import { fly } from 'svelte/transition';
 
 	export let data;
