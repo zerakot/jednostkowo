@@ -124,7 +124,10 @@ export const calculators = [
 			const tanResult = round(Math.tan(formattedNumber) || 0, 4);
 			const cotResult = round(1 / tanResult, 4);
 
-			return [{ sin: sinResult, cos: cosResult, tan: tanResult, cot: cotResult }];
+			return {
+				value: [{ sin: sinResult, cos: cosResult, tan: tanResult, cot: cotResult }],
+				type: 'table'
+			};
 		}
 	},
 	{
@@ -136,15 +139,6 @@ export const calculators = [
 		icon: 'scale',
 		component: Controllers,
 		controllers: [
-			{
-				id: 'sex',
-				element: 'select',
-				label: 'Jakiej jesteś płci?',
-				options: [
-					{ label: 'Mężczyzna', name: 'male' },
-					{ label: 'Kobieta', name: 'female' }
-				]
-			},
 			{
 				id: 'weight',
 				element: 'input',
@@ -159,7 +153,21 @@ export const calculators = [
 			}
 		],
 		formula: (dataset) => {
-			return round(dataset?.weight / Math.pow(dataset?.height / 100, 2), 2);
+			const classifications = [
+				{ from: 0, to: 18.5, label: 'niedowaga', color: '#ad5600' },
+				{ from: 18.5, to: 25, label: 'waga prawidłowa' },
+				{ from: 25, to: Infinity, label: 'nadwaga', color: '#ad0000' }
+			];
+			const bmi = round(dataset?.weight / Math.pow(dataset?.height / 100, 2), 2);
+			const clasification = classifications.find(
+				(breakpoint) => breakpoint.from < bmi && breakpoint.to > bmi
+			);
+
+			return {
+				value:
+					!isNaN(bmi) && isFinite(bmi) ? bmi + ` (${clasification?.label || '----'})` : '-----',
+				color: clasification?.color
+			};
 		}
 	},
 	{

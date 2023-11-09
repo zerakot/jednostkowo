@@ -11,7 +11,10 @@
 </script>
 
 <nav>
-	<a href="/" class="logo"><img src="/images/logos/Long-text.png" alt="Logo Jednostkowo.pl" /></a>
+	<a href="/" class="logo">
+		<img src="/images/logos/Long-text.png" alt="Logo Jednostkowo.pl" class="long" />
+		<img src="/images/logos/icon.png" alt="Logo Jednostkowo.pl" class="short" />
+	</a>
 	<ul>
 		<li>
 			<a href="/kalkulator-procentow" class:active={params?.type === 'kalkulator'}>Kalkulatory</a>
@@ -31,7 +34,7 @@
 <style lang="scss">
 	nav {
 		align-items: center;
-		gap: 2rem;
+		gap: 1rem;
 		display: flex;
 		width: 100%;
 		grid-area: nav;
@@ -42,6 +45,10 @@
 
 			& img {
 				height: 100%;
+
+				&.long {
+					display: none;
+				}
 			}
 		}
 
@@ -66,6 +73,19 @@
 						color: $text;
 						font-weight: bold;
 					}
+				}
+			}
+		}
+
+		@include sm {
+			gap: 2rem;
+
+			& a.logo img {
+				&.long {
+					display: block;
+				}
+				&.short {
+					display: none;
 				}
 			}
 		}

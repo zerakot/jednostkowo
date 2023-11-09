@@ -29,19 +29,19 @@
 	{/each}
 
 	<div class="result">
-		{#if typeof result === 'string' || typeof result === 'number'}
-			Wynik: <span>{isNaN(result) || !isFinite(result) ? '----' : result}</span>
-		{:else if typeof result === 'object'}
+		{#if result?.type !== 'table'}
+			Wynik: <span style="--color: {result?.color || null}">{result?.value}</span>
+		{:else}
 			<table>
 				<thead>
 					<tr>
-						{#each Object.keys(result[0]) as key}
+						{#each Object.keys(result?.value[0]) as key}
 							<th>{key}</th>
 						{/each}
 					</tr>
 				</thead>
 				<tbody>
-					{#each result as row}
+					{#each result?.value as row}
 						<tr>
 							{#each Object.values(row) as value}
 								<td>{value}</td>
@@ -67,7 +67,7 @@
 
 			& span {
 				font-weight: bold;
-				color: $primary;
+				color: var(--color, $primary);
 			}
 
 			& table {
