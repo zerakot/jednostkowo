@@ -142,14 +142,14 @@ export const calculators = [
 			{
 				id: 'weight',
 				element: 'input',
-				label: 'Masa ciała',
+				label: 'Masa ciała [kg]',
 				attributes: { type: 'number', placeholder: 'Podaj masę ciała' }
 			},
 			{
 				id: 'height',
 				element: 'input',
-				label: 'Wzrost',
-				attributes: { type: 'number', placeholder: 'Podaj swój wzrost [cm]' }
+				label: 'Wzrost [cm]',
+				attributes: { type: 'number', placeholder: 'Podaj swój wzrost' }
 			}
 		],
 		formula: (dataset) => {
