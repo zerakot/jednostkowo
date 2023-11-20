@@ -1,4 +1,4 @@
-import blog from '$lib/assets/blog.json';
+import { posts } from '$lib/assets/blog.js';
 import { calculators } from '$lib/assets/calculators.js';
 import { website } from '$lib/assets/seo.js';
 
@@ -7,7 +7,7 @@ export async function GET({ fetch, setHeaders }) {
 		'Content-Type': 'application/xml'
 	});
 
-	const blogMap = blog.posts
+	const blogMap = posts
 		.map(
 			(post) => `
             <url>

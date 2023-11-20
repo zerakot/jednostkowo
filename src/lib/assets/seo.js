@@ -7,8 +7,7 @@ export const website = {
 
 const defaultSeo = {
 	title: 'Procenty, jednostki, proporcje',
-	description:
-		'Jednostkowo.pl - Twój pomocnik w pracy z liczbami. Obliczanie procentów, przeliczanie jednostek, kalkulator proporcji. Wszystko w jednym miejscu. Sprawdź!',
+	description: 'Jednostkowo.pl - Twój pomocnik w pracy z liczbami. Sprawdź!',
 	openGraph: {
 		locale: 'pl_PL',
 		type: 'website',

@@ -2,6 +2,7 @@
 
 <style>
 	p {
-		margin-top: 0.5rem;
+		margin-top: 0.4rem;
+		line-height: 1.75rem;
 	}
 </style>

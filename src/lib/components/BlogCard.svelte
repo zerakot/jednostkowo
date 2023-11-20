@@ -12,7 +12,7 @@
 
 		<div class="content">
 			<div class="title">{post?.title}</div>
-			<div class="description">{post?.content}</div>
+			<div class="description">{post?.content.replaceAll('**', '')}</div>
 		</div>
 	</article>
 </a>

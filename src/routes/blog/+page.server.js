@@ -1,9 +1,7 @@
-import blog from '$lib/assets/blog.json';
+import { posts } from '$lib/assets/blog.js';
 import { seo, website } from '$lib/assets/seo';
 
 export const load = () => {
-	const posts = blog.posts;
-
 	const metaTags = seo(
 		{
 			title: `Blog ${website.titleSuffix}`,

@@ -27,6 +27,7 @@
 		</div>
 
 		<img
+			class="sectionImage"
 			src={BannerImage}
 			alt="Mężczyzna siedzący na piłce, czytający książkę"
 			in:fly={{ x: 150, delay: 250 }}
@@ -46,7 +47,7 @@
 				<a href="/przelicznik-dlugosci">Wypróbuj przeliczniki</a>
 			</div>
 		</div>
-		<img src={SectionConverterImage} alt="Szczęśliwa kobieta" />
+		<img src={SectionConverterImage} class="sectionImage" alt="Szczęśliwa kobieta" />
 	</section>
 	<section>
 		<div class="about">
@@ -62,7 +63,7 @@
 				<a href="/kalkulator-procentow">Wypróbuj kalkulatory</a>
 			</div>
 		</div>
-		<img src={SectionCalculatorImage} alt="Szczęśliwa kobieta" />
+		<img src={SectionCalculatorImage} class="sectionImage" alt="Szczęśliwa kobieta" />
 	</section>
 </div>
 
@@ -110,16 +111,30 @@
 				}
 			}
 
-			& img {
-				width: 50%;
+			& img.sectionImage {
+				display: none;
+				width: 45%;
 			}
 		}
 
 		& section {
+			padding: 2rem 0 0 0;
+			margin: 2rem 0 0 0;
 			border-top: 2px solid $gray-light;
 
 			&:nth-child(even) {
 				flex-direction: row-reverse;
+			}
+		}
+
+		@include md {
+			& section img.sectionImage,
+			& header img.sectionImage {
+				display: block;
+			}
+			& section {
+				padding: 0;
+				margin: 0;
 			}
 		}
 	}

@@ -1,10 +1,13 @@
 <script>
-	import Paragraph from '$lib/components/markdown/Paragraph.svelte';
-	import Headings from '$lib/components/markdown/Headings.svelte';
-
-	import SEO from '$lib/components/Seo/Seo.svelte';
 	import SvelteMarkdown from 'svelte-markdown';
 	import { fly } from 'svelte/transition';
+	import SEO from '$lib/components/Seo/Seo.svelte';
+
+	import Paragraph from '$lib/components/markdown/Paragraph.svelte';
+	import Headings from '$lib/components/markdown/Headings.svelte';
+	import List from '$lib/components/markdown/List.svelte';
+	import ListItem from '$lib/components/markdown/ListItem.svelte';
+	import Link from '$lib/components/markdown/Link.svelte';
 
 	export let data;
 </script>
@@ -16,7 +19,13 @@
 		<h1>{data?.post.title}</h1>
 		<SvelteMarkdown
 			source={data?.post.content}
-			renderers={{ heading: Headings, paragraph: Paragraph }}
+			renderers={{
+				heading: Headings,
+				paragraph: Paragraph,
+				list: List,
+				listitem: ListItem,
+				link: Link
+			}}
 		/>
 	</section>
 
@@ -51,6 +60,7 @@
 			grid-area: main;
 
 			& h1 {
+				margin-bottom: 1rem;
 				line-height: 4rem;
 			}
 		}
@@ -73,7 +83,7 @@
 				top: 20px;
 				position: sticky;
 				width: 250px;
-				height: 90vh;
+				height: calc(100vh - 40px);
 			}
 		}
 	}

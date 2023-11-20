@@ -24,7 +24,7 @@
 	{raw}
 {/if}
 
-<style>
+<style lang="scss">
 	h2 {
 		margin-top: 1.5rem;
 	}
