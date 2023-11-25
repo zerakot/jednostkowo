@@ -3,7 +3,7 @@ import Percentage from '$lib/components/calculators/Percentage/Percentage.svelte
 import Proportions from '$lib/components/calculators/Proportions/Proportions.svelte';
 import Stack from '$lib/components/calculators/Stack/Stack.svelte';
 import Controllers from '$lib/components/calculators/Controllers/Controllers.svelte';
-import { formatGrade, round } from '../utils';
+import { calculateBmi, formatGrade, round } from '../utils';
 
 export const calculators = [
 	{
@@ -153,20 +153,15 @@ export const calculators = [
 			}
 		],
 		formula: (dataset) => {
-			const classifications = [
-				{ from: 0, to: 18.5, label: 'niedowaga', color: '#ad5600' },
-				{ from: 18.5, to: 25, label: 'waga prawidłowa' },
-				{ from: 25, to: Infinity, label: 'nadwaga', color: '#ad0000' }
-			];
-			const bmi = round(dataset?.weight / Math.pow(dataset?.height / 100, 2), 2);
-			const clasification = classifications.find(
-				(breakpoint) => breakpoint.from < bmi && breakpoint.to > bmi
-			);
+			const { bmi, label } = calculateBmi(dataset?.weight, dataset?.height);
 
 			return {
-				value:
-					!isNaN(bmi) && isFinite(bmi) ? bmi + ` (${clasification?.label || '----'})` : '-----',
-				color: clasification?.color
+				label,
+				scale: [8, 48],
+				value: dataset?.height > 30 ? round(bmi) : undefined,
+				type: 'scale',
+				gradient:
+					'to right, rgb(188, 32, 32) 0%, rgb(188, 32, 32) 20%, rgb(211, 136, 136) 20%, rgb(211, 136, 136) 22.50%, rgb(255, 228, 0) 22.50%, rgb(255, 228, 0) 26.25%, rgb(0, 129, 55) 26.25%, rgb(0, 129, 55) 42.50%, rgb(255, 228, 0) 42.50%, rgb(255, 228, 0) 55.00%, rgb(211, 136, 136) 55.00%, rgb(211, 136, 136) 67.50%, rgb(188, 32, 32) 67.50%, rgb(188, 32, 32) 80%, rgb(138, 1, 1) 80%, rgb(138, 1, 1) 100%'
 			};
 		}
 	},

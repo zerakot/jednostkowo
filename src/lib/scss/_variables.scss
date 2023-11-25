@@ -7,12 +7,6 @@ $gray-light: #f1f1f1;
 $gray-medium: #e6e6e6;
 $gray-dark: #a5a5a5;
 
-/* $text: #160d08;
-$background: #fbf6f2;
-$primary: #52311e;
-$gray-light: #efddd2;
-$gray-dark: #b46b41; */
-
 @mixin sm {
 	@media (min-width: 630px) {
 		@content;

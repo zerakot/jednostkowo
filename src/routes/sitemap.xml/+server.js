@@ -33,9 +33,6 @@ export async function GET({ fetch, setHeaders }) {
         <url>
             <loc>${website.baseUrl}/kontakt</loc>
         </url>
-        <url>
-            <loc>${website.baseUrl}/kontakt</loc>
-        </url>
 
         ${blogMap}
         ${calculatorsMap}

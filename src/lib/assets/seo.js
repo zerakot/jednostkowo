@@ -51,6 +51,7 @@ const defaultSeo = {
 export const seo = (values, overwrite = false) => {
 	let newTags = mergeDeep(defaultSeo, values);
 
+	/* Shortcut for twitter, openGraph  */
 	if (overwrite) {
 		const { title, description, canonical } = values;
 

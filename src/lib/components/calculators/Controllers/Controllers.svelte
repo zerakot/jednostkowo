@@ -1,6 +1,7 @@
 <script>
 	import Select from '$lib/components/Select.svelte';
 	import Input from '$lib/components/Input.svelte';
+	import Scale from './Scale.svelte';
 
 	export let page;
 
@@ -28,30 +29,32 @@
 		{/if}
 	{/each}
 
-	<div class="result">
-		{#if result?.type !== 'table'}
-			Wynik: <span style="--color: {result?.color || null}">{result?.value}</span>
-		{:else}
-			<table>
-				<thead>
+	{#if result?.type === 'scale'}
+		<Scale data={result} />
+	{:else if result?.type === 'table'}
+		<table>
+			<thead>
+				<tr>
+					{#each Object.keys(result?.value[0]) as key}
+						<th>{key}</th>
+					{/each}
+				</tr>
+			</thead>
+			<tbody>
+				{#each result?.value as row}
 					<tr>
-						{#each Object.keys(result?.value[0]) as key}
-							<th>{key}</th>
+						{#each Object.values(row) as value}
+							<td>{value}</td>
 						{/each}
 					</tr>
-				</thead>
-				<tbody>
-					{#each result?.value as row}
-						<tr>
-							{#each Object.values(row) as value}
-								<td>{value}</td>
-							{/each}
-						</tr>
-					{/each}
-				</tbody>
-			</table>
-		{/if}
-	</div>
+				{/each}
+			</tbody>
+		</table>
+	{:else}
+		<div class="result">
+			Wynik: <span style="--color: {result?.color || null}">{result?.value}</span>
+		</div>
+	{/if}
 </section>
 
 <style lang="scss">
@@ -62,16 +65,16 @@
 		flex-direction: column;
 		@include calculator;
 
+		& table {
+			@include table;
+		}
+
 		& .result {
 			font-size: 1.1rem;
 
 			& span {
 				font-weight: bold;
 				color: var(--color, $primary);
-			}
-
-			& table {
-				@include table;
 			}
 		}
 

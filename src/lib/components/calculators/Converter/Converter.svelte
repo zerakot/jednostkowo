@@ -6,7 +6,7 @@
 	export let page;
 
 	let unitRatio = 1;
-	let number = 0;
+	let number = 1;
 	let decimals = '2';
 </script>
 
