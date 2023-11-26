@@ -13,11 +13,12 @@
 	<header>
 		<div class="about">
 			<hgroup>
-				<h1 in:fly={{ x: -150 }}>Wszystko o liczbach</h1>
+				<h1 in:fly={{ x: -150 }}>Wszystko o jednostkach</h1>
 				<p in:fly={{ x: -150, delay: 100 }}>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed magni excepturi architecto
-					libero fuga ullam nobis alias enim tempore illum non ut id, asperiores repellendus iure
-					beatae deserunt in tenetur.
+					Na Jednostkowo.pl znajdziesz wiele narzędzi pozwalających na przeliczanie jednostek,
+					takich jak metry na kilometry, gramy na kilogramy, czy kilobajty na gigabajty. Posiadamy
+					również wiele kalkulatorów, takich jak kalkulator BMI, kalkulator procentów, czy
+					kalkulator średniej ocen.
 				</p>
 			</hgroup>
 			<div class="actions">

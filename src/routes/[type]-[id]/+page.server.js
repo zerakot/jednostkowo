@@ -8,7 +8,10 @@ export const load = ({ params }) => {
 	const page = calculators?.find((item) => item.id === id && item?.type === type);
 
 	if (!page) {
-		throw error(404, { message: `Nie znaleziono kalkulatora` });
+		throw error(404, {
+			message: `Nie znaleziono kalkulatora`,
+			returnHref: '/kalkulator-procentow'
+		});
 	}
 
 	const metaTags = seo(

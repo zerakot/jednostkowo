@@ -13,6 +13,7 @@
 </script>
 
 <div class="container">
+	<!-- Dodaj wtrącenie do użycia kalkulatora lub przelicznika (użyj formatowania bloku code) -->
 	<img src={data?.post.image} alt="Banner artykułu" in:fly={{ x: -150 }} />
 
 	<section class="content" in:fly={{ x: -150, delay: 100 }}>

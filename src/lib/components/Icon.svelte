@@ -93,7 +93,7 @@
 	export let fill = 'black';
 
 	$: formattedFill = fill === 'primary' && '';
-	let icon = icons.find((item) => item.name === name);
+	$: icon = icons.find((item) => item.name === name);
 </script>
 
 <svg xmlns="http://www.w3.org/2000/svg" {height} {width} viewBox="0 -960 960 960">
