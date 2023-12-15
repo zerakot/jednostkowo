@@ -10,7 +10,7 @@
 <div class="controls">
 	<Input type="number" bind:value={number} />
 
-	<Select bind:value={unitRatio} halfWidth={true}>
+	<Select bind:value={unitRatio}>
 		{#each converters as converter}
 			<option value={converter.ratio}>[{converter.symbol}] - {converter.label}</option>
 		{/each}

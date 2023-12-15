@@ -3,11 +3,11 @@
 
 	export let value;
 	export let label = '';
-	export let halfWidth = false;
+	export let autoWidth = false;
 	let id = getRandomId(10);
 </script>
 
-<div class="wrapper" class:halfWidth>
+<div class="wrapper" class:autoWidth>
 	{#if label}
 		<label for={id}>{label}</label>
 	{/if}
@@ -18,12 +18,13 @@
 
 <style lang="scss">
 	.wrapper {
+		width: 100%;
 		gap: 0.2rem;
 		display: flex;
 		flex-direction: column;
 
-		&.halfWidth {
-			max-width: 50%;
+		&.autoWidth {
+			width: auto;
 		}
 
 		& label {

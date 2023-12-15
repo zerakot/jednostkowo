@@ -1,13 +1,7 @@
 <script>
-	import SvelteMarkdown from 'svelte-markdown';
 	import { fly } from 'svelte/transition';
 	import SEO from '$lib/components/Seo/Seo.svelte';
-
-	import Paragraph from '$lib/components/markdown/Paragraph.svelte';
-	import Headings from '$lib/components/markdown/Headings.svelte';
-	import List from '$lib/components/markdown/List.svelte';
-	import ListItem from '$lib/components/markdown/ListItem.svelte';
-	import Link from '$lib/components/markdown/Link.svelte';
+	import Markdown from '../../../lib/components/Markdown.svelte';
 
 	export let data;
 </script>
@@ -18,16 +12,7 @@
 
 	<section class="content" in:fly={{ x: -150, delay: 100 }}>
 		<h1>{data?.post.title}</h1>
-		<SvelteMarkdown
-			source={data?.post.content}
-			renderers={{
-				heading: Headings,
-				paragraph: Paragraph,
-				list: List,
-				listitem: ListItem,
-				link: Link
-			}}
-		/>
+		<Markdown source={data?.post?.content} />
 	</section>
 
 	<div class="ad" in:fly={{ x: 150, delay: 200 }} />

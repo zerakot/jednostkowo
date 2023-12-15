@@ -17,16 +17,21 @@
 	</a>
 	<ul>
 		<li>
-			<a href="/kalkulator-procentow" class:active={params?.type === 'kalkulator'}>Kalkulatory</a>
+			<a
+				href="/kalkulator-procentow"
+				class:active={params?.id?.startsWith('kalkulator') || pathname === '/'}>Kalkulatory</a
+			>
 		</li>
 		<li>
-			<a href="/przelicznik-dlugosci" class:active={params?.type === 'przelicznik'}>Przeliczniki</a>
+			<a href="/przelicznik-dlugosci" class:active={params?.id?.startsWith('przelicznik')}
+				>Przeliczniki</a
+			>
 		</li>
 		<li>
-			<a href="/blog" class:active={pathname.startsWith('/blog')}>Blog</a>
+			<a href="/blog" class:active={pathname?.startsWith('/blog')}>Blog</a>
 		</li>
 		<li>
-			<a href="/kontakt" class:active={pathname.startsWith('/kontakt')}>Kontakt</a>
+			<a href="/kontakt" class:active={pathname?.startsWith('/kontakt')}>Kontakt</a>
 		</li>
 	</ul>
 </nav>

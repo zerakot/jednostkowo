@@ -6,7 +6,7 @@
 
 <div class="decimals">
 	Ilość miejsc po przecinku
-	<Select bind:value={decimals}>
+	<Select bind:value={decimals} autoWidth={true}>
 		<option value="0">0</option>
 		<option value="1">1</option>
 		<option value="2">2</option>

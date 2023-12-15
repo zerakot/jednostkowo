@@ -10,9 +10,7 @@
 	let id = getRandomId();
 	let moreVisible = false;
 
-	$: currentPageData = calculators?.find(
-		(item) => item?.id === $page.params?.id && item?.type === $page.params?.type
-	);
+	$: currentPageData = calculators?.find((item) => item?.id === $page.params?.id) || calculators[0];
 </script>
 
 {#key currentPageData?.type}
@@ -33,11 +31,8 @@
 
 		<ul class:hidden={!moreVisible}>
 			{#each calculators.filter((el) => el?.type === currentPageData?.type) as calculator}
-				<a href={`/${calculator?.type}-${calculator?.id}`} on:click={() => (moreVisible = false)}>
-					<li
-						class:active={currentPageData?.id === calculator?.id &&
-							currentPageData?.type === calculator?.type}
-					>
+				<a href={`/${calculator?.id}`} on:click={() => (moreVisible = false)}>
+					<li class:active={currentPageData?.id === calculator?.id}>
 						<Icon name={calculator?.icon} />
 						{calculator?.name?.charAt(0).toUpperCase() + calculator?.name?.slice(1)}
 					</li>

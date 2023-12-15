@@ -16,7 +16,8 @@ export const load = ({ params }) => {
 
 	const metaTags = seo(
 		{
-			title: `${post?.title} ${website.titleSuffix}`,
+			title: `${post?.meta?.title} ${website.titleSuffix}`,
+			description: post?.meta?.description,
 			canonical: `${website.baseUrl}/blog/${post?.slug}`,
 			openGraph: {
 				image: post?.image

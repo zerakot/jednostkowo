@@ -9,7 +9,6 @@
 
 	<main>
 		<Ad />
-
 		<slot />
 	</main>
 </div>
@@ -23,7 +22,6 @@
 		flex-direction: column;
 
 		& main {
-			min-height: 100vh;
 			width: 100%;
 			gap: 2rem 0;
 			display: grid;

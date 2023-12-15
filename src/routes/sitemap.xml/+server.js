@@ -20,16 +20,13 @@ export async function GET({ fetch, setHeaders }) {
 		.map(
 			(calculator) => `
         <url>
-            <loc>${website.baseUrl}/${calculator?.type}-${calculator?.id}</loc>
+            <loc>${website.baseUrl}/${calculator?.id}</loc>
         </url>`
 		)
 		.join('');
 
 	const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-        <url>
-            <loc>${website.baseUrl}</loc>
-        </url>
         <url>
             <loc>${website.baseUrl}/kontakt</loc>
         </url>

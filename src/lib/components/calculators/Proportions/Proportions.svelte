@@ -42,7 +42,7 @@
 			<Input type="number" placeholder="x" bind:value={b} on:input={calculate} />
 		</div>
 
-		<Icon name="equal" width="40" height="40" />
+		<Icon name="equal" width="20" height="20" />
 
 		<div class="column">
 			<Input type="number" placeholder="x" bind:value={c} on:input={calculate} />

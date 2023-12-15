@@ -7,13 +7,15 @@ import { calculateBmi, formatGrade, round } from '../utils';
 
 export const calculators = [
 	{
-		id: 'procentow',
+		id: 'kalkulator-procentow',
 		type: 'kalkulator',
 		name: 'procentów',
 		description: 'Łatwy w użyciu kalkulator procentów, który ułatwi Ci obliczanie procentów.',
 		title: 'Kalkulator procentów',
 		icon: 'percent',
 		component: Percentage,
+		about:
+			'Procenty to sposób wyrażania części całości. Można je zrozumieć jako ułamki, w których mianownik jest zawsze równy 100. Na przykład, jeśli mamy 25 procent czegoś, to znaczy, że mamy 25 części na 100 możliwych. Procenty są używane w wielu sytuacjach, na przykład w matematyce, finansach, statystyce czy ocenianiu.',
 		operations: [
 			{
 				name: 'Obliczanie procentu z danej liczby',
@@ -43,7 +45,7 @@ export const calculators = [
 		]
 	},
 	{
-		id: 'sredniej-ocen',
+		id: 'kalkulator-sredniej-ocen',
 		type: 'kalkulator',
 		name: 'średniej ocen',
 		title: 'Kalkulator średniej ocen',
@@ -51,6 +53,8 @@ export const calculators = [
 			'Łatwy w użyciu kalkulator średniej ocen, który ułatwi Ci obliczanie średniej ocen.',
 		icon: 'school',
 		component: Stack,
+		about:
+			'Średnia ocen, zwana także średnią arytmetyczną, to sposób obliczania wyników uczniów na podstawie wszystkich ocen, jakie otrzymali z danego przedmiotu lub semestru. Aby obliczyć średnią ocen, należy dodać wszystkie oceny i podzielić je przez ich liczbę, opcjonalnie uwzględniając ich wagi.',
 		fields: [
 			{ type: 'text', name: 'Ocena' },
 			{ type: 'number', name: 'Waga' }
@@ -79,16 +83,18 @@ export const calculators = [
 		}
 	},
 	{
-		id: 'proporcji',
+		id: 'kalkulator-proporcji',
 		type: 'kalkulator',
 		name: 'proporcji',
 		title: 'Kalkulator proporcji',
 		description: 'Łatwy w użyciu kalkulator proporcji, który ułatwi Ci obliczanie proporcji.',
 		icon: 'shuffle',
-		component: Proportions
+		component: Proportions,
+		about:
+			'Proporcje to relacja między wielkościami, które można porównać ze sobą. Proporcje mogą być wyrażone w różnych sposobach, np. jako ułamek, procent, stosunek czy skala. Proporcje są używane w wielu dziedzinach, np. w matematyce, sztuce, architekturze czy kuchni. Proporcje pomagają nam zrozumieć i opisać zależności między różnymi wielkościami.'
 	},
 	{
-		id: 'funkcji-trygonometrycznych',
+		id: 'kalkulator-funkcji-trygonometrycznych',
 		type: 'kalkulator',
 		name: 'trygonometrii',
 		title: 'Kalkulator trygonometrii',
@@ -96,6 +102,8 @@ export const calculators = [
 			'Łatwy w użyciu kalkulator funkcji trygonometrycznych, który ułatwi Ci obliczanie funkcji trygonometrycznych.',
 		icon: 'square_foot',
 		component: Controllers,
+		about:
+			'Trygonometria jest działem matematyki zajmującym się badaniem związków między kątami i bokami trójkątów. Trygonometria wykorzystuje funkcje trygonometryczne, takie jak sinus, cosinus i tangens, do obliczania wartości kątów i długości boków. Trygonometria ma wiele zastosowań w nauce i technice, na przykład w nawigacji, astronomii, fizyce i inżynierii.',
 		controllers: [
 			{
 				id: 'unit',
@@ -131,25 +139,27 @@ export const calculators = [
 		}
 	},
 	{
-		id: 'bmi',
+		id: 'kalkulator-bmi',
 		type: 'kalkulator',
 		name: 'BMI',
 		title: 'Kalkulator BMI',
 		description: 'Łatwy w użyciu kalkulator BMI, który ułatwi Ci obliczanie BMI.',
 		icon: 'scale',
 		component: Controllers,
+		about:
+			'BMI, czyli indeks masy ciała (ang. Body Mass Index), to wskaźnik używany do oceny masy ciała osoby w stosunku do jej wzrostu. Jest to powszechnie stosowany sposób oceny, czy dana osoba ma odpowiednią masę ciała, nadwagę, niedowagę lub otyłość.',
 		controllers: [
-			{
-				id: 'weight',
-				element: 'input',
-				label: 'Masa ciała [kg]',
-				attributes: { type: 'number', placeholder: 'Podaj masę ciała' }
-			},
 			{
 				id: 'height',
 				element: 'input',
 				label: 'Wzrost [cm]',
 				attributes: { type: 'number', placeholder: 'Podaj swój wzrost' }
+			},
+			{
+				id: 'weight',
+				element: 'input',
+				label: 'Masa ciała [kg]',
+				attributes: { type: 'number', placeholder: 'Podaj masę ciała' }
 			}
 		],
 		formula: (dataset) => {
@@ -166,7 +176,7 @@ export const calculators = [
 		}
 	},
 	{
-		id: 'dlugosci',
+		id: 'przelicznik-dlugosci',
 		type: 'przelicznik',
 		name: 'długości',
 		title: 'Przelicznik długości',
@@ -174,6 +184,8 @@ export const calculators = [
 			'Łatwy w użyciu kalkulator długości, który ułatwi Ci przeliczanie jednostek długości.',
 		icon: 'straighten',
 		component: Converter,
+		about:
+			'Miary długości to jednostki służące do określania odległości między punktami w przestrzeni. Są one stosowane w różnych dziedzinach, takich jak fizyka, geografia, czy inżynieria. Najpopularniejsze jednostki długości to: centymetr, metr i kilometr.	',
 		converters: [
 			{
 				label: 'metr',
@@ -243,13 +255,15 @@ export const calculators = [
 		]
 	},
 	{
-		id: 'czasu',
+		id: 'przelicznik-czasu',
 		type: 'przelicznik',
 		name: 'czasu',
 		title: 'Przelicznik czasu',
 		description: 'Łatwy w użyciu kalkulator czasu, który ułatwi Ci przeliczanie jednostek czasu.',
 		icon: 'schedule',
 		component: Converter,
+		about:
+			'Jednostki czasu umożliwiają mierzenie upływu czasu. Są podstawowym narzędziem do organizacji życia codziennego, zapisywania wydarzeń historycznych i określania czasu trwania różnych zjawisk.',
 		converters: [
 			{
 				label: 'sekunda',
@@ -309,7 +323,7 @@ export const calculators = [
 		]
 	},
 	{
-		id: 'informatyczny',
+		id: 'przelicznik-informatyczny',
 		type: 'przelicznik',
 		name: 'informatyczny',
 		title: 'Przelicznik informatyczny',
@@ -317,6 +331,8 @@ export const calculators = [
 			'Łatwy w użyciu kalkulator informatyczny, który ułatwi Ci przeliczanie jednostek informatycznych.',
 		icon: 'database',
 		component: Converter,
+		about:
+			'Jednostki informatyczne to sposoby pomiaru ilości danych, które można przechowywać lub przesyłać za pomocą urządzeń elektronicznych. Każda z jednostek odpowiada określonej liczbie bitów, czyli najmniejszych elementów informacji.',
 		converters: [
 			{
 				label: 'kilobajt',
@@ -356,13 +372,15 @@ export const calculators = [
 		]
 	},
 	{
-		id: 'masy',
+		id: 'przelicznik-masy',
 		type: 'przelicznik',
 		name: 'masy',
 		title: 'Przelicznik masy',
 		description: 'Łatwy w użyciu kalkulator masy, który ułatwi Ci przeliczanie jednostek masy.',
 		icon: 'weight',
 		component: Converter,
+		about:
+			'Jednostki masy służą do pomiaru ilości materii zawartej w danym obiekcie. Najczęściej używanymi jednostkami masy są kilogram, gram i miligram. Masa wyraża się ilością materii obecną w danym ciele i jest jednym z fundamentalnych parametrów fizycznych.',
 		converters: [
 			{
 				label: 'gram',
@@ -428,7 +446,7 @@ export const calculators = [
 	},
 
 	{
-		id: 'objetosci',
+		id: 'przelicznik-objetosci',
 		type: 'przelicznik',
 		name: 'objętości',
 		title: 'Przelicznik objętości',
@@ -436,6 +454,8 @@ export const calculators = [
 			'Łatwy w użyciu kalkulator objętości, który ułatwi Ci przeliczanie jednostek objętości.',
 		icon: 'open_in_full',
 		component: Converter,
+		about:
+			'Jednostki objętości to miary używane do określania wielkości przestrzeni zajmowanej przez ciało lub substancję. Najczęściej stosowanymi jednostkami objętości są metr sześcienny, litr i mililitr. Metr sześcienny to objętość sześcianu o boku długości jednego metra.',
 		converters: [
 			{
 				label: 'metr sześcienny',
@@ -520,7 +540,7 @@ export const calculators = [
 		]
 	},
 	{
-		id: 'cisnienia',
+		id: 'przelicznik-cisnienia',
 		type: 'przelicznik',
 		name: 'ciśnienia',
 		title: 'Przelicznik ciśnienia',
@@ -528,6 +548,8 @@ export const calculators = [
 			'Łatwy w użyciu kalkulator ciśnienia, który ułatwi Ci przeliczanie jednostek ciśnienia.',
 		icon: 'tire_repair',
 		component: Converter,
+		about:
+			'Ciśnienie to siła wywierana na jednostkową powierzchnię, równa stosunkowi siły działającej prostopadle do tej powierzchni do wielkości tej powierzchni. W układzie SI jednostką ciśnienia jest paskal (Pa), który odpowiada sile jednego newtona działającej na jeden metr kwadratowy powierzchni',
 		converters: [
 			{
 				label: 'paskal',
@@ -607,7 +629,7 @@ export const calculators = [
 		]
 	},
 	{
-		id: 'energii',
+		id: 'przelicznik-energii',
 		type: 'przelicznik',
 		name: 'energii',
 		title: 'Przelicznik energii',
@@ -615,6 +637,8 @@ export const calculators = [
 			'Łatwy w użyciu kalkulator energii, który ułatwi Ci przeliczanie jednostek energii.',
 		icon: 'bolt',
 		component: Converter,
+		about:
+			'Energia to abstrakcyjna koncepcja opisująca zdolność do wykonywania pracy lub powodowania zmiany, wyrażana często w różnych formach, takich jak ciepło, prąd elektryczny, światło czy ruch.',
 		converters: [
 			{
 				label: 'dżul',
@@ -674,7 +698,7 @@ export const calculators = [
 		]
 	},
 	{
-		id: 'czestotliwosci',
+		id: 'przelicznik-czestotliwosci',
 		type: 'przelicznik',
 		name: 'częstotliwości',
 		title: 'Przelicznik częstotliwości',
@@ -682,6 +706,8 @@ export const calculators = [
 			'Łatwy w użyciu częstotliwości energii, który ułatwi Ci przeliczanie jednostek częstotliwości.',
 		icon: 'radio',
 		component: Converter,
+		about:
+			'Częstotliwość to miara ilości powtórzeń lub oscylacji zjawiska na jednostkę czasu. Najczęściej częstotliwość jest wyrażana w hercach (Hz) i odnosi się do liczby cykli, oscylacji lub zmian w jednostce czasu, na przykład liczby fal dźwiękowych lub drgań elektromagnetycznych w jednej sekundzie.',
 		converters: [
 			{
 				label: '1/min',
@@ -761,7 +787,7 @@ export const calculators = [
 		]
 	},
 	{
-		id: 'gestosci',
+		id: 'przelicznik-gestosci',
 		type: 'przelicznik',
 		name: 'gęstości',
 		title: 'Przelicznik gęstości',
@@ -769,6 +795,8 @@ export const calculators = [
 			'Łatwy w użyciu kalkulator gęstości, który ułatwi Ci przeliczanie jednostek gęstości.',
 		icon: 'apps',
 		component: Converter,
+		about:
+			'Gęstość to wielkość fizyczna, która określa masę substancji przypadającą na jednostkę objętości. Innymi słowy, jest to stosunek masy pewnej ilości substancji do zajmowanej przez nią objętości. Jednostką gęstości w układzie SI jest kilogram na metr sześcienny.',
 		converters: [
 			{
 				label: 'gram na litr',
@@ -844,13 +872,15 @@ export const calculators = [
 	},
 
 	{
-		id: 'mocy',
+		id: 'przelicznik-mocy',
 		type: 'przelicznik',
 		name: 'mocy',
 		title: 'Przelicznik mocy',
 		description: 'Łatwy w użyciu kalkulator mocy, który ułatwi Ci przeliczanie jednostek mocy.',
 		icon: 'electrical_services',
 		component: Converter,
+		about:
+			'Moc jest wielkością fizyczną, która informuje o szybkości wykonywania danej pracy. Im szybciej zostanie wykonana praca, tym większa będzie moc. Moc z definicji jest równa stosunkowi wykonanej pracy do czasu, w którym ta została wykonana.',
 		converters: [
 			{
 				label: 'wat',
@@ -905,7 +935,7 @@ export const calculators = [
 		]
 	},
 	{
-		id: 'predkosci',
+		id: 'przelicznik-predkosci',
 		type: 'przelicznik',
 		name: 'prędkości',
 		description:
@@ -913,6 +943,8 @@ export const calculators = [
 		title: 'Przelicznik prędkości',
 		icon: 'speed',
 		component: Converter,
+		about:
+			'Prędkość to miara szybkości zmiany położenia w czasie. Jest to wektorowa wielkość fizyczna, która określa, jak szybko i w którym kierunku porusza się obiekt względem punktu odniesienia. Jednostką prędkości w układzie SI jest metr na sekundę.',
 		converters: [
 			{
 				label: 'beaufort',
@@ -1007,13 +1039,15 @@ export const calculators = [
 		]
 	},
 	{
-		id: 'sily',
+		id: 'przelicznik-sily',
 		type: 'przelicznik',
 		name: 'siły',
 		description: 'Łatwy w użyciu kalkulator siły, który ułatwi Ci przeliczanie jednostek siły.',
 		title: 'Przelicznik siły',
 		icon: 'swap_horiz',
 		component: Converter,
+		about:
+			'Siła to wektorowa wielkość fizyczna będąca miarą oddziaływań fizycznych między ciałami. Jednostką miary siły w układzie SI jest niuton. Nazwa tej jednostki pochodzi od nazwiska angielskiego fizyka Isaaca Newtona.',
 		converters: [
 			{
 				label: 'niuton',
@@ -1129,7 +1163,7 @@ export const calculators = [
 		]
 	}, */
 	{
-		id: 'powierzchni',
+		id: 'przelicznik-powierzchni',
 		type: 'przelicznik',
 		name: 'powierzchni',
 		description:
@@ -1137,6 +1171,8 @@ export const calculators = [
 		title: 'Przelicznik powierzchni',
 		icon: 'crop_square',
 		component: Converter,
+		about:
+			'Jednostki miary powierzchni to sposoby określania wielkości obszarów na płaszczyźnie lub na powierzchni sferycznej. Służą do pomiaru i porównywania wielkości różnych terenów, takich jak lasy, jeziora, kraje czy kontynenty. Jednostką podstawową miary powierzchni w układzie SI jest metr kwadratowy.',
 		converters: [
 			{
 				label: 'metr kwadratowy',
@@ -1206,7 +1242,7 @@ export const calculators = [
 		]
 	},
 	{
-		id: 'katow',
+		id: 'przelicznik-katow',
 		type: 'przelicznik',
 		name: 'kątów',
 		description:
@@ -1214,6 +1250,8 @@ export const calculators = [
 		title: 'Przelicznik kątów',
 		icon: 'square_foot',
 		component: Converter,
+		about:
+			'Kąt to miara nachylenia dwóch prostych lub płaszczyzn względem siebie. Kąty mogą być mierzone w stopniach, radianach lub gradach.',
 		converters: [
 			{
 				label: 'stopień',

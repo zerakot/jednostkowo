@@ -12,7 +12,7 @@
 
 		<div class="content">
 			<div class="title">{post?.title}</div>
-			<div class="description">{post?.content.replaceAll('**', '')}</div>
+			<div class="description">{post?.meta?.description}</div>
 		</div>
 	</article>
 </a>
@@ -20,7 +20,6 @@
 <style lang="scss">
 	article {
 		display: flex;
-		height: 100%;
 
 		overflow: hidden;
 		border: 2px solid $gray-medium;
@@ -42,7 +41,7 @@
 
 			& .title {
 				font-weight: bold;
-				font-size: 1.4rem;
+				font-size: 1.3rem;
 			}
 
 			& .description {
@@ -50,7 +49,7 @@
 				overflow: hidden;
 				color: $text-light;
 				display: -webkit-box;
-				-webkit-line-clamp: 3;
+				-webkit-line-clamp: 2;
 				-webkit-box-orient: vertical;
 			}
 		}

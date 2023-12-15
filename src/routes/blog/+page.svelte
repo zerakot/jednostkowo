@@ -11,8 +11,9 @@
 	<hgroup in:fly={{ x: -150, delay: 150 }}>
 		<h1>Blog o jednostkach</h1>
 		<p>
-			Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis cupiditate molestias aliquid
-			illo, maxime iusto, nulla dolor excepturi molestiae voluptatem impedit.
+			Towarzyszą nam setki lat, opisują otaczający nas świat - to właśnie jednostki. Na naszym blogu
+			dowiesz się wszystkiego na temat przeliczania jednostek oraz różnych operacji na liczbach.
+			Poznaj tajniki jednostek na naszym blogu.
 		</p>
 	</hgroup>
 	<div class="posts">

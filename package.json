@@ -24,6 +24,7 @@
 	"dependencies": {
 		"@sveltejs/adapter-vercel": "^3.0.3",
 		"big.js": "^6.2.1",
+		"marked": "^11.0.0",
 		"sass": "^1.68.0",
 		"svelte-markdown": "^0.4.0"
 	}

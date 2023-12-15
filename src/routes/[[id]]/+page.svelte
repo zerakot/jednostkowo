@@ -3,13 +3,13 @@
 
 	import SEO from '$lib/components/Seo/Seo.svelte';
 	import { fly } from 'svelte/transition';
+	import Icon from '../../lib/components/Icon.svelte';
 
 	export let data;
-
-	$: pageData = calculators?.find((item) => item.id === data?.id && item.type === data?.type);
+	$: pageData = calculators?.find((item) => item.id === data?.id);
 </script>
 
-{#key pageData?.name}
+{#key pageData?.id}
 	<div class="container" in:fly|global={{ x: 150 }}>
 		<hgroup>
 			<h1>
@@ -23,6 +23,13 @@
 		{#key pageData?.id}
 			<svelte:component this={pageData?.component} page={pageData} />
 		{/key}
+
+		<div class="about">
+			<Icon name="lightbulb" fill="primary" />
+			<p>
+				{pageData?.about || ''}
+			</p>
+		</div>
 	</div>
 {/key}
 
@@ -65,6 +72,20 @@
 			}
 		}
 
+		& .about {
+			gap: 0.5rem;
+			padding: 0.8rem;
+			display: flex;
+			width: 100%;
+			border: 1px solid $primary;
+			border-radius: 8px;
+			background-color: transparentize($primary, 0.96);
+
+			& p {
+				color: $text;
+			}
+		}
+
 		@include sm {
 			& hgroup h1 {
 				gap: 0.6rem;
@@ -74,6 +95,10 @@
 					padding: 0.3rem 0.7rem;
 					font-size: 0.75rem;
 				}
+			}
+
+			& .about {
+				width: 80%;
 			}
 		}
 	}
