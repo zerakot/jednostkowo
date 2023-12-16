@@ -55,6 +55,7 @@
 		}
 
 		& .ad {
+			height: 100%;
 			width: 100%;
 			grid-area: ad;
 		}
@@ -67,6 +68,7 @@
 				'main ad';
 
 			& .ad {
+				height: calc(100vh - 40px);
 				top: 20px;
 				position: sticky;
 				width: 250px;

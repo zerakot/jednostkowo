@@ -6,17 +6,14 @@
 	});
 </script>
 
-<div class="ad">
-	<ins
-		class="adsbygoogle"
-		style="display:block"
-		data-ad-client="ca-pub-8080398088944990"
-		data-ad-host="ca-host-pub-8080398088944990"
-		data-ad-slot="6859873836"
-		data-ad-format="auto"
-		data-full-width-responsive="true"
-	/>
-</div>
+<ins
+	class="adsbygoogle ad"
+	style="display:block"
+	data-ad-client="ca-pub-8080398088944990"
+	data-ad-host="ca-host-pub-8080398088944990"
+	data-ad-slot="6859873836"
+	data-full-width-responsive="true"
+/>
 
 <style lang="scss">
 	.ad {
