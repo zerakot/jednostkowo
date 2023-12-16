@@ -24,12 +24,12 @@
 			<svelte:component this={pageData?.component} page={pageData} />
 		{/key}
 
-		<div class="about">
+		<aside>
 			<Icon name="lightbulb" fill="primary" />
 			<p>
 				{pageData?.about || ''}
 			</p>
-		</div>
+		</aside>
 	</div>
 {/key}
 
@@ -72,7 +72,7 @@
 			}
 		}
 
-		& .about {
+		& aside {
 			gap: 0.5rem;
 			padding: 0.8rem;
 			display: flex;
@@ -97,7 +97,7 @@
 				}
 			}
 
-			& .about {
+			& aside {
 				width: 80%;
 			}
 		}

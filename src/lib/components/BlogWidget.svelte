@@ -3,7 +3,7 @@
 	import BlogCard from './BlogCard.svelte';
 </script>
 
-<div class="container">
+<article>
 	<h2>Najnowsze wpisy na blogu</h2>
 
 	<div class="posts">
@@ -11,10 +11,10 @@
 			<BlogCard {post} transition={{ x: 150 }} />
 		{/each}
 	</div>
-</div>
+</article>
 
 <style lang="scss">
-	.container {
+	article {
 		margin: 3rem 0 0 0;
 		padding: 2rem 0 0 0;
 		gap: 1rem;
