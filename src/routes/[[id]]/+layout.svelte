@@ -26,12 +26,14 @@
 			gap: 2rem 0;
 			display: grid;
 			grid-template-columns: 1fr;
-			grid-template-rows: 200px auto;
+			grid-template-rows: 100px auto;
 		}
 
 		@include lg {
-			& {
-				flex-direction: row;
+			flex-direction: row;
+
+			& main {
+				grid-template-rows: 200px auto;
 			}
 		}
 	}
