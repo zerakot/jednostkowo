@@ -27,7 +27,7 @@
 	.container {
 		gap: 1rem 2rem;
 		display: grid;
-		grid-template-rows: 200px auto auto;
+		grid-template-rows: repeat(3, auto);
 		grid-template-columns: 1fr;
 		grid-template-areas:
 			'ad'
@@ -36,7 +36,7 @@
 
 		& img {
 			grid-area: img;
-			height: 50vh;
+			height: 30vh;
 			width: 100%;
 			object-fit: cover;
 			border-radius: 10px;
@@ -68,9 +68,7 @@
 				'main ad';
 
 			& .ad {
-				height: calc(100vh - 40px);
-				top: 20px;
-				position: sticky;
+				height: auto;
 				width: 250px;
 			}
 		}
