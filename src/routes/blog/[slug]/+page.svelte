@@ -2,6 +2,7 @@
 	import { fly } from 'svelte/transition';
 	import SEO from '$lib/components/Seo/Seo.svelte';
 	import Markdown from '../../../lib/components/Markdown.svelte';
+	import Ad from '../../../lib/components/Ad.svelte';
 
 	export let data;
 </script>
@@ -15,7 +16,9 @@
 		<Markdown source={data?.post?.content} />
 	</section>
 
-	<div class="ad" in:fly={{ x: 150, delay: 200 }} />
+	<div class="ad" in:fly={{ x: 150, delay: 200 }}>
+		<Ad />
+	</div>
 </div>
 
 <SEO {...data?.metaTags} />
@@ -24,11 +27,11 @@
 	.container {
 		gap: 1rem 2rem;
 		display: grid;
-		grid-template-rows: auto 200px auto;
+		grid-template-rows: 200px auto auto;
 		grid-template-columns: 1fr;
 		grid-template-areas:
-			'img'
 			'ad'
+			'img'
 			'main';
 
 		& img {
@@ -52,9 +55,7 @@
 		}
 
 		& .ad {
-			background-color: $gray-light;
 			width: 100%;
-			height: 100%;
 			grid-area: ad;
 		}
 
@@ -69,7 +70,6 @@
 				top: 20px;
 				position: sticky;
 				width: 250px;
-				height: calc(100vh - 40px);
 			}
 		}
 	}
