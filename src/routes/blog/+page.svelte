@@ -44,7 +44,7 @@
 		}
 
 		& .posts {
-			gap: 1rem;
+			gap: 0.5rem;
 			width: 100%;
 			display: grid;
 			grid-template-columns: 1fr;
@@ -59,8 +59,12 @@
 			}
 
 			& .posts {
-				gap: 0.5rem;
 				grid-template-columns: 1fr 1fr;
+			}
+		}
+		@include lg {
+			& .posts {
+				gap: 1rem;
 			}
 		}
 		@include xl {
