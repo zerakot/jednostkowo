@@ -57,22 +57,27 @@ $gray-dark: #a5a5a5;
 			border-radius: 10px;
 			border-bottom: 2px solid $gray-light;
 
-			&:hover {
+			/* &:hover {
 				background-color: $gray-light;
-			}
+			} */
 
 			&.active {
 				background-color: transparentize($primary, 0.85);
 
-				&:hover {
+				/* &:hover {
 					background-color: transparentize($primary, 0.8);
-				}
+				} */
+			}
+
+			&.category {
+				background-color: $gray-light;
+				border-bottom: 1px solid $gray-dark;
 			}
 
 			& td {
 				word-break: break-all;
 				font-size: inherit;
-				padding: 0.6rem 0;
+				padding: 0.5rem 0;
 				text-align: center;
 
 				&.label {

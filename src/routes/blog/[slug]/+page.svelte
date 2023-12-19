@@ -49,8 +49,9 @@
 			grid-area: main;
 
 			& h1 {
+				font-size: 2.2rem;
+				line-height: 3rem;
 				margin-bottom: 1rem;
-				line-height: 4rem;
 			}
 		}
 
@@ -67,9 +68,19 @@
 				'img img'
 				'main ad';
 
+			& img {
+				height: 40vh;
+			}
+
 			& .ad {
 				height: auto;
 				width: 250px;
+			}
+
+			& section.content h1 {
+				font-size: 2.7rem;
+
+				line-height: 4rem;
 			}
 		}
 	}

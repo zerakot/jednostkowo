@@ -6,24 +6,29 @@
 	export let decimals;
 	export let converters;
 
-	let results = [];
-
-	const convert = (num, ratio, dec) => {
-		if (num === '') num = 0;
+	const convert = (amount, ratio, dec) => {
+		if (amount === '') amount = 0;
 
 		return converters.map((converter) => {
-			const bigRatio = new Big(ratio);
-			const bigConverterRatio = new Big(converter.ratio);
-			const bigNum = new Big(num);
+			const name = converter.name;
 
-			const newValue = bigRatio.div(bigConverterRatio).times(bigNum).round(dec).toFixed(dec);
+			const values = converter.units.map((unit) => {
+				const bigRatio = new Big(ratio);
+				const bigUnitRatio = new Big(unit.ratio);
+				const bigAmount = new Big(amount);
+
+				const value = bigUnitRatio.div(bigRatio).times(bigAmount).round(dec).toFixed(dec);
+				return { ...unit, value };
+			});
+
 			return {
-				...converter,
-				value: newValue
+				name,
+				units: values
 			};
 		});
 	};
 
+	let results = [];
 	$: results = convert(number, unitRatio, parseInt(decimals));
 </script>
 
@@ -36,12 +41,20 @@
 		</tr>
 	</thead>
 	<tbody>
-		{#each results as result}
-			<tr class:active={unitRatio === result.ratio}>
-				<td class="label">{result.label}</td>
-				<td>{result.symbol}</td>
-				<td class="alignRight fitwidth">{result.value}</td>
-			</tr>
+		{#each results as converter}
+			{#if converter?.name}
+				<tr class="category">
+					<td colspan="3">{converter.name}</td>
+				</tr>
+			{/if}
+
+			{#each converter.units as unit}
+				<tr class:active={unitRatio === unit.ratio}>
+					<td class="label">{unit.label}</td>
+					<td>{unit.symbol}</td>
+					<td class="alignRight fitwidth">{unit.value}</td>
+				</tr>
+			{/each}
 		{/each}
 	</tbody>
 </table>

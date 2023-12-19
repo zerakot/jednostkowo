@@ -186,71 +186,167 @@ export const calculators = [
 		component: Converter,
 		about:
 			'Miary długości to jednostki służące do określania odległości między punktami w przestrzeni. Są one stosowane w różnych dziedzinach, takich jak fizyka, geografia, czy inżynieria. Najpopularniejsze jednostki długości to: centymetr, metr i kilometr.	',
+
 		converters: [
 			{
-				label: 'metr',
-				ratio: 1,
-				symbol: 'm'
+				name: 'Metryczny',
+				units: [
+					{
+						label: 'Kilometr',
+						ratio: 0.001,
+						symbol: 'km'
+					},
+					{
+						label: 'Metr',
+						ratio: 1,
+						symbol: 'm'
+					},
+					{
+						label: 'Decymetr',
+						ratio: 10,
+						symbol: 'dm'
+					},
+					{
+						label: 'Centymetr',
+						ratio: 100,
+						symbol: 'cm'
+					},
+					{
+						label: 'Milimetr',
+						ratio: 1000,
+						symbol: 'mm'
+					},
+					{
+						label: 'Mikrometr',
+						ratio: 1000000,
+						symbol: 'µm'
+					},
+					{
+						label: 'Nanometr',
+						ratio: 1000000000,
+						symbol: 'nm'
+					},
+					{
+						label: 'Angstrem',
+						ratio: 10000000000,
+						symbol: 'Å'
+					}
+				]
 			},
 			{
-				label: 'kilometr',
-				ratio: 1000,
-				symbol: 'km'
+				name: 'Brytyjski/Amerykański',
+				units: [
+					{
+						label: 'Liga',
+						ratio: 0.000207123730745778,
+						symbol: 'league'
+					},
+					{
+						label: 'Mila',
+						ratio: 0.0006213711922373339,
+						symbol: 'mi'
+					},
+					{
+						label: 'Furlongi',
+						ratio: 0.004970969537898671,
+						symbol: 'furlong'
+					},
+					{
+						label: 'Łańcuch',
+						ratio: 0.049709695378986715,
+						symbol: 'chain'
+					},
+					{
+						label: 'Pręt',
+						ratio: 0.19883878151594686,
+						symbol: 'rd'
+					},
+					{
+						label: 'Jard',
+						ratio: 1.0936132983377078,
+						symbol: 'yd'
+					},
+					{
+						label: 'Stopa',
+						ratio: 3.2808398950131235,
+						symbol: 'ft'
+					},
+					{
+						label: 'Link',
+						ratio: 4.970969537898672,
+						symbol: 'link'
+					},
+					{
+						label: 'Dłoń',
+						ratio: 9.84251968503937,
+						symbol: 'hand'
+					},
+					{
+						label: 'Cal',
+						ratio: 39.37007874015748,
+						symbol: 'in'
+					},
+					{
+						label: 'Linia',
+						ratio: 393.7007874015748,
+						symbol: 'line'
+					},
+					{
+						label: 'Mil',
+						ratio: 39370.07874015748,
+						symbol: 'mil'
+					},
+					{
+						label: 'Thou',
+						ratio: 39370.07874015748,
+						symbol: 'thou'
+					}
+				]
 			},
 			{
-				label: 'decymetr',
-				ratio: 0.1,
-				symbol: 'dm'
+				name: 'Morski',
+				units: [
+					{
+						label: 'Mila morska',
+						ratio: 0.0005399568034557236,
+						symbol: 'sea mile'
+					},
+					{
+						label: 'Sążeń',
+						ratio: 0.5468066491688539,
+						symbol: 'fathom'
+					}
+				]
 			},
 			{
-				label: 'centymetr',
-				ratio: 0.01,
-				symbol: 'cm'
-			},
-			{
-				label: 'milimetr',
-				ratio: 0.001,
-				symbol: 'mm'
-			},
-			{
-				label: 'mikrometr (mikron)',
-				ratio: 0.000001,
-				symbol: 'µm (µ)'
-			},
-			{
-				label: 'cal',
-				ratio: 0.0254,
-				symbol: '"'
-			},
-			{
-				label: 'stopa',
-				ratio: 0.3048,
-				symbol: 'ft'
-			},
-			{
-				label: 'jard',
-				ratio: 0.9144,
-				symbol: 'yd'
-			},
-			{
-				label: 'mila',
-				ratio: 1609.35,
-				symbol: 'mi'
-			},
-			{
-				label: 'mila morska',
-				ratio: 1852,
-				symbol: 'nmi'
-			},
-			{
-				label: 'jednostka astronomiczna',
-				ratio: 149597870700,
-				symbol: 'au'
-			},
-			{
-				label: 'rok świetlny',
-				ratio: 9460730472580800n,
-				symbol: 'ly'
+				name: 'Astronomiczny',
+				units: [
+					{
+						label: 'Parsek',
+						ratio: 3.240779e-17,
+						symbol: 'pc'
+					},
+					{
+						label: 'Rok świetlny',
+						ratio: 1.0570008340246154e-16,
+						symbol: 'light year'
+					},
+					{
+						label: 'Jednostka astronomiczna',
+						ratio: 6.684589e-12,
+						symbol: 'AE'
+					},
+					{
+						label: 'Minuty świetlne',
+						ratio: 5.559404e-11,
+						symbol: 'light minute'
+					},
+					{
+						label: 'Sekundy świetlne',
+						ratio: 3.335642e-9,
+						symbol: 'light second'
+					}
+				]
 			}
 		]
 	},
@@ -266,59 +362,58 @@ export const calculators = [
 			'Jednostki czasu umożliwiają mierzenie upływu czasu. Są podstawowym narzędziem do organizacji życia codziennego, zapisywania wydarzeń historycznych i określania czasu trwania różnych zjawisk.',
 		converters: [
 			{
-				label: 'sekunda',
-				ratio: 1,
-				symbol: 's'
-			},
-			{
-				label: 'minuta',
-				ratio: 60,
-				symbol: 'm'
-			},
-			{
-				label: 'godzina',
-				ratio: 3600,
-				symbol: 'h'
-			},
-			{
-				label: 'doba',
-				ratio: 86400,
-				symbol: 'd'
-			},
-			{
-				label: 'tydzień',
-				ratio: 604800,
-				symbol: 'tydz.'
-			},
-			{
-				label: 'miesiąc',
-				ratio: 2629700,
-				symbol: 'mies.'
-			},
-			{
-				label: 'rok',
-				ratio: 31556952,
-				symbol: 'r.'
-			},
-			{
-				label: 'nanosekunda',
-				ratio: 1e-9,
-				symbol: 'ns'
-			},
-			{
-				label: 'mikrosekunda',
-				ratio: 0.000001,
-				symbol: 'yd'
-			},
-			{
-				label: 'milisekunda',
-				ratio: 0.001,
-				symbol: 'ms'
-			},
-			{
-				label: 'dekada',
-				ratio: 315569520,
-				symbol: 'dekada'
+				units: [
+					{
+						label: 'Lata',
+						ratio: 1,
+						symbol: 'year'
+					},
+					{
+						label: 'Miesiące',
+						ratio: 12,
+						symbol: 'month'
+					},
+					{
+						label: 'Tygodnie',
+						ratio: 52.17857,
+						symbol: 'week'
+					},
+					{
+						label: 'Dni',
+						ratio: 365.25,
+						symbol: 'day'
+					},
+					{
+						label: 'Godziny',
+						ratio: 8766,
+						symbol: 'hour'
+					},
+					{
+						label: 'Minuty',
+						ratio: 525960,
+						symbol: 'minute'
+					},
+					{
+						label: 'Sekundy',
+						ratio: 31557600,
+						symbol: 's'
+					},
+					{
+						label: 'Milisekundy',
+						ratio: 31557600000,
+						symbol: 'ms'
+					},
+					{
+						label: 'Mikrosekundy',
+						ratio: 31557600000000,
+						symbol: 'µs'
+					},
+					{
+						label: 'Nanosekundy',
+						ratio: 31557600000000000n,
+						symbol: 'ns'
+					}
+				]
 			}
 		]
 	},
@@ -335,39 +430,83 @@ export const calculators = [
 			'Jednostki informatyczne to sposoby pomiaru ilości danych, które można przechowywać lub przesyłać za pomocą urządzeń elektronicznych. Każda z jednostek odpowiada określonej liczbie bitów, czyli najmniejszych elementów informacji.',
 		converters: [
 			{
-				label: 'kilobajt',
-				ratio: 1,
-				symbol: 'kb'
-			},
-			{
-				label: 'megabajt',
-				ratio: 1024,
-				symbol: 'mb'
-			},
-			{
-				label: 'gigabajt',
-				ratio: 1048576,
-				symbol: 'gb'
-			},
-			{
-				label: 'terabajt',
-				ratio: 1073741824,
-				symbol: 'tb'
-			},
-			{
-				label: 'petabajt',
-				ratio: 1099511627776,
-				symbol: 'pb'
-			},
-			{
-				label: 'eksabajt',
-				ratio: 1125899906842600,
-				symbol: 'eb'
-			},
-			{
-				label: 'zettabajt',
-				ratio: 1152921504606800000n,
-				symbol: 'zb'
+				units: [
+					{
+						label: 'Bity',
+						ratio: 8388608,
+						symbol: 'bit'
+					},
+					{
+						label: 'Półbajt',
+						ratio: 2097152,
+						symbol: 'nibble'
+					},
+					{
+						label: 'Kilobity',
+						ratio: 8192,
+						symbol: 'kilobit'
+					},
+					{
+						label: 'Megabity',
+						ratio: 8,
+						symbol: 'megabit'
+					},
+					{
+						label: 'Gigabity',
+						ratio: 0.0078125,
+						symbol: 'gigabit'
+					},
+					{
+						label: 'Terabity',
+						ratio: 0.000007629395,
+						symbol: 'terabit'
+					},
+					{
+						label: 'Petabity',
+						ratio: 7.450581e-9,
+						symbol: 'petabit'
+					},
+					{
+						label: 'Eksabity',
+						ratio: 7.275958e-12,
+						symbol: 'exabit'
+					},
+					{
+						label: 'Bajty',
+						ratio: 1048576,
+						symbol: 'B'
+					},
+					{
+						label: 'Kilobajty',
+						ratio: 1024,
+						symbol: 'kB'
+					},
+					{
+						label: 'Megabajty',
+						ratio: 1,
+						symbol: 'MB'
+					},
+					{
+						label: 'Gigabajty',
+						ratio: 0.0009765625,
+						symbol: 'GB'
+					},
+					{
+						label: 'Terabajty',
+						ratio: 9.536744e-7,
+						symbol: 'TB'
+					},
+					{
+						label: 'Petabajty',
+						ratio: 9.313227e-10,
+						symbol: 'PB'
+					},
+					{
+						label: 'Eksabajty',
+						ratio: 9.094948e-13,
+						symbol: 'EB'
+					}
+				]
 			}
 		]
 	},
@@ -383,64 +522,234 @@ export const calculators = [
 			'Jednostki masy służą do pomiaru ilości materii zawartej w danym obiekcie. Najczęściej używanymi jednostkami masy są kilogram, gram i miligram. Masa wyraża się ilością materii obecną w danym ciele i jest jednym z fundamentalnych parametrów fizycznych.',
 		converters: [
 			{
-				label: 'gram',
-				ratio: 1,
-				symbol: 'g'
+				name: 'Metryczny',
+				units: [
+					{
+						label: 'Tona',
+						ratio: 0.001,
+						symbol: 't'
+					},
+					{
+						label: 'Kilonewton',
+						ratio: 0.009806652,
+						symbol: 'kN'
+					},
+					{
+						label: 'Kilogram',
+						ratio: 1,
+						symbol: 'kg'
+					},
+					{
+						label: 'Hektogram',
+						ratio: 10,
+						symbol: 'hg'
+					},
+					{
+						label: 'Decagram',
+						ratio: 100,
+						symbol: 'dag'
+					},
+					{
+						label: 'Gram',
+						ratio: 1000,
+						symbol: 'g'
+					},
+					{
+						label: 'Karat',
+						ratio: 5000,
+						symbol: 'karat'
+					},
+					{
+						label: 'Centygram',
+						ratio: 100000,
+						symbol: 'centigram'
+					},
+					{
+						label: 'Miligram',
+						ratio: 1000000,
+						symbol: 'mg'
+					},
+					{
+						label: 'Mikrogram',
+						ratio: 1000000000,
+						symbol: 'µg'
+					},
+					{
+						label: 'Nanogram',
+						ratio: 1000000000000,
+						symbol: 'ng'
+					},
+					{
+						label: 'Jednostka masy atomowej',
+						ratio: 6.022045e26,
+						symbol: 'u'
+					}
+				]
 			},
 			{
-				label: 'kilogram',
-				ratio: 1000,
-				symbol: 'kg'
+				name: 'Avoirdupois (USA)',
+				units: [
+					{
+						label: 'Tona długa',
+						ratio: 0.000984206527611061,
+						symbol: 'long ton'
+					},
+					{
+						label: 'Tona krótka',
+						ratio: 0.00110231131092439,
+						symbol: 'short ton'
+					},
+					{
+						label: 'Duży cetnar',
+						ratio: 0.0196841305522212,
+						symbol: 'long hundredweight'
+					},
+					{
+						label: 'mały cetnar',
+						ratio: 0.0220462262184878,
+						symbol: 'short hundredweight'
+					},
+					{
+						label: 'Kamień',
+						ratio: 0.15747304441777,
+						symbol: 'stone'
+					},
+					{
+						label: 'Funt',
+						ratio: 2.20462262184878,
+						symbol: 'lb'
+					},
+					{
+						label: 'Uncja',
+						ratio: 35.2739619495804,
+						symbol: 'ounce'
+					},
+					{
+						label: 'Łut',
+						ratio: 564.383391193287,
+						symbol: 'dr'
+					},
+					{
+						label: 'Gran',
+						ratio: 15432.3583529414,
+						symbol: 'gr'
+					}
+				]
 			},
 			{
-				label: 'dekagram',
-				ratio: 100,
-				symbol: 'dag'
+				name: 'Troy',
+				units: [
+					{
+						label: 'Funt',
+						ratio: 2.679228885025959,
+						symbol: 'pound'
+					},
+					{
+						label: 'Uncja',
+						ratio: 32.15074739556441,
+						symbol: 'ounce'
+					},
+					{
+						label: 'Masa pensa',
+						ratio: 642.9506,
+						symbol: 'pennyweight'
+					},
+					{
+						label: 'Karat',
+						ratio: 4877.561,
+						symbol: 'carat'
+					},
+					{
+						label: 'Gran',
+						ratio: 15432.358377749522,
+						symbol: 'grain'
+					},
+					{
+						label: 'Grosz',
+						ratio: 308616.4,
+						symbol: 'mite'
+					},
+					{
+						label: 'Doite',
+						ratio: 7406796,
+						symbol: 'doite'
+					}
+				]
 			},
 			{
-				label: 'funt',
-				ratio: 453.592,
-				symbol: 'lb'
+				name: 'Japoński',
+				units: [
+					{
+						label: 'Koku',
+						ratio: 0.005542993,
+						symbol: 'koku'
+					},
+					{
+						label: 'Kann',
+						ratio: 0.2666401,
+						symbol: 'kann'
+					},
+					{
+						label: 'Kinn',
+						ratio: 1.666501,
+						symbol: 'kinn'
+					},
+					{
+						label: 'Monnme',
+						ratio: 266.6402,
+						symbol: 'monnme'
+					}
+				]
 			},
 			{
-				label: 'uncja',
-				ratio: 28.349523125,
-				symbol: 'oz'
+				name: 'Chiński',
+				units: [
+					{
+						label: 'Tael',
+						ratio: 26.4643,
+						symbol: 'tael'
+					},
+					{
+						label: 'Ku ping',
+						ratio: 26.79796,
+						symbol: 'ku ping'
+					}
+				]
 			},
 			{
-				label: 'karat',
-				ratio: 0.2,
-				symbol: 'ct'
-			},
-			{
-				label: 'gran',
-				ratio: 0.06479891,
-				symbol: 'gr'
-			},
-			{
-				label: 'cetnar ang',
-				ratio: 50802.34544,
-				symbol: 'cwtUK'
-			},
-			{
-				label: 'cetnar USA',
-				ratio: 45359.237,
-				symbol: 'cwt'
-			},
-			{
-				label: 'tona długa',
-				ratio: 1016046.9088,
-				symbol: 'tonUK'
-			},
-			{
-				label: 'tona krótka',
-				ratio: 907184.74,
-				symbol: 'tonUS'
-			},
-			{
-				label: 'tona',
-				ratio: 1000000,
-				symbol: 't'
+				name: 'Staroszwedzki',
+				units: [
+					{
+						label: 'Skeppspund',
+						ratio: 0.005881768,
+						symbol: 'skeppspund'
+					},
+					{
+						label: 'Lispund',
+						ratio: 0.1176077,
+						symbol: 'lispund'
+					},
+					{
+						label: 'Skålpund',
+						ratio: 2.352707,
+						symbol: 'skålpund'
+					},
+					{
+						label: 'Mark',
+						ratio: 4.705414,
+						symbol: 'mark'
+					},
+					{
+						label: 'Uns',
+						ratio: 35.83873,
+						symbol: 'uns'
+					},
+					{
+						label: 'Lod',
+						ratio: 75.18049,
+						symbol: 'lod'
+					}
+				]
 			}
 		]
 	},
@@ -458,84 +767,284 @@ export const calculators = [
 			'Jednostki objętości to miary używane do określania wielkości przestrzeni zajmowanej przez ciało lub substancję. Najczęściej stosowanymi jednostkami objętości są metr sześcienny, litr i mililitr. Metr sześcienny to objętość sześcianu o boku długości jednego metra.',
 		converters: [
 			{
-				label: 'metr sześcienny',
-				ratio: 1,
-				symbol: 'm³'
+				name: 'Metryczny',
+				units: [
+					{
+						label: 'Kilometry sześcienne',
+						ratio: 1e-12,
+						symbol: 'km³'
+					},
+					{
+						label: 'Metry sześcienne',
+						ratio: 0.001,
+						symbol: 'm³'
+					},
+					{
+						label: 'Hektolitry',
+						ratio: 0.01,
+						symbol: 'hl'
+					},
+					{
+						label: 'Dekalitr',
+						ratio: 0.1,
+						symbol: 'decaliter'
+					},
+					{
+						label: 'Decymetry sześcienne',
+						ratio: 1,
+						symbol: 'dm³'
+					},
+					{
+						label: 'Litr',
+						ratio: 1,
+						symbol: 'l'
+					},
+					{
+						label: 'Decylitr',
+						ratio: 10,
+						symbol: 'dl'
+					},
+					{
+						label: 'Centiliter',
+						ratio: 100,
+						symbol: 'cl'
+					},
+					{
+						label: 'Centymetry sześcienne',
+						ratio: 1000,
+						symbol: 'cm³'
+					},
+					{
+						label: 'Mililitry',
+						ratio: 1000,
+						symbol: 'ml'
+					},
+					{
+						label: 'Milimetry sześcienne',
+						ratio: 1000000,
+						symbol: 'mm³'
+					},
+					{
+						label: 'Mikrolitr',
+						ratio: 1000000,
+						symbol: 'µl'
+					}
+				]
 			},
 			{
-				label: 'kilometr sześcienny',
-				ratio: 1000000000,
-				symbol: 'kg'
+				name: 'Brytyjskie jednostki płynów i produktów suchych',
+				units: [
+					{
+						label: 'Baryłki',
+						ratio: 0.006110602,
+						symbol: 'barrel'
+					},
+					{
+						label: 'Buszel',
+						ratio: 0.0274961,
+						symbol: 'bu'
+					},
+					{
+						label: 'Peck',
+						ratio: 0.1099844,
+						symbol: 'pk'
+					},
+					{
+						label: 'Galon',
+						ratio: 0.2199688,
+						symbol: 'gal'
+					},
+					{
+						label: 'Kwarty',
+						ratio: 0.8798751,
+						symbol: 'qt'
+					},
+					{
+						label: 'Pinta',
+						ratio: 1.759751,
+						symbol: 'pt'
+					},
+					{
+						label: 'Uncja Płynu',
+						ratio: 35.19501,
+						symbol: 'oz'
+					}
+				]
 			},
 			{
-				label: 'decymetr sześcienny (Litr)',
-				ratio: 0.001,
-				symbol: 'dm³ (l)'
+				name: 'Amerykańska miara płynów',
+				units: [
+					{
+						label: 'Akr sześcienny',
+						ratio: 8.107131e-7,
+						symbol: 'acre foot'
+					},
+					{
+						label: 'Jard sześcienny',
+						ratio: 0.001307951,
+						symbol: 'yd³'
+					},
+					{
+						label: 'Baryłki',
+						ratio: 0.006289813,
+						symbol: 'barrel'
+					},
+					{
+						label: 'Stopa sześcienna',
+						ratio: 0.03531468,
+						symbol: 'ft³'
+					},
+					{
+						label: 'Galon',
+						ratio: 0.2641722,
+						symbol: 'gal'
+					},
+					{
+						label: 'Kwarty',
+						ratio: 1.056688,
+						symbol: 'qt'
+					},
+					{
+						label: 'Pinta',
+						ratio: 2.113376,
+						symbol: 'pt'
+					},
+					{
+						label: 'Gill',
+						ratio: 8.453507,
+						symbol: 'gill'
+					},
+					{
+						label: 'Uncja Płynu',
+						ratio: 33.81402,
+						symbol: 'oz'
+					},
+					{
+						label: 'Cal sześcienny',
+						ratio: 61.02376,
+						symbol: 'in³'
+					},
+					{
+						label: 'Naparstek',
+						ratio: 270.5122,
+						symbol: 'fluid dram'
+					},
+					{
+						label: 'Półnuta',
+						ratio: 16230.73,
+						symbol: 'minim'
+					}
+				]
 			},
 			{
-				label: 'centymetr sześcienny (Mililitr)',
-				ratio: 0.000001,
-				symbol: 'cm³ (ml)'
+				name: 'Amerykańskie miary produktów suchych',
+				units: [
+					{
+						label: 'Baryłki',
+						ratio: 0.008648492,
+						symbol: 'barrel'
+					},
+					{
+						label: 'Buszel',
+						ratio: 0.02837759,
+						symbol: 'bu'
+					},
+					{
+						label: 'Peck',
+						ratio: 0.1135104,
+						symbol: 'pk'
+					},
+					{
+						label: 'Galon',
+						ratio: 0.2270208,
+						symbol: 'gal'
+					},
+					{
+						label: 'Kwarty',
+						ratio: 0.9080832,
+						symbol: 'qt'
+					},
+					{
+						label: 'Pinta',
+						ratio: 1.816166,
+						symbol: 'pt'
+					},
+					{
+						label: 'Gill',
+						ratio: 7.264665,
+						symbol: 'gill'
+					},
+					{
+						label: 'Stopa lądowa',
+						ratio: 0.42377611111111113,
+						symbol: 'FBM'
+					}
+				]
 			},
 			{
-				label: 'milimetr sześcienny',
-				ratio: 1e-9,
-				symbol: 'mm³'
+				name: 'Japoński',
+				units: [
+					{
+						label: 'Koku',
+						ratio: 0.005543548,
+						symbol: 'koku'
+					},
+					{
+						label: 'Do',
+						ratio: 0.05543548,
+						symbol: 'to'
+					},
+					{
+						label: 'Sho',
+						ratio: 0.5543548,
+						symbol: 'sho'
+					},
+					{
+						label: 'Go',
+						ratio: 5.543548,
+						symbol: 'go'
+					}
+				]
 			},
 			{
-				label: 'cal sześcienny',
-				ratio: 0.000016387064,
-				symbol: 'in³'
+				name: 'Amerykańskie jednostki kuchenne',
+				units: [
+					{
+						label: 'Filiżanki',
+						ratio: 4.226754,
+						symbol: 'cup'
+					},
+					{
+						label: 'Łyżka stołowa',
+						ratio: 67.62803,
+						symbol: 'tablespoon'
+					},
+					{
+						label: 'Łyżeczki',
+						ratio: 202.8841,
+						symbol: 'teaspoon'
+					}
+				]
 			},
 			{
-				label: 'stopa sześcienna',
-				ratio: 0.028316846592,
-				symbol: 'ft³'
-			},
-			{
-				label: 'jard sześcienny',
-				ratio: 0.764554857984,
-				symbol: 'yd³'
-			},
-			{
-				label: 'galon USA',
-				ratio: 0.00378541178,
-				symbol: 'gal'
-			},
-			{
-				label: 'galon ang',
-				ratio: 0.00454609,
-				symbol: 'galUK'
-			},
-			{
-				label: 'galon suchy',
-				ratio: 0.00440488377086,
-				symbol: 'galD'
-			},
-			{
-				label: 'buszel USA',
-				ratio: 0.03523907016688,
-				symbol: 'bu'
-			},
-			{
-				label: 'buszel ang',
-				ratio: 0.03636872,
-				symbol: 'buUK'
-			},
-			{
-				label: 'baryłka USA wino',
-				ratio: 0.1192404713,
-				symbol: 'bbl'
-			},
-			{
-				label: 'baryłka ang',
-				ratio: 0.16365924,
-				symbol: 'bblUK'
-			},
-			{
-				label: 'baryłka petro',
-				ratio: 0.158987294928,
-				symbol: 'bo'
+				name: 'Jednostki kuchenne w systemie metrycznym',
+				units: [
+					{
+						label: 'Łyżka stołowa',
+						ratio: 66.66667,
+						symbol: 'tablespoon'
+					},
+					{
+						label: 'Łyżeczki',
+						ratio: 200,
+						symbol: 'teaspoon'
+					},
+					{
+						label: 'Szczypta',
+						ratio: 1000,
+						symbol: 'spice measure'
+					}
+				]
 			}
 		]
 	},
@@ -552,79 +1061,134 @@ export const calculators = [
 			'Ciśnienie to siła wywierana na jednostkową powierzchnię, równa stosunkowi siły działającej prostopadle do tej powierzchni do wielkości tej powierzchni. W układzie SI jednostką ciśnienia jest paskal (Pa), który odpowiada sile jednego newtona działającej na jeden metr kwadratowy powierzchni',
 		converters: [
 			{
-				label: 'paskal',
-				ratio: 1,
-				symbol: 'Pa'
+				name: 'Metryczny',
+				units: [
+					{
+						label: 'Megapaskale',
+						ratio: 0.000001,
+						symbol: 'MPa'
+					},
+					{
+						label: 'Bary',
+						ratio: 0.00001,
+						symbol: 'bar'
+					},
+					{
+						label: 'Kilogram-siła na centymetr kwadratowy',
+						ratio: 0.00001019716,
+						symbol: 'kgf/cm²'
+					},
+					{
+						label: 'Kilopaskale',
+						ratio: 0.001,
+						symbol: 'kPa'
+					},
+					{
+						label: 'Hektopaskale',
+						ratio: 0.01,
+						symbol: 'hPa'
+					},
+					{
+						label: 'Milibary',
+						ratio: 0.01,
+						symbol: 'millibar'
+					},
+					{
+						label: 'Kilogram-siła na metr kwadratowy',
+						ratio: 0.1019716,
+						symbol: 'kgf/m²'
+					},
+					{
+						label: 'Paskale',
+						ratio: 1,
+						symbol: 'Pa'
+					}
+				]
 			},
 			{
-				label: 'kilopascal',
-				ratio: 1000,
-				symbol: 'kPa'
+				name: 'Avoirdupois (USA)',
+				units: [
+					{
+						label: 'Kilofunty na cal kwadratowy',
+						ratio: 1.450377e-7,
+						symbol: 'ksi'
+					},
+					{
+						label: 'Funty na cal kwadratowy',
+						ratio: 0.0001450377,
+						symbol: 'psi'
+					},
+					{
+						label: 'Funty na stopę kwadartową',
+						ratio: 0.02088543,
+						symbol: 'psf'
+					}
+				]
 			},
 			{
-				label: 'bar',
-				ratio: 100000,
-				symbol: 'bar'
+				name: 'Woda',
+				units: [
+					{
+						label: 'Metr słupa wody',
+						ratio: 0.000101974428892211,
+						symbol: 'mH2O'
+					},
+					{
+						label: 'Centymetr słupa wody',
+						ratio: 0.0101974428892211,
+						symbol: 'cmH2O'
+					},
+					{
+						label: 'Stopa słupa wody',
+						ratio: 0.000334561774580745,
+						symbol: 'ftH20'
+					},
+					{
+						label: 'Cal słupa wody',
+						ratio: 0.00401474129496894,
+						symbol: 'inH2O'
+					}
+				]
 			},
 			{
-				label: 'funt-siła na cal kwadratowy',
-				ratio: 6894.757,
-				symbol: 'psi'
+				name: 'Atmosfery',
+				units: [
+					{
+						label: 'Atmosfera fizyczna',
+						ratio: 0.000009869233,
+						symbol: 'atm'
+					},
+					{
+						label: 'Atmosfera techniczna',
+						ratio: 0.00001019716,
+						symbol: 'technical atmosphere'
+					}
+				]
 			},
 			{
-				label: 'megapaskal',
-				ratio: 1000000,
-				symbol: 'mPa'
-			},
-			{
-				label: 'atmosfera fizyczna',
-				ratio: 101325,
-				symbol: 'atm'
-			},
-			{
-				label: 'kilogram-siła na metr kwadratowy',
-				ratio: 9.80665,
-				symbol: 'kG/m2'
-			},
-			{
-				label: 'atmosfera techniczna',
-				ratio: 9.80665,
-				symbol: 'at'
-			},
-			{
-				label: 'kilogram-siła na centymetr kwadratowy',
-				ratio: 98066.5,
-				symbol: 'kG/cm2'
-			},
-			{
-				label: 'kilogram-siła na milimetr kwadratowy',
-				ratio: 9806650,
-				symbol: 'kG/mm2'
-			},
-			{
-				label: 'dyna na centymetr kwadratowy',
-				ratio: 0.1,
-				symbol: 'dyn/cm2'
-			},
-			{
-				label: 'milimetr słupa rtęci (Tor)',
-				ratio: 133.322387415,
-				symbol: 'mmHg (Tr)'
-			},
-			{
-				label: 'milimetr słupa wody',
-				ratio: 9.80638,
-				symbol: 'mmH2O'
-			},
-			{
-				label: 'cal słupa rtęci',
-				ratio: 3,
-				symbol: 'inHg'
-			},
-			{
-				label: 'cal słupa wody',
-				ratio: 249.082,
-				symbol: 'inH2O'
+				name: 'Rtęć',
+				units: [
+					{
+						label: 'Cale słupka rtęci',
+						ratio: 0.0002953007,
+						symbol: 'inHg'
+					},
+					{
+						label: 'Centymetry słupka rtęci',
+						ratio: 0.0007500638,
+						symbol: 'cmHg'
+					},
+					{
+						label: 'Milimetry słupka rtęci',
+						ratio: 0.007500638,
+						symbol: 'mmHg'
+					},
+					{
+						label: 'Tor',
+						ratio: 0.007500638,
+						symbol: 'torr'
+					}
+				]
 			}
 		]
 	},
@@ -641,59 +1205,79 @@ export const calculators = [
 			'Energia to abstrakcyjna koncepcja opisująca zdolność do wykonywania pracy lub powodowania zmiany, wyrażana często w różnych formach, takich jak ciepło, prąd elektryczny, światło czy ruch.',
 		converters: [
 			{
-				label: 'dżul',
-				ratio: 1,
-				symbol: 'J'
+				name: 'Metryczny',
+				units: [
+					{
+						label: 'Kilowatogodziny',
+						ratio: 2.7777777777777776e-7,
+						symbol: 'kWh'
+					},
+					{
+						label: 'Megadżule',
+						ratio: 0.000001,
+						symbol: 'MJ'
+					},
+					{
+						label: 'Kilodżule',
+						ratio: 0.001,
+						symbol: 'kJ'
+					},
+					{
+						label: 'Dżule',
+						ratio: 1,
+						symbol: 'J'
+					},
+					{
+						label: 'Elektronowolt',
+						ratio: 6241506000000000000n,
+						symbol: 'eV'
+					}
+				]
 			},
 			{
-				label: 'kilodżul',
-				ratio: 1000,
-				symbol: 'kJ'
+				name: 'Brytyjski/Amerykański',
+				units: [
+					{
+						label: 'Kwadrat',
+						ratio: 9.478134e-19,
+						symbol: 'quad'
+					},
+					{
+						label: 'Therm',
+						ratio: 9.478134e-9,
+						symbol: 'therm'
+					},
+					{
+						label: 'Brytyjska jednostka ciepła',
+						ratio: 0.0009478171,
+						symbol: 'BTU'
+					},
+					{
+						label: 'Stopo-funt',
+						ratio: 0.7375822,
+						symbol: 'foot-pound'
+					}
+				]
 			},
 			{
-				label: 'kilogramometr',
-				ratio: 9.8067,
-				symbol: 'kGm'
-			},
-			{
-				label: 'kilowatogodzina',
-				ratio: 3600000,
-				symbol: 'kWh'
-			},
-			{
-				label: 'kaloria',
-				ratio: 4.1868,
-				symbol: 'cal'
-			},
-			{
-				label: 'kilokaloria',
-				ratio: 4186.8,
-				symbol: 'kcal'
-			},
-			{
-				label: 'koniogodzina',
-				ratio: 2647796.4,
-				symbol: 'KM⋅h'
-			},
-			{
-				label: 'erg',
-				ratio: 1e-7,
-				symbol: 'erg'
-			},
-			{
-				label: 'stopofunt',
-				ratio: 1.3558179483314,
-				symbol: 'ftlbf'
-			},
-			{
-				label: 'stopa-poundal',
-				ratio: 0.042140110093805,
-				symbol: 'ftpdl'
-			},
-			{
-				label: 'brytyjska jednostka ciepła',
-				ratio: 1055.05585262,
-				symbol: 'Btu'
+				name: 'Inne',
+				units: [
+					{
+						label: 'Kilokalorie',
+						ratio: 0.0002388459,
+						symbol: 'kcal'
+					},
+					{
+						label: 'Kalorie',
+						ratio: 0.2388459,
+						symbol: 'cal'
+					},
+					{
+						label: 'Termia',
+						ratio: 2.388459e-7,
+						symbol: 'th'
+					}
+				]
 			}
 		]
 	},
@@ -710,79 +1294,114 @@ export const calculators = [
 			'Częstotliwość to miara ilości powtórzeń lub oscylacji zjawiska na jednostkę czasu. Najczęściej częstotliwość jest wyrażana w hercach (Hz) i odnosi się do liczby cykli, oscylacji lub zmian w jednostce czasu, na przykład liczby fal dźwiękowych lub drgań elektromagnetycznych w jednej sekundzie.',
 		converters: [
 			{
-				label: '1/min',
-				ratio: 0.016666666666667,
-				symbol: '1/min'
+				name: 'Częstotliwość',
+				units: [
+					{
+						label: 'Nanoherc',
+						ratio: 1000000000,
+						symbol: 'nHz'
+					},
+					{
+						label: 'Mikroherc',
+						ratio: 1000000,
+						symbol: 'µHz'
+					},
+					{
+						label: 'Miliherc',
+						ratio: 1000,
+						symbol: 'mHz'
+					},
+					{
+						label: 'Herc',
+						ratio: 1,
+						symbol: 'Hz'
+					},
+					{
+						label: 'Kiloherc',
+						ratio: 0.001,
+						symbol: 'kHz'
+					},
+					{
+						label: 'Megaherc',
+						ratio: 0.000001,
+						symbol: 'MHz'
+					},
+					{
+						label: 'Gigaherce',
+						ratio: 1e-9,
+						symbol: 'GHz'
+					},
+					{
+						label: 'Teraherc',
+						ratio: 1e-12,
+						symbol: 'THz'
+					}
+				]
 			},
 			{
-				label: '1/h',
-				ratio: 0.00027777777777778,
-				symbol: '1/h'
+				name: 'Okres obrotu',
+				units: [
+					{
+						label: 'Cykle na sekundę',
+						ratio: 1,
+						symbol: 'cps'
+					},
+					{
+						label: 'Obrotów na minutę',
+						ratio: 60,
+						symbol: 'rpm'
+					},
+					{
+						label: 'Uderzeń na minutę',
+						ratio: 60,
+						symbol: 'BPM'
+					}
+				]
 			},
 			{
-				label: 'herc (1/s)',
-				ratio: 1,
-				symbol: 'Hz'
-			},
-			{
-				label: 'petaherc',
-				ratio: 1000000000000000,
-				symbol: 'PHz'
-			},
-			{
-				label: 'teraherc',
-				ratio: 1000000000000,
-				symbol: 'THz'
-			},
-			{
-				label: 'gigaherc',
-				ratio: 1000000000,
-				symbol: 'GHz'
-			},
-			{
-				label: 'megaherc',
-				ratio: 1000000,
-				symbol: 'MHz'
-			},
-			{
-				label: 'kiloherc',
-				ratio: 1000,
-				symbol: 'kHz'
-			},
-			{
-				label: 'hektoherc',
-				ratio: 100,
-				symbol: 'hHz'
-			},
-			{
-				label: 'dekaherc',
-				ratio: 10,
-				symbol: 'daHz'
-			},
-			{
-				label: 'decyherc',
-				ratio: 0.1,
-				symbol: 'dHz'
-			},
-			{
-				label: 'centyherc',
-				ratio: 0.01,
-				symbol: 'cHz'
-			},
-			{
-				label: 'miliherc',
-				ratio: 0.001,
-				symbol: 'mHz'
-			},
-			{
-				label: 'mikroherc',
-				ratio: 0.000001,
-				symbol: 'μHz'
-			},
-			{
-				label: 'nanoherc',
-				ratio: 1e-9,
-				symbol: 'nHz'
+				name: 'Prędkość kątowa',
+				units: [
+					{
+						label: 'Radianów na sekundę',
+						ratio: 6.283185307179586,
+						symbol: 'rad/s'
+					},
+					{
+						label: 'Radianów na minutę',
+						ratio: 376.9911184307752,
+						symbol: 'rad/min'
+					},
+					{
+						label: 'Radianów na godzinę',
+						ratio: 22619.46710584651,
+						symbol: 'rad/h'
+					},
+					{
+						label: 'Radianów na dzień',
+						ratio: 542867.2105403163,
+						symbol: 'rad/day'
+					},
+					{
+						label: 'Stopni na sekundę',
+						ratio: 360,
+						symbol: 'degrees/s'
+					},
+					{
+						label: 'Stopni na minutę',
+						ratio: 21600,
+						symbol: 'degrees/min'
+					},
+					{
+						label: 'Stopni na godzinę',
+						ratio: 1296000,
+						symbol: 'degrees/h'
+					},
+					{
+						label: 'Stopni na dzień',
+						ratio: 31104000,
+						symbol: 'degrees/day'
+					}
+				]
 			}
 		]
 	},
@@ -799,74 +1418,59 @@ export const calculators = [
 			'Gęstość to wielkość fizyczna, która określa masę substancji przypadającą na jednostkę objętości. Innymi słowy, jest to stosunek masy pewnej ilości substancji do zajmowanej przez nią objętości. Jednostką gęstości w układzie SI jest kilogram na metr sześcienny.',
 		converters: [
 			{
-				label: 'gram na litr',
-				ratio: 1,
-				symbol: 'g/l'
+				name: 'Metryczny',
+				units: [
+					{
+						label: 'Gram na centymetr sześcienny',
+						ratio: 0.001,
+						symbol: 'g/cm³'
+					},
+					{
+						label: 'Kilogram na metr sześcienny',
+						ratio: 1,
+						symbol: 'kg/m³'
+					},
+					{
+						label: 'Gram na metr sześcienny',
+						ratio: 1000,
+						symbol: 'g/m³'
+					},
+					{
+						label: 'Miligram na metr sześcienny',
+						ratio: 1000000,
+						symbol: 'mg/m³'
+					}
+				]
 			},
 			{
-				label: 'gram na centymetr sześcienny',
-				ratio: 1000,
-				symbol: 'g/cm³'
+				name: 'Brytyjski/Amerykański',
+				units: [
+					{
+						label: 'Uncja na galon',
+						ratio: 0.1335264712,
+						symbol: 'oz/gal'
+					},
+					{
+						label: 'Funt na stopę sześcienną',
+						ratio: 0.06242796058,
+						symbol: 'lb/ft³'
+					},
+					{
+						label: 'Funt na cal sześcienny',
+						ratio: 0.000036127292,
+						symbol: 'lb/in³'
+					}
+				]
 			},
 			{
-				label: 'gram na decylitr',
-				ratio: 10,
-				symbol: 'g/dl'
-			},
-			{
-				label: 'gram na decymetr sześcienny',
-				ratio: 1,
-				symbol: 'g/dm³'
-			},
-			{
-				label: 'gram na metr sześcienny',
-				ratio: 0.001,
-				symbol: 'g/m³'
-			},
-			{
-				label: 'gram na mililitr',
-				ratio: 1000,
-				symbol: 'g/ml'
-			},
-			{
-				label: 'kilogram na litr',
-				ratio: 1000,
-				symbol: 'kg/l'
-			},
-			{
-				label: 'kilogram na centymetr sześcienny',
-				ratio: 1000000,
-				symbol: 'kg/cm³'
-			},
-			{
-				label: 'kilogram na decymetr sześcienny',
-				ratio: 1000,
-				symbol: 'kg/dm³'
-			},
-			{
-				label: 'kilogram na metr sześcienny',
-				ratio: 1,
-				symbol: 'kg/m³'
-			},
-			{
-				label: 'miligram na decylitr',
-				ratio: 0.01,
-				symbol: 'mg/dl'
-			},
-			{
-				label: 'miligram na litr',
-				ratio: 0.001,
-				symbol: 'mg/l'
-			},
-			{
-				label: 'miligram na metr sześcienny',
-				ratio: 0.000001,
-				symbol: 'mg/m³'
-			},
-			{
-				label: 'miligram na mililitr',
-				ratio: 1,
-				symbol: 'mg/ml'
+				name: 'Pospolite substancje',
+				units: [
+					{
+						label: 'Woda przy 4°C',
+						ratio: 0.00100002500062,
+						symbol: 'water 4C'
+					}
+				]
 			}
 		]
 	},
@@ -883,54 +1487,93 @@ export const calculators = [
 			'Moc jest wielkością fizyczną, która informuje o szybkości wykonywania danej pracy. Im szybciej zostanie wykonana praca, tym większa będzie moc. Moc z definicji jest równa stosunkowi wykonanej pracy do czasu, w którym ta została wykonana.',
 		converters: [
 			{
-				label: 'wat',
-				ratio: 1,
-				symbol: 'W'
-			},
-			{
-				label: 'kilowat',
-				ratio: 1000,
-				symbol: 'kW'
-			},
-			{
-				label: 'kilogramometr na sekundę',
-				ratio: 9.80665,
-				symbol: 'kG·m/s'
-			},
-			{
-				label: 'kilokaloria na sekundę',
-				ratio: 4186.8,
-				symbol: 'kcal/s'
-			},
-			{
-				label: 'kilokaloria na godzinę',
-				ratio: 1.163,
-				symbol: 'kcal/h'
-			},
-			{
-				label: 'koń mechaniczny',
-				ratio: 735.49875,
-				symbol: 'KM'
-			},
-			{
-				label: 'angielski koń parowy',
-				ratio: 745.69987158,
-				symbol: 'hp'
-			},
-			{
-				label: 'erg na sekundę',
-				ratio: 1e-7,
-				symbol: 'erg/s'
-			},
-			{
-				label: 'stopofunt na sekundę',
-				ratio: 1.3558179483,
-				symbol: 'ft·lbf/s'
-			},
-			{
-				label: 'angielska jednostka ciepła na sekundę',
-				ratio: 1055.0558526,
-				symbol: 'BTU/s'
+				units: [
+					{
+						label: 'Miliwaty',
+						ratio: 1000,
+						symbol: 'Milliwatt'
+					},
+					{
+						label: 'Waty',
+						ratio: 1,
+						symbol: 'W'
+					},
+					{
+						label: 'Kilowaty',
+						ratio: 0.001,
+						symbol: 'kW'
+					},
+					{
+						label: 'Megawaty',
+						ratio: 0.000001,
+						symbol: 'MW'
+					},
+					{
+						label: 'Dżul na sekunde',
+						ratio: 1,
+						symbol: 'J/s'
+					},
+					{
+						label: 'Koń parowy',
+						ratio: 0.0013410220895950279,
+						symbol: 'hp'
+					},
+					{
+						label: 'Koń mechaniczny',
+						ratio: 0.0013596216173039043,
+						symbol: 'mhp'
+					},
+					{
+						label: 'Elektryczny koń mechaniczny',
+						ratio: 0.0013404825737265416,
+						symbol: 'ehp'
+					},
+					{
+						label: 'Koń mechaniczny kotła parowego',
+						ratio: 0.00010194199500484225,
+						symbol: 'bhp'
+					},
+					{
+						label: 'Funt na stopę na minutę',
+						ratio: 44.253728956635925,
+						symbol: 'foot-pound/min'
+					},
+					{
+						label: 'Stopo-Funt na sekundę',
+						ratio: 0.7375621492772654,
+						symbol: 'foot-pound/s'
+					},
+					{
+						label: 'dBm',
+						ratio: 10,
+						symbol: 'dBm'
+					},
+					{
+						label: 'Kalorie na godzinę',
+						ratio: 859.84524,
+						symbol: 'cal/h'
+					},
+					{
+						label: 'Kilokalorie na godzinę',
+						ratio: 0.85984524,
+						symbol: 'kcal/h'
+					},
+					{
+						label: 'Brytyjska jednostka temperatury na godzine',
+						ratio: 3.41214163,
+						symbol: 'BTU/h'
+					},
+					{
+						label: 'Brytyjska jednostka temperatury na sekunde',
+						ratio: 0.0009478171194444445,
+						symbol: 'BTU/s'
+					},
+					{
+						label: 'Ton chłodniczych',
+						ratio: 0.00028434512332474514,
+						symbol: 'ton of refrigeration'
+					}
+				]
 			}
 		]
 	},
@@ -947,94 +1590,89 @@ export const calculators = [
 			'Prędkość to miara szybkości zmiany położenia w czasie. Jest to wektorowa wielkość fizyczna, która określa, jak szybko i w którym kierunku porusza się obiekt względem punktu odniesienia. Jednostką prędkości w układzie SI jest metr na sekundę.',
 		converters: [
 			{
-				label: 'beaufort',
-				ratio: 35125,
-				symbol: 'Bft'
+				name: 'Metryczny',
+				units: [
+					{
+						label: 'Kilometr na sekundę',
+						ratio: 0.001,
+						symbol: 'km/s'
+					},
+					{
+						label: 'Metr na sekundę',
+						ratio: 1,
+						symbol: 'm/s'
+					},
+					{
+						label: 'Kilometr na godzinę',
+						ratio: 3.6,
+						symbol: 'km/h'
+					},
+					{
+						label: 'Milimetr na sekundę',
+						ratio: 1000,
+						symbol: 'mm/s'
+					},
+					{
+						label: 'Mikrometr na sekundę',
+						ratio: 1000000,
+						symbol: 'µm/s'
+					}
+				]
 			},
 			{
-				label: 'centymert na sekundę',
-				ratio: 0.036,
-				symbol: 'cm/s'
+				name: 'Brytyjski/Amerykański',
+				units: [
+					{
+						label: 'Mila na sekundę',
+						ratio: 0.000621371192237334,
+						symbol: 'mile per second'
+					},
+					{
+						label: 'Mila na godzinę',
+						ratio: 2.2369362920544,
+						symbol: 'mph'
+					},
+					{
+						label: 'Stopa na sekundę',
+						ratio: 3.28083989501312,
+						symbol: 'foot per second'
+					}
+				]
 			},
 			{
-				label: 'stopa na godzinę',
-				ratio: 0.0003048,
-				symbol: 'fph'
+				name: 'Morski',
+				units: [
+					{
+						label: 'Węzeł',
+						ratio: 1.9438444924406,
+						symbol: 'knot'
+					}
+				]
 			},
 			{
-				label: 'stopa na minutę',
-				ratio: 0.018288,
-				symbol: 'fpm'
-			},
-			{
-				label: 'stopa na sekundę',
-				ratio: 1.09728,
-				symbol: 'fps'
-			},
-			{
-				label: 'cal na godzinę',
-				ratio: 0.0000254,
-				symbol: 'iph'
-			},
-			{
-				label: 'kilometr na godzinę',
-				ratio: 1,
-				symbol: 'km/h'
-			},
-			{
-				label: 'kilometr na minutę',
-				ratio: 60,
-				symbol: 'km/min'
-			},
-			{
-				label: 'kilometr na sekundę',
-				ratio: 3600,
-				symbol: 'km/s'
-			},
-			{
-				label: 'metr na godzinę',
-				ratio: 0.001,
-				symbol: 'm/h'
-			},
-			{
-				label: 'metr na minutę',
-				ratio: 0.06,
-				symbol: 'm/min'
-			},
-			{
-				label: 'metr na sekundę',
-				ratio: 44991,
-				symbol: 'm/s'
-			},
-			{
-				label: 'mila morska na godzinę',
-				ratio: 1.8519984,
-				symbol: 'nm/h'
-			},
-			{
-				label: 'mila na godzinę',
-				ratio: 1.609344,
-				symbol: 'mph'
-			},
-			{
-				label: 'mila na minutę',
-				ratio: 96.56064,
-				symbol: 'mpm'
-			},
-			{
-				label: 'mila na sekundę',
-				ratio: 5793.6384,
-				symbol: 'mps'
-			},
-			{
-				label: 'prędkość dźwięku',
-				ratio: 1225.044,
-				symbol: 'Mach'
-			},
-			{
-				label: 'prędkość światła',
-				ratio: 1079252848.8,
-				symbol: 'c'
+				name: 'Inne',
+				units: [
+					{
+						label: 'Prędkość światła',
+						ratio: 3.3356409519815204e-9,
+						symbol: 'speed of light'
+					},
+					{
+						label: 'Prędkość dźwięku',
+						ratio: 0.0029154518950437317,
+						symbol: 'speed of sound'
+					},
+					{
+						label: 'Szybki chód',
+						ratio: 0.5882352941176471,
+						symbol: 'speed of walk'
+					},
+					{
+						label: 'Prędkość pospolitego ślimaka',
+						ratio: 1000,
+						symbol: 'speed of snail'
+					}
+				]
 			}
 		]
 	},
@@ -1050,118 +1688,167 @@ export const calculators = [
 			'Siła to wektorowa wielkość fizyczna będąca miarą oddziaływań fizycznych między ciałami. Jednostką miary siły w układzie SI jest niuton. Nazwa tej jednostki pochodzi od nazwiska angielskiego fizyka Isaaca Newtona.',
 		converters: [
 			{
-				label: 'niuton',
-				ratio: 1,
-				symbol: 'N'
-			},
-			{
-				label: 'kiloniuton',
-				ratio: 1000,
-				symbol: 'kN'
-			},
-			{
-				label: 'meganiuton',
-				ratio: 1000000,
-				symbol: 'MN'
-			},
-			{
-				label: 'giganiuton',
-				ratio: 1000000000,
-				symbol: 'GN'
-			},
-			{
-				label: 'dyna',
-				ratio: 0.00001,
-				symbol: 'dyn'
-			},
-			{
-				label: 'kilogram-siła',
-				ratio: 9.80665,
-				symbol: 'kgf'
-			},
-			{
-				label: 'funt-siła',
-				ratio: 0.138254954376,
-				symbol: 'pdl'
-			},
-			{
-				label: 'poundal',
-				ratio: 4.4482216153,
-				symbol: 'lbs'
+				units: [
+					{
+						label: 'Nanoniuton',
+						ratio: 1000000000,
+						symbol: 'nN'
+					},
+					{
+						label: 'Mikroniuton',
+						ratio: 1000000,
+						symbol: 'µN'
+					},
+					{
+						label: 'Miliniuton',
+						ratio: 1000,
+						symbol: 'mN'
+					},
+					{
+						label: 'Niuton',
+						ratio: 1,
+						symbol: 'N'
+					},
+					{
+						label: 'Kiloniuton',
+						ratio: 0.001,
+						symbol: 'kN'
+					},
+					{
+						label: 'Meganiuton',
+						ratio: 0.000001,
+						symbol: 'meganewton'
+					},
+					{
+						label: 'Giganiuton',
+						ratio: 1e-9,
+						symbol: 'GN'
+					},
+					{
+						label: 'Dyna',
+						ratio: 100000,
+						symbol: 'dyn'
+					},
+					{
+						label: 'Poundal',
+						ratio: 7.233013851209894,
+						symbol: 'pdl'
+					},
+					{
+						label: 'Dżul na metr',
+						ratio: 1,
+						symbol: 'J/m'
+					},
+					{
+						label: 'Pascal na metr kwadratowy',
+						ratio: 1,
+						symbol: 'Pa/m²'
+					},
+					{
+						label: 'Kilopond',
+						ratio: 0.10197162129779283,
+						symbol: 'kp'
+					},
+					{
+						label: 'Sthen',
+						ratio: 0.001,
+						symbol: 'sn'
+					},
+					{
+						label: 'Wyrko',
+						ratio: 0.00022480894309971047,
+						symbol: 'kip'
+					},
+					{
+						label: 'Kilogram-siła',
+						ratio: 0.10197162129779283,
+						symbol: 'kgf'
+					},
+					{
+						label: 'Tona-siły',
+						ratio: 0.00010197162129779283,
+						symbol: 'tnf'
+					},
+					{
+						label: 'Funt-siły',
+						ratio: 0.22480894309971047,
+						symbol: 'lbf'
+					},
+					{
+						label: 'Krótki ton-force',
+						ratio: 0.00011240447154985524,
+						symbol: 'stnf'
+					},
+					{
+						label: 'Długi ton-force',
+						ratio: 0.00010036113531237075,
+						symbol: 'ltnf'
+					},
+					{
+						label: 'Uncja-siły',
+						ratio: 3.5969430895953685,
+						symbol: 'ozf'
+					},
+					{
+						label: 'Utwardzony-force',
+						ratio: 101.97162129779282,
+						symbol: 'gravet-force'
+					},
+					{
+						label: 'Milli Grave-force',
+						ratio: 101.97162129779282,
+						symbol: 'mGf'
+					},
+					{
+						label: 'Grave-force',
+						ratio: 0.10197162129779283,
+						symbol: 'Gf'
+					}
+				]
 			}
 		]
 	},
-
-	/* {
-		id: 'temperatury',
+	{
+		id: 'przelicznik-temperatury',
+		type: 'przelicznik',
 		name: 'temperatury',
+		title: 'Przelicznik temperatury',
 		description:
 			'Łatwy w użyciu kalkulator temperatury, który ułatwi Ci przeliczanie jednostek temperatury.',
 		icon: 'thermostat',
 		component: Converter,
 		converters: [
 			{
-				label: 'kelwin',
-				ratio: 1,
-				symbol: 'K'
-			},
-			{
-				label: 'stopień Celsjusza',
-				ratio: 274.15,
-				symbol: '°C'
-			},
-			{
-				label: 'stopień Fahrenheita',
-				ratio: 255.92777777778,
-				symbol: '°F'
-			},
-			{
-				label: 'hektokelwin',
-				ratio: 100,
-				symbol: 'hK'
-			},
-			{
-				label: 'kilokelwin',
-				ratio: 1000,
-				symbol: 'kK'
-			},
-			{
-				label: 'megakelwin',
-				ratio: 1000000,
-				symbol: 'MK'
-			},
-			{
-				label: 'milikelwin',
-				ratio: 0.001,
-				symbol: 'mK'
-			},
-			{
-				label: 'stopień Delisle',
-				ratio: 372.48333333333,
-				symbol: '°De'
-			},
-			{
-				label: 'stopień Newtona',
-				ratio: 276.1803030303,
-				symbol: '°N'
-			},
-			{
-				label: "stopień Rankine'a",
-				ratio: 0.55555555555556,
-				symbol: '°Ra'
-			},
-			{
-				label: 'stopień Réaumura',
-				ratio: 274.4,
-				symbol: '°Ré'
-			},
-			{
-				label: 'stopień Rømera',
-				ratio: 260.76904761905,
-				symbol: '°Rø'
+				units: [
+					{
+						label: 'Kelwin',
+						ratio: 373.15,
+						symbol: 'K'
+					},
+					{
+						label: 'Celsjusz',
+						ratio: 100,
+						symbol: 'C'
+					},
+					{
+						label: 'Fahrenheit',
+						ratio: 212,
+						symbol: 'F'
+					},
+					{
+						label: 'Reaumur',
+						ratio: 80,
+						symbol: 'R'
+					},
+					{
+						label: 'Rankine',
+						ratio: 671.67,
+						symbol: 'rankine'
+					}
+				]
 			}
 		]
-	}, */
+	},
 	{
 		id: 'przelicznik-powierzchni',
 		type: 'przelicznik',
@@ -1175,143 +1862,184 @@ export const calculators = [
 			'Jednostki miary powierzchni to sposoby określania wielkości obszarów na płaszczyźnie lub na powierzchni sferycznej. Służą do pomiaru i porównywania wielkości różnych terenów, takich jak lasy, jeziora, kraje czy kontynenty. Jednostką podstawową miary powierzchni w układzie SI jest metr kwadratowy.',
 		converters: [
 			{
-				label: 'metr kwadratowy',
-				ratio: 1,
-				symbol: 'm²'
+				name: 'Metryczny',
+				units: [
+					{
+						label: 'Kilometry kwadratowe',
+						ratio: 0.000001,
+						symbol: 'km²'
+					},
+					{
+						label: 'Hektary',
+						ratio: 0.0001,
+						symbol: 'ha'
+					},
+					{
+						label: 'Ar',
+						ratio: 0.01,
+						symbol: 'a'
+					},
+					{
+						label: 'Metry kwadratowe',
+						ratio: 1,
+						symbol: 'm²'
+					},
+					{
+						label: 'Decymetry kwadratowe',
+						ratio: 100,
+						symbol: 'dm²'
+					},
+					{
+						label: 'Centymetry kwadratowe',
+						ratio: 10000,
+						symbol: 'cm²'
+					},
+					{
+						label: 'Milimetry kwadratowe',
+						ratio: 1000000,
+						symbol: 'mm²'
+					},
+					{
+						label: 'Mikrometry kwadratowe',
+						ratio: 1000000000000,
+						symbol: 'µm²'
+					},
+					{
+						label: 'Nanometry kwadratowe',
+						ratio: 1000000000000000000,
+						symbol: 'nm²'
+					}
+				]
 			},
 			{
-				label: 'kilometr kwadratowy',
-				ratio: 1000000,
-				symbol: 'km²'
+				name: 'Brytyjski/Amerykański',
+				units: [
+					{
+						label: 'Gmina',
+						ratio: 1.072506e-8,
+						symbol: 'township'
+					},
+					{
+						label: 'Mila kwadratowa',
+						ratio: 3.861022e-7,
+						symbol: 'square mile'
+					},
+					{
+						label: 'Działka osadnicza',
+						ratio: 0.000001544409,
+						symbol: 'homestead'
+					},
+					{
+						label: 'Akr',
+						ratio: 0.0002471055,
+						symbol: 'acre'
+					},
+					{
+						label: 'Ćwierć akra',
+						ratio: 0.000988422,
+						symbol: 'rood'
+					},
+					{
+						label: 'Pręt kwadratowy',
+						ratio: 0.03953687,
+						symbol: 'square rod'
+					},
+					{
+						label: 'Kwadratowy',
+						ratio: 0.1076391,
+						symbol: 'square'
+					},
+					{
+						label: 'Jard kwadratowy',
+						ratio: 1.19599,
+						symbol: 'yr²'
+					},
+					{
+						label: 'Stopa kwadratowa',
+						ratio: 10.76391,
+						symbol: 'ft²'
+					},
+					{
+						label: 'Cal kwadratowy',
+						ratio: 1550.003,
+						symbol: 'in²'
+					}
+				]
 			},
 			{
-				label: 'decymetr kwadratowy',
-				ratio: 0.01,
-				symbol: 'dm²'
+				name: 'Japoński',
+				units: [
+					{
+						label: 'Tsubo',
+						ratio: 0.3024999,
+						symbol: 'tsubo'
+					},
+					{
+						label: 'Cho',
+						ratio: 100.8333,
+						symbol: 'cho'
+					},
+					{
+						label: 'Tann',
+						ratio: 1008.333,
+						symbol: 'tann'
+					},
+					{
+						label: 'Se',
+						ratio: 10083.33,
+						symbol: 'se'
+					}
+				]
 			},
 			{
-				label: 'centymetr kwadratowy',
-				ratio: 0.0001,
-				symbol: 'cm²'
+				name: 'Inne',
+				units: [
+					{
+						label: 'Metric Dunamar',
+						ratio: 0.001,
+						symbol: 'metric_dunam'
+					},
+					{
+						label: 'Cypryjski Dunamar',
+						ratio: 0.00074749375,
+						symbol: 'cypriot_dunam'
+					},
+					{
+						label: 'Iracki Dunamar',
+						ratio: 0.0004,
+						symbol: 'iraqi_dunam'
+					},
+					{
+						label: 'Boisko do piłki nożnej',
+						ratio: 0.000140056,
+						symbol: 'football_pitch'
+					}
+				]
 			},
 			{
-				label: 'milimetr kwadratowy',
-				ratio: 0.000001,
-				symbol: 'mm²'
-			},
-			{
-				label: 'ar',
-				ratio: 100,
-				symbol: 'a'
-			},
-			{
-				label: 'hektar',
-				ratio: 10000,
-				symbol: 'ha'
-			},
-			{
-				label: 'morga',
-				ratio: 2500,
-				symbol: 'morga'
-			},
-			{
-				label: 'cal kwadratowy',
-				ratio: 0.00064516,
-				symbol: 'in²'
-			},
-			{
-				label: 'stopa kwadratowa',
-				ratio: 0.09290304,
-				symbol: 'ft²'
-			},
-			{
-				label: 'jard kwadratowy',
-				ratio: 0.83612736,
-				symbol: 'yd²'
-			},
-			{
-				label: 'mila kwadratowa',
-				ratio: 2589988.110336,
-				symbol: 'mi²'
-			},
-			{
-				label: 'akr',
-				ratio: 4046.8564224,
-				symbol: 'ac'
-			}
-		]
-	},
-	{
-		id: 'przelicznik-katow',
-		type: 'przelicznik',
-		name: 'kątów',
-		description:
-			'Łatwy w użyciu kalkulator kątów, który ułatwi Ci przeliczanie jednostek miar kątów.',
-		title: 'Przelicznik kątów',
-		icon: 'square_foot',
-		component: Converter,
-		about:
-			'Kąt to miara nachylenia dwóch prostych lub płaszczyzn względem siebie. Kąty mogą być mierzone w stopniach, radianach lub gradach.',
-		converters: [
-			{
-				label: 'stopień',
-				ratio: 0.017453292519943,
-				symbol: '°'
-			},
-			{
-				label: 'radian',
-				ratio: 1,
-				symbol: 'rad'
-			},
-			{
-				label: 'grad',
-				ratio: 0.0157079633,
-				symbol: '^g'
-			},
-			{
-				label: 'gon',
-				ratio: 0.015707963267949,
-				symbol: 'gon'
-			},
-			{
-				label: 'minuta kątowa',
-				ratio: 0.00029088820866572,
-				symbol: "'"
-			},
-			{
-				label: 'sekunda kątowa',
-				ratio: 0.0000048481368110954,
-				symbol: "''"
-			},
-			{
-				label: 'znak',
-				ratio: 0.5235987756,
-				symbol: 'sign'
-			},
-			{
-				label: 'mil',
-				ratio: 0.0009817477,
-				symbol: 'mil'
-			},
-			{
-				label: 'obrót',
-				ratio: 6.2831853071796,
-				symbol: 'r'
-			},
-			{
-				label: 'krąg',
-				ratio: 6.2831853071796,
-				symbol: 'circle'
-			},
-			{
-				label: 'kwadrant',
-				ratio: 1.5707963268,
-				symbol: 'quadrant'
-			},
-			{
-				label: 'prosty kąt',
-				ratio: 1.5707963268,
-				symbol: 'right angle'
+				name: 'Brazylijski',
+				units: [
+					{
+						label: 'Alqueire paulista',
+						ratio: 0.00004132231405,
+						symbol: 'alqueire_paulista'
+					},
+					{
+						label: 'Alqueire mineiro',
+						ratio: 0.00002066115702,
+						symbol: 'alqueire_mineiro'
+					},
+					{
+						label: 'Alqueire baiano',
+						ratio: 0.00001031991744,
+						symbol: 'alqueire_baiano'
+					},
+					{
+						label: 'Alqueire do norte',
+						ratio: 0.00003676470588,
+						symbol: 'alqueire_do_norte'
+					}
+				]
 			}
 		]
 	}

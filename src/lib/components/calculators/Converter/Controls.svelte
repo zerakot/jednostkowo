@@ -8,13 +8,22 @@
 </script>
 
 <div class="controls">
-	<Input type="number" bind:value={number} />
+	<Input type="number" bind:value={number} label="Liczba" />
 
-	<Select bind:value={unitRatio}>
+	<Select bind:value={unitRatio} label="Jednostka podstawowa">
 		{#each converters as converter}
-			<option value={converter.ratio}>[{converter.symbol}] - {converter.label}</option>
+			{#if converter?.name}
+				<option disabled>{converter.name}</option>
+			{/if}
+
+			{#each converter.units as unit}
+				<option value={unit.ratio}>[{unit.symbol}] - {unit.label}</option>
+			{/each}
 		{/each}
 	</Select>
+	<!-- <Select value="" label="Jednostka docelowa">
+		<option value="">Brak</option>
+	</Select> -->
 </div>
 
 <style lang="scss">
