@@ -52,6 +52,7 @@
 			font-size: 1rem;
 			display: flex;
 			align-items: center;
+			flex-direction: column;
 
 			& span {
 				white-space: pre;
@@ -68,6 +69,12 @@
 				border: 1px solid $gray-dark;
 				color: $primary;
 				font-weight: bold;
+			}
+		}
+
+		@include md {
+			& .calculation {
+				flex-direction: row;
 			}
 		}
 	}

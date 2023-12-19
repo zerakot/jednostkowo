@@ -61,11 +61,11 @@
 			display: flex;
 			height: 100%;
 			align-items: center;
-			gap: 1.5rem;
+			gap: 1rem;
 			list-style: none;
 
 			& li {
-				font-size: 0.9rem;
+				font-size: 0.75rem;
 
 				& a {
 					color: $text-light;
@@ -82,7 +82,16 @@
 			}
 		}
 
-		@include sm {
+		@include md {
+			& ul {
+				gap: 1.5rem;
+
+				& li {
+					font-size: 0.9rem;
+				}
+			}
+		}
+		@include lg {
 			gap: 2rem;
 
 			& a.logo img {

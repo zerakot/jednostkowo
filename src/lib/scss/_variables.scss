@@ -7,23 +7,29 @@ $gray-light: #f1f1f1;
 $gray-medium: #e6e6e6;
 $gray-dark: #a5a5a5;
 
+$media-width: 100%;
+
 @mixin sm {
-	@media (min-width: 630px) {
+	@media (min-width: 320px) {
+		$media-width: 320px;
 		@content;
 	}
 }
 @mixin md {
-	@media (min-width: 768px) {
+	@media (min-width: 425px) {
+		$media-width: 425px;
 		@content;
 	}
 }
 @mixin lg {
-	@media (min-width: 992px) {
+	@media (min-width: 768px) {
+		$media-width: 768px;
 		@content;
 	}
 }
 @mixin xl {
 	@media (min-width: 1200px) {
+		$media-width: 1200px;
 		@content;
 	}
 }

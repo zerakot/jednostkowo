@@ -16,6 +16,7 @@
 
 <style lang="scss">
 	.container {
+		width: 100%;
 		gap: 2rem;
 		display: flex;
 		grid-area: main;

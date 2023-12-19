@@ -12,10 +12,9 @@
 {#key pageData?.id}
 	<div class="container" in:fly|global={{ x: 150 }}>
 		<hgroup>
+			<div class="pill">{pageData?.name}</div>
 			<h1>
-				<span class="type">{pageData?.type}</span>
-				<span class="name">{pageData?.name}</span>
-				<span class="category">{pageData?.name}</span>
+				{`${pageData?.type.charAt(0).toUpperCase() + pageData?.type.slice(1)} ${pageData?.name}`}
 			</h1>
 			<p>{pageData?.description}</p>
 		</hgroup>
@@ -37,33 +36,29 @@
 
 <style lang="scss">
 	.container {
-		gap: 1.5rem;
+		gap: 1rem;
 		width: 100%;
 		display: flex;
 		flex-direction: column;
 
 		& hgroup {
+			align-items: flex-start;
+			display: flex;
+			flex-direction: column;
+
 			& h1 {
 				margin: 0;
-				gap: 0.4rem;
-				font-size: 1.6rem;
 				color: $text;
-				display: flex;
-				align-items: center;
+			}
 
-				& span.type {
-					text-transform: capitalize;
-				}
-				& span.category {
-					margin-left: 0.2rem;
-					font-weight: bold;
-					border-radius: 20px;
-					text-transform: uppercase;
-					color: white;
-					background-color: $primary;
-					padding: 0.25rem 0.6rem;
-					font-size: 0.7rem;
-				}
+			& .pill {
+				font-weight: bold;
+				border-radius: 20px;
+				text-transform: uppercase;
+				color: white;
+				background-color: $primary;
+				padding: 0.25rem 0.6rem;
+				font-size: 0.7rem;
 			}
 
 			& p {
@@ -89,13 +84,16 @@
 		@include sm {
 			& hgroup h1 {
 				gap: 0.6rem;
-				font-size: 2rem;
 
 				& span.category {
 					padding: 0.3rem 0.7rem;
 					font-size: 0.75rem;
 				}
 			}
+		}
+
+		@include lg {
+			gap: 1.5rem;
 
 			& aside {
 				width: 80%;

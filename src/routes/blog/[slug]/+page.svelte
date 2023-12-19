@@ -49,8 +49,6 @@
 			grid-area: main;
 
 			& h1 {
-				font-size: 2.2rem;
-				line-height: 3rem;
 				margin-bottom: 1rem;
 			}
 		}
@@ -61,7 +59,7 @@
 			grid-area: ad;
 		}
 
-		@include md {
+		@include lg {
 			grid-template-rows: auto 1fr;
 			grid-template-columns: 1fr auto;
 			grid-template-areas:
@@ -75,12 +73,6 @@
 			& .ad {
 				height: auto;
 				width: 250px;
-			}
-
-			& section.content h1 {
-				font-size: 2.7rem;
-
-				line-height: 4rem;
 			}
 		}
 	}

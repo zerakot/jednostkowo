@@ -88,7 +88,7 @@
 			}
 		}
 
-		@include md {
+		@include lg {
 			width: 70%;
 		}
 	}

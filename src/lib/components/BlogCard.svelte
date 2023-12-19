@@ -11,8 +11,8 @@
 		<img src={post?.image} alt="Zdjęcie artykułu" />
 
 		<div class="content">
-			<div class="title">{post?.title}</div>
-			<div class="description">{post?.meta?.description}</div>
+			<h3 class="title">{post?.title}</h3>
+			<p class="description">{post?.meta?.description}</p>
 		</div>
 	</article>
 </a>
@@ -20,7 +20,6 @@
 <style lang="scss">
 	article {
 		display: flex;
-
 		overflow: hidden;
 		border: 2px solid $gray-medium;
 		flex-direction: var(--direction);
@@ -39,13 +38,11 @@
 			flex-direction: column;
 			padding: 0.5rem 1rem 1rem 1rem;
 
-			& .title {
+			& h3.title {
 				font-weight: bold;
-				font-size: 1.3rem;
 			}
 
 			& .description {
-				font-size: 0.95rem;
 				overflow: hidden;
 				color: $text-light;
 				display: -webkit-box;

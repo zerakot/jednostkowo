@@ -31,6 +31,9 @@ body {
 	align-items: center;
 	justify-content: center;
 	background-color: $background;
+}
+html,
+body {
 	overflow-x: hidden;
 }
 
@@ -49,16 +52,29 @@ html {
 } /* 16px */
 
 h1 {
-	font-size: 3rem; /* 67.36px */
+	font-size: 1.5rem; /* 67.36px */
+
+	@include lg {
+		font-size: 2rem; /* 67.36px */
+	}
 }
 
 h2 {
-	font-size: 2rem; /* 50.56px */
-	line-height: 3rem;
+	font-size: 1.4rem; /* 50.56px */
+	line-height: 1.8rem;
+
+	@include lg {
+		font-size: 1.7rem; /* 50.56px */
+		line-height: 2.2rem;
+	}
 }
 
 h3 {
-	font-size: 1.8rem; /* 37.92px */
+	font-size: 1.2rem;
+
+	@include lg {
+		font-size: 1.4rem;
+	}
 }
 
 h4 {
@@ -74,7 +90,12 @@ small {
 }
 
 p {
+	font-size: 0.8rem;
 	margin-block: 0;
+
+	@include lg {
+		font-size: 0.9rem;
+	}
 }
 a {
 	color: $text;

@@ -17,7 +17,7 @@
 	<aside in:fly|global={{ x: -150, delay: 150 }}>
 		<div class="trigger">
 			<label for={id}>
-				Kategoria:
+				<span class="category">Kategoria:</span>
 				<div class="wrapper">
 					<Icon name={currentPageData?.icon} />
 					{currentPageData?.name}
@@ -59,6 +59,10 @@
 				align-items: center;
 				display: flex;
 
+				& .category {
+					display: none;
+				}
+
 				& .wrapper {
 					align-items: center;
 					font-weight: bold;
@@ -85,7 +89,7 @@
 			display: grid;
 			flex-direction: column;
 			list-style: none;
-			grid-template-columns: 1fr 1fr;
+			grid-template-columns: 1fr;
 			border-bottom: 2px solid $gray-light;
 
 			&.hidden {
@@ -113,8 +117,11 @@
 		}
 
 		@include md {
+			& .trigger label .category {
+				display: block;
+			}
 			& ul {
-				grid-template-columns: 1fr 1fr 1fr;
+				grid-template-columns: 1fr 1fr;
 			}
 		}
 		@include lg {

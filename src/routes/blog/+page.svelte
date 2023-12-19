@@ -50,16 +50,20 @@
 			grid-template-columns: 1fr;
 			grid-template-rows: auto;
 		}
-		@include sm {
+
+		@include md {
+			gap: 1rem;
+
 			& hgroup p {
 				width: 80%;
 			}
 
 			& .posts {
+				gap: 0.5rem;
 				grid-template-columns: 1fr 1fr;
 			}
 		}
-		@include lg {
+		@include xl {
 			& hgroup p {
 				width: 70%;
 			}

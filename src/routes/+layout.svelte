@@ -12,22 +12,24 @@
 
 <style lang="scss">
 	.container {
-		gap: 2rem;
+		gap: 1rem;
 		width: 100%;
 		min-height: 100vh;
 		display: grid;
 		padding: 0 1rem;
-		grid-template-columns: 1fr;
+		grid-template-columns: 100%;
 		grid-template-rows: 60px auto;
 		grid-template-areas:
 			'nav'
 			'main';
 
 		@include md {
-			width: 768px;
+			gap: 1.5rem;
+			width: 90%;
 		}
 		@include lg {
-			width: 992px;
+			gap: 2rem;
+			width: 768px;
 			flex-direction: row;
 		}
 		@include xl {

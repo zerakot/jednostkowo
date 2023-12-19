@@ -1,4 +1,4 @@
-<!-- <script>
+<script>
 	import { onMount } from 'svelte';
 
 	onMount(() => {
@@ -11,7 +11,7 @@
 	style="display:block"
 	data-ad-client="ca-pub-8080398088944990"
 	data-ad-slot="2869311110"
-	data-ad-format="horizontal"
+	data-ad-format="auto"
 />
 
 <style lang="scss">
@@ -21,6 +21,3 @@
 		background-color: $gray-light;
 	}
 </style>
- -->
-
-<div />
