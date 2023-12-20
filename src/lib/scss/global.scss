@@ -32,6 +32,10 @@ body {
 	justify-content: center;
 	background-color: $background;
 }
+html,
+body {
+	overflow-x: hidden;
+}
 
 h1,
 h2,

@@ -16,7 +16,7 @@
 		width: 100%;
 		min-height: 100vh;
 		display: grid;
-		padding: 0 1rem;
+		padding: 0 0.5rem;
 		grid-template-columns: 100%;
 		grid-template-rows: 60px auto;
 		grid-template-areas:

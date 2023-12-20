@@ -5,7 +5,7 @@
 </script>
 
 <div class="decimals">
-	Ilość miejsc po przecinku
+	<p>Ilość miejsc po przecinku</p>
 	<Select bind:value={decimals} autoWidth={true}>
 		<option value="0">0</option>
 		<option value="1">1</option>

@@ -17,7 +17,9 @@
 				const bigUnitRatio = new Big(unit.ratio);
 				const bigAmount = new Big(amount);
 
-				const value = bigUnitRatio.div(bigRatio).times(bigAmount).round(dec).toFixed(dec);
+				let value = bigUnitRatio.div(bigRatio).times(bigAmount).round(dec);
+				value = value > 100000000 ? value.toExponential() : value.toFixed(dec);
+
 				return { ...unit, value };
 			});
 
@@ -63,8 +65,20 @@
 	table {
 		@include table;
 
-		@include sm {
-			font-size: 0.9rem;
+		& thead tr th:nth-child(2) {
+			display: none;
+		}
+		& tbody tr td:nth-child(2) {
+			display: none;
+		}
+
+		@include md {
+			& thead tr th:nth-child(2) {
+				display: table-cell;
+			}
+			& tbody tr td:nth-child(2) {
+				display: table-cell;
+			}
 		}
 	}
 </style>

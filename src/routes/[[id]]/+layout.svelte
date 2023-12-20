@@ -26,7 +26,7 @@
 			width: 100%;
 			gap: 2rem 0;
 			display: grid;
-			grid-template-columns: 1fr;
+			grid-template-columns: 100%;
 			grid-template-rows: repeat(2, auto);
 		}
 

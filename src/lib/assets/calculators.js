@@ -39,7 +39,7 @@ export const calculators = [
 			},
 			{
 				name: 'O ile procent liczba A wzrosła/zmalała w stosunku do B',
-				labels: ['do', 'wzrosło/zmalało o', '%'],
+				labels: ['do', 'w/z o', '%'],
 				formula: (a, b, handler) => handler(a, b, (a, b) => ((b - a) / a) * 100)
 			}
 		]

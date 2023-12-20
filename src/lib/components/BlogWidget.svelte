@@ -32,12 +32,12 @@
 			grid-template-columns: repeat(1, 1fr);
 		}
 
-		@include md {
+		@include lg {
 			& .posts {
 				grid-template-columns: repeat(2, 1fr);
 			}
 		}
-		@include lg {
+		@include xl {
 			& .posts {
 				grid-template-columns: repeat(3, 1fr);
 			}

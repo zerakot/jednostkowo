@@ -78,7 +78,7 @@
 			}
 		}
 
-		@include lg {
+		@include xl {
 			width: 70%;
 		}
 	}
