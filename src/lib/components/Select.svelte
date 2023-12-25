@@ -28,9 +28,10 @@
 		}
 
 		& label {
-			font-size: 0.9rem;
+			font-size: 0.85rem;
 		}
 		& select {
+			width: 100%;
 			font-size: 0.95rem;
 			padding: 0.5rem 0.8rem;
 			border-radius: 5px;

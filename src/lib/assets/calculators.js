@@ -186,7 +186,6 @@ export const calculators = [
 		component: Converter,
 		about:
 			'Miary długości to jednostki służące do określania odległości między punktami w przestrzeni. Są one stosowane w różnych dziedzinach, takich jak fizyka, geografia, czy inżynieria. Najpopularniejsze jednostki długości to: centymetr, metr i kilometr.	',
-
 		converters: [
 			{
 				name: 'Metryczny',
@@ -197,6 +196,7 @@ export const calculators = [
 						symbol: 'km'
 					},
 					{
+						default: true,
 						label: 'Metr',
 						ratio: 1,
 						symbol: 'm'
@@ -381,7 +381,8 @@ export const calculators = [
 					{
 						label: 'Dni',
 						ratio: 365.25,
-						symbol: 'day'
+						symbol: 'day',
+						default: true
 					},
 					{
 						label: 'Godziny',
@@ -449,7 +450,8 @@ export const calculators = [
 					{
 						label: 'Megabity',
 						ratio: 8,
-						symbol: 'megabit'
+						symbol: 'megabit',
+						default: true
 					},
 					{
 						label: 'Gigabity',
@@ -537,7 +539,8 @@ export const calculators = [
 					{
 						label: 'Kilogram',
 						ratio: 1,
-						symbol: 'kg'
+						symbol: 'kg',
+						default: true
 					},
 					{
 						label: 'Hektogram',
@@ -600,6 +603,7 @@ export const calculators = [
 						symbol: 'short ton'
 					},
 					{
+						default: true,
 						label: 'Duży cetnar',
 						ratio: 0.0196841305522212,
 						symbol: 'long hundredweight'
@@ -777,7 +781,8 @@ export const calculators = [
 					{
 						label: 'Metry sześcienne',
 						ratio: 0.001,
-						symbol: 'm³'
+						symbol: 'm³',
+						default: true
 					},
 					{
 						label: 'Hektolitry',
@@ -1101,7 +1106,8 @@ export const calculators = [
 					{
 						label: 'Paskale',
 						ratio: 1,
-						symbol: 'Pa'
+						symbol: 'Pa',
+						default: true
 					}
 				]
 			},
@@ -1225,7 +1231,8 @@ export const calculators = [
 					{
 						label: 'Dżule',
 						ratio: 1,
-						symbol: 'J'
+						symbol: 'J',
+						default: true
 					},
 					{
 						label: 'Elektronowolt',
@@ -1314,7 +1321,8 @@ export const calculators = [
 					{
 						label: 'Herc',
 						ratio: 1,
-						symbol: 'Hz'
+						symbol: 'Hz',
+						default: true
 					},
 					{
 						label: 'Kiloherc',
@@ -1428,7 +1436,8 @@ export const calculators = [
 					{
 						label: 'Kilogram na metr sześcienny',
 						ratio: 1,
-						symbol: 'kg/m³'
+						symbol: 'kg/m³',
+						default: true
 					},
 					{
 						label: 'Gram na metr sześcienny',
@@ -1496,7 +1505,8 @@ export const calculators = [
 					{
 						label: 'Waty',
 						ratio: 1,
-						symbol: 'W'
+						symbol: 'W',
+						default: true
 					},
 					{
 						label: 'Kilowaty',
@@ -1605,7 +1615,8 @@ export const calculators = [
 					{
 						label: 'Kilometr na godzinę',
 						ratio: 3.6,
-						symbol: 'km/h'
+						symbol: 'km/h',
+						default: true
 					},
 					{
 						label: 'Milimetr na sekundę',
@@ -1707,7 +1718,8 @@ export const calculators = [
 					{
 						label: 'Niuton',
 						ratio: 1,
-						symbol: 'N'
+						symbol: 'N',
+						default: true
 					},
 					{
 						label: 'Kiloniuton',
@@ -1826,9 +1838,11 @@ export const calculators = [
 						symbol: 'K'
 					},
 					{
+						default: true,
 						label: 'Celsjusz',
 						ratio: 100,
-						symbol: 'C'
+						symbol: 'C',
+						default: true
 					},
 					{
 						label: 'Fahrenheit',
@@ -1867,7 +1881,8 @@ export const calculators = [
 					{
 						label: 'Kilometry kwadratowe',
 						ratio: 0.000001,
-						symbol: 'km²'
+						symbol: 'km²',
+						default: true
 					},
 					{
 						label: 'Hektary',
@@ -1906,7 +1921,7 @@ export const calculators = [
 					},
 					{
 						label: 'Nanometry kwadratowe',
-						ratio: 1000000000000000000,
+						ratio: 1000000000000000000n,
 						symbol: 'nm²'
 					}
 				]

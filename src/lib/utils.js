@@ -1,3 +1,5 @@
+import Big from 'big.js';
+
 export const getRandomId = (length = 10) => {
 	let result = '';
 	const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -100,4 +102,54 @@ export const calculateBmi = (weight, height) => {
 	}
 
 	return { bmi, label };
+};
+
+const convertUnit = (amount, from, to, decimals) => {
+	decimals = parseInt(decimals);
+	const bigRatio = new Big(parseFloat(from));
+	const bigbaseUnitLabel = new Big(parseFloat(to));
+	const bigAmount = new Big(parseFloat(amount));
+
+	let value = bigbaseUnitLabel.div(bigRatio).times(bigAmount).round(decimals);
+	return value > 100000000 ? value.toExponential() : value.toFixed(decimals);
+};
+const getUnitByLabel = (label, converters) => {
+	for (const converter of converters) {
+		const category = converter?.name;
+		if (converter?.units?.some((unit) => unit.label === label)) {
+			return { category: category, ...converter.units.find((unit) => unit.label === label) };
+		}
+	}
+	return null;
+};
+export const convert = (ammount, baseLabel, targetLabel, decimals, converters) => {
+	if (!ammount) ammount = 0;
+
+	const baseUnit = getUnitByLabel(baseLabel, converters);
+
+	if (targetLabel) {
+		const targetUnit = getUnitByLabel(targetLabel, converters);
+		return [
+			{
+				name: targetUnit?.category,
+				units: [
+					{
+						...targetUnit,
+						value: convertUnit(ammount, baseUnit.ratio, targetUnit.ratio, decimals)
+					}
+				]
+			}
+		];
+	} else {
+		return converters.map((converter) => {
+			return {
+				name: converter?.name,
+				units: converter.units.map((unit) => ({
+					...unit,
+					active: baseUnit.label === unit.label,
+					value: convertUnit(ammount, baseUnit.ratio, unit.ratio, decimals)
+				}))
+			};
+		});
+	}
 };

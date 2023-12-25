@@ -5,14 +5,17 @@
 
 	export let page;
 
-	let unitRatio = 1;
 	let number = 1;
 	let decimals = '2';
+	let targetUnitLabel = '';
+	let baseUnitLabel = page.converters.reduce((foundUnit, converter) => {
+		return foundUnit || converter.units.find((unit) => unit.default === true)?.label;
+	}, '');
 </script>
 
 <section class="converter">
-	<Controls converters={page?.converters} bind:number bind:unitRatio />
-	<Results {number} {unitRatio} {decimals} converters={page?.converters} />
+	<Controls converters={page?.converters} bind:number bind:baseUnitLabel bind:targetUnitLabel />
+	<Results converters={page?.converters} {number} {baseUnitLabel} {targetUnitLabel} {decimals} />
 	<Decimals bind:decimals />
 </section>
 

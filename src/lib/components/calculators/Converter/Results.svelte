@@ -1,37 +1,14 @@
 <script>
-	import Big from 'big.js';
+	import { convert } from '$lib/utils';
 
 	export let number;
-	export let unitRatio;
 	export let decimals;
 	export let converters;
-
-	const convert = (amount, ratio, dec) => {
-		if (amount === '') amount = 0;
-
-		return converters.map((converter) => {
-			const name = converter.name;
-
-			const values = converter.units.map((unit) => {
-				const bigRatio = new Big(ratio);
-				const bigUnitRatio = new Big(unit.ratio);
-				const bigAmount = new Big(amount);
-
-				let value = bigUnitRatio.div(bigRatio).times(bigAmount).round(dec);
-				value = value > 100000000 ? value.toExponential() : value.toFixed(dec);
-
-				return { ...unit, value };
-			});
-
-			return {
-				name,
-				units: values
-			};
-		});
-	};
+	export let baseUnitLabel;
+	export let targetUnitLabel;
 
 	let results = [];
-	$: results = convert(number, unitRatio, parseInt(decimals));
+	$: results = convert(number, baseUnitLabel, targetUnitLabel, decimals, converters);
 </script>
 
 <table>
@@ -51,10 +28,10 @@
 			{/if}
 
 			{#each converter.units as unit}
-				<tr class:active={unitRatio === unit.ratio}>
+				<tr class:active={unit?.active}>
 					<td class="label">{unit.label}</td>
 					<td>{unit.symbol}</td>
-					<td class="alignRight fitwidth">{unit.value}</td>
+					<td class="alignRight fitwidth bold">{unit.value}</td>
 				</tr>
 			{/each}
 		{/each}
