@@ -1,22 +1,18 @@
 <script>
 	import Controls from './Controls.svelte';
 	import Results from './Results.svelte';
-	import Decimals from './Decimals.svelte';
+	import Options from './Options.svelte';
 
-	export let page;
+	export let pageData;
 
-	let number = 1;
-	let decimals = '2';
-	let targetUnitLabel = '';
-	let baseUnitLabel = page.converters.reduce((foundUnit, converter) => {
-		return foundUnit || converter.units.find((unit) => unit.default === true)?.label;
-	}, '');
+	let results = [];
+	let options = { decimals: '2', scientificNotation: true };
 </script>
 
 <section class="converter">
-	<Controls converters={page?.converters} bind:number bind:baseUnitLabel bind:targetUnitLabel />
-	<Results converters={page?.converters} {number} {baseUnitLabel} {targetUnitLabel} {decimals} />
-	<Decimals bind:decimals />
+	<Controls converters={pageData?.converters} {options} bind:results />
+	<Results {results} />
+	<Options bind:options />
 </section>
 
 <style lang="scss">

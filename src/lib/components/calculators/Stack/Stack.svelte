@@ -2,40 +2,43 @@
 	import { getRandomId } from '$lib/utils';
 	import Input from '$lib/components/Input.svelte';
 	import Icon from '../../Icon.svelte';
+	import Button from '../../Button.svelte';
 
-	export let page;
+	export let pageData;
 
 	let result;
 	let rows = [];
-	let controlsValues = {};
+	let initialValues = pageData.fields.reduce((result, field) => {
+		result[field.name] = field.defaultValue;
+		return result;
+	}, {});
+	let controlsValues = { ...initialValues };
 
 	const addRow = () => {
 		rows = [...rows, { ...controlsValues, id: getRandomId(5) }];
-		console.log(rows);
-		controlsValues = {};
+		controlsValues = { ...initialValues };
 	};
-
 	const deleteRow = (id) => {
 		const newRows = rows.filter((r) => r?.id !== id);
 		rows = newRows;
 	};
 
-	$: result = page?.formula(rows);
+	$: result = pageData?.formula(rows);
 </script>
 
 <div class="container">
 	<div class="result">Wynik: <span>{result}</span></div>
 	<div class="controls">
-		{#each page?.fields as field}
-			<Input {...field} bind:value={controlsValues[field?.name]} placeholder={field?.name} />
+		{#each pageData?.fields as field}
+			<Input {...field} bind:value={controlsValues[field.name]} placeholder={field?.name} />
 		{/each}
-		<button on:click={addRow}>Dodaj</button>
+		<Button on:click={addRow}>Dodaj</Button>
 	</div>
 
 	<table>
 		<thead>
 			<tr>
-				{#each page?.fields as field}
+				{#each pageData?.fields as field}
 					<th>{field?.name}</th>
 				{/each}
 				<th />
@@ -45,17 +48,19 @@
 		<tbody>
 			{#each rows as row}
 				<tr class="row">
-					{#each page?.fields as field}
+					{#each pageData?.fields as field}
 						<td>{row[field?.name]}</td>
 					{/each}
 					<td class="fitwidth">
-						<Icon name="delete" />
+						<button class="delete" on:click={() => deleteRow(row.id)}>
+							<Icon name="delete" />
+						</button>
 					</td>
 				</tr>
 			{/each}
 			{#if rows.length === 0}
 				<tr>
-					<td colspan={page?.fields?.length}>Brak danych</td>
+					<td colspan={pageData?.fields?.length}>Brak danych</td>
 					<td />
 				</tr>
 			{/if}
@@ -102,15 +107,6 @@
 				border: none;
 				cursor: pointer;
 				background: transparent;
-				border-radius: 50%;
-
-				& span {
-					color: $gray-dark;
-				}
-
-				&:hover span {
-					color: red;
-				}
 			}
 		}
 

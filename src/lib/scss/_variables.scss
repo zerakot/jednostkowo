@@ -3,6 +3,9 @@ $text-light: #636363;
 $background: #ffffff;
 $primary: #03ad00;
 
+$primary-hover: darken($primary, 2.2);
+$primary-ghost: transparentize($primary, 0.94);
+
 $gray-light: #f1f1f1;
 $gray-medium: #e6e6e6;
 $gray-dark: #a5a5a5;
@@ -117,7 +120,7 @@ $media-width: 100%;
 			}
 		}
 
-		@include sm {
+		@include md {
 			font-size: 0.9rem;
 		}
 	}

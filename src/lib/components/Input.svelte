@@ -1,16 +1,26 @@
 <script>
 	import { getRandomId } from '$lib/utils';
+	import Label from './Label.svelte';
+
+	export let value;
+	export let type;
+	export let checked = false;
 	export let label = '';
-	export let value = '';
+	export let inlineLabel = false;
 
 	let id = getRandomId(10);
 </script>
 
-<div class="wrapper">
+<div class="wrapper" class:inlineLabel>
 	{#if label}
-		<label for={id}>{label}</label>
+		<Label htmlFor={id}>{label}</Label>
 	{/if}
-	<input {...$$restProps} bind:value {id} on:input />
+
+	{#if type === 'checkbox'}
+		<input type="checkbox" {id} {...$$restProps} bind:checked />
+	{:else}
+		<input {type} {id} {value} on:input={(e) => (value = e.target.value)} {...$$restProps} />
+	{/if}
 </div>
 
 <style lang="scss">
@@ -20,9 +30,12 @@
 		display: flex;
 		flex-direction: column;
 
-		& label {
-			font-size: 0.9rem;
+		&.inlineLabel {
+			gap: 0.4rem;
+			align-items: center;
+			flex-direction: row;
 		}
+
 		& input {
 			width: 100%;
 			font-size: 0.95rem;

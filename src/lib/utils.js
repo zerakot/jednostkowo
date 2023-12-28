@@ -76,7 +76,7 @@ const bmiClassifications = [
 	{ from: 35, to: 39.99, label: 'II stopień otyłości' },
 	{ from: 40, to: Infinity, label: 'otyłość skrajna' }
 ];
-export const calculateBmi = (weight, height) => {
+export const calculateBmi = (weight = 0, height) => {
 	const bmi = weight / Math.pow(height / 100, 2);
 	const clasificationLabel = bmiClassifications.find((b) => b.from <= bmi && b.to > bmi)?.label;
 	const correctClassification = bmiClassifications.find((item) => item?.correct);
@@ -104,38 +104,42 @@ export const calculateBmi = (weight, height) => {
 	return { bmi, label };
 };
 
-const convertUnit = (amount, from, to, decimals) => {
-	decimals = parseInt(decimals);
+const convertUnit = (amount, from, to, options) => {
 	const bigRatio = new Big(parseFloat(from));
 	const bigbaseUnitLabel = new Big(parseFloat(to));
 	const bigAmount = new Big(parseFloat(amount));
 
-	let value = bigbaseUnitLabel.div(bigRatio).times(bigAmount).round(decimals);
-	return value > 100000000 ? value.toExponential() : value.toFixed(decimals);
+	let value = bigbaseUnitLabel.div(bigRatio).times(bigAmount).round(parseInt(options?.decimals));
+	return value > 100000000 && options.scientificNotation
+		? value.toExponential()
+		: value.toFixed(parseInt(options?.decimals));
 };
-const getUnitByLabel = (label, converters) => {
+export const getUnit = (condition, converters) => {
 	for (const converter of converters) {
 		const category = converter?.name;
-		if (converter?.units?.some((unit) => unit.label === label)) {
-			return { category: category, ...converter.units.find((unit) => unit.label === label) };
-		}
+
+		const unit = converter.units.find((unit) => {
+			return unit[Object.keys(condition)[0]] === Object.values(condition)[0];
+		});
+
+		if (unit) return { category: category, ...unit };
 	}
 	return null;
 };
-export const convert = (ammount, baseLabel, targetLabel, decimals, converters) => {
+export const convert = (ammount, baseLabel, targetLabel, converters, options) => {
 	if (!ammount) ammount = 0;
 
-	const baseUnit = getUnitByLabel(baseLabel, converters);
+	const baseUnit = getUnit({ label: baseLabel }, converters);
 
 	if (targetLabel) {
-		const targetUnit = getUnitByLabel(targetLabel, converters);
+		const targetUnit = getUnit({ label: targetLabel }, converters);
 		return [
 			{
 				name: targetUnit?.category,
 				units: [
 					{
 						...targetUnit,
-						value: convertUnit(ammount, baseUnit.ratio, targetUnit.ratio, decimals)
+						value: convertUnit(ammount, baseUnit.ratio, targetUnit.ratio, options)
 					}
 				]
 			}
@@ -147,7 +151,7 @@ export const convert = (ammount, baseLabel, targetLabel, decimals, converters) =
 				units: converter.units.map((unit) => ({
 					...unit,
 					active: baseUnit.label === unit.label,
-					value: convertUnit(ammount, baseUnit.ratio, unit.ratio, decimals)
+					value: convertUnit(ammount, baseUnit.ratio, unit.ratio, options)
 				}))
 			};
 		});

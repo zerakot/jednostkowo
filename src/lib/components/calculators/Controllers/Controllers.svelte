@@ -2,19 +2,42 @@
 	import Select from '$lib/components/Select.svelte';
 	import Input from '$lib/components/Input.svelte';
 	import Scale from './Scale.svelte';
+	import Button from '../../Button.svelte';
 
-	export let page;
+	export let pageData;
 
-	let controlsValues = {};
 	let result;
+	let errorMessage = '';
+	let dataset = pageData.controllers.reduce((res, controller) => {
+		res[controller.id] = controller.defaultValue;
+		return res;
+	}, {});
 
-	$: result = page?.formula(controlsValues);
+	const calculate = () => {
+		const formulaResult = pageData.formula(dataset);
+		errorMessage = formulaResult?.error;
+		if (formulaResult?.error) return;
+
+		if (pageData?.overwrite) dataset = formulaResult;
+		else result = formulaResult;
+	};
+	const reset = () => {
+		dataset = pageData.controllers.reduce((res, controller) => {
+			res[controller.id] = controller.defaultValue;
+			return res;
+		}, {});
+		result = null;
+	};
 </script>
 
 <section class="container">
-	{#each page?.controllers as controller}
+	{#if errorMessage}
+		<div class="error">{errorMessage}</div>
+	{/if}
+
+	{#each pageData?.controllers as controller}
 		{#if controller?.element === 'select'}
-			<Select bind:value={controlsValues[controller?.id]} label={controller?.label}>
+			<Select bind:value={dataset[controller?.id]} label={controller?.label}>
 				{#each controller?.options as option}
 					<option value={option?.name}>{option?.label}</option>
 				{/each}
@@ -23,7 +46,7 @@
 		{#if controller?.element === 'input'}
 			<Input
 				{...controller?.attributes}
-				bind:value={controlsValues[controller?.id]}
+				bind:value={dataset[controller?.id]}
 				label={controller?.label}
 			/>
 		{/if}
@@ -50,17 +73,23 @@
 				{/each}
 			</tbody>
 		</table>
-	{:else}
+	{:else if result?.value && !pageData?.overwrite}
 		<div class="result">
 			Wynik: <span style="--color: {result?.color || null}">{result?.value}</span>
 		</div>
 	{/if}
+
+	<div class="actions">
+		<Button variant="ghost" on:click={reset}>Resetuj</Button>
+		<Button on:click={calculate}>Oblicz</Button>
+	</div>
 </section>
 
 <style lang="scss">
 	.container {
 		gap: 1rem;
 		width: 100%;
+		align-items: flex-end;
 		display: flex;
 		flex-direction: column;
 		@include calculator;

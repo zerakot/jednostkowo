@@ -1,11 +1,21 @@
 <script>
+	import { getUnit } from '$lib/utils';
+	import { page } from '$app/stores';
+	import { convert } from '$lib/utils';
 	import Input from '$lib/components/Input.svelte';
 	import Select from '$lib/components/Select.svelte';
 
-	export let number;
+	export let results;
+	export let options;
 	export let converters;
-	export let baseUnitLabel;
-	export let targetUnitLabel;
+
+	let number = 1;
+	let baseUnitLabel =
+		getUnit({ label: $page.url.searchParams.get('from') }, converters)?.label ||
+		getUnit({ default: true }, converters)?.label;
+	let targetUnitLabel = '';
+
+	$: results = convert(number, baseUnitLabel, targetUnitLabel, converters, options);
 </script>
 
 <div class="controls">
@@ -18,7 +28,7 @@
 			{/if}
 
 			{#each converter.units as unit}
-				<option value={unit.label}>[{unit.symbol}] - {unit.label}</option>
+				<option value={unit.label}>{unit.label} - [{unit.symbol}]</option>
 			{/each}
 		{/each}
 	</Select>
@@ -31,7 +41,7 @@
 			{/if}
 
 			{#each converter.units as unit}
-				<option value={unit.label}>[{unit.symbol}] - {unit.label}</option>
+				<option value={unit.label}>{unit.label} - [{unit.symbol}]</option>
 			{/each}
 		{/each}
 	</Select>

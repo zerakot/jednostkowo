@@ -20,7 +20,7 @@
 		</hgroup>
 
 		{#key pageData?.id}
-			<svelte:component this={pageData?.component} page={pageData} />
+			<svelte:component this={pageData?.component} {pageData} />
 		{/key}
 
 		<aside>

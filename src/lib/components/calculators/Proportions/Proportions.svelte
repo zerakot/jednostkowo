@@ -1,17 +1,18 @@
 <script>
 	import Input from '$lib/components/Input.svelte';
-	import { round } from '$lib/utils';
+	import Button from '../../Button.svelte';
 	import Icon from '../../Icon.svelte';
 
-	let a = '',
-		b = '',
-		c = '',
-		d = '',
-		result = '0.00';
+	let values = { a: '', b: '', c: '', d: '' };
 
 	const calculate = () => {
-		const p = { a: parseFloat(a), b: parseFloat(b), c: parseFloat(c), d: parseFloat(d) };
-		let res = '0,00';
+		const p = {
+			a: parseFloat(values.a),
+			b: parseFloat(values.b),
+			c: parseFloat(values.c),
+			d: parseFloat(values.d)
+		};
+		let res = '0.00';
 
 		if (!!p?.a && !!p?.b) {
 			if (!!p?.c && !p?.d) {
@@ -27,28 +28,39 @@
 			}
 		}
 
-		const rounded = round(res);
-		result = isNaN(rounded) ? '0.00' : rounded;
+		for (let key in values) {
+			// Jeśli wartość właściwości jest pusta, ustaw ją na "X" i zakończ pętlę
+			if (values[key] === '') {
+				values[key] = res;
+				break;
+			}
+		}
+	};
+	const reset = () => {
+		values = { a: '', b: '', c: '', d: '' };
 	};
 </script>
 
 <section class="container">
-	<div class="result">Wynik: <span>{result}</span></div>
-
 	<div class="operation">
 		<div class="column">
-			<Input type="number" placeholder="x" bind:value={a} on:input={calculate} />
+			<Input type="number" placeholder="A" bind:value={values.a} />
 			<div class="separator" />
-			<Input type="number" placeholder="x" bind:value={b} on:input={calculate} />
+			<Input type="number" placeholder="B" bind:value={values.b} />
 		</div>
 
 		<Icon name="equal" width="20" height="20" />
 
 		<div class="column">
-			<Input type="number" placeholder="x" bind:value={c} on:input={calculate} />
+			<Input type="number" placeholder="C" bind:value={values.c} />
 			<div class="separator" />
-			<Input type="number" placeholder="x" bind:value={d} on:input={calculate} />
+			<Input type="number" placeholder="D" bind:value={values.d} />
 		</div>
+	</div>
+	<div class="actions">
+		<Button variant="ghost" on:click={reset}>Resetuj</Button>
+
+		<Button on:click={calculate}>Oblicz</Button>
 	</div>
 </section>
 
@@ -57,6 +69,7 @@
 		width: 100%;
 		gap: 0.5rem;
 		display: flex;
+		align-items: flex-end;
 		flex-direction: column;
 		@include calculator;
 
@@ -69,6 +82,7 @@
 		}
 
 		& .operation {
+			width: 100%;
 			gap: 1rem;
 			align-items: center;
 			display: flex;

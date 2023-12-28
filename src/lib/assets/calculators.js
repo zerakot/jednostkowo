@@ -56,8 +56,8 @@ export const calculators = [
 		about:
 			'Średnia ocen, zwana także średnią arytmetyczną, to sposób obliczania wyników uczniów na podstawie wszystkich ocen, jakie otrzymali z danego przedmiotu lub semestru. Aby obliczyć średnią ocen, należy dodać wszystkie oceny i podzielić je przez ich liczbę, opcjonalnie uwzględniając ich wagi.',
 		fields: [
-			{ type: 'text', name: 'Ocena' },
-			{ type: 'number', name: 'Waga' }
+			{ type: 'text', name: 'Ocena', defaultValue: '' },
+			{ type: 'number', name: 'Waga', defaultValue: '' }
 		],
 		formula: (dataset) => {
 			const sum = dataset.reduce(
@@ -163,6 +163,9 @@ export const calculators = [
 			}
 		],
 		formula: (dataset) => {
+			delete dataset.error;
+
+			if (!dataset?.height || !dataset.weight) return { error: 'Podaj wzrost i masę ciała.' };
 			const { bmi, label } = calculateBmi(dataset?.weight, dataset?.height);
 
 			return {
@@ -174,6 +177,60 @@ export const calculators = [
 					'to right, rgb(188, 32, 32) 0%, rgb(188, 32, 32) 20%, rgb(211, 136, 136) 20%, rgb(211, 136, 136) 22.50%, rgb(255, 228, 0) 22.50%, rgb(255, 228, 0) 26.25%, rgb(0, 129, 55) 26.25%, rgb(0, 129, 55) 42.50%, rgb(255, 228, 0) 42.50%, rgb(255, 228, 0) 55.00%, rgb(211, 136, 136) 55.00%, rgb(211, 136, 136) 67.50%, rgb(188, 32, 32) 67.50%, rgb(188, 32, 32) 80%, rgb(138, 1, 1) 80%, rgb(138, 1, 1) 100%'
 			};
 		}
+	},
+	{
+		id: 'kalkulator-pitagorasa',
+		type: 'kalkulator',
+		name: 'Pitagorasa',
+		title: 'Kalkulator Pitagorasa',
+		description: 'Łatwy w użyciu kalkulator Pitagorasa, który ułatwi Ci obliczanie Pitagorasa.',
+		icon: 'change_history',
+		component: Controllers,
+		about:
+			'BMI, czyli indeks masy ciała (ang. Body Mass Index), to wskaźnik używany do oceny masy ciała osoby w stosunku do jej wzrostu. Jest to powszechnie stosowany sposób oceny, czy dana osoba ma odpowiednią masę ciała, nadwagę, niedowagę lub otyłość.',
+		controllers: [
+			{
+				id: 'a',
+				defaultValue: '',
+				element: 'input',
+				label: 'Długość boku A (przyprostokątna)',
+				attributes: { type: 'number', placeholder: 'Podaj długość boku A' }
+			},
+			{
+				id: 'b',
+				defaultValue: '',
+				element: 'input',
+				label: 'Długość boku B (przyprostokątna)',
+				attributes: { type: 'number', placeholder: 'Podaj długość boku B' }
+			},
+			{
+				id: 'c',
+				element: 'input',
+				defaultValue: '',
+				label: 'Długość boku C (przeciwprostokątna)',
+				attributes: { type: 'number', placeholder: 'Podaj długość boku C' }
+			}
+		],
+		formula: (dataset) => {
+			delete dataset.error;
+
+			if (dataset?.a !== '' && dataset.b !== '') {
+				// Jeśli a i b są dostępne, oblicz c
+				dataset.c = round(Math.sqrt(parseFloat(dataset.a) ** 2 + parseFloat(dataset.b) ** 2), 5);
+			} else if (dataset.b !== '' && dataset.c !== '') {
+				// Jeśli b i c są dostępne, oblicz a
+				dataset.a = round(Math.sqrt(parseFloat(dataset.c) ** 2 - parseFloat(dataset.b) ** 2), 5);
+			} else if (dataset.a !== '' && dataset.c !== '') {
+				// Jeśli a i c są dostępne, oblicz b
+				dataset.b = round(Math.sqrt(parseFloat(dataset.c) ** 2 - parseFloat(dataset.a) ** 2), 5);
+			} else {
+				// Nieprawidłowy zestaw wartości
+				return { error: 'Podaj długości dwóch boków' };
+			}
+
+			return dataset;
+		},
+		overwrite: true
 	},
 	{
 		id: 'przelicznik-dlugosci',

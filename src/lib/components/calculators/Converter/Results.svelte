@@ -1,36 +1,27 @@
 <script>
-	import { convert } from '$lib/utils';
-
-	export let number;
-	export let decimals;
-	export let converters;
-	export let baseUnitLabel;
-	export let targetUnitLabel;
-
-	let results = [];
-	$: results = convert(number, baseUnitLabel, targetUnitLabel, decimals, converters);
+	export let results;
 </script>
 
 <table>
 	<thead>
 		<tr>
 			<th>Nazwa</th>
-			<th>Symbol</th>
+			<th class="symbol">Symbol</th>
 			<th class="fitwidth">Wynik</th>
 		</tr>
 	</thead>
 	<tbody>
-		{#each results as converter}
-			{#if converter?.name}
+		{#each results as category}
+			{#if category?.name}
 				<tr class="category">
-					<td colspan="3">{converter.name}</td>
+					<td colspan="3">{category.name}</td>
 				</tr>
 			{/if}
 
-			{#each converter.units as unit}
+			{#each category.units as unit}
 				<tr class:active={unit?.active}>
 					<td class="label">{unit.label}</td>
-					<td>{unit.symbol}</td>
+					<td class="symbol">{unit.symbol}</td>
 					<td class="alignRight fitwidth bold">{unit.value}</td>
 				</tr>
 			{/each}
@@ -42,18 +33,18 @@
 	table {
 		@include table;
 
-		& thead tr th:nth-child(2) {
+		& thead tr th.symbol {
 			display: none;
 		}
-		& tbody tr td:nth-child(2) {
+		& tbody tr td.symbol {
 			display: none;
 		}
 
 		@include md {
-			& thead tr th:nth-child(2) {
+			& thead tr th.symbol {
 				display: table-cell;
 			}
-			& tbody tr td:nth-child(2) {
+			& tbody tr td.symbol {
 				display: table-cell;
 			}
 		}

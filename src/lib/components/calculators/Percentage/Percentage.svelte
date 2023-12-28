@@ -1,11 +1,11 @@
 <script>
 	import Operation from './Operation.svelte';
 
-	export let page;
+	export let pageData;
 </script>
 
 <section class="operations">
-	{#each page?.operations as operation}
+	{#each pageData?.operations as operation}
 		<Operation {operation} />
 	{/each}
 </section>
