@@ -6,27 +6,26 @@
 	import Icon from '../../lib/components/Icon.svelte';
 
 	export let data;
-	$: pageData = calculators?.find((item) => item.id === data?.id);
+	/* Zrób coś z tym */
+	$: calculatorData = calculators?.find((item) => item.id === data?.id);
 </script>
 
-{#key pageData?.id}
+{#key calculatorData?.id}
 	<div class="container" in:fly|global={{ x: 150 }}>
 		<hgroup>
-			<div class="pill">{pageData?.name}</div>
-			<h1>
-				{`${pageData?.type.charAt(0).toUpperCase() + pageData?.type.slice(1)} ${pageData?.name}`}
-			</h1>
-			<p>{pageData?.description}</p>
+			<div class="pill">{calculatorData?.name}</div>
+			<h1>{calculatorData?.title}</h1>
+			<p>{calculatorData?.description}</p>
 		</hgroup>
 
-		{#key pageData?.id}
-			<svelte:component this={pageData?.component} {pageData} />
+		{#key calculatorData?.id}
+			<svelte:component this={calculatorData?.component} {calculatorData} />
 		{/key}
 
 		<aside>
 			<Icon name="lightbulb" fill="primary" />
 			<p>
-				{pageData?.about || ''}
+				{calculatorData?.about || ''}
 			</p>
 		</aside>
 	</div>

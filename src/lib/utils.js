@@ -104,16 +104,7 @@ export const calculateBmi = (weight = 0, height) => {
 	return { bmi, label };
 };
 
-const convertUnit = (amount, from, to, options) => {
-	const bigRatio = new Big(parseFloat(from));
-	const bigbaseUnitLabel = new Big(parseFloat(to));
-	const bigAmount = new Big(parseFloat(amount));
-
-	let value = bigbaseUnitLabel.div(bigRatio).times(bigAmount).round(parseInt(options?.decimals));
-	return value > 100000000 && options.scientificNotation
-		? value.toExponential()
-		: value.toFixed(parseInt(options?.decimals));
-};
+/* Converter functions */
 export const getUnit = (condition, converters) => {
 	for (const converter of converters) {
 		const category = converter?.name;
@@ -125,6 +116,16 @@ export const getUnit = (condition, converters) => {
 		if (unit) return { category: category, ...unit };
 	}
 	return null;
+};
+const convertUnit = (amount, from, to, options) => {
+	const bigRatio = new Big(parseFloat(from));
+	const bigbaseUnitLabel = new Big(parseFloat(to));
+	const bigAmount = new Big(parseFloat(amount));
+
+	let value = bigbaseUnitLabel.div(bigRatio).times(bigAmount).round(parseInt(options?.decimals));
+	return value > 100000000 && options.scientificNotation
+		? value.toExponential()
+		: value.toFixed(parseInt(options?.decimals));
 };
 export const convert = (ammount, baseLabel, targetLabel, converters, options) => {
 	if (!ammount) ammount = 0;

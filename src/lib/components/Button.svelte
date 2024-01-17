@@ -16,7 +16,10 @@
 		border-radius: 5px;
 
 		&:hover {
-			background-color: $primary-hover;
+			background-color: darken($primary, 2.2);
+		}
+		&:active {
+			background-color: darken($primary, 4.2);
 		}
 
 		&.ghost {

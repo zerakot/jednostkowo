@@ -1,18 +1,19 @@
 <script>
 	import { onMount } from 'svelte';
 
-	onMount(() => {
+	/* onMount(() => {
 		(window.adsbygoogle = window.adsbygoogle || []).push({});
-	});
+	}); */
 </script>
 
-<ins
+<!-- <ins
 	class="adsbygoogle ad"
 	style="display:block"
 	data-ad-client="ca-pub-8080398088944990"
 	data-ad-slot="2869311110"
 	data-ad-format="auto"
-/>
+/> -->
+<div class="ad" />
 
 <style lang="scss">
 	.ad {

@@ -4,11 +4,11 @@
 	import Icon from '../../Icon.svelte';
 	import Button from '../../Button.svelte';
 
-	export let pageData;
+	export let calculatorData;
 
 	let result;
 	let rows = [];
-	let initialValues = pageData.fields.reduce((result, field) => {
+	let initialValues = calculatorData.fields.reduce((result, field) => {
 		result[field.name] = field.defaultValue;
 		return result;
 	}, {});
@@ -23,13 +23,13 @@
 		rows = newRows;
 	};
 
-	$: result = pageData?.formula(rows);
+	$: result = calculatorData?.formula(rows);
 </script>
 
 <div class="container">
 	<div class="result">Wynik: <span>{result}</span></div>
 	<div class="controls">
-		{#each pageData?.fields as field}
+		{#each calculatorData?.fields as field}
 			<Input {...field} bind:value={controlsValues[field.name]} placeholder={field?.name} />
 		{/each}
 		<Button on:click={addRow}>Dodaj</Button>
@@ -38,7 +38,7 @@
 	<table>
 		<thead>
 			<tr>
-				{#each pageData?.fields as field}
+				{#each calculatorData?.fields as field}
 					<th>{field?.name}</th>
 				{/each}
 				<th />
@@ -48,7 +48,7 @@
 		<tbody>
 			{#each rows as row}
 				<tr class="row">
-					{#each pageData?.fields as field}
+					{#each calculatorData?.fields as field}
 						<td>{row[field?.name]}</td>
 					{/each}
 					<td class="fitwidth">
@@ -60,7 +60,7 @@
 			{/each}
 			{#if rows.length === 0}
 				<tr>
-					<td colspan={pageData?.fields?.length}>Brak danych</td>
+					<td colspan={calculatorData?.fields?.length}>Brak danych</td>
 					<td />
 				</tr>
 			{/if}

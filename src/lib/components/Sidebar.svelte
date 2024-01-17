@@ -6,33 +6,34 @@
 	import { page } from '$app/stores';
 	import { fly } from 'svelte/transition';
 
-	let currentPageData;
+	let currentcalculatorData;
 	let id = getRandomId();
 	let moreVisible = false;
 
-	$: currentPageData = calculators?.find((item) => item?.id === $page.params?.id) || calculators[0];
+	$: currentcalculatorData =
+		calculators?.find((item) => item?.id === $page.params?.id) || calculators[0];
 </script>
 
-{#key currentPageData?.type}
+{#key currentcalculatorData?.type}
 	<aside in:fly|global={{ x: -150, delay: 150 }}>
 		<div class="trigger">
 			<label for={id}>
 				<span class="category">Kategoria:</span>
 				<div class="wrapper">
-					<Icon name={currentPageData?.icon} />
-					{currentPageData?.name}
+					<Icon name={currentcalculatorData?.icon} />
+					{currentcalculatorData?.name}
 				</div>
 			</label>
 
 			<button {id} on:click={() => (moreVisible = !moreVisible)}>
-				Zmień {currentPageData?.type}
+				Zmień {currentcalculatorData?.type}
 			</button>
 		</div>
 
 		<ul class:hidden={!moreVisible}>
-			{#each calculators.filter((el) => el?.type === currentPageData?.type) as calculator}
+			{#each calculators.filter((el) => el?.type === currentcalculatorData?.type) as calculator}
 				<a href={`/${calculator?.id}`} on:click={() => (moreVisible = false)}>
-					<li class:active={currentPageData?.id === calculator?.id}>
+					<li class:active={currentcalculatorData?.id === calculator?.id}>
 						<Icon name={calculator?.icon} />
 						{calculator?.name?.charAt(0).toUpperCase() + calculator?.name?.slice(1)}
 					</li>

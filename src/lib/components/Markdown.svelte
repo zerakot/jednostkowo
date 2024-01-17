@@ -20,7 +20,7 @@
 			margin-top: 1rem;
 		}
 		& :global(a) {
-			font-weight: inherit;
+			font-weight: bold;
 			color: $primary;
 		}
 		& :global(ul),

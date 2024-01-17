@@ -6,7 +6,7 @@
 	<section>
 		<h2 class="header">Najnowsze artykuły</h2>
 		<ul>
-			{#each posts?.slice(0, 5) as post}
+			{#each posts?.slice(0, 3) as post}
 				<li>
 					<a href="/blog/{post?.slug}">{post?.title}</a>
 				</li>

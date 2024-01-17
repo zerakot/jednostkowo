@@ -1,6 +1,6 @@
 <script>
 	import Select from '$lib/components/Select.svelte';
-	import Input from '../../Input.svelte';
+	import Input from '$lib/components/Input.svelte';
 
 	export let options;
 </script>

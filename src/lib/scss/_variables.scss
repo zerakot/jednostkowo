@@ -2,8 +2,6 @@ $text: #160d08;
 $text-light: #636363;
 $background: #ffffff;
 $primary: #03ad00;
-
-$primary-hover: darken($primary, 2.2);
 $primary-ghost: transparentize($primary, 0.94);
 
 $gray-light: #f1f1f1;
@@ -146,7 +144,48 @@ $media-width: 100%;
 
 @mixin calculator {
 	padding: 1rem;
+	position: relative;
 	border-radius: 10px;
 	border: 1px solid $gray-medium;
 	box-shadow: 4px 4px 20px $gray-light;
+	z-index: 1;
+
+	&.animation {
+		@keyframes shine {
+			0%,
+			100% {
+				opacity: 0;
+				box-shadow: unset;
+			}
+			50% {
+				opacity: 0.7;
+				box-shadow: 0 0 30px transparentize($primary, 0.85);
+			}
+		}
+		&::before {
+			top: -2px;
+			left: -2px;
+			border-radius: 13px;
+			width: calc(100% + 4px);
+			height: calc(100% + 4px);
+			content: '';
+			z-index: -2;
+			position: absolute;
+			background: $primary;
+			background-position: 0 0;
+			animation: shine 0.6s linear forwards;
+			background-repeat: no-repeat;
+		}
+		&::after {
+			top: 0;
+			left: 0;
+			border-radius: 10px;
+			background-color: $background;
+			width: 100%;
+			height: 100%;
+			content: '';
+			z-index: -1;
+			position: absolute;
+		}
+	}
 }

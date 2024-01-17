@@ -1,6 +1,5 @@
 import Converter from '$lib/components/calculators/Converter/Converter.svelte';
 import Percentage from '$lib/components/calculators/Percentage/Percentage.svelte';
-import Proportions from '$lib/components/calculators/Proportions/Proportions.svelte';
 import Stack from '$lib/components/calculators/Stack/Stack.svelte';
 import Controllers from '$lib/components/calculators/Controllers/Controllers.svelte';
 import { calculateBmi, formatGrade, round } from '../utils';
@@ -79,7 +78,7 @@ export const calculators = [
 				return '0.00';
 			}
 
-			return round(sum.gradesSum / sum.weightSum, 2);
+			return { type: 'scale', value: round(sum.gradesSum / sum.weightSum, 2) };
 		}
 	},
 	{
@@ -89,9 +88,70 @@ export const calculators = [
 		title: 'Kalkulator proporcji',
 		description: 'Łatwy w użyciu kalkulator proporcji, który ułatwi Ci obliczanie proporcji.',
 		icon: 'shuffle',
-		component: Proportions,
+		component: Controllers,
 		about:
-			'Proporcje to relacja między wielkościami, które można porównać ze sobą. Proporcje mogą być wyrażone w różnych sposobach, np. jako ułamek, procent, stosunek czy skala. Proporcje są używane w wielu dziedzinach, np. w matematyce, sztuce, architekturze czy kuchni. Proporcje pomagają nam zrozumieć i opisać zależności między różnymi wielkościami.'
+			'Proporcje to relacja między wielkościami, które można porównać ze sobą. Proporcje mogą być wyrażone w różnych sposobach, np. jako ułamek, procent, stosunek czy skala. Proporcje są używane w wielu dziedzinach, np. w matematyce, sztuce, architekturze czy kuchni. Proporcje pomagają nam zrozumieć i opisać zależności między różnymi wielkościami.',
+		controllers: [
+			{
+				id: 'a',
+				element: 'input',
+				attributes: { type: 'number', placeholder: 'A' }
+			},
+			{
+				id: 'c',
+				element: 'input',
+				attributes: { type: 'number', placeholder: 'C' }
+			},
+			{
+				id: 'icon',
+				element: 'icon',
+				name: 'equal',
+				ignore: true
+			},
+			{
+				id: 'b',
+				element: 'input',
+				attributes: { type: 'number', placeholder: 'B' }
+			},
+			{
+				id: 'd',
+				element: 'input',
+				attributes: { type: 'number', placeholder: 'D' }
+			}
+		],
+		formula: (dataset) => {
+			const p = {
+				a: parseFloat(dataset.a),
+				b: parseFloat(dataset.b),
+				c: parseFloat(dataset.c),
+				d: parseFloat(dataset.d)
+			};
+			let res = '0.00';
+
+			if (!!p?.a && !!p?.b) {
+				if (!!p?.c && !p?.d) {
+					res = (p?.c * p?.b) / p?.a;
+				} else if (!!p?.d && !p?.c) {
+					res = (p?.a * p?.d) / p?.b;
+				}
+			} else if (!!p?.c && !!p?.d) {
+				if (!!p?.a && !p?.b) {
+					res = (p?.a * p?.d) / p?.c;
+				} else if (!!p?.b && !p?.a) {
+					res = (p?.c * p?.b) / p?.d;
+				}
+			}
+
+			for (let key in dataset) {
+				// Jeśli wartość właściwości jest pusta, ustaw ją na "X" i zakończ pętlę
+				if (!dataset[key]) {
+					dataset[key] = res;
+					break;
+				}
+			}
+			return { dataset, overwrite: true };
+		},
+		layout: { gridTemplate: '"a icon b" "c icon d" / auto 20px auto' }
 	},
 	{
 		id: 'kalkulator-funkcji-trygonometrycznych',
@@ -228,9 +288,8 @@ export const calculators = [
 				return { error: 'Podaj długości dwóch boków' };
 			}
 
-			return dataset;
-		},
-		overwrite: true
+			return { dataset, overwrite: true };
+		}
 	},
 	{
 		id: 'przelicznik-dlugosci',
