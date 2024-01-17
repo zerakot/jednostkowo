@@ -160,7 +160,7 @@ export const calculators = [
 		title: 'Kalkulator trygonometrii',
 		description:
 			'Łatwy w użyciu kalkulator funkcji trygonometrycznych, który ułatwi Ci obliczanie funkcji trygonometrycznych.',
-		icon: 'square_foot',
+		icon: 'change_history',
 		component: Controllers,
 		about:
 			'Trygonometria jest działem matematyki zajmującym się badaniem związków między kątami i bokami trójkątów. Trygonometria wykorzystuje funkcje trygonometryczne, takie jak sinus, cosinus i tangens, do obliczania wartości kątów i długości boków. Trygonometria ma wiele zastosowań w nauce i technice, na przykład w nawigacji, astronomii, fizyce i inżynierii.',
@@ -244,7 +244,7 @@ export const calculators = [
 		name: 'Pitagorasa',
 		title: 'Kalkulator Pitagorasa',
 		description: 'Łatwy w użyciu kalkulator Pitagorasa, który ułatwi Ci obliczanie Pitagorasa.',
-		icon: 'change_history',
+		icon: 'details',
 		component: Controllers,
 		about:
 			'BMI, czyli indeks masy ciała (ang. Body Mass Index), to wskaźnik używany do oceny masy ciała osoby w stosunku do jej wzrostu. Jest to powszechnie stosowany sposób oceny, czy dana osoba ma odpowiednią masę ciała, nadwagę, niedowagę lub otyłość.',

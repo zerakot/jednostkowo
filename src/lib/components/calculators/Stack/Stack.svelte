@@ -53,7 +53,7 @@
 					{/each}
 					<td class="fitwidth">
 						<button class="delete" on:click={() => deleteRow(row.id)}>
-							<Icon name="delete" />
+							<Icon>delete</Icon>
 						</button>
 					</td>
 				</tr>

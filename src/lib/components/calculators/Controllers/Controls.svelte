@@ -58,7 +58,7 @@
 						label={controller?.label}
 					/>
 				{:else if controller?.element === 'icon'}
-					<Icon name={controller?.name} />
+					<Icon>{controller?.name}</Icon>
 				{/if}
 			</div>
 		{/each}

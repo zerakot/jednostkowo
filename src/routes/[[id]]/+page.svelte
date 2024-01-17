@@ -23,7 +23,7 @@
 		{/key}
 
 		<aside>
-			<Icon name="lightbulb" fill="primary" />
+			<Icon variant="primary" size="1.3rem">lightbulb</Icon>
 			<p>
 				{calculatorData?.about || ''}
 			</p>

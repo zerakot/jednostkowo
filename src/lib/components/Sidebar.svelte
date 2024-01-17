@@ -20,7 +20,7 @@
 			<label for={id}>
 				<span class="category">Kategoria:</span>
 				<div class="wrapper">
-					<Icon name={currentcalculatorData?.icon} />
+					<Icon>{currentcalculatorData?.icon}</Icon>
 					{currentcalculatorData?.name}
 				</div>
 			</label>
@@ -34,7 +34,7 @@
 			{#each calculators.filter((el) => el?.type === currentcalculatorData?.type) as calculator}
 				<a href={`/${calculator?.id}`} on:click={() => (moreVisible = false)}>
 					<li class:active={currentcalculatorData?.id === calculator?.id}>
-						<Icon name={calculator?.icon} />
+						<Icon>{calculator?.icon}</Icon>
 						{calculator?.name?.charAt(0).toUpperCase() + calculator?.name?.slice(1)}
 					</li>
 				</a>

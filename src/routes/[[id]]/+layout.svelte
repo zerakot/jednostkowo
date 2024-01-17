@@ -8,7 +8,6 @@
 	<Sidebar />
 
 	<main>
-		<Ad />
 		<slot />
 	</main>
 </div>

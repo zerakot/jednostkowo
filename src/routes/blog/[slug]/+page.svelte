@@ -2,12 +2,13 @@
 	import { fly } from 'svelte/transition';
 	import SEO from '$lib/components/Seo/Seo.svelte';
 	import Markdown from '../../../lib/components/Markdown.svelte';
-	import Ad from '../../../lib/components/Ad.svelte';
+	import CalculatorBanner from './CalculatorBanner.svelte';
 
 	export let data;
 </script>
 
 <div class="container">
+	<CalculatorBanner calculatorId={data?.post?.calculatorId} />
 	<!-- Dodaj wtrącenie do użycia kalkulatora lub przelicznika (użyj formatowania bloku code) -->
 	<img src={data?.post.image} alt="Banner artykułu" in:fly={{ x: -150 }} />
 
@@ -15,12 +16,7 @@
 		<h1>{data?.post.title}</h1>
 		<Markdown source={data?.post?.content} />
 	</section>
-
-	<div class="ad" in:fly={{ x: 150, delay: 200 }}>
-		<Ad />
-	</div>
 </div>
-
 <SEO {...data?.metaTags} />
 
 <style lang="scss">
@@ -30,7 +26,7 @@
 		grid-template-rows: repeat(3, auto);
 		grid-template-columns: 1fr;
 		grid-template-areas:
-			'ad'
+			'widget'
 			'img'
 			'main';
 
@@ -61,7 +57,7 @@
 
 		@include lg {
 			grid-template-rows: auto 1fr;
-			grid-template-columns: 1fr auto;
+			grid-template-columns: 1fr 250px;
 			grid-template-areas:
 				'img img'
 				'main ad';
