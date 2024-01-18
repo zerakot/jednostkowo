@@ -1,4 +1,5 @@
 import Big from 'big.js';
+Big.DP = 30;
 
 export const getRandomId = (length = 10) => {
 	let result = '';
@@ -118,14 +119,20 @@ export const getUnit = (condition, converters) => {
 	return null;
 };
 const convertUnit = (amount, from, to, options) => {
+	const decimals = parseInt(options?.decimals);
+
 	const bigRatio = new Big(parseFloat(from));
 	const bigbaseUnitLabel = new Big(parseFloat(to));
 	const bigAmount = new Big(parseFloat(amount));
 
-	let value = bigbaseUnitLabel.div(bigRatio).times(bigAmount).round(parseInt(options?.decimals));
-	return value > 100000000 && options.scientificNotation
+	let value = bigbaseUnitLabel.div(bigRatio).times(bigAmount);
+
+	//Jeśli jest większa niż 100000000 lub mniejsza od najmniejszej liczby widocznej przy wybraej dokładności
+	//Zapobiega to wyświetlaniu 0.00 kiedy liczba jest np. 0.0001, zamiast tego wyświetla 1e-4
+	return (value.cmp(100000000) === 1 || value.cmp(1 / Math.pow(10, decimals)) === -1) &&
+		options.scientificNotation
 		? value.toExponential()
-		: value.toFixed(parseInt(options?.decimals));
+		: value.round(decimals).toFixed(decimals);
 };
 export const convert = (ammount, baseLabel, targetLabel, converters, options) => {
 	if (!ammount) ammount = 0;

@@ -8,7 +8,7 @@
 
 <a href="blog/{post?.slug}" in:fly|global={{ x: 150, ...transition }}>
 	<article style="--direction: {direction}">
-		<img src={post?.image} alt="Zdjęcie artykułu" />
+		<img src={post?.image.src} alt={post?.image?.alt} />
 
 		<div class="content">
 			<h3 class="title">{post?.title}</h3>

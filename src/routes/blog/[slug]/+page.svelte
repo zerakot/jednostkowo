@@ -9,8 +9,8 @@
 
 <div class="container">
 	<CalculatorBanner calculatorId={data?.post?.calculatorId} />
-	<!-- Dodaj wtrącenie do użycia kalkulatora lub przelicznika (użyj formatowania bloku code) -->
-	<img src={data?.post.image} alt="Banner artykułu" in:fly={{ x: -150 }} />
+
+	<img src={data?.post.image.src} alt={data?.post?.image?.alt} in:fly={{ x: -150 }} />
 
 	<section class="content" in:fly={{ x: -150, delay: 100 }}>
 		<h1>{data?.post.title}</h1>
@@ -28,7 +28,7 @@
 		grid-template-areas:
 			'widget'
 			'img'
-			'main';
+			'content';
 
 		& img {
 			grid-area: img;
@@ -42,17 +42,11 @@
 		}
 
 		& section.content {
-			grid-area: main;
+			grid-area: content;
 
 			& h1 {
 				margin-bottom: 1rem;
 			}
-		}
-
-		& .ad {
-			height: 100%;
-			width: 100%;
-			grid-area: ad;
 		}
 
 		@include lg {
@@ -60,7 +54,7 @@
 			grid-template-columns: 1fr 250px;
 			grid-template-areas:
 				'img img'
-				'main ad';
+				'content widget';
 
 			& img {
 				height: 40vh;

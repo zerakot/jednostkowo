@@ -6,7 +6,7 @@
 	import Icon from '../../lib/components/Icon.svelte';
 
 	export let data;
-	/* Zrób coś z tym */
+
 	$: calculatorData = calculators?.find((item) => item.id === data?.id);
 </script>
 

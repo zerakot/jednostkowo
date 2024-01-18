@@ -34,7 +34,7 @@
 			gap: 0.3rem;
 			align-items: center;
 			display: flex;
-			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='20' width='20' viewBox='0 -960 960 960'%3E%3Cpath fill='%2303ad00' d='m382-388 321-321q19-19 45-19t45 19q19 19 19 45t-19 45L427-253q-19 19-45 19t-45-19L167-423q-19-19-19-45t19-45q19-19 45-19t45 19l125 125Z'%3E%3C/path%3E%3C/svg%3E");
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='20' width='20' viewBox='0 -960 960 960'%3E%3Cpath fill='%23026700' d='m382-388 321-321q19-19 45-19t45 19q19 19 19 45t-19 45L427-253q-19 19-45 19t-45-19L167-423q-19-19-19-45t19-45q19-19 45-19t45 19l125 125Z'%3E%3C/path%3E%3C/svg%3E");
 			background-position: left;
 			background-repeat: no-repeat;
 			padding: 0 0 0 24px;

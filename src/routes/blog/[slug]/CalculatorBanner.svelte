@@ -26,6 +26,7 @@
 		flex-direction: column;
 		border: 2px solid $primary;
 		border-radius: 10px;
+		grid-area: widget;
 		background-color: transparentize($primary, 0.9);
 
 		&::before {
@@ -35,9 +36,20 @@
 			width: 100%;
 			height: 70%;
 			z-index: -1;
-			background-color: transparentize($primary, 0.85);
+			background-color: transparentize($primary, 0.9);
 			position: absolute;
 			clip-path: ellipse(80% 90% at 50% 0%);
+		}
+		&::after {
+			top: 0;
+			left: 0;
+			content: '';
+			width: 100%;
+			height: 82%;
+			z-index: -1;
+			background-color: transparentize($primary, 0.9);
+			position: absolute;
+			clip-path: ellipse(90% 90% at 50% 0%);
 		}
 
 		& h2 {
