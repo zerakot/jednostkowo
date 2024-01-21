@@ -3,7 +3,7 @@
 	import Label from './Label.svelte';
 
 	export let value;
-	export let type;
+	export let type = 'text';
 	export let checked = false;
 	export let label = '';
 	export let inlineLabel = false;
@@ -19,7 +19,14 @@
 	{#if type === 'checkbox'}
 		<input type="checkbox" {id} {...$$restProps} bind:checked />
 	{:else}
-		<input {type} {id} {value} on:input={(e) => (value = e.target.value)} {...$$restProps} />
+		<input
+			{id}
+			{type}
+			{value}
+			step="any"
+			on:input={(e) => (value = e.target.value)}
+			{...$$restProps}
+		/>
 	{/if}
 </div>
 

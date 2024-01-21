@@ -10,12 +10,21 @@
 	export let controllers = [];
 	export let runSubmitAnimation;
 
-	let errorMessage;
-	let dataset = controllers.reduce((res, controller) => {
-		if (controller?.ignore) return res;
-		res[controller.id] = controller.defaultValue;
-		return res;
-	}, {});
+	let errorMessage = '';
+
+	const getInitialDataset = () => {
+		const x = controllers.reduce((res, controller) => {
+			if (controller?.ignore) return res;
+			if (controller.element === 'select') {
+				res[controller.id] = controller.options.find((option) => option.default)?.name;
+			} else {
+				res[controller.id] = controller.defaultValue || '';
+			}
+			return res;
+		}, {});
+		return x;
+	};
+	let dataset = getInitialDataset();
 
 	const calculate = () => {
 		const formulaResult = formula(dataset);
@@ -29,10 +38,7 @@
 	};
 
 	const reset = () => {
-		dataset = controllers.reduce((res, controller) => {
-			res[controller.id] = controller.defaultValue;
-			return res;
-		}, {});
+		dataset = getInitialDataset();
 		results = null;
 	};
 </script>

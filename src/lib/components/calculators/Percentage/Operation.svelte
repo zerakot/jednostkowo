@@ -1,22 +1,18 @@
 <script>
 	import Input from '$lib/components/Input.svelte';
+	import { formatOutputNumber, round } from '../../../utils';
 
 	export let operation;
 
-	let a = '',
-		b = '';
-	let result = '';
-
-	const handleOperation = (a, b, operator) => {
-		if (!a || !b) return 0;
-		a = parseFloat(a);
-		b = parseFloat(b);
-		const result = operator(a, b);
-		return Math.round(result * 10000) / 10000;
-	};
+	let a = null,
+		b = null;
+	let result = 0;
 
 	$: {
-		result = operation.formula(a, b, handleOperation);
+		if (a === null || b === null) result = 0;
+		else {
+			result = formatOutputNumber(round(operation.formula(a, b), 4));
+		}
 	}
 </script>
 

@@ -7,7 +7,7 @@
 
 <div class="options">
 	<div class="option">
-		<Select bind:value={options.decimals} label="Ilość miejsc po przecinku" inlineLabel={true}>
+		<Select bind:value={options.decimals} label="Zaokrąglenie po przecinku" inlineLabel={true}>
 			<option value="0">0</option>
 			<option value="1">1</option>
 			<option value="2">2</option>
@@ -18,6 +18,7 @@
 			<option value="7">7</option>
 			<option value="8">8</option>
 			<option value="9">9</option>
+			<option value="10">10</option>
 		</Select>
 	</div>
 	<div class="option">

@@ -1,7 +1,9 @@
 <script>
+	import { formatOutputNumber } from '../../../utils';
 	import Scale from './Scale.svelte';
 
 	export let results;
+	$: console.log(results);
 </script>
 
 {#if results}
@@ -21,7 +23,7 @@
 					{#each results?.value as row}
 						<tr>
 							{#each Object.values(row) as value}
-								<td>{value}</td>
+								<td>{formatOutputNumber(value)}</td>
 							{/each}
 						</tr>
 					{/each}

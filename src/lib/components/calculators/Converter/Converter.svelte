@@ -6,7 +6,7 @@
 	export let calculatorData;
 
 	let results = [];
-	let options = { decimals: '2', scientificNotation: true };
+	let options = { decimals: '2', scientificNotation: false };
 </script>
 
 <section class="converter">

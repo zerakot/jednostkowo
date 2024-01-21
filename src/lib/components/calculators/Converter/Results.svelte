@@ -1,4 +1,5 @@
 <script>
+	import { formatOutputNumber } from '../../../utils';
 	export let results;
 </script>
 
@@ -22,7 +23,7 @@
 				<tr class:active={unit?.active}>
 					<td class="label">{unit.label}</td>
 					<td class="symbol">{unit.symbol}</td>
-					<td class="alignRight fitwidth bold">{unit.value}</td>
+					<td class="alignRight fitwidth bold">{formatOutputNumber(unit.value)}</td>
 				</tr>
 			{/each}
 		{/each}

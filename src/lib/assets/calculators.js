@@ -1,8 +1,7 @@
 import Converter from '$lib/components/calculators/Converter/Converter.svelte';
 import Percentage from '$lib/components/calculators/Percentage/Percentage.svelte';
-import Stack from '$lib/components/calculators/Stack/Stack.svelte';
 import Controllers from '$lib/components/calculators/Controllers/Controllers.svelte';
-import { calculateBmi, formatGrade, round } from '../utils';
+import { calculateBmi, formatOutputNumber, round } from '../utils';
 
 export const calculators = [
 	{
@@ -19,67 +18,29 @@ export const calculators = [
 			{
 				name: 'Obliczanie procentu z danej liczby',
 				labels: ['% z', '=', ''],
-				formula: (a, b, handler) => handler(a / 100, b, (a, b) => a * b)
+				formula: (a, b) => (a / 100) * b
 			},
 			{
 				name: 'Jakim procentem jest liczba A dla liczby B',
 				labels: ['dla', '=', '%'],
-				formula: (a, b, handler) => handler(a, b, (a, b) => (a / b) * 100)
+				formula: (a, b) => (a / b) * 100
 			},
 			{
 				name: 'Dodaj procent do liczby',
 				labels: ['+', '% =', ''],
-				formula: (a, b, handler) => handler(a, b / 100, (a, b) => a + a * b)
+				formula: (a, b) => a + (a * b) / 100
 			},
 			{
 				name: 'Odejmij procent od liczby',
 				labels: ['-', '% =', ''],
-				formula: (a, b, handler) => handler(a, b / 100, (a, b) => a - a * b)
+				formula: (a, b) => a - (a * b) / 100
 			},
 			{
 				name: 'O ile procent liczba A wzrosła/zmalała w stosunku do B',
 				labels: ['do', 'w/z o', '%'],
-				formula: (a, b, handler) => handler(a, b, (a, b) => ((b - a) / a) * 100)
+				formula: (a, b) => ((b - a) / a) * 100
 			}
 		]
-	},
-	{
-		id: 'kalkulator-sredniej-ocen',
-		type: 'kalkulator',
-		name: 'średniej ocen',
-		title: 'Kalkulator średniej ocen',
-		description:
-			'Łatwy w użyciu kalkulator średniej ocen, który ułatwi Ci obliczanie średniej ocen.',
-		icon: 'school',
-		component: Stack,
-		about:
-			'Średnia ocen, zwana także średnią arytmetyczną, to sposób obliczania wyników uczniów na podstawie wszystkich ocen, jakie otrzymali z danego przedmiotu lub semestru. Aby obliczyć średnią ocen, należy dodać wszystkie oceny i podzielić je przez ich liczbę, opcjonalnie uwzględniając ich wagi.',
-		fields: [
-			{ type: 'text', name: 'Ocena', defaultValue: '' },
-			{ type: 'number', name: 'Waga', defaultValue: '' }
-		],
-		formula: (dataset) => {
-			const sum = dataset.reduce(
-				(acc, row) => {
-					const weight = parseFloat(row.Waga);
-					const grade = formatGrade(row.Ocena);
-
-					if (isNaN(weight) || isNaN(grade)) return 0;
-
-					acc.weightSum += weight;
-					acc.gradesSum += weight * grade;
-
-					return acc;
-				},
-				{ weightSum: 0, gradesSum: 0 }
-			);
-
-			if (sum.weightSum === 0) {
-				return '0.00';
-			}
-
-			return { type: 'scale', value: round(sum.gradesSum / sum.weightSum, 2) };
-		}
 	},
 	{
 		id: 'kalkulator-proporcji',
@@ -126,7 +87,7 @@ export const calculators = [
 				c: parseFloat(dataset.c),
 				d: parseFloat(dataset.d)
 			};
-			let res = '0.00';
+			let res = 0;
 
 			if (!!p?.a && !!p?.b) {
 				if (!!p?.c && !p?.d) {
@@ -170,7 +131,7 @@ export const calculators = [
 				element: 'select',
 				label: 'Podaj w jakich jednostkach chcesz wprowadzić kąt',
 				options: [
-					{ label: 'Stopnie', name: 'deg' },
+					{ label: 'Stopnie', name: 'deg', default: true },
 					{ label: 'Radiany', name: 'rad' }
 				]
 			},
