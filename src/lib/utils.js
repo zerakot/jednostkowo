@@ -15,12 +15,12 @@ export const getRandomId = (length = 10) => {
 export const round = (num, decimals = 2) => {
 	return Math.round((num + Number.EPSILON) * Math.pow(10, decimals)) / Math.pow(10, decimals);
 };
-export const formatOutputNumber = (number) => {
+export const formatOutputNumber = (number, decimals = 0) => {
 	// Sprawdzamy, czy liczba jest w formacie notacji naukowej
 	if (/^(\d+(\.\d+)?|\.\d+)(e[+-]?\d+)$/i.test(number.toString())) {
 		return number.toString().replace('.', ',');
 	}
-	return parseFloat(number).toLocaleString();
+	return parseFloat(number).toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: 20 });
 };
 export const formatInputNumber = (s) => {
 	s = s.replace(/[^\d,.-]/g, ''); // strip everything except numbers, dots, commas and negative sign
@@ -107,8 +107,11 @@ export const getUnit = (condition, converters) => {
 		const category = converter?.name;
 
 		const unit = converter.units.find((unit) => {
+			if(typeof Object.values(condition)[0] === 'string'){
+				return unit[Object.keys(condition)[0]]?.toLowerCase() === Object.values(condition)[0]?.toLowerCase();
+			}
 			return unit[Object.keys(condition)[0]] === Object.values(condition)[0];
-		});
+		})
 
 		if (unit) return { category: category, ...unit };
 	}
@@ -122,10 +125,9 @@ const convertUnit = (amount, from, to, options) => {
 	const bigAmount = new Big(parseFloat(amount));
 
 	let value = bigbaseUnitLabel.div(bigRatio).times(bigAmount);
-
 	return options.scientificNotation
 		? value.toExponential(decimals)
-		: value.round(decimals).toFixed();
+		: value.round(decimals).toFixed()
 };
 export const convert = (ammount, baseLabel, targetLabel, converters, options) => {
 	if (!ammount) ammount = 0;
@@ -158,3 +160,6 @@ export const convert = (ammount, baseLabel, targetLabel, converters, options) =>
 		});
 	}
 };
+export const sortUnits = (units)=>{
+	return units.sort((a, b) => new Big(b.ratio).cmp(new Big(a.ratio)))
+}

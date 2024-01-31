@@ -5,7 +5,7 @@
 	export let value;
 	export let label;
 	export let autoWidth = false;
-	export let inlineLabel;
+	export let inlineLabel = '';
 
 	let id = getRandomId(10);
 </script>

@@ -2,7 +2,7 @@
 	import { getRandomId } from '$lib/utils';
 	import Label from './Label.svelte';
 
-	export let value;
+	export let value = '';
 	export let type = 'text';
 	export let checked = false;
 	export let label = '';

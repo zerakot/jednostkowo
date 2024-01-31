@@ -1,5 +1,5 @@
 <script>
-	import { getUnit } from '$lib/utils';
+	import { getUnit, sortUnits } from '$lib/utils';
 	import { page } from '$app/stores';
 	import { convert } from '$lib/utils';
 	import Input from '$lib/components/Input.svelte';
@@ -30,7 +30,7 @@
 				<option class="category" disabled>{converter.category}</option>
 			{/if}
 
-			{#each converter.units as unit}
+			{#each sortUnits(converter.units) as unit}
 				<option value={unit.label}>{unit.label} - [{unit.symbol}]</option>
 			{/each}
 		{/each}

@@ -1,8 +1,6 @@
 <script>
-	import Big from 'big.js';
-	import { formatOutputNumber } from '../../../utils';
+	import { formatOutputNumber, sortUnits } from '../../../utils';
 	export let results;
-	console.log(results);
 </script>
 
 <table>
@@ -21,11 +19,11 @@
 				</tr>
 			{/if}
 
-			{#each converter.units.sort((a, b) => new Big(b.ratio).cmp(new Big(a.ratio))) as unit}
+			{#each sortUnits(converter.units) as unit}
 				<tr class:active={unit?.active}>
 					<td class="label">{unit.label}</td>
 					<td class="symbol">{unit.symbol}</td>
-					<td class="alignRight fitwidth bold">{formatOutputNumber(unit.value)}</td>
+					<td class="alignRight fitwidth bold">{formatOutputNumber(unit.value, 2)}</td>
 				</tr>
 			{/each}
 		{/each}
