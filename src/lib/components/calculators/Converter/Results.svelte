@@ -48,6 +48,7 @@
 			& thead tr th.symbol {
 				display: table-cell;
 			}
+
 			& tbody tr td.symbol {
 				display: table-cell;
 			}
