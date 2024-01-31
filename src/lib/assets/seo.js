@@ -1,7 +1,7 @@
 import { mergeDeep } from '../utils';
 
 export const website = {
-	baseUrl: 'https://jednostkowo.vercel.app',
+	baseUrl: 'https://jednostkowo.pl',
 	titleSuffix: '• Jednostkowo.pl'
 };
 

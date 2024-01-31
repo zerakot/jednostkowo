@@ -20,29 +20,17 @@ export const formatOutputNumber = (number, decimals = 0) => {
 	if (/^(\d+(\.\d+)?|\.\d+)(e[+-]?\d+)$/i.test(number.toString())) {
 		return number.toString().replace('.', ',');
 	}
-	return parseFloat(number).toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: 20 });
+	return parseFloat(number).toLocaleString(undefined, {
+		minimumFractionDigits: decimals,
+		maximumFractionDigits: 20
+	});
 };
-export const formatInputNumber = (s) => {
-	s = s.replace(/[^\d,.-]/g, ''); // strip everything except numbers, dots, commas and negative sign
-	if (/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(s)) {
-		// if not in German locale and matches #,###.######
-		s = s.replace(/,/g, ''); // strip out commas
-		return parseFloat(s); // convert to number
-	} else if (/^-?(?:\d+|\d{1,3}(?:\.\d{3})+)(?:,\d+)?$/.test(s)) {
-		// either in German locale or not match #,###.###### and now matches #.###,########
-		s = s.replace(/\./g, ''); // strip out dots
-		s = s.replace(/,/g, '.'); // replace comma with dot
-		return parseFloat(s);
-	} // try #,###.###### anyway
-	else {
-		s = s.replace(/,/g, ''); // strip out commas
-		return parseFloat(s); // convert to number
-	}
-};
-function isObject(item) {
-	return item && typeof item === 'object' && !Array.isArray(item);
-}
+
 export const mergeDeep = (target, ...sources) => {
+	function isObject(item) {
+		return item && typeof item === 'object' && !Array.isArray(item);
+	}
+
 	if (!sources.length) return target;
 	const source = sources.shift();
 
@@ -107,11 +95,14 @@ export const getUnit = (condition, converters) => {
 		const category = converter?.name;
 
 		const unit = converter.units.find((unit) => {
-			if(typeof Object.values(condition)[0] === 'string'){
-				return unit[Object.keys(condition)[0]]?.toLowerCase() === Object.values(condition)[0]?.toLowerCase();
+			if (typeof Object.values(condition)[0] === 'string') {
+				return (
+					unit[Object.keys(condition)[0]]?.toLowerCase() ===
+					Object.values(condition)[0]?.toLowerCase()
+				);
 			}
 			return unit[Object.keys(condition)[0]] === Object.values(condition)[0];
-		})
+		});
 
 		if (unit) return { category: category, ...unit };
 	}
@@ -127,7 +118,7 @@ const convertUnit = (amount, from, to, options) => {
 	let value = bigbaseUnitLabel.div(bigRatio).times(bigAmount);
 	return options.scientificNotation
 		? value.toExponential(decimals)
-		: value.round(decimals).toFixed()
+		: value.round(decimals).toFixed();
 };
 export const convert = (ammount, baseLabel, targetLabel, converters, options) => {
 	if (!ammount) ammount = 0;
@@ -160,6 +151,6 @@ export const convert = (ammount, baseLabel, targetLabel, converters, options) =>
 		});
 	}
 };
-export const sortUnits = (units)=>{
-	return units.sort((a, b) => new Big(b.ratio).cmp(new Big(a.ratio)))
-}
+export const sortUnits = (units) => {
+	return units.sort((a, b) => new Big(b.ratio).cmp(new Big(a.ratio)));
+};
