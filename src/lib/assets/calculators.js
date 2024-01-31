@@ -87,29 +87,22 @@ export const calculators = [
 				c: parseFloat(dataset.c),
 				d: parseFloat(dataset.d)
 			};
-			let res = 0;
 
-			if (!!p?.a && !!p?.b) {
-				if (!!p?.c && !p?.d) {
-					res = (p?.c * p?.b) / p?.a;
-				} else if (!!p?.d && !p?.c) {
-					res = (p?.a * p?.d) / p?.b;
+			if (!isNaN(p?.a) && !isNaN(p?.b)) {
+				if ((!isNaN(p?.c) && isNaN(p?.d)) || (!isNaN(p?.c) && !isNaN(p?.d))) {
+					//Jeśli D jest pusty lub wszystkie są uzupełnione, zmień odtatni (D)
+					dataset.d = (p?.c * p?.b) / p?.a;
+				} else if (!isNaN(p?.d) && isNaN(p?.c)) {
+					dataset.c = (p?.a * p?.d) / p?.b;
 				}
-			} else if (!!p?.c && !!p?.d) {
-				if (!!p?.a && !p?.b) {
-					res = (p?.a * p?.d) / p?.c;
-				} else if (!!p?.b && !p?.a) {
-					res = (p?.c * p?.b) / p?.d;
+			} else if (!isNaN(p?.c) && !isNaN(p?.d)) {
+				if (!isNaN(p?.a) && isNaN(p?.b)) {
+					dataset.b = (p?.a * p?.d) / p?.c;
+				} else if (!isNaN(p?.b) && isNaN(p?.a)) {
+					dataset.a = (p?.c * p?.b) / p?.d;
 				}
 			}
 
-			for (let key in dataset) {
-				// Jeśli wartość właściwości jest pusta, ustaw ją na "X" i zakończ pętlę
-				if (!dataset[key]) {
-					dataset[key] = res;
-					break;
-				}
-			}
 			return { dataset, overwrite: true };
 		},
 		layout: { gridTemplate: '"a icon b" "c icon d" / auto 20px auto' }
@@ -235,8 +228,11 @@ export const calculators = [
 		formula: (dataset) => {
 			delete dataset.error;
 
-			if (dataset?.a !== '' && dataset.b !== '') {
-				// Jeśli a i b są dostępne, oblicz c
+			if (
+				(dataset?.a !== '' && dataset.b !== '') ||
+				(dataset?.a !== '' && dataset.b !== '' && dataset.c !== '')
+			) {
+				// Jeśli C jest pusty lub wszystkie są uzupełnione, oblicz C
 				dataset.c = round(Math.sqrt(parseFloat(dataset.a) ** 2 + parseFloat(dataset.b) ** 2), 5);
 			} else if (dataset.b !== '' && dataset.c !== '') {
 				// Jeśli b i c są dostępne, oblicz a
@@ -265,7 +261,7 @@ export const calculators = [
 			'Miary długości to jednostki służące do określania odległości między punktami w przestrzeni. Są one stosowane w różnych dziedzinach, takich jak fizyka, geografia, czy inżynieria. Najpopularniejsze jednostki długości to: centymetr, metr i kilometr.	',
 		converters: [
 			{
-				name: 'Metryczny',
+				category: 'Metryczny',
 				units: [
 					{
 						label: 'Kilometr',
@@ -311,7 +307,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Brytyjski/Amerykański',
+				category: 'Brytyjski/Amerykański',
 				units: [
 					{
 						label: 'Liga',
@@ -381,7 +377,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Morski',
+				category: 'Morski',
 				units: [
 					{
 						label: 'Mila morska',
@@ -396,7 +392,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Astronomiczny',
+				category: 'Astronomiczny',
 				units: [
 					{
 						label: 'Parsek',
@@ -601,7 +597,7 @@ export const calculators = [
 			'Jednostki masy służą do pomiaru ilości materii zawartej w danym obiekcie. Najczęściej używanymi jednostkami masy są kilogram, gram i miligram. Masa wyraża się ilością materii obecną w danym ciele i jest jednym z fundamentalnych parametrów fizycznych.',
 		converters: [
 			{
-				name: 'Metryczny',
+				category: 'Metryczny',
 				units: [
 					{
 						label: 'Tona',
@@ -667,7 +663,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Avoirdupois (USA)',
+				category: 'Avoirdupois (USA)',
 				units: [
 					{
 						label: 'Tona długa',
@@ -718,7 +714,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Troy',
+				category: 'Troy',
 				units: [
 					{
 						label: 'Funt',
@@ -758,7 +754,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Japoński',
+				category: 'Japoński',
 				units: [
 					{
 						label: 'Koku',
@@ -783,7 +779,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Chiński',
+				category: 'Chiński',
 				units: [
 					{
 						label: 'Tael',
@@ -798,7 +794,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Staroszwedzki',
+				category: 'Staroszwedzki',
 				units: [
 					{
 						label: 'Skeppspund',
@@ -848,7 +844,7 @@ export const calculators = [
 			'Jednostki objętości to miary używane do określania wielkości przestrzeni zajmowanej przez ciało lub substancję. Najczęściej stosowanymi jednostkami objętości są metr sześcienny, litr i mililitr. Metr sześcienny to objętość sześcianu o boku długości jednego metra.',
 		converters: [
 			{
-				name: 'Metryczny',
+				category: 'Metryczny',
 				units: [
 					{
 						label: 'Kilometry sześcienne',
@@ -914,7 +910,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Brytyjskie jednostki płynów i produktów suchych',
+				category: 'Brytyjskie jednostki płynów i produktów suchych',
 				units: [
 					{
 						label: 'Baryłki',
@@ -954,7 +950,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Amerykańska miara płynów',
+				category: 'Amerykańska miara płynów',
 				units: [
 					{
 						label: 'Akr sześcienny',
@@ -1019,7 +1015,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Amerykańskie miary produktów suchych',
+				category: 'Amerykańskie miary produktów suchych',
 				units: [
 					{
 						label: 'Baryłki',
@@ -1064,7 +1060,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Japoński',
+				category: 'Japoński',
 				units: [
 					{
 						label: 'Koku',
@@ -1089,7 +1085,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Amerykańskie jednostki kuchenne',
+				category: 'Amerykańskie jednostki kuchenne',
 				units: [
 					{
 						label: 'Filiżanki',
@@ -1109,7 +1105,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Jednostki kuchenne w systemie metrycznym',
+				category: 'Jednostki kuchenne w systemie metrycznym',
 				units: [
 					{
 						label: 'Łyżka stołowa',
@@ -1143,7 +1139,7 @@ export const calculators = [
 			'Ciśnienie to siła wywierana na jednostkową powierzchnię, równa stosunkowi siły działającej prostopadle do tej powierzchni do wielkości tej powierzchni. W układzie SI jednostką ciśnienia jest paskal (Pa), który odpowiada sile jednego newtona działającej na jeden metr kwadratowy powierzchni',
 		converters: [
 			{
-				name: 'Metryczny',
+				category: 'Metryczny',
 				units: [
 					{
 						label: 'Megapaskale',
@@ -1189,7 +1185,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Avoirdupois (USA)',
+				category: 'Avoirdupois (USA)',
 				units: [
 					{
 						label: 'Kilofunty na cal kwadratowy',
@@ -1209,7 +1205,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Woda',
+				category: 'Woda',
 				units: [
 					{
 						label: 'Metr słupa wody',
@@ -1234,7 +1230,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Atmosfery',
+				category: 'Atmosfery',
 				units: [
 					{
 						label: 'Atmosfera fizyczna',
@@ -1249,7 +1245,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Rtęć',
+				category: 'Rtęć',
 				units: [
 					{
 						label: 'Cale słupka rtęci',
@@ -1288,7 +1284,7 @@ export const calculators = [
 			'Energia to abstrakcyjna koncepcja opisująca zdolność do wykonywania pracy lub powodowania zmiany, wyrażana często w różnych formach, takich jak ciepło, prąd elektryczny, światło czy ruch.',
 		converters: [
 			{
-				name: 'Metryczny',
+				category: 'Metryczny',
 				units: [
 					{
 						label: 'Kilowatogodziny',
@@ -1319,7 +1315,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Brytyjski/Amerykański',
+				category: 'Brytyjski/Amerykański',
 				units: [
 					{
 						label: 'Kwadrat',
@@ -1344,7 +1340,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Inne',
+				category: 'Inne',
 				units: [
 					{
 						label: 'Kilokalorie',
@@ -1378,7 +1374,7 @@ export const calculators = [
 			'Częstotliwość to miara ilości powtórzeń lub oscylacji zjawiska na jednostkę czasu. Najczęściej częstotliwość jest wyrażana w hercach (Hz) i odnosi się do liczby cykli, oscylacji lub zmian w jednostce czasu, na przykład liczby fal dźwiękowych lub drgań elektromagnetycznych w jednej sekundzie.',
 		converters: [
 			{
-				name: 'Częstotliwość',
+				category: 'Częstotliwość',
 				units: [
 					{
 						label: 'Nanoherc',
@@ -1424,7 +1420,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Okres obrotu',
+				category: 'Okres obrotu',
 				units: [
 					{
 						label: 'Cykle na sekundę',
@@ -1444,7 +1440,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Prędkość kątowa',
+				category: 'Prędkość kątowa',
 				units: [
 					{
 						label: 'Radianów na sekundę',
@@ -1503,7 +1499,7 @@ export const calculators = [
 			'Gęstość to wielkość fizyczna, która określa masę substancji przypadającą na jednostkę objętości. Innymi słowy, jest to stosunek masy pewnej ilości substancji do zajmowanej przez nią objętości. Jednostką gęstości w układzie SI jest kilogram na metr sześcienny.',
 		converters: [
 			{
-				name: 'Metryczny',
+				category: 'Metryczny',
 				units: [
 					{
 						label: 'Gram na centymetr sześcienny',
@@ -1529,7 +1525,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Brytyjski/Amerykański',
+				category: 'Brytyjski/Amerykański',
 				units: [
 					{
 						label: 'Uncja na galon',
@@ -1549,7 +1545,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Pospolite substancje',
+				category: 'Pospolite substancje',
 				units: [
 					{
 						label: 'Woda przy 4°C',
@@ -1677,7 +1673,7 @@ export const calculators = [
 			'Prędkość to miara szybkości zmiany położenia w czasie. Jest to wektorowa wielkość fizyczna, która określa, jak szybko i w którym kierunku porusza się obiekt względem punktu odniesienia. Jednostką prędkości w układzie SI jest metr na sekundę.',
 		converters: [
 			{
-				name: 'Metryczny',
+				category: 'Metryczny',
 				units: [
 					{
 						label: 'Kilometr na sekundę',
@@ -1708,7 +1704,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Brytyjski/Amerykański',
+				category: 'Brytyjski/Amerykański',
 				units: [
 					{
 						label: 'Mila na sekundę',
@@ -1728,7 +1724,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Morski',
+				category: 'Morski',
 				units: [
 					{
 						label: 'Węzeł',
@@ -1738,7 +1734,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Inne',
+				category: 'Inne',
 				units: [
 					{
 						label: 'Prędkość światła',
@@ -1953,7 +1949,7 @@ export const calculators = [
 			'Jednostki miary powierzchni to sposoby określania wielkości obszarów na płaszczyźnie lub na powierzchni sferycznej. Służą do pomiaru i porównywania wielkości różnych terenów, takich jak lasy, jeziora, kraje czy kontynenty. Jednostką podstawową miary powierzchni w układzie SI jest metr kwadratowy.',
 		converters: [
 			{
-				name: 'Metryczny',
+				category: 'Metryczny',
 				units: [
 					{
 						label: 'Kilometry kwadratowe',
@@ -2004,7 +2000,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Brytyjski/Amerykański',
+				category: 'Brytyjski/Amerykański',
 				units: [
 					{
 						label: 'Gmina',
@@ -2059,7 +2055,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Japoński',
+				category: 'Japoński',
 				units: [
 					{
 						label: 'Tsubo',
@@ -2084,7 +2080,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Inne',
+				category: 'Inne',
 				units: [
 					{
 						label: 'Metric Dunamar',
@@ -2109,7 +2105,7 @@ export const calculators = [
 				]
 			},
 			{
-				name: 'Brazylijski',
+				category: 'Brazylijski',
 				units: [
 					{
 						label: 'Alqueire paulista',

@@ -16,12 +16,11 @@ export const round = (num, decimals = 2) => {
 	return Math.round((num + Number.EPSILON) * Math.pow(10, decimals)) / Math.pow(10, decimals);
 };
 export const formatOutputNumber = (number) => {
-	if (/-?[0-9]+(\.[0-9]+)?[eE][-+]?[0-9]+/.test(number.toString())) {
-		return number.replace('.', ',');
-	} else if (!isNaN(number)) {
-		return parseFloat(number).toLocaleString();
+	// Sprawdzamy, czy liczba jest w formacie notacji naukowej
+	if (/^(\d+(\.\d+)?|\.\d+)(e[+-]?\d+)$/i.test(number.toString())) {
+		return number.toString().replace('.', ',');
 	}
-	return number;
+	return parseFloat(number).toLocaleString();
 };
 export const formatInputNumber = (s) => {
 	s = s.replace(/[^\d,.-]/g, ''); // strip everything except numbers, dots, commas and negative sign
@@ -124,12 +123,9 @@ const convertUnit = (amount, from, to, options) => {
 
 	let value = bigbaseUnitLabel.div(bigRatio).times(bigAmount);
 
-	//Jeśli jest większa niż 100000000 lub mniejsza od najmniejszej liczby widocznej przy wybraej dokładności
-	//Zapobiega to wyświetlaniu 0.00 kiedy liczba jest np. 0.0001, zamiast tego wyświetla 1e-4
-	//1 / Math.pow(10, decimals)
 	return options.scientificNotation
 		? value.toExponential(decimals)
-		: value.round(decimals).toNumber();
+		: value.round(decimals).toFixed();
 };
 export const convert = (ammount, baseLabel, targetLabel, converters, options) => {
 	if (!ammount) ammount = 0;
@@ -140,7 +136,7 @@ export const convert = (ammount, baseLabel, targetLabel, converters, options) =>
 		const targetUnit = getUnit({ label: targetLabel }, converters);
 		return [
 			{
-				name: targetUnit?.category,
+				category: targetUnit?.category,
 				units: [
 					{
 						...targetUnit,
@@ -152,7 +148,7 @@ export const convert = (ammount, baseLabel, targetLabel, converters, options) =>
 	} else {
 		return converters.map((converter) => {
 			return {
-				name: converter?.name,
+				category: converter?.category,
 				units: converter.units.map((unit) => ({
 					...unit,
 					active: baseUnit.label === unit.label,

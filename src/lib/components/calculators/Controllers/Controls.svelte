@@ -27,7 +27,7 @@
 	let dataset = getInitialDataset();
 
 	const calculate = () => {
-		const formulaResult = formula(dataset);
+		const formulaResult = formula({ ...dataset });
 		errorMessage = formulaResult?.error;
 		if (formulaResult?.error) return;
 

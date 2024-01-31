@@ -46,6 +46,11 @@
 			padding: 0.5rem 0.8rem;
 			border-radius: 5px;
 			border: 1px solid $gray-dark;
+
+			& :global(option.category) {
+				color: #000000;
+				font-weight: bold;
+			}
 		}
 	}
 </style>

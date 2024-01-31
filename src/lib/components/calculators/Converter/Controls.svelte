@@ -22,9 +22,12 @@
 	<Input type="number" bind:value={number} label="Liczba" />
 
 	<Select bind:value={baseUnitLabel} label="Jednostka podstawowa">
-		{#each converters as converter}
-			{#if converter?.name}
-				<option disabled>{converter.name}</option>
+		{#each converters as converter, i}
+			{#if converter?.category}
+				{#if i !== 0}
+					<option disabled>&nbsp;</option>
+				{/if}
+				<option class="category" disabled>{converter.category}</option>
 			{/if}
 
 			{#each converter.units as unit}
@@ -36,8 +39,9 @@
 	<Select bind:value={targetUnitLabel} label="Jednostka docelowa">
 		<option value="">Brak</option>
 		{#each converters as converter}
-			{#if converter?.name}
-				<option disabled>{converter.name}</option>
+			{#if converter?.category}
+				<option disabled>&nbsp;</option>
+				<option class="category" disabled>{converter.category}</option>
 			{/if}
 
 			{#each converter.units as unit}

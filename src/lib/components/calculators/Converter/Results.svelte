@@ -1,6 +1,8 @@
 <script>
+	import Big from 'big.js';
 	import { formatOutputNumber } from '../../../utils';
 	export let results;
+	console.log(results);
 </script>
 
 <table>
@@ -12,14 +14,14 @@
 		</tr>
 	</thead>
 	<tbody>
-		{#each results as category}
-			{#if category?.name}
+		{#each results as converter}
+			{#if converter?.category}
 				<tr class="category">
-					<td colspan="3">{category.name}</td>
+					<td colspan="3">{converter.category}</td>
 				</tr>
 			{/if}
 
-			{#each category.units as unit}
+			{#each converter.units.sort((a, b) => new Big(b.ratio).cmp(new Big(a.ratio))) as unit}
 				<tr class:active={unit?.active}>
 					<td class="label">{unit.label}</td>
 					<td class="symbol">{unit.symbol}</td>
@@ -39,6 +41,9 @@
 		}
 		& tbody tr td.symbol {
 			display: none;
+		}
+		& tbody tr td.label {
+			text-transform: lowercase;
 		}
 
 		@include md {
