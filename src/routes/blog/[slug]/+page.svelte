@@ -26,7 +26,6 @@
 		grid-template-rows: repeat(3, auto);
 		grid-template-columns: 1fr;
 		grid-template-areas:
-			'widget'
 			'img'
 			'content';
 

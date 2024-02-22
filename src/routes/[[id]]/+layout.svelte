@@ -1,5 +1,4 @@
 <script>
-	import Ad from '$lib/components/Ad.svelte';
 	import Sidebar from '$lib/components/Sidebar.svelte';
 	import BlogWidget from '$lib/components/BlogWidget.svelte';
 </script>

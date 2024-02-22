@@ -2,8 +2,9 @@
 	import { calculators } from '$lib/assets/calculators';
 
 	import SEO from '$lib/components/Seo/Seo.svelte';
-	import { fly } from 'svelte/transition';
+	import Markdown from '$lib/components/Markdown.svelte';
 	import Icon from '../../lib/components/Icon.svelte';
+	import { fly } from 'svelte/transition';
 
 	export let data;
 
@@ -28,9 +29,12 @@
 				{calculatorData?.about || ''}
 			</p>
 		</aside>
+
+		{#if calculatorData?.markdown}
+			<Markdown source={calculatorData.markdown} />
+		{/if}
 	</div>
 {/key}
-
 <SEO {...data?.metaTags} />
 
 <style lang="scss">

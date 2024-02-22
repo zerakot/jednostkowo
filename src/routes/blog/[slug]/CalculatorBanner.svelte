@@ -1,6 +1,7 @@
 <script>
 	import { website } from '$lib/assets/seo';
 	import { calculators } from '$lib/assets/calculators';
+	import slugify from 'slugify';
 
 	export let calculatorId = '';
 
@@ -12,22 +13,26 @@
 		{`Wypróbuj nasz ${calculator?.type} ${calculator?.name}!`}
 	</h2>
 
-	<a href={`${website.baseUrl}/${calculator?.id}`}>Wypróbuj</a>
+	<a href={`${website.baseUrl}/${slugify(calculator?.title, { lower: true })}`}>Wypróbuj</a>
 </aside>
 
 <style lang="scss">
 	.calculatorBanner {
+		display: none;
 		top: 20px;
 		position: sticky;
 		gap: 5rem;
 		padding: 0.5rem;
-		display: flex;
+
 		height: fit-content;
 		flex-direction: column;
 		border: 2px solid $primary;
 		border-radius: 10px;
 		grid-area: widget;
 		background-color: transparentize($primary, 0.9);
+		@include lg {
+			display: flex;
+		}
 
 		&::before {
 			top: 0;
