@@ -1,5 +1,8 @@
 <script>
+	import { flip } from 'svelte/animate';
+	import { quintOut } from 'svelte/easing';
 	import { formatOutputNumber, sortUnits } from '../../../utils';
+
 	export let results;
 </script>
 
@@ -12,7 +15,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		{#each results as converter}
+		{#each results as converter (converter.category)}
 			{#if converter?.category}
 				<tr class="category">
 					<td colspan="3">{converter.category}</td>

@@ -13,9 +13,9 @@
 		<div class="scale" style="--gradient: {data?.gradient}">
 			<div class="pointer" style="--left: {leftOffset}%" />
 		</div>
-		<div class="label">
+		<p class="label">
 			{@html data?.label}
-		</div>
+		</p>
 	</div>
 {/if}
 
@@ -53,6 +53,10 @@
 					}
 				}
 			}
+		}
+
+		& p {
+			font-size: 1rem;
 		}
 	}
 </style>

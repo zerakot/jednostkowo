@@ -2,6 +2,7 @@ import Converter from '$lib/components/calculators/Converter/Converter.svelte';
 import Percentage from '$lib/components/calculators/Percentage/Percentage.svelte';
 import Controllers from '$lib/components/calculators/Controllers/Controllers.svelte';
 import { calculateBmi, formatOutputNumber, round } from '../utils';
+import { website } from './seo';
 
 export const calculators = [
 	{
@@ -246,6 +247,131 @@ export const calculators = [
 			}
 
 			return { dataset, overwrite: true };
+		}
+	},
+	{
+		id: 'kalkulator-procentu-składanego',
+		type: 'kalkulator',
+		name: 'procentu składanego',
+		title: 'Kalkulator procentu składanego',
+		description:
+			'Łatwy w użyciu kalkulator procentu składanego, który ułatwi Ci obliczanie procentu składanego.',
+		icon: 'percent',
+		component: Controllers,
+		about:
+			'BMI, czyli indeks masy ciała (ang. Body Mass Index), to wskaźnik używany do oceny masy ciała osoby w stosunku do jej wzrostu. Jest to powszechnie stosowany sposób oceny, czy dana osoba ma odpowiednią masę ciała, nadwagę, niedowagę lub otyłość.',
+		controllers: [
+			{
+				id: 'ammount',
+				defaultValue: '',
+				element: 'input',
+				label: 'Kapitał początkowy',
+				attributes: { type: 'number', placeholder: 'Podaj kapitał początkowy' }
+			},
+
+			{
+				id: 'periods',
+				defaultValue: '',
+				element: 'input',
+				label: 'Okres oszczędzania',
+				attributes: { type: 'number', placeholder: 'Podaj okres oszczędzania' }
+			},
+			{
+				id: 'periodsType',
+				element: 'select',
+				label: 'Typ okresu',
+				options: [
+					{ label: 'Lata', name: '1' },
+					{ label: 'Miesiące', name: '12', default: true }
+				]
+			},
+			{
+				id: 'interestRate',
+				element: 'input',
+				defaultValue: '',
+				label: 'Oprocentowanie',
+				attributes: { type: 'number', placeholder: 'Podaj oprocentowanie' }
+			},
+			{
+				id: 'capitalisation',
+				element: 'select',
+				label: 'Kapitalizacja odsetek',
+				options: [
+					{ label: 'Rocznie', name: '1' },
+					{ label: 'Kwartalnie', name: '4' },
+					{ label: 'Miesięcznie', name: '12', default: true },
+					{ label: 'Codziennie', name: '365' }
+				]
+			}
+		],
+		formula: (dataset) => {
+			const { ammount, periods, periodsType, interestRate, capitalisation } = dataset;
+			// Konwersja stopy procentowej z procent na ułamek
+			const r = interestRate / 100;
+			// Przeliczanie okresów na lata, jeśli potrzeba
+			const t = periods / parseInt(periodsType);
+			// Ustalenie liczby kapitalizacji odsetek w roku
+			let n = parseInt(capitalisation);
+
+			let valueAtEndOfEachPeriod = [];
+			let currentAmount = ammount;
+			const totalPeriods = n * t;
+
+			for (let i = 0; i < totalPeriods; i++) {
+				currentAmount *= 1 + r / n;
+				valueAtEndOfEachPeriod.push(round(currentAmount, 2));
+			}
+
+			const finalAmount = round(currentAmount, 2);
+			const profit = round(finalAmount - ammount, 2);
+
+			return {
+				type: 'chart',
+				description: `Na koniec okresu oszczędzania, stan konta będzie wynosił
+					<b>${formatOutputNumber(finalAmount)}zł</b>.
+					Całkowity zysk wyniesie <b>${formatOutputNumber(profit)}zł</b>.`,
+				config: {
+					type: 'line',
+					data: {
+						labels: Array.from({ length: totalPeriods + 1 }, (_, i) => `Okres ${i}`),
+						datasets: [
+							{
+								label: 'Kwota',
+								data: [ammount, ...valueAtEndOfEachPeriod],
+								borderColor: website.primaryColor,
+								stepped: true,
+								pointStyle: 'circle',
+								pointRadius: 4,
+								pointHoverRadius: 8
+							}
+						]
+					},
+					options: {
+						responsive: true,
+						maintainAspectRatio: false,
+						plugins: {
+							legend: {
+								display: false
+							}
+						},
+
+						scales: {
+							x: {
+								grid: {
+									display: false
+								},
+								ticks: {
+									display: false
+								}
+							}
+						}
+					}
+				}
+			};
+		},
+		layout: {
+			gridTemplate:
+				'"ammount ammount" "periods periodsType" "interestRate interestRate" "capitalisation capitalisation" "paymentAmount paymentFrequency" / 1fr 50%'
 		}
 	},
 	{

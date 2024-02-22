@@ -52,7 +52,11 @@
 		{#each controllers as controller}
 			<div class="areaWrapper" style="--area: {layout?.gridTemplate ? controller.id : 'unset'}">
 				{#if controller?.element === 'select'}
-					<Select bind:value={dataset[controller?.id]} label={controller?.label}>
+					<Select
+						bind:value={dataset[controller?.id]}
+						label={controller?.label}
+						{...controller?.attributes}
+					>
 						{#each controller?.options as option}
 							<option value={option?.name}>{option?.label}</option>
 						{/each}
@@ -78,24 +82,29 @@
 
 <style lang="scss">
 	.controls {
-		gap: 1rem;
 		width: 100%;
 		display: flex;
 		align-items: flex-end;
 		flex-direction: column;
 
 		& .inputs {
+			gap: 0 1rem;
 			width: 100%;
-			gap: 1rem;
 			display: grid;
 			grid-template: var(--template);
 
 			& .areaWrapper {
 				display: flex;
+				margin-bottom: 1rem;
 				align-items: center;
 				justify-content: center;
 				grid-area: var(--area);
 			}
+		}
+
+		& .actions {
+			gap: 0.3rem;
+			display: flex;
 		}
 	}
 </style>

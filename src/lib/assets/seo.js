@@ -2,7 +2,8 @@ import { mergeDeep } from '../utils';
 
 export const website = {
 	baseUrl: 'https://jednostkowo.pl',
-	titleSuffix: '• Jednostkowo.pl'
+	titleSuffix: '• Jednostkowo.pl',
+	primaryColor: '#03ad00'
 };
 
 const defaultSeo = {

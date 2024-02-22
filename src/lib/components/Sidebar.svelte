@@ -100,7 +100,7 @@
 			& a li {
 				gap: 0.3rem;
 				border-radius: 5px;
-				padding: 0.4rem 3rem 0.4rem 0.5rem;
+				padding: 0.4rem 1rem 0.4rem 0.5rem;
 				display: flex;
 				align-items: center;
 				font-size: 0.9rem;

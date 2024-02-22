@@ -1,9 +1,9 @@
 <script>
 	import { formatOutputNumber } from '../../../utils';
+	import Chart from '../../Chart.svelte';
 	import Scale from './Scale.svelte';
 
 	export let results;
-	$: console.log(results);
 </script>
 
 {#if results}
@@ -29,6 +29,13 @@
 					{/each}
 				</tbody>
 			</table>
+		{:else if results?.type === 'chart'}
+			<div class="chartResults">
+				<p>{@html results?.description}</p>
+				<div class="chartWrapper">
+					<Chart config={results.config} />
+				</div>
+			</div>
 		{:else if results?.value && !results?.overwrite}
 			<div class="text">
 				Wynik: <span style="--color: {results?.color || null}">{results?.value}</span>
@@ -41,6 +48,19 @@
 	.results {
 		& table {
 			@include table;
+		}
+
+		& .chartResults {
+			gap: 0.7rem;
+			display: flex;
+			flex-direction: column;
+			& .chartWrapper {
+				width: 100%;
+				height: 200px;
+			}
+			& p {
+				font-size: 1rem;
+			}
 		}
 
 		& .text {

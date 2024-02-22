@@ -14,6 +14,8 @@
 		border: none;
 		padding: 0.5rem 1rem;
 		border-radius: 5px;
+		display: flex;
+		align-items: center;
 
 		&:hover {
 			background-color: darken($primary, 2.2);
@@ -29,6 +31,13 @@
 			&:hover {
 				background-color: $primary-ghost;
 			}
+		}
+
+		&.text {
+			color: $primary;
+			padding: 0;
+			border-radius: 0;
+			background-color: transparent;
 		}
 	}
 </style>
