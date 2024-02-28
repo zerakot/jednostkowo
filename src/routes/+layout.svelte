@@ -2,8 +2,10 @@
 	import '$lib/scss/global.scss';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Footer from '../lib/components/Footer.svelte';
+	import Analytics from '../lib/components/Analytics.svelte';
 </script>
 
+<Analytics />
 <div class="container">
 	<Navbar />
 	<slot />
