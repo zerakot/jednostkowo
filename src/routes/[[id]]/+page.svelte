@@ -23,12 +23,14 @@
 			<svelte:component this={calculatorData?.component} {calculatorData} />
 		{/key}
 
-		<aside>
-			<Icon variant="primary" size="1.3rem">lightbulb</Icon>
-			<p>
-				{calculatorData?.about || ''}
-			</p>
-		</aside>
+		{#if calculatorData?.about}
+			<aside>
+				<Icon variant="primary" size="1.3rem">lightbulb</Icon>
+				<p>
+					{calculatorData?.about || ''}
+				</p>
+			</aside>
+		{/if}
 
 		{#if calculatorData?.markdown}
 			<Markdown source={calculatorData.markdown} />
