@@ -145,12 +145,16 @@ $media-width: 100%;
 }
 
 @mixin calculator {
-	padding: 1rem;
+	padding: 0.8rem;
 	position: relative;
 	border-radius: 10px;
 	border: 1px solid $gray-medium;
 	box-shadow: 4px 4px 20px $gray-light;
 	z-index: 1;
+
+	@include md {
+		padding: 1rem;
+	}
 
 	&.animation {
 		@keyframes shine {

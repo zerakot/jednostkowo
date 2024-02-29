@@ -45,11 +45,16 @@
 
 		& input {
 			width: 100%;
-			font-size: 0.95rem;
-			padding: 0.5rem 0.8rem;
+			font-size: 0.9rem;
+			padding: 0.3rem 0.6rem;
 			border-radius: 5px;
 			border: 1px solid $gray-dark;
 			background-color: $background;
+
+			@include md {
+				font-size: 0.95rem;
+				padding: 0.5rem 0.8rem;
+			}
 		}
 	}
 </style>

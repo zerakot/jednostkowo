@@ -88,10 +88,14 @@
 		flex-direction: column;
 
 		& .inputs {
-			gap: 0 1rem;
+			align-items: end;
+			gap: 0 0.5rem;
 			width: 100%;
 			display: grid;
 			grid-template: var(--template);
+			@include md {
+				gap: 0 1rem;
+			}
 
 			& .areaWrapper {
 				display: flex;
