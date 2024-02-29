@@ -12,16 +12,18 @@
 </script>
 
 {#key calculatorData?.id}
-	<div class="container" in:fly|global={{ x: 150 }}>
+	<div class="container">
 		<hgroup>
 			<div class="pill">{calculatorData?.name}</div>
 			<h1>{calculatorData?.title}</h1>
 			<p>{calculatorData?.description}</p>
 		</hgroup>
 
-		{#key calculatorData?.id}
-			<svelte:component this={calculatorData?.component} {calculatorData} />
-		{/key}
+		<div in:fly|global={{ x: 150 }}>
+			{#key calculatorData?.id}
+				<svelte:component this={calculatorData?.component} {calculatorData} />
+			{/key}
+		</div>
 
 		{#if calculatorData?.about}
 			<aside>
