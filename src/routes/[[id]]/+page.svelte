@@ -19,11 +19,9 @@
 			<p>{calculatorData?.description}</p>
 		</hgroup>
 
-		<div in:fly|global={{ x: 150 }}>
-			{#key calculatorData?.id}
-				<svelte:component this={calculatorData?.component} {calculatorData} />
-			{/key}
-		</div>
+		{#key calculatorData?.id}
+			<svelte:component this={calculatorData?.component} {calculatorData} />
+		{/key}
 
 		{#if calculatorData?.about}
 			<aside>
