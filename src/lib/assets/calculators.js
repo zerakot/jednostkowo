@@ -2230,6 +2230,11 @@ export const calculators = [
 						label: 'Boisko do piłki nożnej',
 						ratio: 0.000140056,
 						symbol: 'football_pitch'
+					},
+					{
+						label: 'Morga',
+						ratio: 0.00017857142,
+						symbol: 'morga'
 					}
 				]
 			},
