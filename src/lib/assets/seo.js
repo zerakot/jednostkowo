@@ -12,6 +12,7 @@ const defaultSeo = {
 	openGraph: {
 		locale: 'pl_PL',
 		type: 'website',
+		site_name: 'Jednostkowo',
 		title: `Procenty, jednostki, proporcje ${website.titleSuffix}`,
 		image: `${website.baseUrl}/images/logos/900x471.png`,
 		images: [
