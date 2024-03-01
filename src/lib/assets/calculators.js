@@ -2022,7 +2022,7 @@ export const calculators = [
 			}
 		]
 	},
-	{
+	/* {
 		id: 'przelicznik-temperatury',
 		type: 'przelicznik',
 		name: 'temperatury',
@@ -2064,7 +2064,7 @@ export const calculators = [
 				]
 			}
 		]
-	},
+	}, */
 	{
 		id: 'przelicznik-powierzchni',
 		type: 'przelicznik',

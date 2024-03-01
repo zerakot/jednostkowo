@@ -12,7 +12,6 @@
 		if (a === null || b === null) result = 0;
 		else {
 			result = formatOutputNumber(round(operation.formula(parseFloat(a), parseFloat(b)), 2));
-			console.log(operation.formula(a, b));
 		}
 	}
 </script>
