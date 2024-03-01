@@ -88,7 +88,6 @@
 		flex-direction: column;
 
 		& .inputs {
-			align-items: end;
 			gap: 0 0.5rem;
 			width: 100%;
 			display: grid;
