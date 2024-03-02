@@ -248,7 +248,7 @@ export const calculators = [
 				dataset.b = round(Math.sqrt(parseFloat(dataset.c) ** 2 - parseFloat(dataset.a) ** 2), 5);
 			} else {
 				// Nieprawidłowy zestaw wartości
-				return { error: 'Podaj długości dwóch boków' };
+				return { error: 'Podaj długości dwóch boków.' };
 			}
 
 			return { dataset, overwrite: true };
@@ -319,6 +319,10 @@ export const calculators = [
 			let valueAtEndOfEachPeriod = [];
 			let currentAmount = ammount;
 			const totalPeriods = n * t;
+
+			if (totalPeriods < 1) {
+				return { error: 'Zbyt mały okres oszczędzania, żeby kapitalizacja mogła się odbyć.' };
+			}
 
 			for (let i = 0; i < totalPeriods; i++) {
 				currentAmount *= 1 + r / n;
@@ -620,7 +624,7 @@ export const calculators = [
 			}
 		]
 	},
-	{
+	/* 	{
 		id: 'przelicznik-informatyczny',
 		type: 'przelicznik',
 		name: 'informatyczny',
@@ -713,7 +717,7 @@ export const calculators = [
 				]
 			}
 		]
-	},
+	}, */
 	{
 		id: 'przelicznik-masy',
 		type: 'przelicznik',

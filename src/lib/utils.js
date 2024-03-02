@@ -16,14 +16,17 @@ export const round = (num, decimals = 2) => {
 	return Math.round((num + Number.EPSILON) * Math.pow(10, decimals)) / Math.pow(10, decimals);
 };
 export const formatOutputNumber = (number, decimals = 0) => {
+	if (isNaN(number)) return 0;
 	// Sprawdzamy, czy liczba jest w formacie notacji naukowej
 	if (/^(\d+(\.\d+)?|\.\d+)(e[+-]?\d+)$/i.test(number.toString())) {
 		return number.toString().replace('.', ',');
 	}
-	return parseFloat(number).toLocaleString(undefined, {
-		minimumFractionDigits: decimals,
-		maximumFractionDigits: 20
-	});
+	return (
+		parseFloat(number).toLocaleString(undefined, {
+			minimumFractionDigits: decimals,
+			maximumFractionDigits: 20
+		}) || 0
+	);
 };
 
 export const mergeDeep = (target, ...sources) => {

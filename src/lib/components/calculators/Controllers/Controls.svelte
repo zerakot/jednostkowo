@@ -45,7 +45,10 @@
 
 <div class="controls">
 	{#if errorMessage}
-		<div class="error">{errorMessage}</div>
+		<div class="error">
+			<span class="material-symbols-rounded"> error </span>
+			{errorMessage}
+		</div>
 	{/if}
 
 	<div class="inputs" style="--template: {layout?.gridTemplate || 1};">
@@ -75,8 +78,8 @@
 	</div>
 
 	<div class="actions">
-		<Button variant="ghost" on:click={reset}>Resetuj</Button>
 		<Button on:click={calculate}>Oblicz</Button>
+		<Button variant="ghost" on:click={reset}>Resetuj</Button>
 	</div>
 </div>
 
@@ -86,6 +89,20 @@
 		display: flex;
 		align-items: flex-end;
 		flex-direction: column;
+
+		& .error {
+			gap: 0 0.5rem;
+			display: flex;
+			align-items: center;
+			font-size: 0.9rem;
+			margin-bottom: 1rem;
+			width: 100%;
+			padding: 0.6rem 0.8rem;
+			border-radius: 5px;
+			border: $error 1px solid;
+			color: $error;
+			background-color: $error-transparent;
+		}
 
 		& .inputs {
 			gap: 0 0.5rem;
@@ -108,6 +125,7 @@
 		& .actions {
 			gap: 0.3rem;
 			display: flex;
+			flex-direction: row-reverse;
 		}
 	}
 </style>

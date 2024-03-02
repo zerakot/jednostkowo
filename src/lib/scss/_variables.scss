@@ -9,6 +9,9 @@ $gray-light: #f1f1f1;
 $gray-medium: #e6e6e6;
 $gray-dark: #a5a5a5;
 
+$error: #cc0000;
+$error-transparent: transparentize($error, 0.94);
+
 $media-width: 100%;
 
 @mixin sm {
