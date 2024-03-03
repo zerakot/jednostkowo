@@ -85,11 +85,15 @@ export const calculators = [
 			}
 		],
 		formula: (dataset) => {
+			const { a, b, c, d } = dataset;
+			if ([a, b, c, d].filter((x) => !!x).length !== 3) {
+				return { error: 'Podaj 3 wartości, żeby móc obliczć proporcję.' };
+			}
 			const p = {
-				a: parseFloat(dataset.a),
-				b: parseFloat(dataset.b),
-				c: parseFloat(dataset.c),
-				d: parseFloat(dataset.d)
+				a: parseFloat(a),
+				b: parseFloat(b),
+				c: parseFloat(c),
+				d: parseFloat(d)
 			};
 
 			if (!isNaN(p?.a) && !isNaN(p?.b)) {
@@ -140,6 +144,11 @@ export const calculators = [
 			}
 		],
 		formula: (dataset) => {
+			console.log(dataset);
+			if (!dataset?.number) {
+				return { error: 'Podaj wartość kąta.' };
+			}
+
 			const unit = dataset?.unit;
 			const number = parseFloat(dataset?.number) || 0;
 
