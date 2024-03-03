@@ -787,11 +787,6 @@ export const calculators = [
 						label: 'Nanogram',
 						ratio: 1000000000000,
 						symbol: 'ng'
-					},
-					{
-						label: 'Jednostka masy atomowej',
-						ratio: 6.022045e26,
-						symbol: 'u'
 					}
 				]
 			},
@@ -2119,16 +2114,6 @@ export const calculators = [
 						label: 'Milimetry kwadratowe',
 						ratio: 1000000,
 						symbol: 'mm²'
-					},
-					{
-						label: 'Mikrometry kwadratowe',
-						ratio: 1000000000000,
-						symbol: 'µm²'
-					},
-					{
-						label: 'Nanometry kwadratowe',
-						ratio: 1000000000000000000n,
-						symbol: 'nm²'
 					}
 				]
 			},

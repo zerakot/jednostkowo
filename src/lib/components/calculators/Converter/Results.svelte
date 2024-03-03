@@ -1,6 +1,4 @@
 <script>
-	import { flip } from 'svelte/animate';
-	import { quintOut } from 'svelte/easing';
 	import { formatOutputNumber, sortUnits } from '../../../utils';
 
 	export let results;
