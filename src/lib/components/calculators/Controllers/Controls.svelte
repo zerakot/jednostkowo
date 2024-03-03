@@ -8,7 +8,7 @@
 	export let formula;
 	export let layout;
 	export let controllers = [];
-	export let runSubmitAnimation;
+	export let runAnimation;
 
 	let errorMessage = '';
 
@@ -29,16 +29,21 @@
 	const calculate = () => {
 		const formulaResult = formula({ ...dataset });
 		errorMessage = formulaResult?.error;
-		if (formulaResult?.error) return;
+
+		if (formulaResult?.error) {
+			runAnimation('error');
+			return;
+		}
 
 		if (formulaResult?.overwrite) dataset = formulaResult.dataset;
 		else results = formulaResult;
 
-		runSubmitAnimation();
+		runAnimation('success');
 	};
 
 	const reset = () => {
 		dataset = getInitialDataset();
+		errorMessage = '';
 		results = null;
 	};
 </script>
