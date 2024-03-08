@@ -32,12 +32,12 @@
 
 		<ul class:hidden={!moreVisible}>
 			{#each calculators.filter((el) => el?.type === currentcalculatorData?.type) as calculator}
-				<a href={`/${calculator?.id}`} on:click={() => (moreVisible = false)}>
-					<li class:active={currentcalculatorData?.id === calculator?.id}>
+				<li class:active={currentcalculatorData?.id === calculator?.id}>
+					<a href={`/${calculator?.id}`} on:click={() => (moreVisible = false)}>
 						<Icon>{calculator?.icon}</Icon>
 						{calculator?.name?.charAt(0).toUpperCase() + calculator?.name?.slice(1)}
-					</li>
-				</a>
+					</a>
+				</li>
 			{/each}
 		</ul>
 	</aside>
@@ -97,22 +97,26 @@
 				display: none;
 			}
 
-			& a li {
-				gap: 0.3rem;
-				border-radius: 5px;
-				padding: 0.4rem 1rem 0.4rem 0.5rem;
+			& li {
 				display: flex;
-				align-items: center;
-				font-size: 0.9rem;
+				border-radius: 5px;
 				white-space: pre;
-
 				&:hover,
 				&.active {
 					background-color: $gray-light;
 				}
 
-				& span {
-					font-size: 1.3rem;
+				& a {
+					width: 100%;
+					gap: 0.3rem;
+					display: flex;
+					align-items: center;
+					font-size: 0.9rem;
+					padding: 0.4rem 1rem 0.4rem 0.5rem;
+
+					& span {
+						font-size: 1.3rem;
+					}
 				}
 			}
 		}
