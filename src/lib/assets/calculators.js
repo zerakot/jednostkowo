@@ -276,14 +276,14 @@ export const calculators = [
 		controllers: [
 			{
 				id: 'ammount',
-				defaultValue: '5000',
+				defaultValue: '',
 				element: 'input',
 				label: 'Kapitał początkowy',
 				attributes: { type: 'number', placeholder: 'Podaj kapitał początkowy' }
 			},
 			{
 				id: 'periods',
-				defaultValue: '4',
+				defaultValue: '',
 				element: 'input',
 				label: 'Okres oszczędzania',
 				attributes: { type: 'number', placeholder: 'Podaj okres oszczędzania' }
@@ -300,8 +300,8 @@ export const calculators = [
 			{
 				id: 'interestRate',
 				element: 'input',
-				defaultValue: '5',
-				label: 'Oprocentowanie',
+				defaultValue: '',
+				label: 'Oprocentowanie [%]',
 				attributes: { type: 'number', placeholder: 'Podaj oprocentowanie' }
 			},
 			{
@@ -309,9 +309,9 @@ export const calculators = [
 				element: 'select',
 				label: 'Kapitalizacja odsetek',
 				options: [
-					{ label: 'Rocznie', name: '1' },
+					{ label: 'Rocznie', name: '1', default: true },
 					{ label: 'Kwartalnie', name: '4' },
-					{ label: 'Miesięcznie', name: '12', default: true },
+					{ label: 'Miesięcznie', name: '12' },
 					{ label: 'Codziennie', name: '365' }
 				]
 			},
