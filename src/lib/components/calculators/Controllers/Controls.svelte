@@ -11,6 +11,7 @@
 	export let runAnimation;
 
 	let errorMessage = '';
+	let advancedVisible = false;
 
 	const getInitialDataset = () => {
 		const x = controllers.reduce((res, controller) => {
@@ -32,6 +33,7 @@
 
 		if (formulaResult?.error) {
 			runAnimation('error');
+			results = null;
 			return;
 		}
 
@@ -58,28 +60,39 @@
 
 	<div class="inputs" style="--template: {layout?.gridTemplate || 1};">
 		{#each controllers as controller}
-			<div class="areaWrapper" style="--area: {layout?.gridTemplate ? controller.id : 'unset'}">
-				{#if controller?.element === 'select'}
-					<Select
-						bind:value={dataset[controller?.id]}
-						label={controller?.label}
-						{...controller?.attributes}
-					>
-						{#each controller?.options as option}
-							<option value={option?.name}>{option?.label}</option>
-						{/each}
-					</Select>
-				{:else if controller?.element === 'input'}
-					<Input
-						{...controller?.attributes}
-						bind:value={dataset[controller?.id]}
-						label={controller?.label}
-					/>
-				{:else if controller?.element === 'icon'}
-					<Icon>{controller?.name}</Icon>
-				{/if}
-			</div>
+			{#if (controller?.advanced && advancedVisible) || !controller?.advanced}
+				<div class="areaWrapper" style="--area: {layout?.gridTemplate ? controller.id : 'unset'}">
+					{#if controller?.element === 'select'}
+						<Select
+							bind:value={dataset[controller?.id]}
+							label={controller?.label}
+							{...controller?.attributes}
+						>
+							{#each controller?.options as option}
+								<option value={option?.name}>{option?.label}</option>
+							{/each}
+						</Select>
+					{:else if controller?.element === 'input'}
+						<Input
+							{...controller?.attributes}
+							bind:value={dataset[controller?.id]}
+							label={controller?.label}
+						/>
+					{:else if controller?.element === 'icon'}
+						<Icon>{controller?.name}</Icon>
+					{/if}
+				</div>
+			{/if}
 		{/each}
+
+		{#if controllers.some((c) => c?.advanced === true)}
+			<button class="advancedVisiblity" on:click={() => (advancedVisible = !advancedVisible)}>
+				<span class="material-symbols-rounded">
+					{advancedVisible ? 'expand_less' : 'expand_more'}
+				</span>
+				{advancedVisible ? 'Ukryj' : 'Pokaż'} zaawansowane
+			</button>
+		{/if}
 	</div>
 
 	<div class="actions">
@@ -115,15 +128,27 @@
 			display: grid;
 			grid-template: var(--template);
 			@include md {
-				gap: 0 1rem;
+				gap: 0 0.8rem;
 			}
 
 			& .areaWrapper {
 				display: flex;
-				margin-bottom: 1rem;
+				margin-bottom: 0.6rem;
 				align-items: center;
 				justify-content: center;
 				grid-area: var(--area);
+			}
+
+			& .advancedVisiblity {
+				padding: 0;
+				border: none;
+				cursor: pointer;
+				width: fit-content;
+				color: $primary;
+				display: flex;
+				font-weight: bold;
+				align-items: center;
+				background-color: transparent;
 			}
 		}
 

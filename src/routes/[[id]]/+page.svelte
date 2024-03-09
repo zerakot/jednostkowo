@@ -4,7 +4,6 @@
 	import SEO from '$lib/components/Seo/Seo.svelte';
 	import Markdown from '$lib/components/Markdown.svelte';
 	import Icon from '../../lib/components/Icon.svelte';
-	import { fly } from 'svelte/transition';
 
 	export let data;
 
@@ -68,7 +67,12 @@
 
 			& p {
 				margin: 0;
+				width: 100%;
 				color: $text-light;
+
+				@include lg {
+					max-width: 80%;
+				}
 			}
 		}
 
