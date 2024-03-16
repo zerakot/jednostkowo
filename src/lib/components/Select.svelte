@@ -15,7 +15,7 @@
 		<Label htmlFor={id}>{label}</Label>
 	{/if}
 
-	<select {...$$restProps} bind:value>
+	<select {id} {...$$restProps} bind:value>
 		<slot />
 	</select>
 </div>

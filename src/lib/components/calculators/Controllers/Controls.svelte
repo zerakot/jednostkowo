@@ -13,8 +13,8 @@
 	let errorMessage = '';
 	let advancedVisible = false;
 
-	const getInitialDataset = () => {
-		const x = controllers.reduce((res, controller) => {
+	const initialDataset = Object.freeze(
+		controllers.reduce((res, controller) => {
 			if (controller?.ignore) return res;
 			if (controller.element === 'select') {
 				res[controller.id] = controller.options.find((option) => option.default)?.name;
@@ -22,14 +22,13 @@
 				res[controller.id] = controller.defaultValue || '';
 			}
 			return res;
-		}, {});
-		return x;
-	};
-	let dataset = getInitialDataset();
+		}, {})
+	);
+	let dataset = { ...initialDataset };
 
 	const calculate = () => {
 		const formulaResult = formula({ ...dataset });
-		errorMessage = formulaResult?.error;
+		errorMessage = formulaResult?.error || '';
 
 		if (formulaResult?.error) {
 			runAnimation('error');
@@ -44,9 +43,20 @@
 	};
 
 	const reset = () => {
-		dataset = getInitialDataset();
+		dataset = { ...initialDataset };
 		errorMessage = '';
 		results = null;
+	};
+	const switchAdvencedVisiblity = () => {
+		if (advancedVisible) {
+			// Reset advenced settings if hidding
+			dataset = Object.keys(dataset).reduce((acc, id) => {
+				if (controllers.find((c) => c.id === id)?.advanced) acc[id] = initialDataset[id];
+				else acc[id] = dataset[id];
+				return acc;
+			}, {});
+		}
+		advancedVisible = !advancedVisible;
 	};
 </script>
 
@@ -84,16 +94,15 @@
 				</div>
 			{/if}
 		{/each}
-
-		{#if controllers.some((c) => c?.advanced === true)}
-			<button class="advancedVisiblity" on:click={() => (advancedVisible = !advancedVisible)}>
-				<span class="material-symbols-rounded">
-					{advancedVisible ? 'expand_less' : 'expand_more'}
-				</span>
-				{advancedVisible ? 'Ukryj' : 'Pokaż'} zaawansowane
-			</button>
-		{/if}
 	</div>
+	{#if controllers.some((c) => c?.advanced === true)}
+		<Button variant="text" on:click={switchAdvencedVisiblity}>
+			<span class="material-symbols-rounded">
+				{advancedVisible ? 'expand_less' : 'expand_more'}
+			</span>
+			{advancedVisible ? 'Ukryj' : 'Pokaż'} zaawansowane
+		</Button>
+	{/if}
 
 	<div class="actions">
 		<Button on:click={calculate}>Oblicz</Button>
@@ -105,7 +114,7 @@
 	.controls {
 		width: 100%;
 		display: flex;
-		align-items: flex-end;
+
 		flex-direction: column;
 
 		& .error {
@@ -126,9 +135,10 @@
 			gap: 0 0.5rem;
 			width: 100%;
 			display: grid;
-			grid-template: var(--template);
-			@include md {
+			grid-template-columns: 1fr;
+			@include lg {
 				gap: 0 0.8rem;
+				grid-template: var(--template);
 			}
 
 			& .areaWrapper {
@@ -136,19 +146,9 @@
 				margin-bottom: 0.6rem;
 				align-items: center;
 				justify-content: center;
-				grid-area: var(--area);
-			}
-
-			& .advancedVisiblity {
-				padding: 0;
-				border: none;
-				cursor: pointer;
-				width: fit-content;
-				color: $primary;
-				display: flex;
-				font-weight: bold;
-				align-items: center;
-				background-color: transparent;
+				@include lg {
+					grid-area: var(--area);
+				}
 			}
 		}
 

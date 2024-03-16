@@ -1,8 +1,10 @@
 <script>
+	import { browser } from '$app/environment';
+
 	export let variant = '';
 </script>
 
-<button class={variant} on:click><slot /></button>
+<button class={variant} on:click disabled={!browser} {...$$restProps}><slot /></button>
 
 <style lang="scss">
 	button {
@@ -34,9 +36,11 @@
 		}
 
 		&.text {
+			font-weight: bold;
 			color: $primary;
 			padding: 0;
 			border-radius: 0;
+			font-size: 0.85rem;
 			background-color: transparent;
 		}
 	}

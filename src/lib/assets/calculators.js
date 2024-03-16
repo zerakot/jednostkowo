@@ -17,7 +17,8 @@ export const calculators = [
 		about:
 			'Procenty to sposób wyrażania części całości. Można je zrozumieć jako ułamki, w których mianownik jest zawsze równy 100. Na przykład, jeśli mamy 25 procent czegoś, to znaczy, że mamy 25 części na 100 możliwych. Procenty są używane w wielu sytuacjach, na przykład w matematyce, finansach, statystyce czy ocenianiu.',
 		markdown:
-			'## Jak obliczyć procent z liczby?\n\nAby **obliczyć procent z liczby** najpierw należy zamienić procent na ułamek. Robi się to dzieląc liczbę stojącą obok procenta przez 100. Na przykład 30% jest równe 0,3 (30 / 100 = 0,3). Następnie należy pomnożyć ułamek przez liczbę, z której chcemy **obliczyć procent**. Na przykład jeśli chcemy obliczyć 40% z 180, najpierw zamieniamy 40% na ułamek (40 / 100 = 0,4). Następnie mnożymy 180 przez 0,4, co daje nam 72 (180 * 0,4 = 72). Ta prosta technika pozwala szybko obliczyć procent z liczby nawet w głowie, pomijając **kalkulator procentów**.\n\n\n## Jak dodać procent do liczby?\n\n**Dodawanie procentu do liczby** wcale nie jest trudnym zadaniem. Pierwszym, co musisz zrobić jest zamiana procentu na ułamek dziesiętny. Robi się to dzieląc liczbę znajdującą się obok procenta przez 100. Na przykład 10% jest równe 0,1 (10 / 100 = 0,1). Następnie mnożymy liczbę, do której chcemy dodać procent przez ułamek. Wynik mnożenia jest wartością **procentu z liczby**. Teraz pozostaje nam tylko dodać liczbę podstawową do wyniku naszych obliczeń.\n\nNa przykład: Chcemy dodać 20% do 150. W tym celu zamieniamy 20% na ułamek dziesiętny, dzieląc 20 przez 100, czego wynikiem jest 0,2. Następnie mnożymy 150 przez 0,2, co daje nam 30. Na koniec dodajemy 30 do 150 i otrzymujemy wynik 180.\n\n\n## Obliczanie procentów na kalkulatorze\n\nAby **obliczyć procent z danej liczby** na zwykłym kalkulatorze wystarczy pomnożyć tę liczbę przez liczbę stojącą obok procentu, który chcesz uzyskać, a następnie podzielić przez 100. Na przykład jeśli chcesz obliczyć 20% z 150 powinieneś wykonać następujące działanie: 150 * 20 / 100, którego wynikiem jest liczba 30. Dzięki tej prostej technice, przeliczanie procentów na kalkulatorze staje się jeszcze prostsze.\n\n\n## Kalkulator procentów stworzony z myślą o Tobie\n\nNasz **kalkulator procentów** został stworzony z myślą o wygodnym i wydajnym użytkowaniu, aby **obliczanie procentów** było procesem prostym i przyjemnym. Skupiliśmy się na zaprojektowaniu intuicyjnego i estetycznego interfejsu z myślą o użytkowniku. Kalkulator do procentów na Jednostkowo.pl umożliwia obliczanie procentu z liczby, obliczanie jakim procentem jest liczba A dla liczby B, dodawanie procenta do liczby, odejmowanie procenta od liczby, obliczanie o ile procent liczba A wzrosła lub zmalała w stosunku do liczby B. Dzięki tym funkcjom, **nasz kalkulator procentów sprawdza się świetnie podczas pracy biurowej lub w szkole**.\n\n\n## Obliczanie procentów dla każdego\n\nObliczanie procentów na Jednostkowo.pl jest proste i przyjemne. Jedyne, co musisz zrobić to wpisać dwie liczby do pól tekstowych, a wynik pojawi się od razu. Nasi użytkownicy chwalą nasz kalkulator procentów za niesamowitą prostotę, wygodę w użytkowaniu oraz mnogość funkcji w nim zawartych. **Korzystanie z kalkulatora procentowego znacznie przyspiesza obliczanie procentów**, a co za tym idzie - oszczędza Twój czas. Nie trać czasu ani nerwów na ręczne rozprawianie się z procentami. Skorzystaj z kalkulatora procentów na Jednostkowo.pl.',
+			'## Jak obliczyć procent z liczby?\n\nAby **obliczyć procent z liczby** najpierw należy zamienić procent na ułamek dziesiętny. Robi się to dzieląc liczbę stojącą obok procenta przez 100. Na przykład 30% można zapisać jako 0,3 (30 / 100 = 0,3). Następnie jedyne, co nam pozostaje to pomnożyć ułamek przez liczbę, z której chcemy **obliczyć procent**.\n\nNa przykład jeśli chcemy obliczyć 40% z 180, najpierw zamieniamy 40% na ułamek (40 / 100 = 0,4). Następnie mnożymy 180 przez 0,4, co daje nam 72 (180 * 0,4 = 72). Ta prosta technika pozwala szybko obliczyć procent z liczby nawet w głowie, pomijając **kalkulator procentów**.\n\n## Jak dodać procent do liczby?\n\n**Dodawanie procentu do liczby** wcale nie jest trudnym zadaniem. Pierwszym, co musisz zrobić jest zamiana procentu na ułamek dziesiętny. Robi się to dzieląc liczbę znajdującą się obok procenta przez 100.\n\nNa przykład 10% jest równe 0,1 (10 / 100 = 0,1). Następnie mnożymy liczbę, do której chcemy dodać procent przez ułamek. Wynik mnożenia jest wartością **procentu z liczby**. Teraz pozostaje nam tylko dodać liczbę podstawową do wyniku naszych obliczeń.\n\nNa przykład: Chcemy dodać 20% do 150. W tym celu zamieniamy 20% na ułamek dziesiętny, dzieląc 20 przez 100, czego wynikiem jest 0,2. Następnie mnożymy 150 przez 0,2, co daje nam 30. Na koniec dodajemy 30 do 150 i otrzymujemy wynik 180.\n\n## Obliczanie procentów na kalkulatorze\n\nIstnieje wiele technik na **obliczanie procentów na kalkulatorze**. Pierwszym z nich jest zamiana procentu na ułamek, a następnie pomnożenie go przez liczbę, z której chcemy obliczyć procent. Na przykład jeśli chcesz obliczyć 20% z 150 powinieneś najpierw zamienić 20% na ułamek, dzieląc 20 przez 100, czego wynikiem jest 0,2. Następnie pozostaje tylko pomnożyć 0,2 przez 150 i otrzymujemy wynik 30.\n\nDrugim sposobem, **jak obliczyć procent z liczby** jest uprzednie wyliczenie 1%, a następnie pomnożenie jego wartości przez liczbę stojącą obok żądanego procenta. Tym razem załóżmy, że chcemy obliczyć 40% z 200. W tym celu na początku wyznaczamy 1% z 200, dzieląc 200 przez 100. Wynikiem takiego działania jest 2. Następnie mnożymy 2 przez liczbę stojącą obok procenta, czyli 40. Uzyskujemy wynik 80, który jest naszą szukaną liczbą.\n\n## Jak obliczyć napiwek i rabat?\n\nObliczanie napiwku i obliczanie rabatu są w pewien sposób podobne. Kiedy chcemy obliczyć kwotę napiwku, tak naprawdę dodajemy procent do liczby, a obliczając rabat - odejmujemy.\n\nW obu tych przypadkach pierwszą rzeczą, którą musimy zrobić jest **obliczenie procentu z kwoty**. W tym celu korzystamy z podanego wcześniej wzoru i podstawiamy pod niego liczby. Załóżmy, że napiwek lub rabat wynosi 10%, a kwota jaką musimy zapłacić to 200 zł. Obliczamy więc ile wynosi 10% z 200 w następujący sposób: 200 * 10 / 100 = 20.\n\nZnając wartość procentu, jedyne co nam pozostaje to dodać lub odjąć go od kwoty w zależności od tego, co obliczamy. Jeśli interesuje nas napiwek, dodajemy wynik do kwoty, a jeśli chcemy **obliczyć cenę po rabacie** - odejmujemy od kwoty.\n\nPrzydatnym narzędziem do tego typu obliczeń jest **kalkulator procentów**, który znacznie przyśpiesza odejmowanie i dodawanie procentów.\n\n## Procenty online dla każdego\n\nNasz **kalkulator procentów** został stworzony z myślą o wygodnym i wydajnym użytkowaniu, aby **obliczanie procentów** było procesem prostym i przyjemnym. Skupiliśmy się na zaprojektowaniu intuicyjnego i estetycznego interfejsu z myślą o użytkowniku. Kalkulator do procentów na Jednostkowo.pl umożliwia obliczanie procentu z liczby, obliczanie jakim procentem jest liczba A dla liczby B, dodawanie procenta do liczby, odejmowanie procenta od liczby, obliczanie o ile procent liczba A wzrosła lub zmalała w stosunku do liczby B. Dzięki tym funkcjom, nasz kalkulator procentów sprawdza się świetnie zarówno podczas pracy biurowej, jak i w szkole.',
+
 		operations: [
 			{
 				name: 'Obliczanie procentu z danej liczby',
@@ -64,10 +65,11 @@ export const calculators = [
 				attributes: { type: 'number', placeholder: 'A' }
 			},
 			{
-				id: 'c',
+				id: 'b',
 				element: 'input',
-				attributes: { type: 'number', placeholder: 'C' }
+				attributes: { type: 'number', placeholder: 'B' }
 			},
+
 			{
 				id: 'icon',
 				element: 'icon',
@@ -75,9 +77,9 @@ export const calculators = [
 				ignore: true
 			},
 			{
-				id: 'b',
+				id: 'c',
 				element: 'input',
-				attributes: { type: 'number', placeholder: 'B' }
+				attributes: { type: 'number', placeholder: 'C' }
 			},
 			{
 				id: 'd',
@@ -87,8 +89,8 @@ export const calculators = [
 		],
 		formula: (dataset) => {
 			const { a, b, c, d } = dataset;
-			if ([a, b, c, d].filter((x) => !!x).length !== 3) {
-				return { error: 'Podaj 3 wartości, żeby móc obliczć proporcję.' };
+			if ([a, b, c, d].filter((x) => !!x).length < 3) {
+				return { error: 'Podaj 3 wartości, żeby móc obliczyć proporcję.' };
 			}
 			const p = {
 				a: parseFloat(a),
@@ -145,7 +147,6 @@ export const calculators = [
 			}
 		],
 		formula: (dataset) => {
-			console.log(dataset);
 			if (!dataset?.number) {
 				return { error: 'Podaj wartość kąta.' };
 			}
@@ -275,7 +276,7 @@ export const calculators = [
 		component: Controllers,
 		controllers: [
 			{
-				id: 'ammount',
+				id: 'amount',
 				defaultValue: '',
 				element: 'input',
 				label: 'Kapitał początkowy',
@@ -311,14 +312,13 @@ export const calculators = [
 				options: [
 					{ label: 'Rocznie', name: '1', default: true },
 					{ label: 'Kwartalnie', name: '4' },
-					{ label: 'Miesięcznie', name: '12' },
-					{ label: 'Codziennie', name: '365' }
+					{ label: 'Miesięcznie', name: '12' }
 				]
 			},
 			{
 				advanced: true,
 				id: 'regularPaymentAmount',
-				defaultValue: '0',
+				defaultValue: '',
 				element: 'input',
 				label: 'Kwota regularnej wpłaty',
 				attributes: { type: 'number', placeholder: 'Podaj kwotę regularnej wpłaty' }
@@ -329,71 +329,144 @@ export const calculators = [
 				element: 'select',
 				label: 'Częstotliwość regularnej wpłaty',
 				options: [
-					{ label: 'Rocznie', name: '1' },
-					{ label: 'Miesięcznie', name: '12', default: true },
+					{ label: 'Rocznie', name: '1', default: true },
+					{ label: 'Miesięcznie', name: '12' },
 					{ label: 'Kwartalnie', name: '4' },
 					{ label: 'Tygodniowo', name: '52' }
 				]
 			}
 		],
 		formula: (dataset) => {
-			const {
-				ammount,
+			let {
+				amount,
 				periods,
 				periodsType,
 				interestRate,
 				capitalisation,
-				regularPaymentAmount,
+				regularPaymentAmount = 0,
 				regularPaymentFrequency
 			} = dataset;
 
-			const rate = parseInt(interestRate);
-			const totalCapitalisations = capitalisation * (periods / periodsType);
+			amount = parseFloat(amount);
+			periods = parseFloat(periods);
+			periodsType = parseFloat(periodsType);
+			interestRate = parseFloat(interestRate);
+			capitalisation = parseFloat(capitalisation);
+			regularPaymentAmount = parseFloat(regularPaymentAmount);
+			regularPaymentFrequency = parseFloat(regularPaymentFrequency);
 
+			const interestAtEndOfEachPeriod = [];
+			let total_investment = 0,
+				total_interest = 0,
+				total_value = amount,
+				total_deposit = 0;
+
+			const monthsInPeriod = periods * (12 / periodsType);
+			console.log(monthsInPeriod);
+			for (var i = 0; i < monthsInPeriod; i += 1) {
+				// Loop for each month
+				var investment = i === 0 ? amount : 0;
+
+				if (regularPaymentAmount) {
+					if (regularPaymentFrequency / monthsInPeriod >= 1.0) {
+						investment += (regularPaymentAmount * regularPaymentFrequency) / 12;
+						console.log('A');
+					} else {
+						console.log('B');
+						var interval = 12 / regularPaymentFrequency;
+
+						if ((i + 1) % interval === 0) {
+							console.log('C');
+							total_deposit += regularPaymentAmount;
+							investment += regularPaymentAmount;
+						}
+					}
+				}
+
+				var interest =
+					total_value * Math.pow(1 + interestRate / (capitalisation * 100), capitalisation / 12) -
+					total_value;
+				total_investment += investment;
+				total_interest += interest;
+				total_value = total_investment + total_interest;
+
+				interestAtEndOfEachPeriod.push({
+					totalDeposits: round(total_deposit, 2),
+					interest: round(total_interest, 2)
+				});
+			}
+
+			const finalAmount = round(total_value, 2);
+			const profit = round(total_interest, 2);
+
+			/* // Licz procent od podstawy na każdej pętli według wzoru
+
+			// Ile okresów kapitalizacji w okresie oszczędzania
+			const depositsInCapitalisation = regularPaymentFrequency / capitalisation;
+			const totalCapitalisations = capitalisation * (periods / periodsType);
 			if (totalCapitalisations < 1) {
 				return { error: 'Zbyt mały okres oszczędzania, żeby kapitalizacja mogła się odbyć.' };
 			}
 
+			let totalDeposits = 0;
+			let currentBalance = parseFloat(ammount);
 			const interestAtEndOfEachPeriod = [];
-			let currentBalance = parseInt(ammount);
+
 			for (let i = 1; i <= totalCapitalisations; i++) {
-				//Number of deposits in capitalisation period
-				const depositsInCapitalisation = regularPaymentFrequency / capitalisation;
-				//Value of deposits in capitalisation period
-				const depositsValue = depositsInCapitalisation * regularPaymentAmount;
+				const deposit =
+					(depositsInCapitalisation * i) % 1 === 0
+						? parseFloat(regularPaymentAmount) *
+						  (depositsInCapitalisation > 1 ? parseFloat(depositsInCapitalisation) : 1)
+						: 0;
+				totalDeposits += deposit;
 
-				currentBalance = currentBalance * (1 + rate / 100 / capitalisation) + depositsValue;
-				const interest = currentBalance - ammount;
+				currentBalance =
+					(currentBalance + deposit) *
+					(1 + parseFloat(interestRate) / 100 / parseFloat(capitalisation));
+				const interest = currentBalance - ammount - totalDeposits;
 
-				interestAtEndOfEachPeriod.push(round(interest, 2));
-			}
-
-			const finalAmount = round(currentBalance, 2);
-			const profit = round(finalAmount - ammount, 2);
+				interestAtEndOfEachPeriod.push({
+					interest: round(interest, 2),
+					totalDeposits: round(totalDeposits, 2)
+				});
+			} */
 
 			return {
 				type: 'chart',
 				description: `Na koniec okresu oszczędzania, stan konta będzie wynosił
-					<b>${formatOutputNumber(finalAmount)}zł</b>.
-					Całkowity zysk wyniesie <b>${formatOutputNumber(profit)}zł</b>.`,
+					<b data-testid="finalAmount">${formatOutputNumber(finalAmount)} zł</b>.
+					${
+						parseFloat(regularPaymentAmount) > 0
+							? `Suma wszystkich wpłat będzie równa
+							<b data-testid="depositsTotal">${formatOutputNumber(round(total_investment, 2))} zł</b>.`
+							: ''
+					}
+					Całkowity zysk wyniesie <b data-testid="profit">${formatOutputNumber(profit)} zł</b>.`,
 				config: {
 					type: 'bar',
 					data: {
-						labels: Array.from({ length: totalCapitalisations + 1 }, (_, i) => `Okres ${i}`),
+						labels: Array.from({ length: monthsInPeriod }, (_, i) => `Okres ${i}`),
 						datasets: [
 							{
 								type: 'bar',
 								label: 'Kwota początkowa',
-								data: [...Array(interestAtEndOfEachPeriod.length + 1).fill(parseInt(ammount))],
+								data: [...interestAtEndOfEachPeriod.map((e) => amount)],
 								borderColor: website.primaryColor,
 								backgroundColor: website.primaryColor + '55',
-								borderWidth: 1,
-								borderSkipped: 'middle'
+								borderWidth: 1
 							},
 							{
 								type: 'bar',
-								label: 'Odsetki',
-								data: [0, ...interestAtEndOfEachPeriod],
+								label: 'Skumulowane wpłaty',
+								data: [...interestAtEndOfEachPeriod.map((e) => e.totalDeposits)],
+								borderColor: '#b670d1',
+								backgroundColor: '#b670d155',
+								borderWidth: 1
+							},
+							{
+								type: 'bar',
+								label: 'Skumulowane odsetki',
+								data: [...interestAtEndOfEachPeriod.map((e) => e.interest)],
 								borderColor: '#7078d1',
 								backgroundColor: '#7078d155',
 								borderWidth: 1
@@ -407,9 +480,6 @@ export const calculators = [
 						responsive: true,
 						maintainAspectRatio: false,
 						plugins: {
-							legend: {
-								display: false
-							},
 							tooltip: {
 								callbacks: {
 									footer: function (items) {
@@ -441,7 +511,7 @@ export const calculators = [
 		},
 		layout: {
 			gridTemplate:
-				'"ammount ammount" "periods periodsType" "interestRate capitalisation" "regularPaymentAmount regularPaymentFrequency" "check check" / 1fr 50%'
+				'"amount amount" "periods periodsType" "interestRate capitalisation" "regularPaymentAmount regularPaymentFrequency" "check check" / 1fr 50%'
 		}
 	},
 	{

@@ -7,7 +7,7 @@
 	<h2>Najnowsze wpisy na blogu</h2>
 
 	<div class="posts">
-		{#each posts?.slice(0, 3) as post}
+		{#each posts.reverse()?.slice(0, 3) as post}
 			<BlogCard {post} transition={{ x: 150 }} />
 		{/each}
 	</div>

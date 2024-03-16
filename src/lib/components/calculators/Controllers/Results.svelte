@@ -51,15 +51,20 @@
 		}
 
 		& .chartResults {
-			gap: 0.7rem;
+			gap: 1rem;
 			display: flex;
 			flex-direction: column;
 			& .chartWrapper {
 				width: 100%;
-				height: 200px;
+				height: 250px;
 			}
 			& p {
 				font-size: 1rem;
+				color: $primary;
+				padding: 0.6rem;
+				border: 1px solid $primary;
+				border-radius: 10px;
+				background-color: $primary-ghost;
 			}
 		}
 
