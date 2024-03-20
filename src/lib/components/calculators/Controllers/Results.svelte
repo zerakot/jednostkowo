@@ -4,6 +4,7 @@
 	import Scale from './Scale.svelte';
 
 	export let results;
+	$: console.log(results);
 </script>
 
 {#if results}
@@ -63,7 +64,7 @@
 				color: $primary;
 				padding: 0.6rem;
 				border: 1px solid $primary;
-				border-radius: 10px;
+				border-radius: 7px;
 				background-color: $primary-ghost;
 			}
 		}

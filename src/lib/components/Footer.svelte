@@ -32,11 +32,14 @@
 		<h2 class="header">Kontakt</h2>
 		<ul>
 			<li>
-				<b>Adres e-mail:</b> <br /> <a href="mailto:iktorn2006@wp.pl">iktorn2006@wp.pl</a>
+				<b>Adres e-mail:</b> <br />
+				<a href="mailto:iktorn2006@wp.pl" rel="nofollow">iktorn2006@wp.pl</a>
 			</li>
 			<li>
 				<b>Instagram:</b> <br />
-				<a href="https://www.instagram.com/zdjecia_wiktorka/" target="_blank">@zdjecia_wiktorka</a>
+				<a href="https://www.instagram.com/zdjecia_wiktorka/" target="_blank" rel="nofollow"
+					>@zdjecia_wiktorka</a
+				>
 			</li>
 		</ul>
 	</section>

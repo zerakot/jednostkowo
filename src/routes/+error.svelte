@@ -7,9 +7,9 @@
 		<h1>{$page.status}</h1>
 		<p>{$page.error.message}</p>
 	</hgroup>
-	<a href={$page.error?.returnHref || '/'}
-		>Powrót do {$page.error?.returnLabel || 'strony głównej'}</a
-	>
+	<a href={$page.error?.returnHref || '/'}>
+		Powrót do {$page.error?.returnLabel || 'strony głównej'}
+	</a>
 </div>
 
 <style lang="scss">

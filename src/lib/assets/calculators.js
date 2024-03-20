@@ -399,38 +399,6 @@ export const calculators = [
 			const finalAmount = round(total_value, 2);
 			const profit = round(total_interest, 2);
 
-			/* // Licz procent od podstawy na każdej pętli według wzoru
-
-			// Ile okresów kapitalizacji w okresie oszczędzania
-			const depositsInCapitalisation = regularPaymentFrequency / capitalisation;
-			const totalCapitalisations = capitalisation * (periods / periodsType);
-			if (totalCapitalisations < 1) {
-				return { error: 'Zbyt mały okres oszczędzania, żeby kapitalizacja mogła się odbyć.' };
-			}
-
-			let totalDeposits = 0;
-			let currentBalance = parseFloat(ammount);
-			const interestAtEndOfEachPeriod = [];
-
-			for (let i = 1; i <= totalCapitalisations; i++) {
-				const deposit =
-					(depositsInCapitalisation * i) % 1 === 0
-						? parseFloat(regularPaymentAmount) *
-						  (depositsInCapitalisation > 1 ? parseFloat(depositsInCapitalisation) : 1)
-						: 0;
-				totalDeposits += deposit;
-
-				currentBalance =
-					(currentBalance + deposit) *
-					(1 + parseFloat(interestRate) / 100 / parseFloat(capitalisation));
-				const interest = currentBalance - ammount - totalDeposits;
-
-				interestAtEndOfEachPeriod.push({
-					interest: round(interest, 2),
-					totalDeposits: round(totalDeposits, 2)
-				});
-			} */
-
 			return {
 				type: 'chart',
 				description: `Na koniec okresu oszczędzania, stan konta będzie wynosił
@@ -445,7 +413,7 @@ export const calculators = [
 				config: {
 					type: 'bar',
 					data: {
-						labels: Array.from({ length: monthsInPeriod }, (_, i) => `Okres ${i}`),
+						labels: Array.from({ length: monthsInPeriod }, (_, i) => `Okres ${i + 1}`),
 						datasets: [
 							{
 								type: 'bar',
@@ -512,6 +480,38 @@ export const calculators = [
 		layout: {
 			gridTemplate:
 				'"amount amount" "periods periodsType" "interestRate capitalisation" "regularPaymentAmount regularPaymentFrequency" "check check" / 1fr 50%'
+		}
+	},
+	{
+		id: 'kalkulator-podzielnosci-liczb',
+		type: 'kalkulator',
+		name: 'podzielności liczb',
+		title: 'Kalkulator podzielności liczb',
+		description:
+			'Łatwy w użyciu kalkulator podzielności liczb, który ułatwi Ci sprawdzanie podzielności liczb.',
+		icon: 'filter_1',
+		component: Controllers,
+		controllers: [
+			{
+				id: 'a',
+				defaultValue: '',
+				element: 'input',
+				label: 'Licznik',
+				attributes: { type: 'number', placeholder: 'Podaj wartość liczika' }
+			},
+			{
+				id: 'b',
+				defaultValue: '',
+				element: 'input',
+				label: 'Mianownik',
+				attributes: { type: 'number', placeholder: 'Podaj wartość mianownika' }
+			}
+		],
+		formula: (dataset) => {
+			delete dataset.error;
+
+			let result = parseFloat(dataset.a) % parseFloat(dataset.b) === 0 ? 'Tak' : 'Nie';
+			return { value: result };
 		}
 	},
 	{
