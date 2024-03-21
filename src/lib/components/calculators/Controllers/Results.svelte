@@ -37,9 +37,9 @@
 					<Chart config={results.config} />
 				</div>
 			</div>
-		{:else if results?.value && !results?.overwrite}
-			<div class="text">
-				Wynik: <span style="--color: {results?.color || null}">{results?.value}</span>
+		{:else if results?.response}
+			<div class="response">
+				{@html results.response}
 			</div>
 		{/if}
 	</div>
@@ -69,10 +69,15 @@
 			}
 		}
 
-		& .text {
-			font-size: 1.1rem;
+		& .response {
+			font-size: 1rem;
+			color: $primary;
+			padding: 0.6rem;
+			border: 1px solid $primary;
+			border-radius: 7px;
+			background-color: $primary-ghost;
 
-			& span {
+			& :global(span) {
 				font-weight: bold;
 				color: var(--color, $primary);
 			}

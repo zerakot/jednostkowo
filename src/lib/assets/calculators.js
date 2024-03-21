@@ -496,22 +496,23 @@ export const calculators = [
 				id: 'a',
 				defaultValue: '',
 				element: 'input',
-				label: 'Licznik',
+				label: 'Licznik (nad kreską ułamkową)',
 				attributes: { type: 'number', placeholder: 'Podaj wartość liczika' }
 			},
 			{
 				id: 'b',
 				defaultValue: '',
 				element: 'input',
-				label: 'Mianownik',
+				label: 'Mianownik (pod kreską ułamkową)',
 				attributes: { type: 'number', placeholder: 'Podaj wartość mianownika' }
 			}
 		],
 		formula: (dataset) => {
 			delete dataset.error;
 
-			let result = parseFloat(dataset.a) % parseFloat(dataset.b) === 0 ? 'Tak' : 'Nie';
-			return { value: result };
+			let result = parseFloat(dataset.a) % parseFloat(dataset.b) === 0 ? '' : 'nie';
+			let response = `Liczba ${dataset.a} <span>${result} jest podzielna</span> przez ${dataset.b}.`;
+			return { response };
 		}
 	},
 	{
