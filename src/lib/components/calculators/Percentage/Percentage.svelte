@@ -10,10 +10,15 @@
 	{/each}
 </section>
 
-<style>
+<style lang="scss">
 	.operations {
+		width: 100%;
 		gap: 1.4rem;
 		display: flex;
 		flex-direction: column;
+
+		@include xl {
+			width: 70%;
+		}
 	}
 </style>
