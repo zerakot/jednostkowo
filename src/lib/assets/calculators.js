@@ -116,7 +116,7 @@ export const calculators = [
 
 			return { dataset, overwrite: true };
 		},
-		layout: { gridTemplate: '"a icon b" "c icon d" / auto 20px auto' }
+		layout: { gridTemplate: '"a icon b" "c icon d" / auto 20px auto', responsive: false }
 	},
 	{
 		id: 'kalkulator-funkcji-trygonometrycznych',

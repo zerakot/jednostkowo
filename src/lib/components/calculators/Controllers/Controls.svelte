@@ -68,7 +68,10 @@
 		</div>
 	{/if}
 
-	<div class="inputs" style="--template: {layout?.gridTemplate || 1};">
+	<div
+		class="inputs {layout?.responsive === false && 'notResponsive'}"
+		style="--template: {layout?.gridTemplate || 1};"
+	>
 		{#each controllers as controller}
 			{#if (controller?.advanced && advancedVisible) || !controller?.advanced}
 				<div class="areaWrapper" style="--area: {layout?.gridTemplate ? controller.id : 'unset'}">
@@ -135,7 +138,13 @@
 			gap: 0 0.5rem;
 			width: 100%;
 			display: grid;
-			grid-template-columns: 1fr;
+			&.notResponsive {
+				grid-template: var(--template);
+
+				& .areaWrapper {
+					grid-area: var(--area);
+				}
+			}
 			@include lg {
 				gap: 0 0.8rem;
 				grid-template: var(--template);
@@ -146,6 +155,7 @@
 				margin-bottom: 0.6rem;
 				align-items: center;
 				justify-content: center;
+
 				@include lg {
 					grid-area: var(--area);
 				}
