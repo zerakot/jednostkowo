@@ -347,6 +347,10 @@ export const calculators = [
 				regularPaymentFrequency
 			} = dataset;
 
+			if (!amount || !periods || !interestRate) {
+				return { error: 'Wypełnij wszystkie pola formularza.' };
+			}
+
 			amount = parseFloat(amount);
 			periods = parseFloat(periods);
 			periodsType = parseFloat(periodsType);
@@ -362,7 +366,6 @@ export const calculators = [
 				total_deposit = 0;
 
 			const monthsInPeriod = periods * (12 / periodsType);
-			console.log(monthsInPeriod);
 			for (var i = 0; i < monthsInPeriod; i += 1) {
 				// Loop for each month
 				var investment = i === 0 ? amount : 0;
@@ -370,13 +373,10 @@ export const calculators = [
 				if (regularPaymentAmount) {
 					if (regularPaymentFrequency / monthsInPeriod >= 1.0) {
 						investment += (regularPaymentAmount * regularPaymentFrequency) / 12;
-						console.log('A');
 					} else {
-						console.log('B');
 						var interval = 12 / regularPaymentFrequency;
 
 						if ((i + 1) % interval === 0) {
-							console.log('C');
 							total_deposit += regularPaymentAmount;
 							investment += regularPaymentAmount;
 						}
@@ -413,7 +413,7 @@ export const calculators = [
 				config: {
 					type: 'bar',
 					data: {
-						labels: Array.from({ length: monthsInPeriod }, (_, i) => `Okres ${i + 1}`),
+						labels: Array.from({ length: monthsInPeriod }, (_, i) => `Miesiąc ${i + 1}`),
 						datasets: [
 							{
 								type: 'bar',

@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 
 	$: {
-		if (typeof gtag !== 'undefined' && import.meta.env.PROD === true) {
+		if (typeof gtag !== 'undefined') {
 			gtag('config', 'MEASUREMENT_ID', {
 				page_title: document.title,
 				page_path: $page.url.pathname

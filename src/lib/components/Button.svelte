@@ -12,7 +12,7 @@
 		background-color: $primary;
 		cursor: pointer;
 		width: fit-content;
-		font-size: 0.9rem;
+		font-size: 0.8rem;
 		border: none;
 		padding: 0.5rem 1rem;
 		border-radius: 5px;
@@ -40,8 +40,16 @@
 			color: $primary;
 			padding: 0;
 			border-radius: 0;
-			font-size: 0.85rem;
+			font-size: 0.75rem;
 			background-color: transparent;
+
+			@include md {
+				font-size: 0.85rem;
+			}
+		}
+
+		@include md {
+			font-size: 0.9rem;
 		}
 	}
 </style>

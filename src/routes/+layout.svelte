@@ -5,7 +5,9 @@
 	import Analytics from '../lib/components/Analytics.svelte';
 </script>
 
-<Analytics />
+{#if import.meta.env.PROD}
+	<Analytics />
+{/if}
 <div class="container">
 	<Navbar />
 	<slot />

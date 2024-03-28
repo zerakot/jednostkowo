@@ -123,3 +123,14 @@ test('Test if switching between advanced and basic resets advanced', async ({ pa
 		'11 040,81'
 	);
 });
+
+test('Test if empty inputs throws errors', async ({ page }) => {
+	await page.goto('/kalkulator-procentu-składanego');
+
+	// Initialize buttons
+	const submitButton = await getSubmitButton(page);
+	await submitButton.click();
+
+	const errorBox = page.locator('.error').first();
+	await expect(errorBox, 'Error message box should be visible').toBeVisible();
+});
