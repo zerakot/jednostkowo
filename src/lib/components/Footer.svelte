@@ -87,7 +87,7 @@
 			}
 		}
 
-		@include md {
+		@include sm {
 			gap: 0;
 			grid-template-columns: 1fr 1fr 1fr;
 

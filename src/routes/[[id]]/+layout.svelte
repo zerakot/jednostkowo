@@ -24,11 +24,18 @@
 			width: 100%;
 			gap: 2rem 0;
 			display: grid;
+			max-width: 600px;
 			grid-template-columns: 100%;
 			grid-template-rows: repeat(2, auto);
 		}
 
+		@include sm {
+			max-width: 600px;
+			padding: 0 1rem;
+		}
+
 		@include lg {
+			max-width: unset;
 			flex-direction: row;
 
 			& main {

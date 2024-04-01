@@ -16,9 +16,5 @@
 		gap: 1.4rem;
 		display: flex;
 		flex-direction: column;
-
-		@include xl {
-			width: 70%;
-		}
 	}
 </style>

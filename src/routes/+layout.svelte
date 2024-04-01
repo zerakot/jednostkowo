@@ -27,13 +27,13 @@
 			'nav'
 			'main';
 
-		@include md {
-			gap: 1.5rem;
-			width: 90%;
+		@include sm {
+			max-width: 600px;
 		}
 		@include lg {
 			gap: 2rem;
-			width: 768px;
+			max-width: unset;
+			min-width: 768px;
 			flex-direction: row;
 		}
 		@include xl {

@@ -34,7 +34,7 @@
 			{#each calculators.filter((el) => el?.type === currentcalculatorData?.type) as calculator}
 				<li class:active={currentcalculatorData?.id === calculator?.id}>
 					<a href={`/${calculator?.id}`} on:click={() => (moreVisible = false)}>
-						<Icon>{calculator?.icon}</Icon>
+						<Icon size="1.5em">{calculator?.icon}</Icon>
 						{calculator?.name?.charAt(0).toUpperCase() + calculator?.name?.slice(1)}
 					</a>
 				</li>
@@ -46,7 +46,6 @@
 <style lang="scss">
 	aside {
 		& .trigger {
-			font-size: 0.9rem;
 			border-radius: 5px;
 			padding: 0.5rem 1rem;
 			background-color: $gray-light;
@@ -74,8 +73,8 @@
 			}
 
 			& button {
+				font-size: 1em;
 				cursor: pointer;
-				font-size: 0.8rem;
 				border-radius: 5px;
 				color: white;
 				border: none;
@@ -111,17 +110,13 @@
 					gap: 0.3rem;
 					display: flex;
 					align-items: center;
-					font-size: 0.9rem;
+					font-size: 1em;
 					padding: 0.4rem 1rem 0.4rem 0.5rem;
-
-					& span {
-						font-size: 1.3rem;
-					}
 				}
 			}
 		}
 
-		@include md {
+		@include sm {
 			& .trigger label .category {
 				display: block;
 			}

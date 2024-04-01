@@ -51,7 +51,7 @@
 			grid-template-rows: auto;
 		}
 
-		@include md {
+		@include sm {
 			gap: 1rem;
 
 			& hgroup p {

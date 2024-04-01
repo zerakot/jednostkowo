@@ -94,9 +94,5 @@
 				}
 			}
 		}
-
-		@include xl {
-			width: 70%;
-		}
 	}
 </style>

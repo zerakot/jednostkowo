@@ -12,29 +12,23 @@ $gray-dark: #a5a5a5;
 $error: #cc0000;
 $error-transparent: transparentize($error, 0.94);
 
-$media-width: 100%;
-
 @mixin sm {
-	@media (min-width: 320px) {
-		$media-width: 320px;
+	@media (min-width: 425px) {
 		@content;
 	}
 }
 @mixin md {
-	@media (min-width: 425px) {
-		$media-width: 425px;
+	@media (min-width: 600px) {
 		@content;
 	}
 }
 @mixin lg {
-	@media (min-width: 768px) {
-		$media-width: 768px;
+	@media (min-width: 910px) {
 		@content;
 	}
 }
 @mixin xl {
 	@media (min-width: 1200px) {
-		$media-width: 1200px;
 		@content;
 	}
 }
@@ -123,7 +117,7 @@ $media-width: 100%;
 			}
 		}
 
-		@include md {
+		@include sm {
 			font-size: 0.85rem;
 		}
 	}
@@ -155,7 +149,7 @@ $media-width: 100%;
 	box-shadow: 4px 4px 20px $gray-light;
 	z-index: 1;
 
-	@include md {
+	@include sm {
 		padding: 1rem;
 	}
 }

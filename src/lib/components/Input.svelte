@@ -35,7 +35,7 @@
 <style lang="scss">
 	.wrapper {
 		width: 100%;
-		gap: 0.2rem;
+		gap: 0.15rem;
 		display: flex;
 		flex-direction: column;
 
@@ -47,14 +47,13 @@
 
 		& input {
 			width: 100%;
-			font-size: 0.9rem;
+			font-size: 1em;
 			padding: 0.3rem 0.6rem;
 			border-radius: 5px;
 			border: 1px solid $gray-dark;
 			background-color: $background;
 
-			@include md {
-				font-size: 0.95rem;
+			@include sm {
 				padding: 0.5rem 0.8rem;
 			}
 		}

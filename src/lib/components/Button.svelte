@@ -18,6 +18,7 @@
 		border-radius: 5px;
 		display: flex;
 		align-items: center;
+		font-size: 1em;
 
 		&:hover {
 			background-color: darken($primary, 2.2);
@@ -40,16 +41,7 @@
 			color: $primary;
 			padding: 0;
 			border-radius: 0;
-			font-size: 0.75rem;
 			background-color: transparent;
-
-			@include md {
-				font-size: 0.85rem;
-			}
-		}
-
-		@include md {
-			font-size: 0.9rem;
 		}
 	}
 </style>

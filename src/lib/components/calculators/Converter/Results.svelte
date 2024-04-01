@@ -45,7 +45,7 @@
 			text-transform: lowercase;
 		}
 
-		@include md {
+		@include sm {
 			& thead tr th.symbol {
 				display: table-cell;
 			}

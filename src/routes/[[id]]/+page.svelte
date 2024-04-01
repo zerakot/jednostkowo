@@ -13,7 +13,6 @@
 {#key calculatorData?.id}
 	<div class="container">
 		<hgroup>
-			<div class="pill">{calculatorData?.name}</div>
 			<h1>{calculatorData?.title}</h1>
 			<p>{calculatorData?.description}</p>
 		</hgroup>
@@ -55,24 +54,10 @@
 				color: $text;
 			}
 
-			& .pill {
-				font-weight: bold;
-				border-radius: 20px;
-				text-transform: uppercase;
-				color: white;
-				background-color: $primary;
-				padding: 0.25rem 0.6rem;
-				font-size: 0.7rem;
-			}
-
 			& p {
 				margin: 0;
 				width: 100%;
 				color: $text-light;
-
-				@include lg {
-					max-width: 80%;
-				}
 			}
 		}
 

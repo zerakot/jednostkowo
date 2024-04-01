@@ -82,7 +82,7 @@
 			}
 		}
 
-		@include md {
+		@include sm {
 			& ul {
 				gap: 1.5rem;
 

@@ -117,7 +117,6 @@
 	.controls {
 		width: 100%;
 		display: flex;
-
 		flex-direction: column;
 
 		& .error {
@@ -145,7 +144,7 @@
 					grid-area: var(--area);
 				}
 			}
-			@include lg {
+			@include md {
 				gap: 0 0.8rem;
 				grid-template: var(--template);
 			}
@@ -156,7 +155,7 @@
 				align-items: center;
 				justify-content: center;
 
-				@include lg {
+				@include md {
 					grid-area: var(--area);
 				}
 			}

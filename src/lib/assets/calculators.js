@@ -152,7 +152,7 @@ export const calculators = [
 			}
 
 			const unit = dataset?.unit;
-			const number = parseFloat(dataset?.number) || 0;
+			const number = parseF.loat(dataset?.number) || 0;
 
 			const formattedNumber = unit === 'deg' ? number * (Math.PI / 180) : number;
 
@@ -405,8 +405,8 @@ export const calculators = [
 					<b data-testid="finalAmount">${formatOutputNumber(finalAmount)} zł</b>.
 					${
 						parseFloat(regularPaymentAmount) > 0
-							? `Suma wszystkich wpłat będzie równa
-							<b data-testid="depositsTotal">${formatOutputNumber(round(total_investment, 2))} zł</b>.`
+							? `Suma wszystkich regularnych wpłat będzie równa
+							<b data-testid="depositsTotal">${formatOutputNumber(round(total_investment - amount, 2))} zł</b>.`
 							: ''
 					}
 					Całkowity zysk wyniesie <b data-testid="profit">${formatOutputNumber(profit)} zł</b>.`,

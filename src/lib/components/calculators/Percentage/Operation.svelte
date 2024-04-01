@@ -45,7 +45,7 @@
 
 		& .calculation {
 			gap: 0.5rem;
-			font-size: 1rem;
+			font-size: 1em;
 			display: flex;
 			align-items: center;
 			flex-direction: row;
@@ -57,15 +57,14 @@
 			& .result {
 				max-width: 100px;
 				flex: 1;
-				font-size: 0.9rem;
+				font-size: 1em;
 				padding: 0.3rem 0.6rem;
 				background-color: $background;
 				border-radius: 5px;
 				border: 1px solid $gray-dark;
 				color: $primary;
 				font-weight: bold;
-				@include md {
-					font-size: 0.95rem;
+				@include sm {
 					padding: 0.5rem 0.8rem;
 				}
 			}
