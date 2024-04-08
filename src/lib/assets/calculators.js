@@ -9,16 +9,19 @@ export const calculators = [
 		id: 'kalkulator-procentow',
 		type: 'kalkulator',
 		name: 'procentów',
-		description:
-			'Kalkulator procentów to narzędzie online, które pozwala na proste i błyskawiczne obliczanie procentów. Nie trać czasu na ręczne wykonywanie obliczeń - wypróbuj nasz kalkulator procentów.',
 		title: 'Kalkulator procentów',
 		icon: 'percent',
 		component: Percentage,
+		description:
+			'Kalkulator procentów to narzędzie online, które pozwala na proste i błyskawiczne obliczanie procentów. Nie trać czasu na ręczne wykonywanie obliczeń - wypróbuj nasz kalkulator procentów.',
 		about:
 			'Procenty to sposób wyrażania części całości. Można je zrozumieć jako ułamki, w których mianownik jest zawsze równy 100. Na przykład, jeśli mamy 25 procent czegoś, to znaczy, że mamy 25 części na 100 możliwych. Procenty są używane w wielu sytuacjach, na przykład w matematyce, finansach, statystyce czy ocenianiu.',
 		markdown:
-			'## Jak obliczyć procent z liczby?\n\nAby **obliczyć procent z liczby** najpierw należy zamienić procent na ułamek dziesiętny. Robi się to dzieląc liczbę stojącą obok procenta przez 100. Na przykład 30% można zapisać jako 0,3 (30 / 100 = 0,3). Następnie jedyne, co nam pozostaje to pomnożyć ułamek przez liczbę, z której chcemy **obliczyć procent**.\n\nNa przykład jeśli chcemy obliczyć 40% z 180, najpierw zamieniamy 40% na ułamek (40 / 100 = 0,4). Następnie mnożymy 180 przez 0,4, co daje nam 72 (180 * 0,4 = 72). Ta prosta technika pozwala szybko obliczyć procent z liczby nawet w głowie, pomijając **kalkulator procentów**.\n\n## Jak dodać procent do liczby?\n\n**Dodawanie procentu do liczby** wcale nie jest trudnym zadaniem. Pierwszym, co musisz zrobić jest zamiana procentu na ułamek dziesiętny. Robi się to dzieląc liczbę znajdującą się obok procenta przez 100.\n\nNa przykład 10% jest równe 0,1 (10 / 100 = 0,1). Następnie mnożymy liczbę, do której chcemy dodać procent przez ułamek. Wynik mnożenia jest wartością **procentu z liczby**. Teraz pozostaje nam tylko dodać liczbę podstawową do wyniku naszych obliczeń.\n\nNa przykład: Chcemy dodać 20% do 150. W tym celu zamieniamy 20% na ułamek dziesiętny, dzieląc 20 przez 100, czego wynikiem jest 0,2. Następnie mnożymy 150 przez 0,2, co daje nam 30. Na koniec dodajemy 30 do 150 i otrzymujemy wynik 180.\n\n## Obliczanie procentów na kalkulatorze\n\nIstnieje wiele technik na **obliczanie procentów na kalkulatorze**. Pierwszym z nich jest zamiana procentu na ułamek, a następnie pomnożenie go przez liczbę, z której chcemy obliczyć procent. Na przykład jeśli chcesz obliczyć 20% z 150 powinieneś najpierw zamienić 20% na ułamek, dzieląc 20 przez 100, czego wynikiem jest 0,2. Następnie pozostaje tylko pomnożyć 0,2 przez 150 i otrzymujemy wynik 30.\n\nDrugim sposobem, **jak obliczyć procent z liczby** jest uprzednie wyliczenie 1%, a następnie pomnożenie jego wartości przez liczbę stojącą obok żądanego procenta. Tym razem załóżmy, że chcemy obliczyć 40% z 200. W tym celu na początku wyznaczamy 1% z 200, dzieląc 200 przez 100. Wynikiem takiego działania jest 2. Następnie mnożymy 2 przez liczbę stojącą obok procenta, czyli 40. Uzyskujemy wynik 80, który jest naszą szukaną liczbą.\n\n## Jak obliczyć napiwek i rabat?\n\nObliczanie napiwku i obliczanie rabatu są w pewien sposób podobne. Kiedy chcemy obliczyć kwotę napiwku, tak naprawdę dodajemy procent do liczby, a obliczając rabat - odejmujemy.\n\nW obu tych przypadkach pierwszą rzeczą, którą musimy zrobić jest **obliczenie procentu z kwoty**. W tym celu korzystamy z podanego wcześniej wzoru i podstawiamy pod niego liczby. Załóżmy, że napiwek lub rabat wynosi 10%, a kwota jaką musimy zapłacić to 200 zł. Obliczamy więc ile wynosi 10% z 200 w następujący sposób: 200 * 10 / 100 = 20.\n\nZnając wartość procentu, jedyne co nam pozostaje to dodać lub odjąć go od kwoty w zależności od tego, co obliczamy. Jeśli interesuje nas napiwek, dodajemy wynik do kwoty, a jeśli chcemy **obliczyć cenę po rabacie** - odejmujemy od kwoty.\n\nPrzydatnym narzędziem do tego typu obliczeń jest **kalkulator procentów**, który znacznie przyśpiesza odejmowanie i dodawanie procentów.\n\n## Procenty online dla każdego\n\nNasz **kalkulator procentów** został stworzony z myślą o wygodnym i wydajnym użytkowaniu, aby **obliczanie procentów** było procesem prostym i przyjemnym. Skupiliśmy się na zaprojektowaniu intuicyjnego i estetycznego interfejsu z myślą o użytkowniku. Kalkulator do procentów na Jednostkowo.pl umożliwia obliczanie procentu z liczby, obliczanie jakim procentem jest liczba A dla liczby B, dodawanie procenta do liczby, odejmowanie procenta od liczby, obliczanie o ile procent liczba A wzrosła lub zmalała w stosunku do liczby B. Dzięki tym funkcjom, nasz kalkulator procentów sprawdza się świetnie zarówno podczas pracy biurowej, jak i w szkole.',
-
+			'Czasy, w których kalkulator był prostym narzędziem przydatnym przede wszystkim na lekcjach matematyki, dawno odeszły w niepamięć. Dziś możemy obliczać, co chcemy, gdzie chcemy i kiedy chcemy, bo mamy do tego coraz więcej narzędzi – takich jak **kalkulator procentowy online**. Pomocny jest również ten w smartfonie, jednak kalkulator procentów online jest łatwiejszy, bo aby **obliczyć procent z liczby**, wystarczy tylko wpisać ją w wybrane pole. Łatwe i szybkie obliczenie procentu z danej liczby, sprawdzenie, jakim procentem danej liczby jest inna, a także dodawanie i odejmowanie procentów od liczb to najważniejsze funkcje, jakie oferuje Ci ten kalkulator. \n\n## Obliczanie procentów online jest łatwiejsze, niż kiedykolwiek!\n\n**Kalkulator procentów** przyda się wielu osobom w różnych sytuacjach - zarówno uczniowi w szkole i podczas odrabiania lekcji, jak i w sklepie - gdy np. szybko chcesz obliczyć promocję. Przyda Ci się także wówczas, gdy jesteś w restauracji i chcesz szybko wyliczyć procent wartości zamówienia, jaki planujesz zostawić w formie napiwku. \n\nSzybkie obliczenia i przeliczenia masz więc zawsze pod ręką, a **obliczanie jakim procentem liczby jest inna** czy o ile % wzrosła cena w stosunku do poprzedniej będzie błyskawiczne i bezbłędne. Nie musisz sięgać po kalkulator (zwykły czy w smartfonie), ani tym bardziej po kartkę i ołówek. To świetne narzędzie, gdy szybko i bezbłędnie chcesz obliczyć procent, bez kalkulacji w głowie czy na kartce.\n\nDodaj lub odejmij procent, sprawdź, jakim procentem jednej liczby jest druga liczba, oblicz ułamek, a także sprawdź, **o ile procent wzrosła lub zmalała cena**. Dzięki temu narzędziu możesz również błyskawicznie dodać procent do danej liczby. Sprawdzisz również, o ile % cena została obniżona lub zwiększona. \n\n## Dodawanie i odejmowanie procentów w... ułamku sekundy!\n\nWpisz dwie liczby w dwa pola i gotowe - w odpowiednim polu pojawi się wynik. Kalkulator procentowy pozwala na błyskawiczne **obliczenie procentu** od liczby. Dzięki temu dosłownie w ułamku sekundy dowiesz się, o ile procent wzrosła liczba albo zmalała. Obliczysz interesujący Cię, określony procent bez ryzyka pomyłki. \n\n## Kalkulator procentów online dla każdego\n\nWiemy, że matematyka bywa trudna, a dokonywanie szybkich obliczeń w stresie czy pod presją czasu nie jest najłatwiejszym zadaniem. Dlatego **opracowaliśmy proste i przyjazne narzędzie, które znacznie ułatwia obliczanie procentów** na różne sposoby, w zależności od potrzeb. \n\nDzięki niemu łatwo sprawdzisz, jaka była cena początkowa przed podwyżką, ile napiwku zostawić kelnerowi, a także jaki procent zarobionych pieniędzy musisz oddać np. w podatkach.\n\nObliczenia procentowe będą błyskawiczne i przyjemne - dzięki temu możesz dać napiwek bez zastanawiania się nad tym, czy nie popełnisz gafy przez złe wyliczenie. \n\nProsty, przyjemny i intuicyjny interfejs kalkulatora sprawia, że korzystanie z niego jest bardzo proste. Dzięki niemu nie tylko obliczenia na potrzeby codziennych spraw, ale i giełda czy lokata nie sprawią Ci żadnych trudności.',
+		meta: {
+			description:
+				'Skorzystaj z kalkulatora procentów online, aby obliczyć procent z liczby, różnicę procentową i inne działania. Dodaj lub odejmij procenty szybko i łatwo!'
+		},
 		operations: [
 			{
 				name: 'Obliczanie procentu z danej liczby',
@@ -52,12 +55,17 @@ export const calculators = [
 		type: 'kalkulator',
 		name: 'proporcji',
 		title: 'Kalkulator proporcji',
-		description: 'Łatwy w użyciu kalkulator proporcji, który ułatwi Ci obliczanie proporcji.',
 		icon: 'shuffle',
 		component: Controllers,
+		description:
+			'Z kalkulatorem proporcji online łatwo obliczysz nawet skomplikowane dane w ciągu kilku sekund. Kalkulator proporcji online to narzędzie, dzięki któremu przeliczysz wartość bez wysiłku. Chcesz obliczyć proporcje? Wystarczy w odpowiednie pole wpisać liczbę i kliknąć "oblicz", by w drugim zobaczyć od razu prawidłowy wynik. Czy to procent, czy równanie, czy proporcja, nasz kalkulator błyskawicznie pomoże Ci rozwiązać problem!',
 		about:
 			'Proporcje to relacja między wielkościami, które można porównać ze sobą. Proporcje mogą być wyrażone w różnych sposobach, np. jako ułamek, procent, stosunek czy skala. Proporcje są używane w wielu dziedzinach, np. w matematyce, sztuce, architekturze czy kuchni. Proporcje pomagają nam zrozumieć i opisać zależności między różnymi wielkościami.',
 		markdown: `## Jak obliczyć proporcje?\n\nŻeby zacząć **obliczanie proporcji** najpierw trzeba wiedzieć, [czym są proporcje](${website.baseUrl}/blog/proporcje-wyjasnione-jak-obliczyc-proporcje). W skrócie jest to równość dwóch stosunków względem siebie. Mając tę wiedzę, możemy przejść do obliczania proporcji.\n\nAby obliczyć brakującą wartość proporcji, trzeba skorzystać z właściwości, która mówi, że _a_ podzielone przez _b_ jest równe _c_ dzielone przez _d_. Jeśli znasz trzy wartości z tego wzoru, możesz w prosty sposób obliczyć niewiadomą. Na przykład, żeby obliczyć _d_, znając _a_,_b_,_c_, należy ułożyć równanie _d_=_b_*_c_/_a_. Analogicznie, jeśli znasz _b_,_c_ i _d_, możesz obliczyć _a_, korzystając ze wzoru _a_=_d_*_c_/_a_. Żeby **obliczyć proporcję** wiedząc, że _a=10_, _b=20_, _c=50_, możemy skorzystać z powyższego wzoru, podstawiając nasze liczby - _d_ = 20*50/10, czego wynikiem jest _d_ = 100. W ten prosty sposób możemy obliczyć proporcje z pominięciem **kalkulatora proporcji**.\n\n\n## Proporcje online - zastosowanie\n\nObliczanie proporcji online ma wiele zastosowań w codziennym życiu. Kalkulator proporcji umożliwia szybkie **obliczanie proporcji składników** na przykład podczas gotowania. Równie pomocny jest w podczas zakupów, kiedy znamy cenę za kilogram produktu, a potrzebujemy na przykład 1,25 kilograma. Kolejnym aspektem życia, w którym nasz kalkulator jest przydatny są podróże. Załóżmy, że jedziemy na 500 kilometrową wycieczkę w góry. Pierwsze 80 kilometrów przejechaliśmy w 40 minut i chcemy wiedzieć, ile zajmie nam reszta drogi. Układamy następujące równanie: x=420*40/80, którego wynikiem jest 210 minut, czyli 3 godziny i 30 minut.\n\n\n## Do czego służy kalkulator proporcji\n\nNasz **kalkulator proporcji** umożliwia łatwe **obliczanie proporcji** w Twojej przeglądarce. Dzięki niemu, proces ten staje się szybszy i wygodniejszy. Już nigdy nie będziesz musiał szukać kartki, żeby rozrysować na niej schemat proporcji i wyliczać ile wynosi _x_. Wystarczy, że wejdziesz na jednostkowo.pl i wybierzesz **kalkulator proporcji**. Wpisz w pola tekstowe odpowiednie wartości, naciśnij przycisk “Oblicz”, a w pustym polu tekstowym zobaczysz wynik obliczeń. Z myślą o naszych użytkownikach zadbaliśmy, żeby interfejs naszego kalkulatora być jak najbardziej intuicyjny i łatwy w obsłudze.\n\n\n## Kalkulator proporcji stworzony dla Ciebie\n\nNasz **kalkulator proporcji** został zaprojektowany z myślą o użytkowniku. Jest prosty w użyciu oraz intuicyjny, dzięki czemu **obliczanie proporcji** nie jest wyzwaniem. Idealnie nadaje się zarówno do pracy, jak i szkoły. Doskonale zdajemy sobie sprawę, jak bardzo proporcje są ważne w codziennym życiu, dlatego nasze narzędzie jest dostępne zawsze w twoim telefonie lub komputerze. Nie trać czasu na ręczne obliczanie proporcji i narażanie się na błędy rachunkowe. Wybierz kalkulator proporcji na jednostkowo.pl i oszczędź sobie nerwów.`,
+		meta: {
+			description:
+				'Kalkulator proporcji online oblicza wartość brakującą w równaniach proporcji. Ułatwi Ci rozwiązanie proporcji i znajdzie wartość x.'
+		},
 		controllers: [
 			{
 				id: 'a',
@@ -123,12 +131,16 @@ export const calculators = [
 		type: 'kalkulator',
 		name: 'trygonometrii',
 		title: 'Kalkulator trygonometrii',
-		description:
-			'Łatwy w użyciu kalkulator funkcji trygonometrycznych, który ułatwi Ci obliczanie funkcji trygonometrycznych.',
 		icon: 'change_history',
 		component: Controllers,
+		description:
+			'Kalkulator trygonometryczny online pozwala szybko i łatwo przeliczyć funkcje trygonometryczne. Wystarczy, że wybierzesz, w jakich jednostkach chcesz wprowadzić kąt, a następnie podasz go i gotowe. Sinus, cosinus, tangens i cotangens - ich wartość poznasz od razu. Nie musisz już więcej obliczać niczego na kartce, a trygonometria stanie się o wiele bardziej przyjazna. Nasz kalkulator online pozwoli na dokonanie obliczeń w ciągu kilku sekund.',
 		about:
 			'Trygonometria jest działem matematyki zajmującym się badaniem związków między kątami i bokami trójkątów. Trygonometria wykorzystuje funkcje trygonometryczne, takie jak sinus, cosinus i tangens, do obliczania wartości kątów i długości boków. Trygonometria ma wiele zastosowań w nauce i technice, na przykład w nawigacji, astronomii, fizyce i inżynierii.',
+		meta: {
+			description:
+				'Skorzystaj z naszego kalkulatora trygonometrycznego online do obliczania wartości funkcji trygonometrycznych, kątów i wiele więcej. Szybko i wygodnie!'
+		},
 		controllers: [
 			{
 				id: 'unit',
@@ -172,13 +184,18 @@ export const calculators = [
 		type: 'kalkulator',
 		name: 'BMI',
 		title: 'Kalkulator BMI',
-		description: 'Łatwy w użyciu kalkulator BMI, który ułatwi Ci obliczanie BMI.',
 		icon: 'scale',
 		component: Controllers,
+		description:
+			'Kalkulator BMI pozwala na błyskawiczne obliczenie, czy waga nie jest zbyt duża lub zbyt mała w stosunku do wzrostu. Ten prosty wskaźnik masy ciała ułatwi zachowanie prawidłowej wagi, a otyłość lub niedowaga nie będą Ci grozić. Aby obliczyć body mass index, wystarczy w odpowiednie pola wpisać swoją wagę i wzrost. Kalkulator BMI online pozwoli błyskawicznie obliczać wskaźnik BMI i pilnować tego, by nie groziła Ci niedowaga lub nadwaga!',
 		about:
 			'BMI, czyli indeks masy ciała (ang. Body Mass Index), to wskaźnik używany do oceny masy ciała osoby w stosunku do jej wzrostu. Jest to powszechnie stosowany sposób oceny, czy dana osoba ma odpowiednią masę ciała, nadwagę, niedowagę lub otyłość.',
 		markdown:
 			'## Co to BMI?\n\nBMI (z ang. Body Mass Index), inaczej wskaźnik masy ciała to jedno z narzędzi pozwalających sprawdzić, czy nasze ciało jest w odpowiedniej formie. Określa on stosunek wzrostu osoby badanej do jej masy ciała. **Sprawdzanie BMI** jest bardzo proste i wymaga znania jedynie wzrostu oraz wagi osoby badanej oraz wykonania prostych obliczeń matematycznych. Znajomość swojego **BMI** jest przydatna podczas oceniania zagrożenia otyłością lub niedowagą i jego wczesnemu zapobieganiu. Warto pamiętać, że **wskaźnik BMI** nie zawsze jest adekwatny do stanu zdrowia, dlatego nie należy się nim nadmiernie sugerować.\n\n## Co to kalkulator BMI?\n\nKalkulator BMI to narzędzie, które pozwala na **obliczenie BMI** w prosty i szybki sposób, podając jedynie kilka informacji o swoim ciele. W skrócie pomaga sprawdzić, czy nasza waga jest adekwatna do wzrostu. Jest to istotna informacja, ponieważ za wysoki lub zbyt niski **wskaźnik BMI** mogą świadczyć o problemach zdrowotnych, takich jak nadwaga lub niedowaga. Mimo, że BMI jest przydatnym wskaźnikiem, istnieją sytuacje, w których nie sprawdza się najlepiej. Na przykład nie sprawdzi się on u osób z rozwiniętą tkanką mięśniową, ponieważ jest ona tak samo traktowana jak tkanka tłuszczowa.\n\n## Jak obliczyć BMI?\n\n**Obliczanie BMI** pomijając kalkulator BMI wcale nie jest trudnym zadaniem. W najprostszej wersji wystarczy znać swój wzrost i wagę. Wzór na BMI wygląda następująco: BMI = masa / (wzrost)<sup>2</sup>. Masę podajemy w kilogramach, a wzrost w metrach. Na przykład dla osoby ważącej 80 kilogramów i mierzącej 1,8 metra, **wskaźnik BMI** będzie wynosił: 80 / (1,8)<sup>2</sup> = 24,69, co jest klasyfikowane jako górna granica wagi prawidłowej. Jak widać, obliczanie BMI samemu nie jest wyzwaniem, jak niektórym mogłoby się wydawać. **Oblicz BMI** na naszym **kalkulatorze BMI** i sprawdź, czy twoja waga jest adekwatna do wzrostu.\n\n## Klasyfikacja BMI\n\nObliczenie BMi to dopiero połowa sukcesu. Drugą częścią jest interpretacja wyników. Sama liczba nic nam nie mówi, dlatego stworzono następujące klasyfikacje wyników:\n\n* &lt;16,0 (wygłodzenie)\n* 16,0–16,9 (wychudzenie)\n* 17,0–18,5 (niedowaga)\n* 18,5–24,9 (waga prawidłowa)\n* 25,0–29,9 (nadwaga)\n* 30,0–34,9 (otyłość I stopnia)\n* 35,0–39,9 (otyłość II stopnia)\n* ≥40 (otyłość III stopnia)\n\nJak widać **klasyfikacja BMI** jest dość obszerna. Całe szczęście nasz kalkulator BMI jest wyposażony w graficzny oraz tekstowy wskaźnik BMI, dzięki czemu interpretacja BMI staje się jeszcze łatwiejsza.',
+		meta: {
+			description:
+				'Skorzystaj z naszego kalkulatora BMI online, aby obliczyć wskaźnik masy ciała i sprawdzić czy waga jest prawidłowa. Niezbędne narzędzie dla dbających o zdrowie!'
+		},
 		controllers: [
 			{
 				id: 'height',
@@ -214,11 +231,16 @@ export const calculators = [
 		type: 'kalkulator',
 		name: 'Pitagorasa',
 		title: 'Kalkulator Pitagorasa',
-		description: 'Łatwy w użyciu kalkulator Pitagorasa, który ułatwi Ci obliczanie Pitagorasa.',
 		icon: 'details',
 		component: Controllers,
+		description:
+			'Kalkulator twierdzenia Pitagorasa online to przydatne narzędzie, które pozwoli błyskawicznie obliczyć długość przeciwprostokątnej i przyprostokątnej. Choć wzór twierdzenia Pitagorasa wydaje się prosty, to obliczenie go może być wymagające. Nasz kalkulator online pozwoli Ci na szybkie obliczenie długości boku. Wpisz długości wybranych boków, a kalkulator obliczy długość trzeciego. Kalkulator online wykonuje obliczenia w ciągu kilku sekund!',
 		markdown:
 			'## Wzór na twierdzenie Pitagorasa\n\n**Twierdzenie Pitagorasa** posiada bardzo prosty wzór: _a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup>_, gdzie _a_ jest długością pierwszej przyprostokątnej, _b_ jest równe długości drugiej przyprostokątnej, a _c_ jest długością przeciwprostokątnej. **Czym jest przyprostokątna, a czym przeciwprostokątna?** Przyprostokątną określamy bok trójkąta, który przylega do kąta prostego, a przeciwprostokątną nazywamy bok, który leży naprzeciw kąta prostego. **Wzór na Pitagorasa** można stosować zawsze, kiedy znamy dwie z trzech wartości, niekoniecznie _a_ i _b_. Na przykład znając _a_ i _c_, możemy obliczyć długość boku _b_. Wystarczy przekształcić wzór w następujący sposób: _b<sup>2</sup> = c<sup>2</sup> - a<sup>2</sup>_, a następnie obliczyć pierwiastek z _b_. Przydatnym narzędziem do obliczania Pitagorasa jest **kalkulator Pitagorasa**, który znacznie przyspiesza ten proces.\n\n## Twierdzenie Pitagorasa - dlaczego działa?\n\nTwierdzenie Pitagorasa na pierwszy rzut oka może wydawać się nieco nieintuicyjne. W końcu dlaczego kwadrat długości dwóch przyprostokątnych ma być równy kwadratowi długości przeciwprostokątnej? Jednak da się to przedstawić w dużo bardziej zrozumiały sposób. **Obliczanie twierdzenia Pitagorasa** staje się znacznie łatwiejsze, kiedy zrozumiemy, że jest one prostym założeniem mówiącym, że jeśli stworzymy dwa kwadraty o długościach boków odpowiadającym długościom przyprostokątnych, to suma ich pól powierzchni będzie równa polu powierzchni kwadratu o długości boku równej długości przeciwprostokątnej. Właśnie dlatego stosując twierdzenie Pitagorasa, potęgujemy długości przyprostokątnych, a następnie pierwiastkujemy długość przeciwprostokątnej.\n\n## Obliczanie pitagorasa na zwykłym kalkulatorze\n\nCzęsto jedyne co mamy pod ręką podczas **obliczania twierdzenia Pitagorasa** jest prosty kalkulator, który nie posiada takich funkcji, jak potęgowanie, czy pierwiastkowanie. W takiej sytuacji jedyne co nam pozostaje to zdanie się na własny spryt.\n\nPierwszą przeszkodą, na którą możemy natrafić jest potęgowanie. Jeśli nasz kalkulator nie posiada takiej opcji, wystarczy pomnożyć liczbę przez samą siebie. Na przykład, żeby obliczyć potęgę stopnia drugiego liczby 5, wystarczy pomnożyć 5 przez samą siebie, czego wynikiem jest 25 (5*5=25).\n\nDrugim problemem, który kryje **obliczanie Pitagorasa** jest pierwiastkowanie. Tutaj już nie jest tak łatwo, dlatego że nie istnieje prosty sposób na pierwiastkowanie. Warto przygotować się zawczasu i poznać najpopularniejsze pierwiastki, czyli sprawdzić potęgi liczb od 1 do 20. Jeśli jednak obliczamy Pitagorasa bez tej wiedzy, jedyne co nam pozostaje to sprawdzanie po kolei, potęga której liczby jest najbliżej liczby pod pierwiastkiem. Na przykład chcąc obliczyć pierwiastek z liczby 361, najpierw sprawdzamy ile wynosi potęga na przykład liczby 12. Jest to 144, więc wiemy, że powinniśmy szukać liczby większej. Wybieramy 17, ale 289 to nadal za mało. Bierzemy więc 19 i trafiliśmy. 19 do kwadratu to dokładnie 361.\n\nDzięki tym prostym sztuczkom, **obliczanie Pitagorasa** już nigdy nie będzie wyzwaniem.\n\n## Kalkulator Pitagorasa do szkoły i pracy\n\nNasz **kalkulator Pitagorasa** stworzyliśmy z myślą o wszystkich, dla których ręczne obliczanie Pitagorasa jest niepotrzebnym wysiłkiem, niezależnie czy w szkole czy w pracy. Mimo, że **wzór na Pitagorasa** nie jest skomplikowany, łatwo popełnić błędy rachunkowe podczas jego obliczania. Potęgowanie i pierwiastkowanie często wymaga nieproporcjonalnie dużo czasu, który można przeznaczyć na przyjemniejsze czynności. Żeby obliczyć Pitagorasa na naszym kalkulatorze wystarczy wpisać długości dwóch boków w pola tekstowe, a w trzecim pojawi się szukana wartość. Nie pozwól, sobie na stratę czasu - poznaj **kalkulator twierdzenia Pitagorasa** na Jednostkowo.pl.',
+		meta: {
+			description:
+				'Korzystaj z naszego kalkulatora online do obliczeń dotyczących twierdzenia Pitagorasa w trójkątach prostokątnych. Oblicz długości boków i pole trójkąta szybko i łatwo.'
+		},
 		controllers: [
 			{
 				id: 'a',
@@ -270,10 +292,14 @@ export const calculators = [
 		type: 'kalkulator',
 		name: 'procentu składanego',
 		title: 'Kalkulator procentu składanego',
-		description:
-			'Łatwy w użyciu kalkulator procentu składanego, który ułatwi Ci obliczanie procentu składanego.',
 		icon: 'percent',
 		component: Controllers,
+		description:
+			'Wpłacasz środki na lokatę? Skorzystaj z kalkulatora procentu składanego! Dzięki kalkulatorowi procentu składanego możesz precyzyjnie obliczyć przyszłe odsetki, uwzględniając kapitalizację odsetek, która pozwala na ich reinwestycję. W ten sposób odsetki są dodawane do kapitału początkowego, co zwiększa bazę do naliczania nowych odsetek. Nasz kalkulator online pozwala szybko ocenić, jak inflacja wpłynie na realną wartość Twojego zysku procentowego, umożliwiając dokonanie świadomej decyzji inwestycyjnej.',
+		meta: {
+			description:
+				'Skorzystaj z naszego kalkulatora procentu składanego, aby obliczyć przyszłą wartość inwestycji i potencjalny zysk w danym okresie. Oszczędzaj i planuj finanse!'
+		},
 		controllers: [
 			{
 				id: 'amount',
@@ -487,10 +513,14 @@ export const calculators = [
 		type: 'kalkulator',
 		name: 'podzielności liczb',
 		title: 'Kalkulator podzielności liczb',
-		description:
-			'Łatwy w użyciu kalkulator podzielności liczb, który ułatwi Ci sprawdzanie podzielności liczb.',
 		icon: 'filter_1',
 		component: Controllers,
+		description:
+			'Kalkulator podzielności liczb umożliwia sprawdzenie w ciągu kilku sekund, czy wybrane przez Ciebie liczby są podzielne bez reszty.  Wystarczy wpisać wybrane liczby w odpowiednie pola, by sprawdzić dzielenie. Kalkulator podzielności liczb ułatwia także znalezienie dzielnika danej liczby, co jest kluczowe przy rozkładaniu liczb na czynniki pierwsze, w tym identyfikacji liczb pierwszych. Dzięki temu narzędziu, z łatwością możesz określić, czy liczba jest pierwsza, czyli czy jej jedynymi dzielnikami są 1 i ona sama.',
+		meta: {
+			description:
+				'Kalkulator online podzielności liczb naturalnych - znajdź dzielniki i resztę z dzielenia. Sprawdź jak znaleźć czynniki pierwsze danej liczby.'
+		},
 		controllers: [
 			{
 				id: 'a',
@@ -520,10 +550,10 @@ export const calculators = [
 		type: 'przelicznik',
 		name: 'długości',
 		title: 'Przelicznik długości',
-		description:
-			'Łatwy w użyciu kalkulator długości, który ułatwi Ci przeliczanie jednostek długości.',
 		icon: 'straighten',
 		component: Converter,
+		description:
+			'Łatwy w użyciu kalkulator długości, który ułatwi Ci przeliczanie jednostek długości.',
 		about:
 			'Miary długości to jednostki służące do określania odległości między punktami w przestrzeni. Są one stosowane w różnych dziedzinach, takich jak fizyka, geografia, czy inżynieria. Najpopularniejsze jednostki długości to: centymetr, metr i kilometr.	',
 		converters: [

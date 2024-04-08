@@ -45,6 +45,7 @@
 		flex-direction: column;
 
 		& hgroup {
+			gap: 0.5rem;
 			align-items: flex-start;
 			display: flex;
 			flex-direction: column;

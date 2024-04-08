@@ -9,7 +9,7 @@ export const load = ({ params }) => {
 		{
 			title: `${page?.title} ${website.titleSuffix}`,
 			canonical: `${website.baseUrl}/${page?.id || calculators[0]?.id}`,
-			description: `${page?.description} Jednostkowo.pl - Twój pomocnik w pracy z liczbami. Obliczanie procentów, przeliczanie jednostek, kalkulator proporcji. Wszystko w jednym miejscu. Sprawdź!`
+			description: `${page?.meta?.description || page?.description}`
 		},
 		true
 	);
