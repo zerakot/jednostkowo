@@ -13,7 +13,7 @@ export const calculators = [
 		icon: 'percent',
 		component: Percentage,
 		description:
-			'Kalkulator procentów to narzędzie online, które pozwala na proste i błyskawiczne obliczanie procentów. Nie trać czasu na ręczne wykonywanie obliczeń - wypróbuj nasz kalkulator procentów.',
+			'Kalkulator procentowy to wszechstronne narzędzie stworzone, aby ułatwić i przyspieszyć rozwiązywanie różnych zadań matematycznych związanych z procentami. Kalkulator oferuje szereg funkcji, umożliwiając m.in. obliczanie procentu z danej liczby, obliczanie, jakim procentem jest liczba A dla liczby B oraz dodawanie i odejmowanie procentów. Skorzystaj z kalkulatora procentów, aby w łatwy sposób obliczyć procenty,  uzyskując precyzyjne i wiarygodne wyniki w ciągu kilku sekund.',
 		about:
 			'Procenty to sposób wyrażania części całości. Można je zrozumieć jako ułamki, w których mianownik jest zawsze równy 100. Na przykład, jeśli mamy 25 procent czegoś, to znaczy, że mamy 25 części na 100 możliwych. Procenty są używane w wielu sytuacjach, na przykład w matematyce, finansach, statystyce czy ocenianiu.',
 		markdown:

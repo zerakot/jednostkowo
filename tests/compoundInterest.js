@@ -56,7 +56,7 @@ export const dataset = {
 			},
 			output: {
 				finalAmount: '634 397,78',
-				depositsTotal: '618 194',
+				depositsTotal: '2851,2',
 				profit: '16 203,78'
 			}
 		},
@@ -72,7 +72,7 @@ export const dataset = {
 			},
 			output: {
 				finalAmount: '11 253,04',
-				depositsTotal: '10 899,99',
+				depositsTotal: '900',
 				profit: '353,05'
 			}
 		},
@@ -88,7 +88,7 @@ export const dataset = {
 			},
 			output: {
 				finalAmount: '5865,15',
-				depositsTotal: '4301,34',
+				depositsTotal: '1031,92',
 				profit: '1563,81'
 			}
 		}
