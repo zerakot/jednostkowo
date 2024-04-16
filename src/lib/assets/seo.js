@@ -1,7 +1,7 @@
 import { mergeDeep } from '../utils';
 
 export const website = {
-	baseUrl: 'https://jednostkowo.pl',
+	baseUrl: 'https://www.jednostkowo.pl',
 	titleSuffix: '',
 	primaryColor: '#026700'
 };
