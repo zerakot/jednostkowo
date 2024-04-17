@@ -43,7 +43,7 @@ export const posts = [
 		meta: {
 			title: 'Jak przeliczać hektary na ary, metry kw., akry?',
 			description:
-				'Zastanawiasz się, ile arów ma jeden hektar albo jak to przeliczyć na metry kwadratowe? Przedstawiamy jednostki powierzchni oraz łatwy sposób na ich przeliczanie!'
+				'Zastanawiasz się, ile arów ma jeden hektar lub jak to przeliczyć na metry kwadratowe? Przedstawiamy jednostki powierzchni oraz łatwy sposób na ich przeliczanie!'
 		}
 	},
 	{
@@ -88,7 +88,7 @@ export const posts = [
 		meta: {
 			title: 'Od Sinusa do Tangensa: Obliczanie funkcji trygonometrycznych',
 			description:
-				'Odkryj praktyczne zastosowania trygonometrii w codziennym życiu i nauce. Dowiedz się, jak obliczać funkcje trygonometryczne, poznaj ich historię i unikaj typowych błędów.'
+				'Odkryj praktyczne zastosowania trygonometrii w codziennym życiu. Dowiedz się, jak obliczać funkcje trygonometryczne, poznaj ich historię i unikaj błędów.'
 		}
 	},
 	{
@@ -103,7 +103,7 @@ export const posts = [
 		meta: {
 			title: 'Od Sinusa do Tangensa: Obliczanie funkcji trygonometrycznych',
 			description:
-				'Odkryj praktyczne zastosowania trygonometrii w codziennym życiu i nauce. Dowiedz się, jak obliczać funkcje trygonometryczne, poznaj ich historię i unikaj typowych błędów.'
+				'Odkryj praktyczne zastosowania trygonometrii w codziennym życiu. Dowiedz się, jak obliczać funkcje trygonometryczne, poznaj ich historię i unikaj błędów.'
 		}
 	},
 	{
@@ -118,7 +118,7 @@ export const posts = [
 		meta: {
 			title: 'Jak przeliczać funty na kilogramy, uncje i karaty?',
 			description:
-				'Poznaj podstawy przeliczania masy z lbs na kg, uncje na gramy i więcej. Praktyczny przewodnik po przelicznikach masy, który ułatwi Ci posługiwanie się jednostkami.'
+				'Poznaj podstawy przeliczania masy z lbs na kg, uncje na gramy i więcej. Przewodnik po przelicznikach masy, który ułatwi Ci posługiwanie się jednostkami.'
 		}
 	}
 ];

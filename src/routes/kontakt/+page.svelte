@@ -9,7 +9,7 @@
 
 <div class="container" in:fly={{ x: -150, delay: 150 }}>
 	<hgroup>
-		<h2>Kontakt</h2>
+		<h1>Kontakt</h1>
 		<p>
 			Zapraszam do kontaktu w każdej sprawie. Chętnie rozważę propozycje współpracy oraz nowych
 			pomysłów na rozwój portalu. Jeśli jesteś zainteresowany sprawami technicznymi związanymi z tą
