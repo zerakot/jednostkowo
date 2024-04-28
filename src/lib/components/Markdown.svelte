@@ -11,7 +11,7 @@
 <style lang="scss">
 	.markdown {
 		& :global(h2) {
-			margin-top: 1.5rem;
+			margin-top: 1rem;
 		}
 		& :global(h3) {
 			margin-top: 1.25rem;
@@ -44,6 +44,14 @@
 		}
 		& :global(math) {
 			font-size: 1.3rem;
+		}
+		& :global(img) {
+			max-height: 80px;
+			margin: 0.5rem 0;
+			padding: 0.7rem;
+			border-radius: 10px;
+			border: 1px solid $gray-dark;
+			background: $gray-light;
 		}
 	}
 </style>
