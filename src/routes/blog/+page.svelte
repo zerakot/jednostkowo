@@ -18,7 +18,7 @@
 	</hgroup>
 	<div class="posts">
 		{#each data?.posts as post}
-			<BlogCard {post} transition={{ x: 150 }} />
+			<BlogCard {post} />
 		{/each}
 	</div>
 </div>

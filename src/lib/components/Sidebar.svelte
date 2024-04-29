@@ -34,7 +34,7 @@
 			{#each calculators.filter((el) => el?.type === currentcalculatorData?.type) as calculator}
 				<li class:active={currentcalculatorData?.id === calculator?.id}>
 					<a href={`/${calculator?.id}`} on:click={() => (moreVisible = false)}>
-						<Icon size="1.5em">{calculator?.icon}</Icon>
+						<Icon size="1.4em">{calculator?.icon}</Icon>
 						{calculator?.name?.charAt(0).toUpperCase() + calculator?.name?.slice(1)}
 					</a>
 				</li>
@@ -110,8 +110,8 @@
 					gap: 0.3rem;
 					display: flex;
 					align-items: center;
-					font-size: 1em;
-					padding: 0.4rem 1rem 0.4rem 0.5rem;
+					font-size: 0.95em;
+					padding: 0.3rem 0.9rem 0.3rem 0.4rem;
 				}
 			}
 		}

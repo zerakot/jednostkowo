@@ -46,6 +46,7 @@
 			font-size: 1.3rem;
 		}
 		& :global(img) {
+			max-width: 90%;
 			max-height: 80px;
 			margin: 0.5rem 0;
 			padding: 0.7rem;
