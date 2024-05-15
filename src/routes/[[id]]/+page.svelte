@@ -4,6 +4,7 @@
 	import SEO from '$lib/components/Seo/Seo.svelte';
 	import Markdown from '$lib/components/Markdown.svelte';
 	import Icon from '../../lib/components/Icon.svelte';
+	import Quiz from '../../lib/components/Quiz/Quiz.svelte';
 
 	export let data;
 
@@ -20,6 +21,10 @@
 		{#key calculatorData?.id}
 			<svelte:component this={calculatorData?.component} {calculatorData} />
 		{/key}
+
+		{#if calculatorData?.quiz}
+			<Quiz {calculatorData} />
+		{/if}
 
 		{#if calculatorData?.about}
 			<aside>
@@ -88,8 +93,6 @@
 		}
 
 		@include lg {
-			gap: 1.5rem;
-
 			& aside {
 				width: 80%;
 			}

@@ -11,7 +11,9 @@
 	$: {
 		if (a === null || b === null) result = 0;
 		else {
-			result = formatOutputNumber(round(operation.formula(parseFloat(a), parseFloat(b)), 2));
+			result = formatOutputNumber(
+				round(operation.formula({ a: parseFloat(a), b: parseFloat(b) }).result, 2)
+			);
 		}
 	}
 </script>
@@ -55,18 +57,12 @@
 			}
 
 			& .result {
+				@include input;
+
 				max-width: 100px;
 				flex: 1;
-				font-size: 1em;
-				padding: 0.3rem 0.6rem;
-				background-color: $background;
-				border-radius: 5px;
-				border: 1px solid $gray-dark;
 				color: $primary;
 				font-weight: bold;
-				@include sm {
-					padding: 0.5rem 0.8rem;
-				}
 			}
 		}
 	}

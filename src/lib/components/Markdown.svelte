@@ -50,9 +50,7 @@
 			max-height: 80px;
 			margin: 0.5rem 0;
 			padding: 0.7rem;
-			border-radius: 10px;
-			border: 1px solid $gray-dark;
-			background: $gray-light;
+			border-left: 3px solid $gray-medium;
 		}
 	}
 </style>

@@ -38,7 +38,7 @@
 				width: 100%;
 				gap: 2rem 0;
 				display: grid;
-				max-width: 600px;
+				max-width: 650px;
 				grid-template-columns: 100%;
 			}
 		}

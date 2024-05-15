@@ -2,6 +2,7 @@ import Converter from '$lib/components/calculators/Converter/Converter.svelte';
 import Percentage from '$lib/components/calculators/Percentage/Percentage.svelte';
 import Controllers from '$lib/components/calculators/Controllers/Controllers.svelte';
 import { calculateBmi, formatOutputNumber, round } from '../utils';
+import quizzes from './quizzes.json';
 import { website } from './seo';
 
 export const calculators = [
@@ -19,36 +20,43 @@ export const calculators = [
 		markdown: `**Procenty towarzyszą nam w życiu codziennym czy tego chcemy, czy nie. Umiejętność ich szybkiego obliczania pozwala na zaoszczędzenie czasu i często pieniędzy. Nikt z nas przecież nie chce popełnić błędu podczas porównywania cen produktów po obniżce, a co za tym idzie przepłacać. Szybkie przeliczanie procentów przydaje się również uczniom w szkole, dla których jest to podstawowa umiejętność, towarzysząca przez całą ścieżkę edukacji. Po przeczytaniu tego artykułu już nigdy nie będziesz miał problemu z obliczaniem procentów!**\n\n## **Jak obliczyć procent z liczby?**\n\nWyznaczanie procentu z liczby jest najbardziej podstawową operacją procentową. Jest to nic innego, jak wyciągnięcie określonej części z całości. To niezwykle przydatna umiejętność, szczególnie podczas określania kwoty promocji lub podatku, który musimy zapłacić.\n\nSposobów na **obliczenie procentu z danej liczby** jest wiele, ale w tym artykule przedstawimy Ci dwa najłatwiejsze i najbardziej popularne, które z pewnością sprawdzą się w codziennym życiu oraz szkole.\n\n ### Metoda 1 \nPierwszy sposób polega na podzieleniu liczby przez 100 i pomnożeniu wyniku przez wartość procentu. Dokładniej mówiąc, wyznaczamy 1% z liczby i mnożymy go przez procent, jaki chcemy uzyskać.\n\n**Przykład**: Załóżmy, że chcemy kupić nowy telewizor, który kosztuje 3500 złotych i jest objęty promocją w wysokości 15%. Na początku dzielimy 3500 na 100, czego wynikiem jest 35 — ta liczba odpowiada 1% z 3500. Następnie mnożymy 35 przez liczbę stojącą obok znaku procenta — 35 razy 15 równa się 525. Dzięki tym prostym wyliczeniom wiemy, że kwota promocji wynosi 525 złotych.\n\n![Operacje matematyczne: Pierwsza operacja to 3500 podzielone przez 100, co daje wynik 35. Druga operacja to 35 pomnożone przez 15, co daje wynik 525.](${website.baseUrl}/images/percentage-calculator-1.svg "")\n\n ### Metoda 2\n Drugim sposobem jest zamiana procentu na ułamek dziesiętny, przez który następnie mnożymy liczbę podstawową. Jak pewnie wiecie, **procent jest tak naprawdę ułamkiem o mianowniku 100**, więc łatwo można zamienić go na ułamek dziesiętny.  ta jest szczególnie przydatna podczas korzystania z kalkulatora, na którym nie zawsze możemy **obliczyć procent z danej liczby** przy pomocy jednego przycisku.\n\n**Przykład**: Tym razem przyjmijmy, że kupujemy książkę o wartości 35 złotych, na którą został nałożony rabat w wartości 20%. Pierwszą rzeczą, którą musimy zrobić, jest zamiana 20% na ułamek dziesiętny. W tym celu dzielimy 20 przez 100 (zawsze dzielimy przez 100, pamiętając, że procent jest ułamkiem o mianowniku 100), czego wynikiem jest 0,2. Następnie mnożymy 0,2 przez cenę naszej książki (0,2 * 35) i otrzymujemy wynik 7. Teraz wiemy, że książka została przeceniona o 7 złotych.\n\n![Operacje matematyczne: Pierwsza operacja to 20 podzielone przez 100, co daje wynik 0,2. Druga operacja to 0,2 pomnożone przez 35, co daje wynik 7.](${website.baseUrl}/images/percentage-calculator-2.svg "")\n\n## **Jak obliczyć, jakim procentem jednej liczby jest druga liczba?**\n\nSprawdzanie, **jakim procentem danej liczby jest druga,** szczególnie przydaje się na egzaminach, kiedy chcemy zamienić liczbę zdobytych punktów na wynik procentowy. Jest to nic innego, jak obliczenie, jaką częścią całości jest nasz wynik, a następnie zamiana tego ułamka na procenty. Aby to zrobić, dzielimy liczbę, którą chcemy porównać, przez tę, do której porównujemy, a następnie mnożymy przez 100%.\n\n![Wzór matematyczny. Widnieje na nim ułamek o liczniku A i mianowniku B, mnożony przez 100%.](${website.baseUrl}/images/percentage-calculator-3.svg "")\n\n**Przykład**: Załóżmy, że na egzaminie z matematyki zdobyliśmy 30 punktów na 40 możliwych. Aby dowiedzieć się, jaki uzyskaliśmy wynik w procentach, tworzymy ułamek, który w liczniku ma 30 (liczba uzyskanych punktów), a w mianowniku 40 (maksymalna liczba punktów). Następnie mnożymy go przez 100% i otrzymujemy wynik 75%. Dzięki temu wiemy, że napisaliśmy egzamin na 75%.\n\n![Operacja matematyczna: Ułamek o liczniku 30 i mianowniku 40 jest pomnożony przez 100%, co daje wynik 75%.](${website.baseUrl}/images/percentage-calculator-4.svg "")\n\n## **Jak dodać procent do liczby?**\n\n**Dodawanie procentu do liczby** to niezwykle przydatna umiejętność, szczególnie przydatna podczas naliczania podatków np. VAT. To bardzo prosty proces — jedyne, co musisz zrobić to **obliczyć procent** i dodać go do liczby podstawowej. Jednak istnieje pewien sposób, który sprawia, że dodawanie procentu do liczby staje się jeszcze szybsze.\n\n ### Metoda 1\n Pierwszym sposób jest najbardziej podstawowy. Polega on na wyciągnięciu procentu z liczby, a następnie dodaniu go do wartości bazowej. Najprawdopodobniej poznałeś tę metodę już w szkole podstawowej, bo jest najprostsza, ale jak dowiesz się z dalszej części artykułu — nie najszybsza.\n\n**Przykład**: Marek pracuje w pewnej firmie technologicznej, gdzie dotychczas zarabiał 9000 złotych miesięcznie. Szef docenił jego ciężką pracę i udzielił mu podwyżkę w wysokości 10%. Ile zarabia Marek po podwyżce? Pierwszym co musimy zrobić, jest obliczenie kwoty podwyżki. W tym celu określamy, ile wynosi 10% z 9000. Stosując jedną z wcześniej poznanych metod, wiemy, że jest to 900. Pozostaje nam tylko dodać 900 do 9000 i już wiemy, że Marek po podwyżce zarabia 9900 złotych miesięcznie.\n\n![Operacje matematyczne: Pierwsza operacja to 9000 pomnożone przez 0,1, co daje wynik 900. Druga operacja to 9000 plus 900, co daje wynik 9900.](${website.baseUrl}/images/percentage-calculator-5.svg "")\n\n ### Metoda 2\n Drugi sposób jest niezwykle szybki, ale wymaga nieco wprawy. Korzysta on z właściwości, mówiącej, że **każdy procent można przedstawić w postaci ułamka**. Skoro wiemy, że nasza kwota początkowa to 100%, możemy ją też zapisać w postaci ułamka dziesiętnego jako 1. Następnie procent, który chcemy dodać do kwoty podstawowej w postaci ułamka dziesiętnego, dodajemy do 1 i mnożymy ją przez powstały wynik.\n\n**Przykład**: Marta pracuje w sklepie spożywczym, gdzie dotychczas zarabiała 5000 złotych miesięcznie. Szefowa doceniła jej pracę i udzieliła podwyżki w wysokości 20%. Ile zarabia Marta po podwyżce? Na początku zamieniamy 20% na ułamek dziesiętny — 0,2. Następnie dodajemy do niego 1 i otrzymujemy 1,2. Na koniec mnożymy 5000 (kwotę przed podwyżką) przez 1,2 i otrzymujemy 6000 złotych. Dzięki temu wiemy, że Marta po podwyżce zarabia 6000 złotych.\n\n![Operacje matematyczne: Pierwsza operacja to 20 podzielone przez 100, co daje wynik 0,2. Następnie 0,2 jest dodawane do 1, co daje wynik 1,2. Ostatecznie, 5000 jest pomnożone przez 1,2, co daje wynik 6000.](${website.baseUrl}/images/percentage-calculator-6.svg "")\n\n## **Jak odjąć procent od liczby?**\n\n**Odejmowanie procentu od liczby** jest bardzo podobne do dodawania, a co za tym idzie — proste. Jedyne, co musimy zrobić to obliczyć procent z liczby, a następnie jego wartość odjąć od kwoty początkowej. Najbardziej powszechną sytuacją, kiedy odejmowanie procentu od kwoty się przydaje, jest obliczanie zniżek i rabatów oferowanych przez sprzedawców.\n\n**Przykład**: Aneta chce kupić nową torebkę, która kosztuje 300 złotych, ale została przeceniona o 15%. Ile kosztuje torebka po przecenie? Na początku obliczamy 15% z 300 przy użyciu jednej z wyżej wspomnianych metod, czego wynikiem jest 45. Następnie odejmujemy 45 od 300 i już wiemy, że torebka po obniżce kosztuje 255 złotych.\n\n![Operacje matematyczne: Pierwsza operacja to 300 pomnożone przez 0,15, co daje wynik 45. Następnie 45 jest odejmowane od 300, co daje wynik 255.](${website.baseUrl}/images/percentage-calculator-7.svg "")\n\n## **Jak sprawdzić, o ile procent liczba się zwiększyła lub zmalała?**\n\nSprawdzanie **o ile procent liczba jest większa lub mniejsza od drugiej** jest bardzo przydatną umiejętnością zarówno w statystyce, jak i handlu, kiedy chcemy sprawdzić, w jaki sposób zmieniają się ceny produktów na przestrzeni czasu. Poniżej przedstawiono dwa sposoby na porównywanie procentowe liczb, wraz ze wzorami.\n\n### **Jak sprawdzić o ile procent liczba wzrosła?**\nAby sprawdzić, **o ile procent liczba jest większa od drugiej**, musimy skorzystać z poniższego wzoru. Jako A podajemy liczbę większą (którą chcemy porównać), a B to liczba mniejsza (do której porównujemy). Wzór ten oblicza różnicę między obiema liczbami, następnie dzieli ją przez B, aby uzyskać stosunek zmiany do wartości odniesienia, a na koniec zamienia wynik na postać procentową.\n\n![Wzór matematyczny: Ułamek o liczniku A odjąć B i mianowniku B, pomnożony przez 100%](${website.baseUrl}/images/percentage-calculator-8.svg "")\n\n**Przykład**: Cena akcji pewnej spółki wzrosła z 200 złotych do 250 złotych. O ile procent wzrosła cena? Tak więc na początku podstawiamy wartości pod wzór — 250 złotych to A, 200 złotych to B. Następnie wykonujemy odejmowanie: 250-200=50. Później dzielimy 50 przez B, czyli 200, czego wynikiem jest 0,25. Na koniec zamieniamy wynik na wartość procentową, mnożąc 0,25 przez 100%, otrzymując wynik 25%. Teraz już wiemy, że cena akcji wzrosła o 25%.\n\n![Operacja matematyczna: Ułamek o liczniku 250 odjąć 200 oraz mianowniku równym 200 jest pomnożony przez 100%, co daje wynik 25%.](${website.baseUrl}/images/percentage-calculator-9.svg "")\n\n### **Jak sprawdzić o ile procent liczba zmalała?**\n\nSprawdzając, **o ile procent liczba jest mniejsza od drugiej,** korzystamy z podobnego wzoru, jednak zamieniamy kolejnością A i B. W tym przypadku odejmujemy A od B, czyli wartość większą od mniejszej. Dzięki temu uzyskamy wynik ujemny, reprezentujący spadek.\n\n![Wzór matematyczny: Ułamek o liczniku B odjąć A i mianowniku A, pomnożony przez 100%](${website.baseUrl}/images/percentage-calculator-10.svg "")\n\n**Przykład**: Tym razem załóżmy, że spółce się nie powiodło i jej akcje spadły z 250 na 200 złotych, Podstawiamy pod B liczbę 200, a pod A liczbę 250, czego wynikiem odejmowania jest -50. Następnie dzielimy różnicę przez 250 i otrzymujemy wynik -0,2. Na koniec mnożymy -0,2 przez 100% i otrzymujemy -20%. Teraz wiemy, że akcje spółki spadły o 20%.\n\n![Operacja matematyczna: Ułamek o liczniku 200 odjąć 250 oraz mianowniku równym 250 jest pomnożony przez 100%, co daje wynik -20%.](${website.baseUrl}/images/percentage-calculator-11.svg "") \n\n Podsumowując, **obliczanie procentów** wcale nie jest takie trudne. Dzięki poznanym dziś prostym metodom, każdy może szybko i skutecznie wyliczyć procent z danej liczby, dodać lub odjąć procent od liczby, a także sprawdzić, o ile procent liczba wzrosła lub zmalała. Niezależnie od sytuacji, której będziesz stawiał czoła, ta wiedza znacznie ułatwi Ci jej sprawne rozwiązanie, a jeśli wzbogacisz ją jeszcze o praktykę, staniesz się prawdziwym mistrzem procentów. Po przeczytaniu tego tekstu, jesteś już gotowy do podejmowania wyzwań życia codziennego, związanych z procentami!`,
 		meta: {
 			description:
-				'Skorzystaj z kalkulatora procentów online, aby obliczyć procent z liczby, różnicę procentową i inne działania. Dodaj lub odejmij procenty szybko i łatwo!'
+				'Skorzystaj z kalkulatora procentów online, aby obliczyć procent z liczby, różnicę procentową, dodać i odjąć procent od liczby. Rozwiązuj zadania z procentów.'
 		},
 		operations: [
 			{
+				id: 'percentFromNumber',
 				name: 'Obliczanie procentu z danej liczby',
 				labels: ['% z', '=', ''],
-				formula: (a, b) => (a / 100) * b
+				formula: ({ a, b }) => ({ result: (a / 100) * b })
 			},
 			{
+				id: 'atobPercent',
 				name: 'Jakim procentem jest liczba A dla liczby B',
 				labels: ['dla', '=', '%'],
-				formula: (a, b) => (a / b) * 100
+				formula: ({ a, b }) => ({ result: (a / b) * 100 })
 			},
 			{
+				id: 'addPercent',
 				name: 'Dodaj procent do liczby',
 				labels: ['+', '% =', ''],
-				formula: (a, b) => a + (a * b) / 100
+				formula: ({ a, b }) => ({ result: a + (a * b) / 100 })
 			},
 			{
+				id: 'subtractPercent',
 				name: 'Odejmij procent od liczby',
 				labels: ['-', '% =', ''],
-				formula: (a, b) => a - (a * b) / 100
+				formula: ({ a, b }) => ({ result: a - (a * b) / 100 })
 			},
 			{
+				id: 'increaseDecreaseAtob',
 				name: 'O ile procent liczba A wzrosła/zmalała w stosunku do B',
 				labels: ['do', 'w/z o', '%'],
-				formula: (a, b) => ((b - a) / a) * 100
+				formula: ({ a, b }) => ({ result: ((b - a) / a) * 100 })
 			}
-		]
+		],
+		quiz: quizzes.percentage
 	},
+	// https://drive.google.com/file/d/1_HA1eN9v2j7iwUGpKOpntpxTb-Hqh06l/view?usp=sharing
 	{
 		id: 'kalkulator-proporcji',
 		type: 'kalkulator',
@@ -63,7 +71,7 @@ export const calculators = [
 		markdown: `## Jak obliczyć proporcje?\n\nŻeby zacząć **obliczanie proporcji** najpierw trzeba wiedzieć, [czym są proporcje](${website.baseUrl}/blog/proporcje-wyjasnione-jak-obliczyc-proporcje). W skrócie jest to równość dwóch stosunków względem siebie. Mając tę wiedzę, możemy przejść do obliczania proporcji.\n\nAby obliczyć brakującą wartość proporcji, trzeba skorzystać z właściwości, która mówi, że _a_ podzielone przez _b_ jest równe _c_ dzielone przez _d_. Jeśli znasz trzy wartości z tego wzoru, możesz w prosty sposób obliczyć niewiadomą. Na przykład, żeby obliczyć _d_, znając _a_,_b_,_c_, należy ułożyć równanie _d_=_b_*_c_/_a_. Analogicznie, jeśli znasz _b_,_c_ i _d_, możesz obliczyć _a_, korzystając ze wzoru _a_=_d_*_c_/_a_. Żeby **obliczyć proporcję** wiedząc, że _a=10_, _b=20_, _c=50_, możemy skorzystać z powyższego wzoru, podstawiając nasze liczby - _d_ = 20*50/10, czego wynikiem jest _d_ = 100. W ten prosty sposób możemy obliczyć proporcje z pominięciem **kalkulatora proporcji**.\n\n\n## Proporcje online - zastosowanie\n\nObliczanie proporcji online ma wiele zastosowań w codziennym życiu. Kalkulator proporcji umożliwia szybkie **obliczanie proporcji składników** na przykład podczas gotowania. Równie pomocny jest w podczas zakupów, kiedy znamy cenę za kilogram produktu, a potrzebujemy na przykład 1,25 kilograma. Kolejnym aspektem życia, w którym nasz kalkulator jest przydatny są podróże. Załóżmy, że jedziemy na 500 kilometrową wycieczkę w góry. Pierwsze 80 kilometrów przejechaliśmy w 40 minut i chcemy wiedzieć, ile zajmie nam reszta drogi. Układamy następujące równanie: x=420*40/80, którego wynikiem jest 210 minut, czyli 3 godziny i 30 minut.\n\n\n## Do czego służy kalkulator proporcji\n\nNasz **kalkulator proporcji** umożliwia łatwe **obliczanie proporcji** w Twojej przeglądarce. Dzięki niemu, proces ten staje się szybszy i wygodniejszy. Już nigdy nie będziesz musiał szukać kartki, żeby rozrysować na niej schemat proporcji i wyliczać ile wynosi _x_. Wystarczy, że wejdziesz na jednostkowo.pl i wybierzesz **kalkulator proporcji**. Wpisz w pola tekstowe odpowiednie wartości, naciśnij przycisk “Oblicz”, a w pustym polu tekstowym zobaczysz wynik obliczeń. Z myślą o naszych użytkownikach zadbaliśmy, żeby interfejs naszego kalkulatora być jak najbardziej intuicyjny i łatwy w obsłudze.\n\n\n## Kalkulator proporcji stworzony dla Ciebie\n\nNasz **kalkulator proporcji** został zaprojektowany z myślą o użytkowniku. Jest prosty w użyciu oraz intuicyjny, dzięki czemu **obliczanie proporcji** nie jest wyzwaniem. Idealnie nadaje się zarówno do pracy, jak i szkoły. Doskonale zdajemy sobie sprawę, jak bardzo proporcje są ważne w codziennym życiu, dlatego nasze narzędzie jest dostępne zawsze w twoim telefonie lub komputerze. Nie trać czasu na ręczne obliczanie proporcji i narażanie się na błędy rachunkowe. Wybierz kalkulator proporcji na jednostkowo.pl i oszczędź sobie nerwów.`,
 		meta: {
 			description:
-				'Kalkulator proporcji online oblicza wartość brakującą w równaniach proporcji. Ułatwi Ci rozwiązanie proporcji i znajdzie wartość x.'
+				'Kalkulator proporcji online oblicza wartość brakującą w równaniach proporcji. Szybko i łatwo znajdź wartość x i rozwiązuj rozmaite zadania z proporcji.'
 		},
 		controllers: [
 			{
@@ -72,9 +80,9 @@ export const calculators = [
 				attributes: { type: 'number', placeholder: 'A' }
 			},
 			{
-				id: 'b',
+				id: 'c',
 				element: 'input',
-				attributes: { type: 'number', placeholder: 'B' }
+				attributes: { type: 'number', placeholder: 'C' }
 			},
 
 			{
@@ -84,9 +92,9 @@ export const calculators = [
 				ignore: true
 			},
 			{
-				id: 'c',
+				id: 'b',
 				element: 'input',
-				attributes: { type: 'number', placeholder: 'C' }
+				attributes: { type: 'number', placeholder: 'B' }
 			},
 			{
 				id: 'd',
@@ -94,6 +102,7 @@ export const calculators = [
 				attributes: { type: 'number', placeholder: 'D' }
 			}
 		],
+		quiz: quizzes.proportions,
 		formula: (dataset) => {
 			const { a, b, c, d } = dataset;
 			if ([a, b, c, d].filter((x) => !!x).length < 3) {
@@ -106,24 +115,29 @@ export const calculators = [
 				d: parseFloat(d)
 			};
 
+			let result = 0;
 			if (!isNaN(p?.a) && !isNaN(p?.b)) {
 				if ((!isNaN(p?.c) && isNaN(p?.d)) || (!isNaN(p?.c) && !isNaN(p?.d))) {
 					//Jeśli D jest pusty lub wszystkie są uzupełnione, zmień odtatni (D)
-					dataset.d = (p?.c * p?.b) / p?.a;
+					result = (p?.c * p?.b) / p?.a;
+					dataset.d = result;
 				} else if (!isNaN(p?.d) && isNaN(p?.c)) {
-					dataset.c = (p?.a * p?.d) / p?.b;
+					result = (p?.a * p?.d) / p?.b;
+					dataset.c = result;
 				}
 			} else if (!isNaN(p?.c) && !isNaN(p?.d)) {
 				if (!isNaN(p?.a) && isNaN(p?.b)) {
-					dataset.b = (p?.a * p?.d) / p?.c;
+					result = (p?.a * p?.d) / p?.c;
+					dataset.b = result;
 				} else if (!isNaN(p?.b) && isNaN(p?.a)) {
-					dataset.a = (p?.c * p?.b) / p?.d;
+					result = (p?.c * p?.b) / p?.d;
+					dataset.a = result;
 				}
 			}
 
-			return { dataset, overwrite: true };
+			return { dataset, overwrite: true, result };
 		},
-		layout: { gridTemplate: '"a icon b" "c icon d" / auto 20px auto', responsive: false }
+		layout: { gridTemplate: '"a icon c" "b icon d" / auto 20px auto', responsive: false }
 	},
 	{
 		id: 'kalkulator-funkcji-trygonometrycznych',
@@ -163,7 +177,7 @@ export const calculators = [
 			}
 
 			const unit = dataset?.unit;
-			const number = parseF.loat(dataset?.number) || 0;
+			const number = parseFloat(dataset?.number) || 0;
 
 			const formattedNumber = unit === 'deg' ? number * (Math.PI / 180) : number;
 
@@ -238,7 +252,7 @@ export const calculators = [
 			'## Wzór na twierdzenie Pitagorasa\n\n**Twierdzenie Pitagorasa** posiada bardzo prosty wzór: _a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup>_, gdzie _a_ jest długością pierwszej przyprostokątnej, _b_ jest równe długości drugiej przyprostokątnej, a _c_ jest długością przeciwprostokątnej. **Czym jest przyprostokątna, a czym przeciwprostokątna?** Przyprostokątną określamy bok trójkąta, który przylega do kąta prostego, a przeciwprostokątną nazywamy bok, który leży naprzeciw kąta prostego. **Wzór na Pitagorasa** można stosować zawsze, kiedy znamy dwie z trzech wartości, niekoniecznie _a_ i _b_. Na przykład znając _a_ i _c_, możemy obliczyć długość boku _b_. Wystarczy przekształcić wzór w następujący sposób: _b<sup>2</sup> = c<sup>2</sup> - a<sup>2</sup>_, a następnie obliczyć pierwiastek z _b_. Przydatnym narzędziem do obliczania Pitagorasa jest **kalkulator Pitagorasa**, który znacznie przyspiesza ten proces.\n\n## Twierdzenie Pitagorasa - dlaczego działa?\n\nTwierdzenie Pitagorasa na pierwszy rzut oka może wydawać się nieco nieintuicyjne. W końcu dlaczego kwadrat długości dwóch przyprostokątnych ma być równy kwadratowi długości przeciwprostokątnej? Jednak da się to przedstawić w dużo bardziej zrozumiały sposób. **Obliczanie twierdzenia Pitagorasa** staje się znacznie łatwiejsze, kiedy zrozumiemy, że jest one prostym założeniem mówiącym, że jeśli stworzymy dwa kwadraty o długościach boków odpowiadającym długościom przyprostokątnych, to suma ich pól powierzchni będzie równa polu powierzchni kwadratu o długości boku równej długości przeciwprostokątnej. Właśnie dlatego stosując twierdzenie Pitagorasa, potęgujemy długości przyprostokątnych, a następnie pierwiastkujemy długość przeciwprostokątnej.\n\n## Obliczanie pitagorasa na zwykłym kalkulatorze\n\nCzęsto jedyne co mamy pod ręką podczas **obliczania twierdzenia Pitagorasa** jest prosty kalkulator, który nie posiada takich funkcji, jak potęgowanie, czy pierwiastkowanie. W takiej sytuacji jedyne co nam pozostaje to zdanie się na własny spryt.\n\nPierwszą przeszkodą, na którą możemy natrafić jest potęgowanie. Jeśli nasz kalkulator nie posiada takiej opcji, wystarczy pomnożyć liczbę przez samą siebie. Na przykład, żeby obliczyć potęgę stopnia drugiego liczby 5, wystarczy pomnożyć 5 przez samą siebie, czego wynikiem jest 25 (5*5=25).\n\nDrugim problemem, który kryje **obliczanie Pitagorasa** jest pierwiastkowanie. Tutaj już nie jest tak łatwo, dlatego że nie istnieje prosty sposób na pierwiastkowanie. Warto przygotować się zawczasu i poznać najpopularniejsze pierwiastki, czyli sprawdzić potęgi liczb od 1 do 20. Jeśli jednak obliczamy Pitagorasa bez tej wiedzy, jedyne co nam pozostaje to sprawdzanie po kolei, potęga której liczby jest najbliżej liczby pod pierwiastkiem. Na przykład chcąc obliczyć pierwiastek z liczby 361, najpierw sprawdzamy ile wynosi potęga na przykład liczby 12. Jest to 144, więc wiemy, że powinniśmy szukać liczby większej. Wybieramy 17, ale 289 to nadal za mało. Bierzemy więc 19 i trafiliśmy. 19 do kwadratu to dokładnie 361.\n\nDzięki tym prostym sztuczkom, **obliczanie Pitagorasa** już nigdy nie będzie wyzwaniem.\n\n## Kalkulator Pitagorasa do szkoły i pracy\n\nNasz **kalkulator Pitagorasa** stworzyliśmy z myślą o wszystkich, dla których ręczne obliczanie Pitagorasa jest niepotrzebnym wysiłkiem, niezależnie czy w szkole czy w pracy. Mimo, że **wzór na Pitagorasa** nie jest skomplikowany, łatwo popełnić błędy rachunkowe podczas jego obliczania. Potęgowanie i pierwiastkowanie często wymaga nieproporcjonalnie dużo czasu, który można przeznaczyć na przyjemniejsze czynności. Żeby obliczyć Pitagorasa na naszym kalkulatorze wystarczy wpisać długości dwóch boków w pola tekstowe, a w trzecim pojawi się szukana wartość. Nie pozwól, sobie na stratę czasu - poznaj **kalkulator twierdzenia Pitagorasa** na Jednostkowo.pl.',
 		meta: {
 			description:
-				'Korzystaj z naszego kalkulatora Pitagorasa do obliczeń twierdzenia Pitagorasa w trójkątach prostokątnych. Oblicz długości boków i pole trójkąta szybko i łatwo.'
+				'Skorzystaj z naszego kalkulatora Pitagorasa z zadaniami do obliczania twierdzenia Pitagorasa w trójkątach prostokątnych. Oblicz długości boków szybko i łatwo.'
 		},
 		controllers: [
 			{
@@ -263,27 +277,28 @@ export const calculators = [
 				attributes: { type: 'number', placeholder: 'Podaj długość boku C' }
 			}
 		],
+		quiz: quizzes.pythagoras,
 		formula: (dataset) => {
 			delete dataset.error;
 
-			if (
-				(dataset?.a !== '' && dataset.b !== '') ||
-				(dataset?.a !== '' && dataset.b !== '' && dataset.c !== '')
-			) {
+			let result;
+			if ((dataset?.a && dataset.b) || (dataset?.a && dataset.b && dataset.c)) {
 				// Jeśli C jest pusty lub wszystkie są uzupełnione, oblicz C
-				dataset.c = round(Math.sqrt(parseFloat(dataset.a) ** 2 + parseFloat(dataset.b) ** 2), 5);
-			} else if (dataset.b !== '' && dataset.c !== '') {
+				result = round(Math.sqrt(parseFloat(dataset.a) ** 2 + parseFloat(dataset.b) ** 2), 5);
+				dataset.c = result;
+			} else if (dataset.b && dataset.c) {
 				// Jeśli b i c są dostępne, oblicz a
-				dataset.a = round(Math.sqrt(parseFloat(dataset.c) ** 2 - parseFloat(dataset.b) ** 2), 5);
-			} else if (dataset.a !== '' && dataset.c !== '') {
+				result = round(Math.sqrt(parseFloat(dataset.c) ** 2 - parseFloat(dataset.b) ** 2), 5);
+				dataset.a = result;
+			} else if (dataset.a && dataset.c) {
 				// Jeśli a i c są dostępne, oblicz b
-				dataset.b = round(Math.sqrt(parseFloat(dataset.c) ** 2 - parseFloat(dataset.a) ** 2), 5);
+				result = round(Math.sqrt(parseFloat(dataset.c) ** 2 - parseFloat(dataset.a) ** 2), 5);
+				dataset.b = result;
 			} else {
 				// Nieprawidłowy zestaw wartości
 				return { error: 'Podaj długości dwóch boków.' };
 			}
-
-			return { dataset, overwrite: true };
+			return { dataset, result, overwrite: true };
 		}
 	},
 	{

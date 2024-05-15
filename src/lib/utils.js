@@ -15,6 +15,15 @@ export const getRandomId = (length = 10) => {
 export const round = (num, decimals = 2) => {
 	return Math.round((num + Number.EPSILON) * Math.pow(10, decimals)) / Math.pow(10, decimals);
 };
+export const shuffleArray = (array) => {
+	if (!array) return [];
+	console.log('Shake');
+	return array
+		.map((value) => ({ value, sort: Math.random() }))
+		.sort((a, b) => a.sort - b.sort)
+		.map(({ value }) => value);
+};
+
 export const formatOutputNumber = (number, decimals = 0) => {
 	if (isNaN(number)) return 0;
 	// Sprawdzamy, czy liczba jest w formacie notacji naukowej

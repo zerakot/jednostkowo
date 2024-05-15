@@ -153,3 +153,16 @@ $error-transparent: transparentize($error, 0.94);
 		padding: 1rem;
 	}
 }
+
+@mixin input {
+	width: 100%;
+	font-size: 1em;
+	padding: 0.3rem 0.6rem;
+	border-radius: 5px;
+	border: 2px solid $gray-medium;
+	background-color: $background;
+
+	@include sm {
+		padding: 0.5rem 0.8rem;
+	}
+}

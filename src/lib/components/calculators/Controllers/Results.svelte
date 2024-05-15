@@ -4,7 +4,6 @@
 	import Scale from './Scale.svelte';
 
 	export let results;
-	$: console.log(results);
 </script>
 
 {#if results}

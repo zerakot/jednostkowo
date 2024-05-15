@@ -3,7 +3,8 @@ import { mergeDeep } from '../utils';
 export const website = {
 	baseUrl: 'https://www.jednostkowo.pl',
 	titleSuffix: '',
-	primaryColor: '#026700'
+	primaryColor: '#026700',
+	errorColor: '#cc0000'
 };
 
 const defaultSeo = {

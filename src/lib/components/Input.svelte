@@ -46,16 +46,7 @@
 		}
 
 		& input {
-			width: 100%;
-			font-size: 1em;
-			padding: 0.3rem 0.6rem;
-			border-radius: 5px;
-			border: 1px solid $gray-dark;
-			background-color: $background;
-
-			@include sm {
-				padding: 0.5rem 0.8rem;
-			}
+			@include input;
 		}
 	}
 </style>

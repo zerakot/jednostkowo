@@ -37,18 +37,8 @@
 			width: auto;
 		}
 
-		& label {
-			font-size: 1em;
-		}
 		& select {
-			width: 100%;
-			font-size: 1em;
-			padding: 0.3rem 0.6rem;
-			border-radius: 5px;
-			border: 1px solid $gray-dark;
-			@include sm {
-				padding: 0.5rem 0.8rem;
-			}
+			@include input;
 
 			& :global(option.category) {
 				color: #000000;

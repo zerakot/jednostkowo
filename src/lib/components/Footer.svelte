@@ -23,6 +23,9 @@
 				<a href="/przelicznik-dlugosci">Przeliczniki</a>
 			</li>
 			<li>
+				<a href="/blog">Blog</a>
+			</li>
+			<li>
 				<a href="/kontakt">Kontakt</a>
 			</li>
 		</ul>

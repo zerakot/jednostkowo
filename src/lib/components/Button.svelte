@@ -14,7 +14,7 @@
 		width: fit-content;
 		font-size: 0.8rem;
 		border: none;
-		padding: 0.5rem 1rem;
+		padding: 0.3rem 0.8rem;
 		border-radius: 5px;
 		display: flex;
 		align-items: center;
@@ -25,6 +25,9 @@
 		}
 		&:active {
 			background-color: darken($primary, 4.2);
+		}
+		&:disabled {
+			background-color: $gray-dark;
 		}
 
 		&.ghost {
@@ -42,6 +45,10 @@
 			padding: 0;
 			border-radius: 0;
 			background-color: transparent;
+		}
+
+		@include md {
+			padding: 0.5rem 1rem;
 		}
 	}
 </style>

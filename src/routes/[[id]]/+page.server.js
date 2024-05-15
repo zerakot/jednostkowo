@@ -5,9 +5,10 @@ export const load = ({ params }) => {
 	const id = params?.id;
 	const page = calculators?.find((item) => item.id === id) || calculators[0];
 
+	const quizSuffix = page?.quiz ? ' + Zadania i przykłady' : '';
 	const metaTags = seo(
 		{
-			title: `${page?.title} ${website.titleSuffix}`,
+			title: `${page?.title} ${website.titleSuffix}${quizSuffix}`,
 			canonical: `${website.baseUrl}/${page?.id || calculators[0]?.id}`,
 			description: `${page?.meta?.description || page?.description}`
 		},
