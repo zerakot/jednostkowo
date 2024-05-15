@@ -48,7 +48,7 @@
 		background-color: white;
 
 		& .stats {
-			gap: 0.5rem;
+			gap: 1rem;
 			display: grid;
 			grid-template-rows: 2fr;
 			grid-template-columns: repeat(2, 1fr);
@@ -74,14 +74,14 @@
 				}
 
 				& .title {
-					line-height: 1.2rem;
+					line-height: 1.1rem;
 					font-weight: bold;
 				}
 
 				& .value {
 					font-weight: bold;
-					font-size: 3rem;
-					line-height: 3rem;
+					font-size: 3.5rem;
+					line-height: 3.5rem;
 				}
 			}
 		}
@@ -92,8 +92,9 @@
 		}
 
 		@include sm {
+			gap: 0.5rem;
 			& .stats {
-				gap: 1rem;
+				gap: 0.5rem;
 				grid-template-columns: repeat(3, 1fr);
 				& .stat {
 					&:nth-last-child(2) {
@@ -106,6 +107,7 @@
 			gap: 1rem;
 
 			& .stats {
+				gap: 1rem;
 				grid-template-rows: 1fr;
 				grid-template-columns: repeat(4, 1fr);
 

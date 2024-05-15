@@ -25,8 +25,9 @@
 	.answers {
 		gap: 0.5rem;
 		width: 100%;
-		display: flex;
-		flex-direction: column;
+		display: grid;
+		grid-template-rows: repeat(2, 1fr);
+		grid-template-columns: repeat(2, 1fr);
 
 		& button {
 			@include input;
@@ -51,12 +52,13 @@
 				background-color: transparentize($error, 0.97);
 			}
 		}
-
 		@include sm {
-			flex-direction: row;
+			gap: 0.7rem;
 		}
 		@include lg {
 			gap: 1rem;
+			grid-template-rows: 1fr;
+			grid-template-columns: repeat(4, 1fr);
 		}
 	}
 </style>
