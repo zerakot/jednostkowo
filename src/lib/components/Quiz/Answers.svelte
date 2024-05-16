@@ -53,7 +53,7 @@
 			}
 		}
 		@include sm {
-			gap: 0.7rem;
+			gap: 0.6rem;
 		}
 		@include lg {
 			gap: 1rem;
