@@ -19,8 +19,10 @@
 	<section>
 		<p>Adres e-mail: <a href="mailto:iktorn2006@wp.pl">iktorn2006@wp.pl</a></p>
 		<p>
-			Instagram: <a href="https://www.instagram.com/zdjecia_wiktorka/" target="_blank"
-				>@zdjecia_wiktorka</a
+			Instagram: <a
+				href="https://www.instagram.com/zdjecia_wiktorka/"
+				target="_blank"
+				rel="nofollow">@zdjecia_wiktorka</a
 			>
 		</p>
 	</section>
