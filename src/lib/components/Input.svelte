@@ -35,12 +35,11 @@
 <style lang="scss">
 	.wrapper {
 		width: 100%;
-		gap: 0.15rem;
+		gap: 0.1rem;
 		display: flex;
 		flex-direction: column;
 
 		&.inlineLabel {
-			gap: 0.4rem;
 			align-items: center;
 			flex-direction: row;
 		}

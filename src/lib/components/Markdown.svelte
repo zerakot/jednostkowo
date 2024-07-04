@@ -46,11 +46,14 @@
 			font-size: 1.3rem;
 		}
 		& :global(img) {
-			max-width: 90%;
-			max-height: 80px;
+			max-width: 100%;
 			margin: 0.5rem 0;
 			padding: 0.7rem;
-			border-left: 3px solid $gray-medium;
+			border-radius: 10px;
+			border: 1px solid $gray-medium;
+		}
+		& :global(img[src$='#small']) {
+			max-width: 60%;
 		}
 	}
 </style>

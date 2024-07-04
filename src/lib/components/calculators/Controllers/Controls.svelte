@@ -3,6 +3,8 @@
 	import Input from '$lib/components/Input.svelte';
 	import Icon from '$lib/components/Icon.svelte';
 	import Button from '../../Button.svelte';
+	import { blur, slide } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
 
 	export let results;
 	export let formula;
@@ -74,7 +76,11 @@
 	>
 		{#each controllers as controller}
 			{#if (controller?.advanced && advancedVisible) || !controller?.advanced}
-				<div class="areaWrapper" style="--area: {layout?.gridTemplate ? controller.id : 'unset'}">
+				<div
+					class="areaWrapper"
+					style="--area: {layout?.gridTemplate ? controller.id : 'unset'}"
+					transition:slide={{ delay: 0, duration: 300, easing: quintOut, axis: 'y' }}
+				>
 					{#if controller?.element === 'select'}
 						<Select
 							bind:value={dataset[controller?.id]}

@@ -37,7 +37,7 @@
 	</Select>
 
 	<Select bind:value={targetUnitLabel} label="Jednostka docelowa">
-		<option value="">Brak</option>
+		<option value="">Wszystkie</option>
 		{#each converters as converter}
 			{#if converter?.category}
 				<option disabled>&nbsp;</option>

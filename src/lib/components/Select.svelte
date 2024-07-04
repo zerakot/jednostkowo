@@ -23,7 +23,7 @@
 <style lang="scss">
 	.wrapper {
 		width: 100%;
-		gap: 0.2rem;
+		gap: 0.1rem;
 		display: flex;
 		flex-direction: column;
 

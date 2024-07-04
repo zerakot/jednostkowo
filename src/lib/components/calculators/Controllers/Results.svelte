@@ -1,5 +1,4 @@
 <script>
-	import { formatOutputNumber } from '../../../utils';
 	import Chart from '../../Chart.svelte';
 	import Scale from './Scale.svelte';
 
@@ -8,30 +7,35 @@
 
 {#if results}
 	<div class="results">
+		{#if results?.description}
+			<p class="description">{@html results?.description}</p>
+		{/if}
+
 		{#if results?.type === 'scale'}
 			<Scale data={results} />
 		{:else if results?.type === 'table'}
-			<table>
-				<thead>
-					<tr>
-						{#each Object.keys(results?.value[0]) as key}
-							<th>{key}</th>
-						{/each}
-					</tr>
-				</thead>
-				<tbody>
-					{#each results?.value as row}
+			<div class="tableWrapper customScrollbar">
+				<table>
+					<thead>
 						<tr>
-							{#each Object.values(row) as value}
-								<td>{formatOutputNumber(value)}</td>
+							{#each results?.data?.keys as key}
+								<th>{key}</th>
 							{/each}
 						</tr>
-					{/each}
-				</tbody>
-			</table>
+					</thead>
+					<tbody>
+						{#each results?.data?.values as row}
+							<tr>
+								{#each row as value}
+									<td>{value}</td>
+								{/each}
+							</tr>
+						{/each}
+					</tbody>
+				</table>
+			</div>
 		{:else if results?.type === 'chart'}
 			<div class="chartResults">
-				<p>{@html results?.description}</p>
 				<div class="chartWrapper">
 					<Chart config={results.config} />
 				</div>
@@ -46,8 +50,26 @@
 
 <style lang="scss">
 	.results {
-		& table {
-			@include table;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+
+		& .description {
+			padding: 0.7rem;
+			border: 1px solid $gray-medium;
+			border-radius: 5px;
+			background-color: #f9f9f9;
+		}
+
+		& .tableWrapper {
+			overflow-y: auto;
+			max-height: 300px;
+			display: block;
+			padding: 0 0.4rem 0 0;
+
+			& table {
+				@include table;
+			}
 		}
 
 		& .chartResults {
