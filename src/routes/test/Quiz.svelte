@@ -173,7 +173,7 @@
 			display: flex;
 
 			& button {
-				@include inputWrapper;
+				/* @include input; */
 				cursor: pointer;
 				/* font-size: 0.9rem; */
 

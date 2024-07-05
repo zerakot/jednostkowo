@@ -1,5 +1,5 @@
 <script>
-	import { getChartConfig } from '../../../routes/test/utils';
+	import { getChartConfig } from './utils';
 	import Button from '../Button.svelte';
 	import Chart from '../Chart.svelte';
 
