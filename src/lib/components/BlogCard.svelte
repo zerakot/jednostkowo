@@ -3,7 +3,7 @@
 </script>
 
 <div class="container">
-	<a href="blog/{post?.slug}">
+	<a href="/blog/{post?.slug}">
 		<article>
 			<img src={post?.image.src} alt={post?.image?.alt} />
 

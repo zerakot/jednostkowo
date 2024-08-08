@@ -9,7 +9,7 @@ export const load = ({ params }) => {
 	const metaTags = seo(
 		{
 			title: `${page?.title} ${website.titleSuffix}${quizSuffix}`,
-			canonical: `${website.baseUrl}/${page?.id || calculators[0]?.id}`,
+			canonical: `${website.baseUrl}/${page?.id || 'Jednostkowo.pl'}`,
 			description: `${page?.meta?.description || page?.description}`
 		},
 		true

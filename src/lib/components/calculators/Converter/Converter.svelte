@@ -6,12 +6,12 @@
 	export let calculatorData;
 
 	let results = [];
-	let options = { decimals: '2', scientificNotation: false };
+	let options = { decimals: '2' };
 </script>
 
 <section class="converter">
 	<Controls converters={calculatorData?.converters} {options} bind:results />
-	<Results {results} />
+	<Results {results} decimals={options.decimals} />
 	<Options bind:options />
 </section>
 

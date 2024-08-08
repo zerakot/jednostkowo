@@ -1,6 +1,5 @@
 <script>
 	import Select from '$lib/components/Select.svelte';
-	import Input from '$lib/components/Input.svelte';
 
 	export let options;
 </script>
@@ -20,14 +19,6 @@
 			<option value="9">9</option>
 			<option value="10">10</option>
 		</Select>
-	</div>
-	<div class="option">
-		<Input
-			type="checkbox"
-			bind:checked={options.scientificNotation}
-			label="Notacja naukowa"
-			inlineLabel={true}
-		/>
 	</div>
 </div>
 

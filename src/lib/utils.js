@@ -1,4 +1,5 @@
 import Big from 'big.js';
+import { formatNumber } from 'chart.js/helpers';
 Big.DP = 30;
 
 export const getRandomId = (length = 10) => {
@@ -24,18 +25,19 @@ export const shuffleArray = (array) => {
 		.map(({ value }) => value);
 };
 
-export const formatOutputNumber = (number, decimals = 0) => {
+export const formatOutputNumber = (number, decimals = 2) => {
 	if (isNaN(number)) return 0;
-	// Sprawdzamy, czy liczba jest w formacie notacji naukowej
-	if (/^(\d+(\.\d+)?|\.\d+)(e[+-]?\d+)$/i.test(number.toString())) {
-		return number.toString().replace('.', ',');
-	}
-	return (
-		parseFloat(number).toLocaleString(undefined, {
-			minimumFractionDigits: decimals,
-			maximumFractionDigits: 20
-		}) || 0
-	);
+	number = parseFloat(number);
+
+	const rounded = round(number, decimals);
+
+	let formattedNumber = rounded.toLocaleString(undefined, {
+		maximumFractionDigits: decimals
+	});
+	console.log(rounded);
+	if (rounded === 0 && number !== 0) formattedNumber = '~' + formattedNumber;
+
+	return formattedNumber;
 };
 
 export const mergeDeep = (target, ...sources) => {
@@ -120,17 +122,14 @@ export const getUnit = (condition, converters) => {
 	}
 	return null;
 };
-const convertUnit = (amount, from, to, options) => {
-	const decimals = parseInt(options?.decimals);
-
+const convertUnit = (amount, from, to) => {
 	const bigRatio = new Big(parseFloat(from));
 	const bigbaseUnitLabel = new Big(parseFloat(to));
 	const bigAmount = new Big(parseFloat(amount));
 
 	let value = bigbaseUnitLabel.div(bigRatio).times(bigAmount);
-	return options.scientificNotation
-		? value.toExponential(decimals)
-		: value.round(decimals).toFixed();
+	console.log(value.toNumber());
+	return value.toNumber();
 };
 export const convert = (ammount, baseLabel, targetLabel, converters, options) => {
 	if (!ammount) ammount = 0;

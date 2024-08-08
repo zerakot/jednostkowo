@@ -2,6 +2,7 @@
 	import { formatOutputNumber, sortUnits } from '../../../utils';
 
 	export let results;
+	export let decimals;
 </script>
 
 <table>
@@ -24,7 +25,9 @@
 				<tr class:active={unit?.active}>
 					<td class="label">{unit.label}</td>
 					<td class="symbol">{unit.symbol}</td>
-					<td class="alignRight fitwidth bold">{formatOutputNumber(unit.value, 2)}</td>
+					<td class="alignRight fitwidth bold">
+						{formatOutputNumber(unit.value, parseInt(decimals))}
+					</td>
 				</tr>
 			{/each}
 		{/each}
