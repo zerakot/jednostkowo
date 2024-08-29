@@ -1,5 +1,4 @@
 import Big from 'big.js';
-import { formatNumber } from 'chart.js/helpers';
 Big.DP = 30;
 
 export const getRandomId = (length = 10) => {

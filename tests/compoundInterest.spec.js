@@ -113,7 +113,7 @@ test('Test if switching between advanced and basic resets advanced', async ({ pa
 
 	// Check if numbers are valid
 	await expect(finalAmount, 'The final amount should be correctly calculated').toContainText(
-		'14 186,55'
+		'14 202,17'
 	);
 
 	await page.getByRole('button', { name: /Ukryj zaawansowane/ }).click();

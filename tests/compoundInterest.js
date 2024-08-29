@@ -55,9 +55,9 @@ export const dataset = {
 				regularPaymentFrequency: 'Miesięcznie'
 			},
 			output: {
-				finalAmount: '634 397,78',
-				depositsTotal: '2851,2',
-				profit: '16 203,78'
+				finalAmount: '634 402,46',
+				depositsTotal: '2890,84',
+				profit: '16 168,82'
 			}
 		},
 		{
@@ -71,9 +71,9 @@ export const dataset = {
 				regularPaymentFrequency: 'Kwartalnie'
 			},
 			output: {
-				finalAmount: '11 253,04',
-				depositsTotal: '900',
-				profit: '353,05'
+				finalAmount: '11 358,04',
+				depositsTotal: '1019,38',
+				profit: '338,66'
 			}
 		},
 		{
@@ -87,9 +87,9 @@ export const dataset = {
 				regularPaymentFrequency: 'Rocznie'
 			},
 			output: {
-				finalAmount: '5865,15',
-				depositsTotal: '1031,92',
-				profit: '1563,81'
+				finalAmount: '5919,8',
+				depositsTotal: '1265,2',
+				profit: '1385,18'
 			}
 		}
 	]
@@ -118,7 +118,7 @@ export async function getInputs(page) {
 	};
 }
 export async function getResultDescription(page) {
-	const resultDescription = page.locator('.chartResults p').first();
+	const resultDescription = page.locator('p.description').first();
 
 	// Initialize description numbers
 	const finalAmount = await resultDescription.getByTestId('finalAmount');

@@ -11,9 +11,7 @@
 	$: {
 		if (a === null || b === null) result = 0;
 		else {
-			result = formatOutputNumber(
-				round(operation.formula({ a: parseFloat(a), b: parseFloat(b) }).result, 2)
-			);
+			result = formatOutputNumber(operation.formula({ a: parseFloat(a), b: parseFloat(b) }).result);
 		}
 	}
 </script>

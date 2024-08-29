@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { formatOutputNumber } from '../src/lib/utils';
 
 async function getOperations(page) {
 	return await page.locator('div.operation').all();
@@ -20,24 +21,38 @@ const correctDataset = [
 	{ inputs: ['42', '12'], result: '36,96' },
 	{ inputs: ['91', '82'], result: '-9,89' }
 ];
+const formulas = [
+	(a, b) => (a / 100) * b,
+	(a, b) => (a / b) * 100,
+	(a, b) => a + (a * b) / 100,
+	(a, b) => a - (a * b) / 100,
+	(a, b) => ((b - a) / a) * 100
+];
 const bannedResults = ['NaN', 'undefined', 'null'];
 
 test('Test if correct input returns correct output', async ({ page }) => {
 	await page.goto('/');
-
 	const operations = await getOperations(page);
 
 	for (const [i, operation] of operations.entries()) {
 		const [a, b] = await getInputsFromOperation(operation);
 
-		await a.fill(correctDataset[i].inputs[0]);
-		await b.fill(correctDataset[i].inputs[1]);
+		for (let j = 0; j < 5; j++) {
+			const randomNumbers = Array.from({ length: 2 }).map(() => Math.floor(Math.random() * 100));
+			const result = formulas[i](randomNumbers[0], randomNumbers[1]).toString();
 
-		const result = await getResultFromOperation(operation);
+			await a.fill(randomNumbers[0].toString());
+			await b.fill(randomNumbers[1].toString());
 
-		await expect(result, 'Should return correct number').toHaveText(correctDataset[i].result);
+			const resultField = await getResultFromOperation(operation);
+
+			await expect(resultField, 'Should return correct number, j:' + j).toHaveText(
+				formatOutputNumber(result)
+			);
+		}
 	}
 });
+
 test('Test if incomplete input doesnt return error', async ({ page }) => {
 	await page.goto('/');
 
