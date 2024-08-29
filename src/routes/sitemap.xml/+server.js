@@ -2,7 +2,7 @@ import { posts } from '$lib/assets/blog.js';
 import { calculators } from '$lib/assets/calculators.js';
 import { website } from '$lib/assets/seo.js';
 
-export async function GET({ fetch, setHeaders }) {
+export async function GET({ setHeaders }) {
 	setHeaders({
 		'Content-Type': 'application/xml'
 	});
