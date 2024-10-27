@@ -3,57 +3,19 @@
 	import Input from '$lib/components/Input.svelte';
 	import Icon from '$lib/components/Icon.svelte';
 	import Button from '../../Button.svelte';
-	import { blur, slide } from 'svelte/transition';
+	import { slide } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
+	import { getInitialDataset } from './utils';
 
-	export let results;
-	export let formula;
-	export let layout;
-	export let controllers = [];
-	export let runAnimation;
+	let { calculator, dataset = $bindable(), onAction, onReset } = $props();
+	let advancedVisible = $state(false);
 
-	let errorMessage = '';
-	let advancedVisible = false;
-
-	const initialDataset = Object.freeze(
-		controllers.reduce((res, controller) => {
-			if (controller?.ignore) return res;
-			if (controller.element === 'select') {
-				res[controller.id] = controller.options.find((option) => option.default)?.name;
-			} else {
-				res[controller.id] = controller.defaultValue || '';
-			}
-			return res;
-		}, {})
-	);
-	let dataset = { ...initialDataset };
-
-	const calculate = () => {
-		const formulaResult = formula({ ...dataset });
-		errorMessage = formulaResult?.error || '';
-
-		if (formulaResult?.error) {
-			runAnimation('error');
-			results = null;
-			return;
-		}
-
-		if (formulaResult?.overwrite) dataset = formulaResult.dataset;
-		else results = formulaResult;
-
-		runAnimation('success');
-	};
-
-	const reset = () => {
-		dataset = { ...initialDataset };
-		errorMessage = '';
-		results = null;
-	};
 	const switchAdvencedVisiblity = () => {
 		if (advancedVisible) {
-			// Reset advenced settings if hidding
+			const initialDataset = getInitialDataset(calculator.controllers);
+
 			dataset = Object.keys(dataset).reduce((acc, id) => {
-				if (controllers.find((c) => c.id === id)?.advanced) acc[id] = initialDataset[id];
+				if (calculator.controllers.find((c) => c.id === id)?.advanced) acc[id] = initialDataset[id];
 				else acc[id] = dataset[id];
 				return acc;
 			}, {});
@@ -63,22 +25,15 @@
 </script>
 
 <div class="controls">
-	{#if errorMessage}
-		<div class="error">
-			<span class="material-symbols-rounded"> error </span>
-			{errorMessage}
-		</div>
-	{/if}
-
 	<div
-		class="inputs {layout?.responsive === false && 'notResponsive'}"
-		style="--template: {layout?.gridTemplate || 1};"
+		class="inputs {calculator.layout?.responsive === false && 'notResponsive'}"
+		style="--template: {calculator.layout?.gridTemplate || 1};"
 	>
-		{#each controllers as controller}
+		{#each calculator.controllers as controller}
 			{#if (controller?.advanced && advancedVisible) || !controller?.advanced}
 				<div
 					class="areaWrapper"
-					style="--area: {layout?.gridTemplate ? controller.id : 'unset'}"
+					style="--area: {calculator.layout?.gridTemplate ? controller.id : 'unset'}"
 					transition:slide={{ delay: 0, duration: 300, easing: quintOut, axis: 'y' }}
 				>
 					{#if controller?.element === 'select'}
@@ -104,8 +59,9 @@
 			{/if}
 		{/each}
 	</div>
-	{#if controllers.some((c) => c?.advanced === true)}
-		<Button variant="text" on:click={switchAdvencedVisiblity}>
+
+	{#if calculator.controllers.some((c) => c?.advanced === true)}
+		<Button variant="text" onclick={switchAdvencedVisiblity}>
 			<span class="material-symbols-rounded">
 				{advancedVisible ? 'expand_less' : 'expand_more'}
 			</span>
@@ -114,8 +70,16 @@
 	{/if}
 
 	<div class="actions">
-		<Button on:click={calculate}>Oblicz</Button>
-		<Button variant="ghost" on:click={reset}>Resetuj</Button>
+		<!-- Flex direction: row-reverse -->
+		{#each calculator.buttons as button}
+			<Button onclick={() => onAction(button.action)} variant={button.variant}>
+				{button.label}
+			</Button>
+		{/each}
+
+		<div class="resetWrapper">
+			<Button variant="outline" onclick={onReset}>Resetuj</Button>
+		</div>
 	</div>
 </div>
 
@@ -125,34 +89,21 @@
 		display: flex;
 		flex-direction: column;
 
-		& .error {
-			gap: 0 0.5rem;
-			display: flex;
-			align-items: center;
-			font-size: 0.9rem;
-			margin-bottom: 1rem;
-			width: 100%;
-			padding: 0.6rem 0.8rem;
-			border-radius: 5px;
-			border: $error 1px solid;
-			color: $error;
-			background-color: $error-transparent;
-		}
-
 		& .inputs {
 			gap: 0 0.5rem;
 			width: 100%;
 			display: grid;
+			@include md {
+				gap: 0 0.8rem;
+				grid-template: var(--template);
+			}
+
 			&.notResponsive {
 				grid-template: var(--template);
 
 				& .areaWrapper {
 					grid-area: var(--area);
 				}
-			}
-			@include md {
-				gap: 0 0.8rem;
-				grid-template: var(--template);
 			}
 
 			& .areaWrapper {
@@ -168,9 +119,14 @@
 		}
 
 		& .actions {
-			gap: 0.3rem;
+			margin-top: 0.8rem;
+			gap: 0.5rem;
 			display: flex;
 			flex-direction: row-reverse;
+
+			& .resetWrapper {
+				margin-right: auto;
+			}
 		}
 	}
 </style>

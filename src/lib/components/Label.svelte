@@ -1,8 +1,9 @@
 <script>
-	export let htmlFor;
+	/** @type {{htmlFor: any, children?: import('svelte').Snippet}} */
+	let { htmlFor, children } = $props();
 </script>
 
-<label for={htmlFor}><slot /></label>
+<label for={htmlFor}>{@render children?.()}</label>
 
 <style lang="scss">
 	label {
@@ -11,7 +12,7 @@
 		color: $text-light;
 
 		@include sm {
-			font-size: 0.8rem;
+			font-size: 0.85rem;
 		}
 	}
 </style>

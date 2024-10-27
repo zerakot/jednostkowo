@@ -1,10 +1,10 @@
 <script>
 	import { browser } from '$app/environment';
 
-	export let variant = '';
+	let { variant, children , ...rest } = $props();
 </script>
 
-<button class={variant} on:click disabled={!browser} {...$$restProps}><slot /></button>
+<button class={variant} disabled={!browser} {...rest}>{@render children()}</button>
 
 <style lang="scss">
 	button {
@@ -20,9 +20,9 @@
 		align-items: center;
 		font-size: 1em;
 
-		&:hover {
+		/* &:hover {
 			background-color: darken($primary, 2.2);
-		}
+		} */
 		&:active {
 			background-color: darken($primary, 4.2);
 		}
@@ -33,6 +33,16 @@
 		&.ghost {
 			color: $primary;
 			background-color: transparent;
+
+			&:hover {
+				background-color: $primary-ghost;
+			}
+		}
+
+		&.outline {
+			color: $primary;
+			background-color: transparent;
+			border: 1px solid $primary;
 
 			&:hover {
 				background-color: $primary-ghost;

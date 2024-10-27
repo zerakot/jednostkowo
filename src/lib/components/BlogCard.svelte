@@ -1,5 +1,5 @@
 <script>
-	export let post;
+	let { post } = $props();
 </script>
 
 <div class="container">

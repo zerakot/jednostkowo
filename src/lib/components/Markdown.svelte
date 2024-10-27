@@ -1,7 +1,8 @@
 <script>
 	import { marked } from 'marked';
 
-	export let source;
+	/** @type {{source: any}} */
+	let { source } = $props();
 </script>
 
 <div class="markdown">

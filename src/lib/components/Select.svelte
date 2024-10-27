@@ -2,10 +2,15 @@
 	import { getRandomId } from '$lib/utils';
 	import Label from './Label.svelte';
 
-	export let value;
-	export let label;
-	export let autoWidth = false;
-	export let inlineLabel = '';
+	/** @type {Record<string, any>} */
+	let {
+		value = $bindable(),
+		label,
+		autoWidth = false,
+		inlineLabel = '',
+		children,
+		...rest
+	} = $props();
 
 	let id = getRandomId(10);
 </script>
@@ -15,8 +20,8 @@
 		<Label htmlFor={id}>{label}</Label>
 	{/if}
 
-	<select {id} {...$$restProps} bind:value>
-		<slot />
+	<select {id} {...rest} bind:value>
+		{@render children?.()}
 	</select>
 </div>
 

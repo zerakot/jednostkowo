@@ -7,11 +7,11 @@ export const load = ({ params }) => {
 	const post = posts?.find((post) => post?.slug === slug);
 
 	if (!post) {
-		throw error(404, {
-			message: 'Nie znaleziono wpisu',
-			returnHref: '/blog',
-			returnLabel: 'bloga'
-		});
+		error(404, {
+        			message: 'Nie znaleziono wpisu',
+        			returnHref: '/blog',
+        			returnLabel: 'bloga'
+        		});
 	}
 
 	const metaTags = seo(

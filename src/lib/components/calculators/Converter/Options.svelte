@@ -1,7 +1,7 @@
 <script>
 	import Select from '$lib/components/Select.svelte';
 
-	export let options;
+	let { options = $bindable() } = $props();
 </script>
 
 <div class="options">

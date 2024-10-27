@@ -3,11 +3,15 @@
 	import { getRandomId } from '$lib/utils';
 	import Label from './Label.svelte';
 
-	export let value = '';
-	export let type = 'text';
-	export let checked = false;
-	export let label = '';
-	export let inlineLabel = false;
+	/** @type {Record<string, any>} */
+	let {
+		value = $bindable(''),
+		type = 'text',
+		checked = $bindable(false),
+		label = '',
+		inlineLabel = false,
+		...rest
+	} = $props();
 
 	let id = getRandomId(10);
 </script>
@@ -18,7 +22,7 @@
 	{/if}
 
 	{#if type === 'checkbox'}
-		<input type="checkbox" {id} {...$$restProps} disabled={!browser} bind:checked />
+		<input type="checkbox" {id} {...rest} disabled={!browser} bind:checked />
 	{:else}
 		<input
 			{id}
@@ -26,8 +30,8 @@
 			{value}
 			step="any"
 			disabled={!browser}
-			on:input={(e) => (value = e.target.value)}
-			{...$$restProps}
+			oninput={(e) => (value = e.target.value)}
+			{...rest}
 		/>
 	{/if}
 </div>

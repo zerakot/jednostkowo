@@ -4,7 +4,8 @@
 	import Markdown from '../../../lib/components/Markdown.svelte';
 	import CalculatorBanner from './CalculatorBanner.svelte';
 
-	export let data;
+	/** @type {{data: any}} */
+	let { data } = $props();
 </script>
 
 <div class="container">

@@ -63,23 +63,29 @@ test('Test if an error message appears when the number of completed fields is le
 
 	await inputs[0].fill('12');
 	await submitButton.click();
-	await expect(page.locator('div.error').first(), 'Error message shound be visible').toBeVisible();
+	await expect(
+		page.locator('div.errorMessage').first(),
+		'Error message shound be visible'
+	).toBeVisible();
 
 	await inputs[1].fill('24');
 	await submitButton.click();
-	await expect(page.locator('div.error').first(), 'Error message shound be visible').toBeVisible();
+	await expect(
+		page.locator('div.errorMessage').first(),
+		'Error message shound be visible'
+	).toBeVisible();
 
 	await inputs[2].fill('54');
 	await submitButton.click();
 	await expect(
-		page.locator('div.error').first(),
+		page.locator('div.errorMessage').first(),
 		'Error message shound not be visible'
 	).not.toBeVisible();
 
 	await inputs[2].fill('99');
 	await submitButton.click();
 	await expect(
-		page.locator('div.error').first(),
+		page.locator('div.errorMessage').first(),
 		'Error message shound not be visible'
 	).not.toBeVisible();
 });

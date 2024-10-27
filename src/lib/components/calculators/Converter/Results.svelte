@@ -1,8 +1,7 @@
 <script>
 	import { formatOutputNumber, sortUnits } from '../../../utils';
 
-	export let results;
-	export let decimals;
+	let { results, decimals } = $props();
 </script>
 
 <table>

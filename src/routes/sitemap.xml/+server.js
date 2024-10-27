@@ -1,5 +1,5 @@
 import { posts } from '$lib/assets/blog.js';
-import { calculators } from '$lib/assets/calculators.js';
+import { calculators } from '$lib/assets/calculators/calculators';
 import { website } from '$lib/assets/seo.js';
 
 export async function GET({ setHeaders }) {

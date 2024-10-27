@@ -1,58 +1,62 @@
 <script>
-	/** @type {import("./types").SvelteSeo['title']}*/
-	export let title = undefined;
-	/** @type {import("./types").SvelteSeo["description"]}*/
-	export let description = undefined;
+	
+	
 
-	/**@type {import("./types").SvelteSeo["keywords"]}*/
-	export let keywords = undefined;
+	
 
-	/** @type {import("./types").SvelteSeo["base"]}*/
-	export let base = undefined;
+	
 
-	/**@type {import("./types").SvelteSeo["applicationName"]}*/
-	export let applicationName = undefined;
+	
 
-	/**@type {import("./types").SvelteSeo["themeColor"]}*/
-	export let themeColor = undefined;
+	
 
-	/**@type {import("./types").SvelteSeo["nofollow"]}*/
-	export let nofollow = false;
+	
 
-	/**@type {import("./types").SvelteSeo["noindex"]}*/
-	export let noindex = false;
+	
 
-	/**@type {import("./types").SvelteSeo["nositelinkssearchbox"]}*/
-	export let nositelinkssearchbox = false;
+	
 
-	/** @type {import("./types").SvelteSeo["notranslate"]}*/
-	export let notranslate = false;
+	
 
-	/** @type {import("./types").SvelteSeo["canonical"]}*/
-	export let canonical = undefined;
+	
 
-	/** @type {import("./types").SvelteSeo["amp"]}*/
-	export let amp = undefined;
+	
 
-	/** @type {import("./types").SvelteSeo["manifest"]}*/
-	export let manifest = undefined;
+	
 
-	/**@type {import("./types").SvelteSeo["languageAlternates"]}*/
-	export let languageAlternates = undefined;
+	
 
-	/**@type {import("./types").SvelteSeo['twitter']}*/
-	export let twitter = undefined;
+	
 
-	/**@type {import('./types').SvelteSeo['openGraph']}*/
-	export let openGraph = undefined;
+	
 
-	/**@type {import("./types").SvelteSeo['facebook']}*/
-	export let facebook = undefined;
+	
 
-	/**@type {import("./types").SvelteSeo['jsonLd']}*/
-	export let jsonLd = undefined;
+	
 
 	import OpenGraphComponent from './OpenGraph.svelte';
+	/** @type {{title?: import("./types").SvelteSeo['title'], description?: import("./types").SvelteSeo["description"], keywords?: import("./types").SvelteSeo["keywords"], base?: import("./types").SvelteSeo["base"], applicationName?: import("./types").SvelteSeo["applicationName"], themeColor?: import("./types").SvelteSeo["themeColor"], nofollow?: import("./types").SvelteSeo["nofollow"], noindex?: import("./types").SvelteSeo["noindex"], nositelinkssearchbox?: import("./types").SvelteSeo["nositelinkssearchbox"], notranslate?: import("./types").SvelteSeo["notranslate"], canonical?: import("./types").SvelteSeo["canonical"], amp?: import("./types").SvelteSeo["amp"], manifest?: import("./types").SvelteSeo["manifest"], languageAlternates?: import("./types").SvelteSeo["languageAlternates"], twitter?: import("./types").SvelteSeo['twitter'], openGraph?: import('./types').SvelteSeo['openGraph'], facebook?: import("./types").SvelteSeo['facebook'], jsonLd?: import("./types").SvelteSeo['jsonLd'], children?: import('svelte').Snippet}} */
+	let {
+		title = undefined,
+		description = undefined,
+		keywords = undefined,
+		base = undefined,
+		applicationName = undefined,
+		themeColor = undefined,
+		nofollow = false,
+		noindex = false,
+		nositelinkssearchbox = false,
+		notranslate = false,
+		canonical = undefined,
+		amp = undefined,
+		manifest = undefined,
+		languageAlternates = undefined,
+		twitter = undefined,
+		openGraph = undefined,
+		facebook = undefined,
+		jsonLd = undefined,
+		children
+	} = $props();
 </script>
 
 <svelte:head>
@@ -140,5 +144,5 @@
 		{@html `<script type="application/ld+json">${JSON.stringify(data) + '<'}/script>`}
 	{/if}
 
-	<slot />
+	{@render children?.()}
 </svelte:head>

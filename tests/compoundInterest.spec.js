@@ -131,6 +131,6 @@ test('Test if empty inputs throws errors', async ({ page }) => {
 	const submitButton = await getSubmitButton(page);
 	await submitButton.click();
 
-	const errorBox = page.locator('.error').first();
+	const errorBox = page.locator('div.errorMessage').first();
 	await expect(errorBox, 'Error message box should be visible').toBeVisible();
 });

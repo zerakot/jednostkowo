@@ -1,11 +1,17 @@
 <script>
 	import Controls from './Controls.svelte';
+	import History from './History.svelte';
 	import Results from './Results.svelte';
+	import { getInitialDataset } from './utils';
 
-	export let calculatorData;
+	let { calculator } = $props();
+	const initialDataset = getInitialDataset(calculator.controllers);
 
-	let results;
-	let animation = null;
+	let dataset = $state(initialDataset);
+	let result = $state();
+	let history = $state([]);
+	let animation = $state(null);
+	let errorMessage = $state('');
 
 	const runAnimation = (mode) => {
 		animation = mode;
@@ -13,21 +19,62 @@
 			animation = null;
 		}, 600);
 	};
+
+	const onAction = (action) => {
+		let response = action($state.snapshot(dataset), $state.snapshot(history));
+
+		if (response?.error) {
+			errorMessage = response.error;
+			result = null;
+			runAnimation('error');
+			return;
+		}
+
+		if (response?.dataset) dataset = response.dataset;
+		else result = response;
+
+		if (response?.history) history = response.history;
+		if (calculator?.resetOnSubmit) dataset = initialDataset;
+		errorMessage = '';
+		runAnimation('success');
+	};
+
+	const onHistoryRemove = (index) => {
+		const response = calculator.history.onRemove($state.snapshot(history), index);
+
+		const { history: newHistory, ...newResult } = response;
+		history = newHistory;
+		result = newResult;
+	};
+
+	const reset = () => {
+		result = null;
+		history = [];
+		errorMessage = '';
+		dataset = initialDataset;
+	};
 </script>
 
-<section class="container {animation}">
-	<Controls
-		bind:results
-		{runAnimation}
-		layout={calculatorData.layout}
-		formula={calculatorData.formula}
-		controllers={calculatorData.controllers}
-	/>
-	<Results {results} />
+<section class={animation}>
+	<h2>{calculator?.label}</h2>
+
+	{#if errorMessage}
+		<div class="errorMessage">
+			<span class="material-symbols-rounded"> error </span>
+			{errorMessage}
+		</div>
+	{/if}
+
+	<Controls bind:dataset {calculator} {onAction} onReset={reset} />
+	<Results {result} />
+
+	{#if calculator?.history && history.length > 0}
+		<History {history} {onHistoryRemove} template={calculator.history.template} />
+	{/if}
 </section>
 
 <style lang="scss">
-	.container {
+	section {
 		gap: 1rem;
 		display: flex;
 		flex-direction: column;
@@ -57,6 +104,38 @@
 			content: '';
 			z-index: -1;
 			position: absolute;
+		}
+
+		& h2 {
+			width: fit-content;
+			line-height: 1rem;
+			font-weight: bold;
+			font-size: 0.9rem;
+			position: relative;
+
+			&::after {
+				content: '';
+				bottom: -5px;
+				left: 0;
+				width: 70%;
+				height: 2px;
+				background-color: $primary;
+				position: absolute;
+				border-radius: 10px;
+			}
+		}
+
+		& .errorMessage {
+			gap: 0 0.5rem;
+			display: flex;
+			align-items: center;
+			font-size: 0.9rem;
+			width: 100%;
+			padding: 0.6rem 0.8rem;
+			border-radius: 5px;
+			border: $error 1px solid;
+			color: $error;
+			background-color: $error-transparent;
 		}
 
 		&.success {

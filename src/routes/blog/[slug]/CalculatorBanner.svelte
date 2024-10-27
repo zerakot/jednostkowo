@@ -1,9 +1,10 @@
 <script>
 	import { website } from '$lib/assets/seo';
-	import { calculators } from '$lib/assets/calculators';
+	import { calculators } from '$lib/assets/calculators/calculators';
 	import slugify from 'slugify';
 
-	export let calculatorId = '';
+	/** @type {{calculatorId?: string}} */
+	let { calculatorId = '' } = $props();
 
 	let calculator = calculators.find((item) => item.id === calculatorId);
 </script>

@@ -1,7 +1,8 @@
 <script>
 	import Sidebar from '$lib/components/Sidebar.svelte';
-	import BlogWidget from '$lib/components/BlogWidget.svelte';
 	import SideBlogWidget from '../../lib/components/SideBlogWidget.svelte';
+	/** @type {{children?: import('svelte').Snippet}} */
+	let { children } = $props();
 </script>
 
 <div class="container">
@@ -9,7 +10,7 @@
 		<Sidebar />
 
 		<main>
-			<slot />
+			{@render children?.()}
 		</main>
 	</div>
 

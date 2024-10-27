@@ -17,7 +17,6 @@ export const round = (num, decimals = 2) => {
 };
 export const shuffleArray = (array) => {
 	if (!array) return [];
-	console.log('Shake');
 	return array
 		.map((value) => ({ value, sort: Math.random() }))
 		.sort((a, b) => a.sort - b.sort)
@@ -26,16 +25,15 @@ export const shuffleArray = (array) => {
 
 export const formatOutputNumber = (number, decimals = 2) => {
 	if (isNaN(number)) return 0;
-	number = parseFloat(number);
 
+	number = parseFloat(number);
 	const rounded = round(number, decimals);
 
 	let formattedNumber = rounded.toLocaleString(undefined, {
 		maximumFractionDigits: decimals
 	});
-	console.log(rounded);
-	if (rounded === 0 && number !== 0) formattedNumber = '~' + formattedNumber;
 
+	if (rounded === 0 && number !== 0) formattedNumber = '~' + formattedNumber;
 	return formattedNumber;
 };
 
@@ -127,7 +125,6 @@ const convertUnit = (amount, from, to) => {
 	const bigAmount = new Big(parseFloat(amount));
 
 	let value = bigbaseUnitLabel.div(bigRatio).times(bigAmount);
-	console.log(value.toNumber());
 	return value.toNumber();
 };
 export const convert = (ammount, baseLabel, targetLabel, converters, options) => {

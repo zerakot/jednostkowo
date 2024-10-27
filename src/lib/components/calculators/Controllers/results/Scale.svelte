@@ -1,20 +1,24 @@
 <script>
-	export let data;
+	let { result } = $props();
 
-	let leftOffset = 0;
-	$: leftOffset = Math.min(
-		Math.max((100 * (data?.value - data?.scale[0])) / (data?.scale[1] - data?.scale[0]), 0),
-		100
+	let leftOffset = $derived(
+		Math.min(
+			Math.max(
+				(100 * (result?.value - result?.scale[0])) / (result?.scale[1] - result?.scale[0]),
+				0
+			),
+			100
+		)
 	);
 </script>
 
-{#if !isNaN(data?.value) && isFinite(data?.value)}
+{#if !isNaN(result?.value) && isFinite(result?.value)}
 	<div class="container">
-		<div class="scale" style="--gradient: {data?.gradient}">
-			<div class="pointer" style="--left: {leftOffset}%" />
+		<div class="scale" style="--gradient: {result?.gradient}">
+			<div class="pointer" style="--left: {leftOffset}%"></div>
 		</div>
 		<p class="label">
-			{@html data?.label}
+			{@html result?.label}
 		</p>
 	</div>
 {/if}

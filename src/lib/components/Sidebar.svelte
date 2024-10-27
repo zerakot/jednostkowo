@@ -1,17 +1,16 @@
 <script>
-	import { calculators } from '$lib/assets/calculators';
+	import { calculators } from '$lib/assets/calculators/calculators';
 
 	import Icon from '$lib/components/Icon.svelte';
 	import { getRandomId } from '$lib/utils.js';
 	import { page } from '$app/stores';
 	import { fly } from 'svelte/transition';
 
-	let currentcalculatorData;
+	let currentcalculatorData = $derived(calculators?.find((item) => item?.id === $page.params?.id) || calculators[0]);
 	let id = getRandomId();
-	let moreVisible = false;
+	let moreVisible = $state(false);
 
-	$: currentcalculatorData =
-		calculators?.find((item) => item?.id === $page.params?.id) || calculators[0];
+	
 </script>
 
 {#key currentcalculatorData?.type}
@@ -25,7 +24,7 @@
 				</div>
 			</label>
 
-			<button {id} on:click={() => (moreVisible = !moreVisible)}>
+			<button {id} onclick={() => (moreVisible = !moreVisible)}>
 				Zmień {currentcalculatorData?.type}
 			</button>
 		</div>
@@ -33,7 +32,7 @@
 		<ul class:hidden={!moreVisible}>
 			{#each calculators.filter((el) => el?.type === currentcalculatorData?.type) as calculator}
 				<li class:active={currentcalculatorData?.id === calculator?.id}>
-					<a href={`/${calculator?.id}`} on:click={() => (moreVisible = false)}>
+					<a href={`/${calculator?.id}`} onclick={() => (moreVisible = false)}>
 						<Icon size="1.4em">{calculator?.icon}</Icon>
 						{calculator?.name?.charAt(0).toUpperCase() + calculator?.name?.slice(1)}
 					</a>

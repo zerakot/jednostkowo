@@ -4,7 +4,8 @@
 
 	import SEO from '$lib/components/Seo/Seo.svelte';
 
-	export let data;
+	/** @type {{data: any}} */
+	let { data } = $props();
 </script>
 
 <div class="container">

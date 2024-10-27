@@ -1,13 +1,15 @@
 <script>
+	import { run } from 'svelte/legacy';
+
 	import { page } from '$app/stores';
 
-	let params;
-	let pathname;
+	let params = $state();
+	let pathname = $state();
 
-	$: {
+	run(() => {
 		params = $page?.params;
 		pathname = $page?.url?.pathname;
-	}
+	});
 </script>
 
 <nav>

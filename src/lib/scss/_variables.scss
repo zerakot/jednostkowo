@@ -11,6 +11,7 @@ $gray-dark: #a5a5a5;
 
 $error: #cc0000;
 $error-transparent: transparentize($error, 0.94);
+$success: #1da143;
 
 @mixin sm {
 	@media (min-width: 425px) {
@@ -35,8 +36,14 @@ $error-transparent: transparentize($error, 0.94);
 
 @mixin table {
 	width: 100%;
-	font-size: 0.8rem;
+	font-size: 0.7rem;
 	border-collapse: collapse;
+	@include sm {
+		font-size: 0.8rem;
+	}
+	&.sameWidth {
+		table-layout: fixed;
+	}
 
 	& thead {
 		line-height: 2.3rem;
@@ -44,6 +51,9 @@ $error-transparent: transparentize($error, 0.94);
 		border-bottom: 1px solid $gray-dark;
 
 		& tr th {
+			& + th {
+				border-left: 2px solid $gray-medium;
+			}
 			&:first-child {
 				border-radius: 7px 0 0 0;
 			}
@@ -85,6 +95,10 @@ $error-transparent: transparentize($error, 0.94);
 				padding: 0.5rem 0;
 				text-align: center;
 
+				& + td {
+					border-left: 2px solid $gray-light;
+				}
+
 				&.label {
 					word-wrap: break-word;
 				}
@@ -104,14 +118,10 @@ $error-transparent: transparentize($error, 0.94);
 				}
 				&:first-child {
 					border-top-left-radius: 5px;
-				}
-				&:last-child {
-					border-top-right-radius: 5px;
-				}
-				&:first-child {
 					border-bottom-left-radius: 5px;
 				}
 				&:last-child {
+					border-top-right-radius: 5px;
 					border-bottom-right-radius: 5px;
 				}
 			}
@@ -151,6 +161,14 @@ $error-transparent: transparentize($error, 0.94);
 
 	@include sm {
 		padding: 1rem;
+	}
+}
+@mixin calculatorResult {
+	@include calculator;
+	padding: 1.8rem 0.8rem 0.8rem 0.8rem;
+
+	@include sm {
+		padding: 2rem 1rem 1rem 1rem;
 	}
 }
 

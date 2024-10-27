@@ -2,25 +2,24 @@
 	import Chart from 'chart.js/auto';
 	import { onMount } from 'svelte';
 
-	export let width = 60;
-	export let height = 60;
-	export let config = {};
-	export let autoWidth = true;
+	let { width = 60, height = 60, config = {}, autoWidth = true } = $props();
 
-	let ctx;
-	let myChart;
+	let ctx = $state();
+	let myChart = $state();
 
-	$: if (myChart) {
-		myChart.data = config.data;
-		myChart.update();
-	}
+	$effect(() => {
+		if (myChart) {
+			myChart.data = config.data;
+			myChart.update();
+		}
+	});
 
 	onMount(async () => {
 		myChart = new Chart(ctx, config);
 	});
 </script>
 
-<canvas class:autoWidth bind:this={ctx} {height} {width} />
+<canvas class:autoWidth bind:this={ctx} {height} {width}></canvas>
 
 <style lang="scss">
 	canvas {

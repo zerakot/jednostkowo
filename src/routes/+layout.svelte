@@ -3,6 +3,8 @@
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Footer from '../lib/components/Footer.svelte';
 	import Analytics from '../lib/components/Analytics.svelte';
+	/** @type {{children?: import('svelte').Snippet}} */
+	let { children } = $props();
 </script>
 
 {#if import.meta.env.PROD}
@@ -10,7 +12,7 @@
 {/if}
 <div class="container">
 	<Navbar />
-	<slot />
+	{@render children?.()}
 	<Footer />
 </div>
 

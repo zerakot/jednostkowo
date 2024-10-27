@@ -1,14 +1,13 @@
 <script>
-	import { calculators } from '$lib/assets/calculators';
+	import { calculators } from '$lib/assets/calculators/calculators';
 
 	import SEO from '$lib/components/Seo/Seo.svelte';
 	import Markdown from '$lib/components/Markdown.svelte';
 	import Icon from '../../lib/components/Icon.svelte';
-	import Quiz from '../../lib/components/Quiz/Quiz.svelte';
 
-	export let data;
+	let { data } = $props();
 
-	$: calculatorData = calculators?.find((item) => item.id === data?.id);
+	let calculatorData = $derived(calculators?.find((item) => item.id === data?.id));
 </script>
 
 {#key calculatorData?.id}
@@ -19,12 +18,10 @@
 		</hgroup>
 
 		{#key calculatorData?.id}
-			<svelte:component this={calculatorData?.component} {calculatorData} />
+			{#each calculatorData?.subcalculators as calculator}
+				<calculator.component {calculator} />
+			{/each}
 		{/key}
-
-		{#if calculatorData?.quiz}
-			<Quiz {calculatorData} />
-		{/if}
 
 		{#if calculatorData?.about}
 			<aside>
@@ -39,8 +36,8 @@
 			<Markdown source={calculatorData.markdown} />
 		{/if}
 	</div>
+	<SEO {...data?.metaTags} />
 {/key}
-<SEO {...data?.metaTags} />
 
 <style lang="scss">
 	.container {

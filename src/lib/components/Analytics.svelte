@@ -1,7 +1,3 @@
-<script>
-	import { page } from '$app/stores';
-</script>
-
 <svelte:head>
 	<!-- Google Tag Manager -->
 	<!-- Google Tag Manager -->

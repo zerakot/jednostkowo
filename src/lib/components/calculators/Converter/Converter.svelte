@@ -3,14 +3,14 @@
 	import Results from './Results.svelte';
 	import Options from './Options.svelte';
 
-	export let calculatorData;
+	let { calculator } = $props();
 
-	let results = [];
-	let options = { decimals: '2' };
+	let results = $state([]);
+	let options = $state({ decimals: '2' });
 </script>
 
 <section class="converter">
-	<Controls converters={calculatorData?.converters} {options} bind:results />
+	<Controls converters={calculator?.converters} {options} bind:results />
 	<Results {results} decimals={options.decimals} />
 	<Options bind:options />
 </section>

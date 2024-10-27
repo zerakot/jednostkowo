@@ -5,17 +5,18 @@
 	import Input from '$lib/components/Input.svelte';
 	import Select from '$lib/components/Select.svelte';
 
-	export let results;
-	export let options;
-	export let converters;
+	let { results = $bindable(), options, converters } = $props();
 
-	let number = 1;
-	let baseUnitLabel =
+	let number = $state(1);
+	let baseUnitLabel = $state(
 		getUnit({ label: $page.url.searchParams.get('from') }, converters)?.label ||
-		getUnit({ default: true }, converters)?.label;
-	let targetUnitLabel = '';
+			getUnit({ default: true }, converters)?.label
+	);
+	let targetUnitLabel = $state('');
 
-	$: results = convert(number, baseUnitLabel, targetUnitLabel, converters, options);
+	$effect(() => {
+		results = convert(number, baseUnitLabel, targetUnitLabel, converters, options);
+	});
 </script>
 
 <div class="controls">
