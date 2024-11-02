@@ -1,39 +1,4 @@
 <script>
-	
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
 	import OpenGraphComponent from './OpenGraph.svelte';
 	/** @type {{title?: import("./types").SvelteSeo['title'], description?: import("./types").SvelteSeo["description"], keywords?: import("./types").SvelteSeo["keywords"], base?: import("./types").SvelteSeo["base"], applicationName?: import("./types").SvelteSeo["applicationName"], themeColor?: import("./types").SvelteSeo["themeColor"], nofollow?: import("./types").SvelteSeo["nofollow"], noindex?: import("./types").SvelteSeo["noindex"], nositelinkssearchbox?: import("./types").SvelteSeo["nositelinkssearchbox"], notranslate?: import("./types").SvelteSeo["notranslate"], canonical?: import("./types").SvelteSeo["canonical"], amp?: import("./types").SvelteSeo["amp"], manifest?: import("./types").SvelteSeo["manifest"], languageAlternates?: import("./types").SvelteSeo["languageAlternates"], twitter?: import("./types").SvelteSeo['twitter'], openGraph?: import('./types').SvelteSeo['openGraph'], facebook?: import("./types").SvelteSeo['facebook'], jsonLd?: import("./types").SvelteSeo['jsonLd'], children?: import('svelte').Snippet}} */
 	let {
