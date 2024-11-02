@@ -2,7 +2,9 @@
 	let { size = '', variant = '', children } = $props();
 </script>
 
-<span class="material-symbols-rounded notranslate {variant}" style="--size: {size}">{@render children?.()} </span>
+<span class="material-symbols-rounded notranslate {variant}" style="--size: {size}"
+	>{@render children?.()}
+</span>
 
 <style lang="scss">
 	.material-symbols-rounded.notranslate {

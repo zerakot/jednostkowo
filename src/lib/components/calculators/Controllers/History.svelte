@@ -81,10 +81,6 @@
 							background-color: $error;
 						}
 					}
-
-					& p {
-						font-size: 0.9rem;
-					}
 				}
 
 				& button {

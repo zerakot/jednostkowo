@@ -6,11 +6,11 @@
 	import { page } from '$app/stores';
 	import { fly } from 'svelte/transition';
 
-	let currentcalculatorData = $derived(calculators?.find((item) => item?.id === $page.params?.id) || calculators[0]);
+	let currentcalculatorData = $derived(
+		calculators?.find((item) => item?.id === $page.params?.id) || calculators[0]
+	);
 	let id = getRandomId();
 	let moreVisible = $state(false);
-
-	
 </script>
 
 {#key currentcalculatorData?.type}
@@ -106,7 +106,7 @@
 
 				& a {
 					width: 100%;
-					gap: 0.3rem;
+					gap: 0.2rem;
 					display: flex;
 					align-items: center;
 					font-size: 0.95em;

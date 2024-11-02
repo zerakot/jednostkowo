@@ -52,9 +52,8 @@
 
 		& a.seeMore {
 			line-height: 1rem;
-			color: $gray-dark;
+			color: $text-light;
 			text-align: center;
-			text-decoration: underline;
 		}
 
 		@include sm {

@@ -26,7 +26,7 @@ const getResultByHistory = (history) => {
 
 	return {
 		table: {
-			keys: ['Dni', 'Godziny', 'Minuty', 'Sekundy', 'Razem'],
+			keys: ['Dni', 'Godziny', 'Minuty', 'Sekundy'],
 			values: [[days, hours, minutes, seconds]]
 		},
 		type: 'table',
