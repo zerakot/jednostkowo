@@ -74,6 +74,8 @@
 </section>
 
 <style lang="scss">
+	@use 'sass:color';
+
 	section {
 		gap: 1rem;
 		display: flex;
@@ -151,7 +153,7 @@
 				}
 				50% {
 					opacity: 0.7;
-					box-shadow: 0 0 30px transparentize($primary, 0.85);
+					box-shadow: 0 0 30px color.scale($primary, $alpha: -85%);
 				}
 			}
 		}
@@ -169,7 +171,7 @@
 				}
 				50% {
 					opacity: 0.7;
-					box-shadow: 0 0 30px transparentize($error, 0.85);
+					box-shadow: 0 0 30px color.scale($error, $alpha: -85%);
 				}
 			}
 		}

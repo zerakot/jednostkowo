@@ -40,6 +40,8 @@
 {/key}
 
 <style lang="scss">
+	@use 'sass:color';
+
 	.container {
 		gap: 1.5rem;
 		width: 100%;
@@ -71,7 +73,7 @@
 			width: 100%;
 			border: 1px solid $primary;
 			border-radius: 8px;
-			background-color: transparentize($primary, 0.96);
+			background-color: color.scale($primary, $alpha: -96%);
 
 			& p {
 				color: $text;

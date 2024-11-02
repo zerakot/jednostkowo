@@ -1,12 +1,13 @@
 <script>
 	import { browser } from '$app/environment';
 
-	let { variant, children , ...rest } = $props();
+	let { variant, children, ...rest } = $props();
 </script>
 
 <button class={variant} disabled={!browser} {...rest}>{@render children()}</button>
 
 <style lang="scss">
+	@use 'sass:color';
 	button {
 		color: white;
 		background-color: $primary;
@@ -20,11 +21,9 @@
 		align-items: center;
 		font-size: 1em;
 
-		/* &:hover {
-			background-color: darken($primary, 2.2);
-		} */
-		&:active {
-			background-color: darken($primary, 4.2);
+		&:active,
+		&:hover {
+			background-color: color.adjust($primary, $lightness: -2%);
 		}
 		&:disabled {
 			background-color: $gray-dark;

@@ -1,16 +1,18 @@
+@use 'sass:color';
+
 $text: #160d08;
 $text-light: #636363;
 $background: #ffffff;
 /* Sync with website.js */
 $primary: #026700; /* 03ad00 */
-$primary-ghost: transparentize($primary, 0.94);
+$primary-ghost: color.scale($primary, $alpha: -94%);
 
 $gray-light: #f1f1f1;
 $gray-medium: #e6e6e6;
 $gray-dark: #a5a5a5;
 
 $error: #cc0000;
-$error-transparent: transparentize($error, 0.94);
+$error-transparent: color.scale($error, $alpha: -94%);
 $success: #1da143;
 
 @mixin sm {
@@ -51,9 +53,6 @@ $success: #1da143;
 		border-bottom: 1px solid $gray-dark;
 
 		& tr th {
-			& + th {
-				border-left: 2px solid $gray-medium;
-			}
 			&:first-child {
 				border-radius: 7px 0 0 0;
 			}
@@ -72,15 +71,15 @@ $success: #1da143;
 			border-bottom: 2px solid $gray-light;
 
 			&:hover {
-				background-color: transparentize($gray-light, 0.6);
+				background-color: color.scale($gray-light, $alpha: -60%);
 			}
 
 			&.active {
 				border-left: 3px solid $primary;
-				background-color: transparentize($primary, 0.92);
+				background-color: color.scale($primary, $alpha: -92%);
 
 				&:hover {
-					background-color: transparentize($primary, 0.89);
+					background-color: color.scale($primary, $alpha: -89%);
 				}
 			}
 
@@ -94,10 +93,6 @@ $success: #1da143;
 				word-break: break-all;
 				padding: 0.5rem 0;
 				text-align: center;
-
-				& + td {
-					border-left: 2px solid $gray-light;
-				}
 
 				&.label {
 					word-wrap: break-word;

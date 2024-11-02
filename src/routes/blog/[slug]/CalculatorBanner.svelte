@@ -18,19 +18,20 @@
 </aside>
 
 <style lang="scss">
+	@use 'sass:color';
+
 	.calculatorBanner {
 		display: none;
 		top: 20px;
 		position: sticky;
 		gap: 5rem;
 		padding: 0.5rem;
-
 		height: fit-content;
 		flex-direction: column;
 		border: 2px solid $primary;
 		border-radius: 10px;
 		grid-area: widget;
-		background-color: transparentize($primary, 0.9);
+		background-color: color.scale($primary, $alpha: -90%);
 		@include lg {
 			display: flex;
 		}
@@ -42,7 +43,7 @@
 			width: 100%;
 			height: 70%;
 			z-index: -1;
-			background-color: transparentize($primary, 0.9);
+			background-color: color.scale($primary, $alpha: -90%);
 			position: absolute;
 			clip-path: ellipse(80% 90% at 50% 0%);
 		}
@@ -53,7 +54,7 @@
 			width: 100%;
 			height: 82%;
 			z-index: -1;
-			background-color: transparentize($primary, 0.9);
+			background-color: color.scale($primary, $alpha: -90%);
 			position: absolute;
 			clip-path: ellipse(90% 90% at 50% 0%);
 		}

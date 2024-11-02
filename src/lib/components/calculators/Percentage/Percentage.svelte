@@ -58,11 +58,12 @@
 
 			& .result {
 				@include input;
-
-				max-width: 100px;
-				flex: 1;
-				color: $primary;
-				font-weight: bold;
+				& {
+					max-width: 100px;
+					flex: 1;
+					color: $primary;
+					font-weight: bold;
+				}
 			}
 		}
 	}

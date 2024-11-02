@@ -44,12 +44,6 @@
 		display: flex;
 		flex-direction: column;
 
-		& h3 {
-			line-height: 1rem;
-			font-size: 1.1rem;
-			font-weight: bold;
-		}
-
 		& .list {
 			gap: 0.7rem;
 			display: flex;
@@ -90,10 +84,6 @@
 
 					& p {
 						font-size: 0.9rem;
-
-						& b {
-							font-weight: 600;
-						}
 					}
 				}
 

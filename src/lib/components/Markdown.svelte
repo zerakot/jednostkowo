@@ -1,7 +1,6 @@
 <script>
 	import { marked } from 'marked';
 
-	/** @type {{source: any}} */
 	let { source } = $props();
 </script>
 

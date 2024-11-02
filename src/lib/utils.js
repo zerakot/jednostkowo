@@ -159,5 +159,5 @@ export const convert = (ammount, baseLabel, targetLabel, converters, options) =>
 	}
 };
 export const sortUnits = (units) => {
-	return units.sort((a, b) => new Big(b.ratio).cmp(new Big(a.ratio)));
+	return [...units].sort((a, b) => new Big(b.ratio).cmp(new Big(a.ratio)));
 };
