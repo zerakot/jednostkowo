@@ -40,8 +40,6 @@ export const calculators = [
 		},
 		subcalculators: percentage_subcalculators
 	},
-	// https://drive.google.com/file/d/1_HA1eN9v2j7iwUGpKOpntpxTb-Hqh06l/view?usp=sharing
-
 	{
 		id: 'kalkulator-proporcji',
 		type: 'kalkulator',
@@ -97,7 +95,7 @@ export const calculators = [
 		id: 'kalkulator-pitagorasa',
 		type: 'kalkulator',
 		name: 'Pitagorasa',
-		title: 'Kalkulator Pitagorasa',
+		title: 'Kalkulator twierdzenia Pitagorasa',
 		icon: 'details',
 		description:
 			'Kalkulator twierdzenia Pitagorasa online to przydatne narzędzie, które pozwoli błyskawicznie obliczyć długość przeciwprostokątnej i przyprostokątnej. Choć wzór twierdzenia Pitagorasa wydaje się prosty, to obliczenie go może być wymagające. Nasz kalkulator online pozwoli Ci na szybkie obliczenie długości boku. Wpisz długości wybranych boków, a kalkulator obliczy długość trzeciego. Kalkulator online wykonuje obliczenia w ciągu kilku sekund!',
